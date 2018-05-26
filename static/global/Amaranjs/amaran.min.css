@@ -1,0 +1,12 @@
+@charset "UTF-8";
+.amaran.default{width:300px;min-height:45px;background:#ffffff;color:#666666;font-size:14px;margin:5px;overflow:hidden;border-radius:6px;border-bottom:1px solid #666666;}
+.amaran.default .default-spinner{width:30px;min-height:45px;display:block;float:left;position:relative}
+.amaran.default .default-spinner span{width:18px;height:18px;background:#27ae60;display:block;border-radius:50%;position:absolute;top:50%;left:50%;margin-left:-9px;margin-top:-9px}
+.amaran.default .default-message{float:left}
+.amaran.default .default-message span{padding:3px;line-height:43px}
+.amaran.default .default-message:after{clear:both}
+.amaran-wrapper *{box-sizing:border-box}
+.amaran-wrapper{position:fixed;z-index:10001}
+.amaran-wrapper.top{top:0;bottom:auto}
+.amaran-wrapper.right{right:0;left:auto}
+.amaran{width:200px;background:rgba(0,0,0,.7);padding:3px;color:#fff;border-radius:4px;display:none;font-size:13px;cursor:pointer;position:relative;text-align:left;min-height:50px;margin:10px}

@@ -1,0 +1,72 @@
+{% from 'admin/common/_macro.html' import static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>{% block title%}{% endblock %}</title>
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <meta name="renderer" content="webkit">
+<!-- 引入css文件   -->
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='global/bootstrap/css/bootstrap.min.css') }}" />
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='global/bootstrap/css/font-awesome.min.css') }}" />
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='system/iCheck/minimal/blue.css') }}" />
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='system/select2/select2.min.css') }}" />
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='system/dist/css/AdminLTE.min.css') }}" />
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='system/dist/css/skins/skin-blue.min.css') }}" />
+
+<script type="text/javascript" src="{{ url_for('static',filename='global/jQuery/jquery-2.2.3.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static',filename='global/bootstrap/js/bootstrap.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static',filename='system/slimScroll/jquery.slimscroll.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static',filename='system/dist/js/app.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static',filename='global/jQuery/jquery.pjax.js') }}"></script>
+
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='system/kindeditor/themes/default/default.css') }}" />
+<script type="text/javascript" src="{{ url_for('static',filename='system/kindeditor/kindeditor-all.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static',filename='system/kindeditor/lang/zh-CN.js') }}"></script>
+
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='admin/js/webuploader/webuploader.css') }}"/>
+<script type="text/javascript" src="{{ url_for('static',filename='admin/js/webuploader/webuploader.min.js') }}"></script>
+
+{% block css%}{% endblock %}
+</head>
+    {% block body%}{% endblock %}
+
+<script type="text/javascript" src="{{ url_for('static',filename='global/jQuery/jquery.form.js') }}"></script>
+
+<script type="text/javascript" src="{{ url_for('static',filename='system/editable/bootstrap-editable.js') }}"></script>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='system/editable/bootstrap-editable.css') }}" />
+
+<script type="text/javascript" src="{{ url_for('static',filename='global/nprogress/nprogress.js') }}"></script>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='global/nprogress/nprogress.css') }}" />
+
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='global/jQuery-gDialog/animate.min.css') }}" />
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='global/Amaranjs/amaran.min.css') }}" />
+<script type="text/javascript" src="{{ url_for('static',filename='global/Amaranjs/jquery.amaran.min.js') }}"></script>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='global/bootstrap/js/bootstrap-dialog.min.css') }}" />
+<script type="text/javascript" src="{{ url_for('static',filename='global/bootstrap/js/bootstrap-dialog.min.js') }}"></script>
+
+<script type="text/javascript" src="{{ url_for('static',filename='system/datetimepicker/moment-with-locales.min.js') }}"></script>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='system/datetimepicker/bootstrap-datetimepicker.min.css') }}" />
+<script type="text/javascript" src="{{ url_for('static',filename='system/datetimepicker/bootstrap-datetimepicker.min.js') }}"></script>
+
+<script type="text/javascript" src="{{ url_for('static',filename='system/multiselect/multiselect.min.js') }}"></script>
+
+<script type="text/javascript" src="{{ url_for('static',filename='system/iCheck/icheck.min.js') }}"></script>
+
+<script type="text/javascript" src="{{ url_for('static',filename='system/select2/select2.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static',filename='system/select2/i18n/zh-CN.js') }}"></script>
+
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='global/cropper/cropper.min.css') }}" />
+<script type="text/javascript" src="{{ url_for('static',filename='global/cropper/cropper.min.js') }}"></script>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='global/cropper/cropper.main.css') }}" />
+<script type="text/javascript" src="{{ url_for('static',filename='global/cropper/cropper.main.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static',filename='system/chart/Chart.min.js') }}"></script>
+
+<script type="text/javascript" src="{{ url_for('static',filename='home/js/upload/jquery.ui.widget.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static',filename='home/js/upload/jquery.iframe-transport.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static',filename='home/js/upload/jquery.fileupload.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static',filename='system/dist/js/common.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static',filename='system/dist/js/login.js') }}"></script>
+{% block js%}{% endblock %}
+</html>

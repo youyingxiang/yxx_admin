@@ -1,0 +1,144 @@
+{% from 'admin/common/_macro.html' import static %}
+{%  extends "admin/common/base.html" %}
+
+{% block body -%}
+<body class="hold-transition skin-blue fixed sidebar-mini">
+<div class="wrapper">
+    <header class="main-header">
+    <!-- Logo -->
+    <a href="{{ url_for('adminindex.index') }}" class="logo">
+      <!-- 窗口折叠 -->
+      <span class="logo-mini"><img src="{{url_for('static',filename='admin/img/logo-inverse.png')}}"></span>
+      <!-- 窗口展开 -->
+      <span class="logo-lg"><img src="{{url_for('static',filename='admin/img/logo-inverse.png')}}"></span>
+    </a>
+    <!-- 右上导航 -->
+    <nav class="navbar navbar-static-top">
+      <!-- Sidebar toggle button-->
+      <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+      </a>
+
+      <div class="navbar-custom-menu">
+        <ul class="nav navbar-nav">
+          <li class="dropdown messages-menu">
+             <a href="/" target="_blank">网站首页</a>
+          </li>
+          <li class="dropdown user user-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <img src="{{url_for('static',filename='global/face/no-image.png')}}" class="user-image" alt="User Image">
+              <span class="hidden-xs">用户名称</span>
+            </a>
+            <ul class="dropdown-menu">
+              <!-- User image -->
+              <li class="user-header">
+                <img src="{{url_for('static',filename='global/face/no-image.png')}}" class="img-circle" alt="User Image">
+
+                <p>
+                  用户名称
+                  <small>角色名称</small>
+                </p>
+              </li>
+              <li class="user-footer">
+                <div class="pull-left">
+                  <a href="#" class="btn btn-default btn-flat">个人设置</a>
+                </div>
+                <div class="pull-right">
+                  <a href="{{ url_for('adminlogin.logout') }}" class="btn btn-default btn-flat">退出</a>
+                </div>
+              </li>
+            </ul>
+          </li>
+
+
+        </ul>
+      </div>
+    </nav>
+  </header>
+    <aside class="main-sidebar">
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+          <!-- Sidebar user panel -->
+          <div class="user-panel">
+            <div class="pull-left image">
+              <img src="{{url_for('static',filename='global/face/no-image.png')}}" class="img-circle" alt="User Image">
+            </div>
+            <div class="pull-left info">
+              <p>用户名称</p>
+              <a href="#"><i class="fa fa-circle text-success"></i>在线</a>
+            </div>
+          </div>
+          <!--搜索-->
+          <form action="#" method="get" class="sidebar-form">
+            <div class="input-group">
+              <input type="text" name="q" class="form-control" placeholder="搜索">
+              <span class="input-group-btn">
+                    <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                    </button>
+                  </span>
+            </div>
+          </form>
+          <!-- /.search form -->
+          <!-- sidebar menu: : style can be found in sidebar.less -->
+             <ul class="sidebar-menu">
+                  <li class="header">菜单</li>
+                  <li class="treeview">
+                      <a href="javascript:void(0);">
+                          <i class="fa fa-edit"></i><span>新闻管理</span>
+                          <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+                      </a>
+                      <ul class="treeview-menu">
+                        <li><a href="https://www.zkteco.com/en/admin/Category/news.html"><i class="fa fa-book"></i>新闻分类</a></li>
+                        <li><a href="https://www.zkteco.com/en/admin/Ad/news.html"><i class="fa fa-clock-o"></i>新闻广告列表</a></li>
+                        <li><a href="https://www.zkteco.com/en/admin/News/lst.html"><i class="fa fa-clock-o"></i>新闻列表</a></li>
+                      </ul>
+                  </li>
+                  <li class="treeview">
+                      <a href="javascript:void(0);">
+                          <i class="fa fa-share"></i><span>公司招聘</span>
+                          <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+                      </a>
+                      <ul class="treeview-menu">
+                        <li><a href="https://www.zkteco.com/en/admin/Ad/recruit.html"><i class="fa fa-clock-o"></i>招聘广告列表</a></li>
+                        <li><a href="https://www.zkteco.com/en/admin/Post/lst.html"><i class="fa fa-clock-o"></i>岗位列表</a></li>
+                        <li><a href="https://www.zkteco.com/en/admin/Recruit/lst.html"><i class="fa fa-clock-o"></i>招聘信息列表</a></li>
+                      </ul>
+                  </li>
+              </ul>
+        </section>
+        <!-- /.sidebar -->
+    </aside>
+
+
+
+    <div class="content-wrapper" id="pjax-container">
+
+      <section class="content-header">
+        <h1>
+          {% block page_title%}{% endblock %}
+        </h1>
+        <ol class="breadcrumb">
+          <li><a href="#"><i class="fa fa-dashboard"></i> {% block page_btn_name%}{% endblock %}</a></li>
+        </ol>
+      </section>
+        {% block content%}{% endblock %}
+    </div>
+
+
+     <!-- 底部很少改变的  -->
+      <footer class="main-footer">
+        <div class="pull-right hidden-xs">
+          <b>Version</b> ls 1.0
+        </div>
+        <input id="fileupload_" type="file" style='display:none' name="imgFile"  data-url="{{ url_for('adminupload.upload') }}?dir=image" multiple>
+        <strong>Copyright &copy; 2017-2018 <a target="_blank"  href="/">yxx</a>.</strong> All rights
+        reserved.
+      </footer>
+
+
+</div>
+</body>
+{%- endblock %}

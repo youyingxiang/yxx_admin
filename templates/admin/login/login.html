@@ -1,0 +1,37 @@
+{% from 'admin/common/_macro.html' import static %}
+{%  extends "admin/common/base.html" %}
+{% block title -%}
+    thinkpy后台登录
+{%- endblock %}
+{% block body -%}
+ <body class="hold-transition login-page" style="height:auto;">
+ <div class="login-box">
+    <div class="login-logo"><a href="#">后台管理系统</a></div>
+    <div class="login-box-body">
+        <p class="login-box-msg">请输入帐号密码登录后台</p>
+        <form action="{{ url_for('adminlogin.login') }}" method="POST" onsubmit="return false" >
+            <div class="form-group has-feedback">
+                <input type="text" class="form-control" name="account" placeholder="帐号">
+                <span class="glyphicon form-control-feedback fa fa-user fa-lg"></span>
+            </div>
+            <div class="form-group has-feedback">
+                <input type="password" class="form-control" name="password" placeholder="密码">
+                <span class="glyphicon form-control-feedback fa fa-lock fa-lg"></span>
+            </div>
+            <div class="row form-group">
+                <div class="col-xs-6"><input class="form-control" name="code" placeholder="验证码"></div>
+                <div class="col-xs-4">
+                    <img src="{{ url_for('commontool.captcha') }}"  id="code" onclick="this.src='{{ url_for('commontool.captcha') }}?rnd=' + Math.random();" alt="验证码"  />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-8"></div>
+                <div class="col-xs-4">
+                    <button type="submit" class="btn btn-primary btn-block btn-flat login" data-loading-text="&lt;i class='fa fa-spinner fa-spin '&gt;&lt;/i&gt; Login">Login</button>
+                </div>
+            </div>
+        </form>
+    </div>
+  </div>
+ </body>
+{%- endblock %}

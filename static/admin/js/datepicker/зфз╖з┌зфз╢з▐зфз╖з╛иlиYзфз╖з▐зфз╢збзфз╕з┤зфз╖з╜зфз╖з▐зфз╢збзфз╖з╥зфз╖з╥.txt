@@ -1,0 +1,10 @@
+<link href="__PUBLIC__/Styles/smoothness/jquery-ui-1.9.2.custom.min.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" language="javascript" src="__PUBLIC__/Js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="__PUBLIC__/Js/jquery-ui-1.9.2.custom.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="__PUBLIC__/Js/datepicker-zh_cn.js"></script>
+
+<input type="text" id="st" />
+
+//¿ª°àÊ±¼ä
+$("#st").datepicker({ dateFormat: "yy-mm-dd" });
