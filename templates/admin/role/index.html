@@ -12,32 +12,33 @@
                 <div class="box-header with-border">
                     <h3 class="box-title"></h3>
                     <div class="pull-left">
-
+                        {{authAction(url_for('adminrole.add'), 'create')}}
+                        {{authAction(url_for('adminrole.delete'),cationType='delete_all')}}
                     </div>
-
+                        {% include 'admin/common/search.html' %}
                 </div>
                 <div class="box-body table-responsive">
                     <table class="table table-bordered table-hover table-sort">
                         <tr>
                             <th width="35"><input type="checkbox" class="minimal checkbox-toggle"></th>
-                            <th>id</th>
+                            <th>id{{ table_sort('id')|safe  }}</th>
                             <th>角色名称</th>
                             <th>角色类型</th>
                             <th>角色权限</th>
                             <th>角色描叙</th>
-                            <th>创建时间</th>
+                            <th>创建时间{{ table_sort('_create_time')|safe  }}</th>
                             <th width="202">操作</th>
                         </tr>
                         {% for v in data -%}
                         <tr>
                             <td><input type="checkbox" name="id[]" value="{{ v.id }}" class="minimal"></td>
                             <td>{{ v.id }}</td>
-                            <td><span class="editable" data-pk="{{ v.id }}" data-name="role_name" data-url="" >{{ v.role_name }}</span></td>
-                            <td>{{ v.role_type }}</td>
-                            <td>{{ v.role_pri }}</td>
+                            <td><span class="editable" data-pk="{{ v.id }}" data-name="role_name" data-url="{{url_for('adminrole.edit', id=v.id)}}" >{{ v.role_name}}</span></td>
+                            <td>{{ role_type[v.role_type] }}</td>
+                            <td>{{ v.role_pri_name }}</td>
                             <td><span class="editable" data-pk="{{ v.id }}" data-name="describe" data-url="" >{{ v.describe }}</span></td>
                             <td>{{ v.create_time }}</td>
-                            <td> 操作 </td>
+                            <td> {{authAction(url_for('adminrole.edit',id=v.id), 'edit')}}  {{authAction(url_for('adminrole.delete'),cationType='delete',param=v.id)}} </td>
                         </tr>
                         {%- endfor %}
                     </table>
@@ -49,47 +50,45 @@
         </div>
     </div>
 </section>
+    <script type="text/javascript">
+        $(function(){
+            /*ajax页面加载icheck，有该控件的页面才需要*/
+            $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
+                checkboxClass: 'icheckbox_minimal-blue',
+                radioClass: 'iradio_minimal-blue'
+            });
+
+            /*ajax页面加载icheck，有该控件的页面才需要*/
+            $(".select2").select2({language:"zh-CN"});
+
+            /*全选-反选*/
+            $('.checkbox-toggle').on('ifChecked', function(event){
+                var _this = $(this);
+                var _table = _this.closest('.table');
+                _table.find("tr td input[type='checkbox']").iCheck("check");
+            });
+            $('.checkbox-toggle').on('ifUnchecked', function(event){
+                var _this = $(this);
+                var _table = _this.closest('.table');
+                _table.find("tr td input[type='checkbox']").iCheck("uncheck");
+            });
+
+            $('.editable').editable({
+                emptytext: "empty",
+                params: function(params) {      //参数
+                    var data = {};
+                    data['id'] = params.pk;
+                    data[params.name] = params.value;
+                    return data;
+                },
+                success: function(response, newValue) {
+                    var res = $.parseJSON( response );
+                    if(res.code == 200){
+                    }else{
+                        return res.info;
+                    }
+                }
+            });
+        })
+    </script>
 {% endblock %}
-{% block js -%}
-<script type="text/javascript">
-$(function(){
-    /*ajax页面加载icheck，有该控件的页面才需要*/
-    $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
-        checkboxClass: 'icheckbox_minimal-blue',
-        radioClass: 'iradio_minimal-blue'
-    });
-
-    /*ajax页面加载icheck，有该控件的页面才需要*/
-    $(".select2").select2({language:"zh-CN"});
-
-    /*全选-反选*/
-    $('.checkbox-toggle').on('ifChecked', function(event){
-        var _this = $(this);
-        var _table = _this.closest('.table');
-        _table.find("tr td input[type='checkbox']").iCheck("check");
-    });
-    $('.checkbox-toggle').on('ifUnchecked', function(event){
-        var _this = $(this);
-        var _table = _this.closest('.table');
-        _table.find("tr td input[type='checkbox']").iCheck("uncheck");
-    });
-
-    $('.editable').editable({
-        emptytext: "empty",
-        params: function(params) {      //参数
-            var data = {};
-            data['id'] = params.pk;
-            data[params.name] = params.value;
-            return data;
-        },
-        success: function(response, newValue) {
-            var res = $.parseJSON( response );
-            if(res.code == 200){
-            }else{
-                return res.info;
-            }
-        }
-    });
-})
-</script>
-{%- endblock %}

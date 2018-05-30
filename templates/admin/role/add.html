@@ -24,8 +24,9 @@
                                 <label class="col-sm-2 control-label">角色类型</label>
                                 <div class="col-sm-7">
                                     <select class="form-control select2" name="role_type" style="width:100%;">
-                                        <option value="1" >超级管理员</option>
-                                        <option value="2" >普通管理员</option>
+                                        {% for type in role_type %}
+                                        <option value="{{ type }}" >{{ role_type[type] }}</option>
+                                        {% endfor %}
                                     </select>
                                 </div>
                             </div>
@@ -79,8 +80,6 @@
         </div>
     </div>
 </section>
-{% endblock %}
-{% block js -%}
     <script type="text/javascript">
         $(function(){
             change_($('select[name="role_type"]'));
@@ -106,4 +105,4 @@
             }
         })
     </script>
-{%- endblock %}
+{% endblock %}

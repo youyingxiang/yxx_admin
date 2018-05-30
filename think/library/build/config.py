@@ -13,7 +13,7 @@ build = {
                 'controller' : ['admin', 'role','login','index','upload'],
                 'model'       : ['admin', 'role','role_user'],
                 'templates'   : ['admin/add','admin/edit','admin/index','role/add','role/edit',
-                                 'role/index','login/login','common/admin_base','common/base','common/_macro','index/index'],
+                                 'role/index','login/login','common/admin_base','common/base','common/_macro','index/index','common/search'],
                 # 'static'      :  ['css/test.css','js/test.js','css/product.css']
             },
             'common' :{

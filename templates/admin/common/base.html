@@ -1,4 +1,5 @@
-{% from 'admin/common/_macro.html' import static %}
+{%- from 'admin/common/_macro.html' import static -%}
+{%- from 'admin/common/_macro.html' import authAction -%}
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,7 +32,7 @@
 {% block css%}{% endblock %}
 </head>
     {% block body%}{% endblock %}
-
+{% block js%}{% endblock %}
 <script type="text/javascript" src="{{ url_for('static',filename='global/jQuery/jquery.form.js') }}"></script>
 
 <script type="text/javascript" src="{{ url_for('static',filename='system/editable/bootstrap-editable.js') }}"></script>
@@ -68,5 +69,5 @@
 <script type="text/javascript" src="{{ url_for('static',filename='home/js/upload/jquery.fileupload.js') }}"></script>
 <script type="text/javascript" src="{{ url_for('static',filename='system/dist/js/common.js') }}"></script>
 <script type="text/javascript" src="{{ url_for('static',filename='system/dist/js/login.js') }}"></script>
-{% block js%}{% endblock %}
+</body>
 </html>

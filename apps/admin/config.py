@@ -24,15 +24,17 @@ menu = (
         set_menu(21,'用户列表','admin/admin','index',child_menu=(
             set_menu(211,'增加用户','admin/admin','add'),
             set_menu(212,'修改用户','admin/admin','edit'),
-            set_menu(213,'删除用户','admin/admin','del'),
+            set_menu(213,'删除用户','admin/admin','delete'),
         )),
         set_menu(22, '角色列表', 'admin/role', 'index', child_menu=(
             set_menu(221, '增加角色', 'admin/role', 'add'),
             set_menu(222, '修改角色', 'admin/role', 'edit'),
-            set_menu(223, '删除角色', 'admin/role', 'del'),
+            set_menu(223, '删除角色', 'admin/role', 'delete'),
         )),
     ))
 )
+
+role_type = {1:'超级管理员',2:'普通管理员'}
 
 
 

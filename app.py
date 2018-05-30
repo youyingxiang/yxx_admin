@@ -11,8 +11,8 @@ from apps.admin.controller.role import bp as adminrolebp
 from apps.admin.controller.admin import bp as adminadminbp
 
 
-# # # # # # from think.library.build import Build
-# # # # # # Build().run()
+# # # # # # # from think.library.build import Build
+# # # # # # # Build().run()
 app = Flask(__name__)
 app.register_blueprint(adminuploadbp)
 app.register_blueprint(adminindexbp)
@@ -25,5 +25,67 @@ app.register_blueprint(adminadminbp)
 Session(app)
 
 db.init_app(app)
+
+@app.template_global('table_sort')
+def table_sort(param):
+    '''
+        所有蓝图公用的点击排序
+    :param param:排序的字段
+    :return:
+    '''
+    param = str(param)
+    from flask import request
+    url_path = request.path
+    faStr = 'fa-sort'
+    get = request.args.to_dict()
+    if '_pjax' in get:
+        get.pop('_pjax')
+    if '_sort' in get:
+        sortArr = get.get('_sort').split(',')
+        if sortArr[0] == param:
+            if sortArr[1] == 'asc':
+                faStr = 'fa-sort-asc'
+                sort = 'desc'
+            elif sortArr[1] == 'desc':
+                faStr = 'fa-sort-desc'
+                sort = 'asc'
+            get['_sort'] = param+','+sort
+        else:
+            get['_sort'] = param+',asc'
+    else:
+        get['_sort'] = param+ ',asc'
+    paramStr = [];
+    for v in get:
+        paramStr.append(v+'='+get[v])
+    paramStrs = "&".join(paramStr)
+    url_path = url_path + '?' + paramStrs
+    return '<a class="fa '+faStr+'" href="'+url_path+'"></a>'
+
+@app.template_global('search_url')
+def search_url(param):
+    '''
+    搜索
+    :param param:
+    :return:
+    '''
+    param = str(param)
+    from flask import request
+    url_path = request.path
+    get = request.args.to_dict()
+    if '_pjax' in get:
+        get.pop('_pjax')
+    if param in get:
+        get.pop(param)
+    if 'page' in get:
+        get.pop('page')
+    if get:
+        paramStr = []
+        for v in get:
+            paramStr.append(v + '=' + get[v])
+        paramStrs = "&".join(paramStr)
+        url_path = url_path + '?' + paramStrs
+    return url_path
+
+
 if __name__ == '__main__':
     app.run()
