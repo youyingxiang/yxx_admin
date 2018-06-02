@@ -1,0 +1,77 @@
+{%  extends "admin/common/admin_base.html" %}
+{% block title -%}
+    日志管理
+{% endblock %}
+{% block page_title -%}日志管理{% endblock %}
+{% block page_btn_name -%}日志列表{% endblock %}
+{% block content -%}
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title"></h3>
+                    <div class="pull-left">
+                        <a href="javascript:void(0)" class="btn btn-sm btn-danger btn-primary"><i class="fa fa-trash"></i>保留最近7天日志</a>
+                    </div>
+                        {% include 'admin/common/search.html' %}
+                </div>
+                <div class="box-body table-responsive">
+                    <table class="table table-bordered table-hover table-sort">
+                        <tr>
+                            <th>id{{ table_sort('id')|safe  }}</th>
+                            <th>操作类型</th>
+                            <th>ip</th>
+                            <th>操作描述</th>
+                            <th>操作人员</th>
+                            <th>操作时间{{ table_sort('_create_time')|safe  }}</th>
+                        </tr>
+                        {% for v in data.items -%}
+                        <tr>
+                            <td>{{ v.id }}</td>
+                            <td>{{ v.log_type }}</td>
+                            <td>{{ v.ip }}</td>
+                            <td>{{ v.log_detail }}</td>
+                            <td>{{ v.admin.admin_name }}</td>
+                            <td>{{ v.create_time }}</td>
+                        </tr>
+                        {%- endfor %}
+                    </table>
+                </div>
+                    {{ render_page_data(data,'adminlog.index') }}
+            </div>
+        </div>
+    </div>
+</section>
+    <script type="text/javascript">
+        $(function(){
+            /*ajax页面加载icheck，有该控件的页面才需要*/
+            $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
+                checkboxClass: 'icheckbox_minimal-blue',
+                radioClass: 'iradio_minimal-blue'
+            });
+
+            /*ajax页面加载icheck，有该控件的页面才需要*/
+            $(".select2").select2({language:"zh-CN"});
+            $('.btn-sm.btn-danger.btn-primary').on('click',function(){
+                if (confirm('是否只保留最近7天数据？')) {
+                    $.ajax({
+                        url: "{{  url_for('adminlog.delete') }}",
+                        type:'get',
+                        dataType: "json",
+                        error:function(data){
+                            $.amaran({'message':'系统内部错误！'});
+                            return;
+                        },
+                        success:function(result){
+                            $.amaran({'message':result.info});
+                            var url = result.url;
+                            $.pjax({url: url, container: '#pjax-container', fragment:'#pjax-container'})
+                        },
+                    })
+                }
+            })
+
+        })
+    </script>
+{% endblock %}

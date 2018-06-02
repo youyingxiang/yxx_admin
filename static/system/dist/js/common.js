@@ -167,8 +167,8 @@ $(function(){
     });
     
     //状态status列表修改（只能进行0和1值的切换）
-    $('body').off('click', 'td a.editimg');
-    $('body').on('click', 'td a.editimg', function(event){
+    $('body').off('click', 'td a.editimg.state');
+    $('body').on('click', 'td a.editimg.state', function(event){
         var addclass;
         var removeclass;
         var pvalue;   //提交值
@@ -185,6 +185,43 @@ $(function(){
             pvalue = 1;
             addclass = "fa-times-circle text-red";
             removeclass = "fa-check-circle text-green";
+        }
+        var dataStr = jQuery.parseJSON( '{"id":"'+id+'","'+field+'":"'+pvalue+'"}' );   //字符串转json
+        $.ajax({
+            type : "post",
+            url : url,
+            dataType : 'json',
+            data : dataStr,
+            success : function(data) {
+                if(data.code == 200){
+                    _this.data('value', pvalue);
+                    _this.removeClass(addclass);
+                    _this.addClass(removeclass);
+                }else{
+                    $.amaran({'message':data.info+'或检查验证类'});
+                }
+            }
+        });
+    });
+    //性别
+    $('body').off('click', 'td a.editimg.sex');
+    $('body').on('click', 'td a.editimg.sex', function(event){
+        var addclass;
+        var removeclass;
+        var pvalue;   //提交值
+        var _this = $(this);
+        var field = _this.data('field');
+        var id = _this.data('id');
+        var value = _this.data('value');
+        var url = _this.data('url');
+        if ( value == 1){
+            pvalue = 0;
+            addclass = "fa-male text-green";
+            removeclass = "fa-female text-red";
+        }else{
+            pvalue = 1;
+            addclass = "fa-female text-red";
+            removeclass = "fa-male text-green";
         }
         var dataStr = jQuery.parseJSON( '{"id":"'+id+'","'+field+'":"'+pvalue+'"}' );   //字符串转json
         $.ajax({

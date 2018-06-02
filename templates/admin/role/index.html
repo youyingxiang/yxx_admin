@@ -29,23 +29,21 @@
                             <th>创建时间{{ table_sort('_create_time')|safe  }}</th>
                             <th width="202">操作</th>
                         </tr>
-                        {% for v in data -%}
+                        {% for v in data.items -%}
                         <tr>
                             <td><input type="checkbox" name="id[]" value="{{ v.id }}" class="minimal"></td>
                             <td>{{ v.id }}</td>
                             <td><span class="editable" data-pk="{{ v.id }}" data-name="role_name" data-url="{{url_for('adminrole.edit', id=v.id)}}" >{{ v.role_name}}</span></td>
                             <td>{{ role_type[v.role_type] }}</td>
                             <td>{{ v.role_pri_name }}</td>
-                            <td><span class="editable" data-pk="{{ v.id }}" data-name="describe" data-url="" >{{ v.describe }}</span></td>
+                            <td><span class="editable" data-pk="{{ v.id }}" data-name="describe" data-url="{{url_for('adminrole.edit', id=v.id)}}" >{{ v.describe }}</span></td>
                             <td>{{ v.create_time }}</td>
                             <td> {{authAction(url_for('adminrole.edit',id=v.id), 'edit')}}  {{authAction(url_for('adminrole.delete'),cationType='delete',param=v.id)}} </td>
                         </tr>
                         {%- endfor %}
                     </table>
                 </div>
-                <div class="box-footer clearfix">
-
-                </div>
+                    {{ render_page_data(data,'adminrole.index') }}
             </div>
         </div>
     </div>
@@ -82,8 +80,9 @@
                     return data;
                 },
                 success: function(response, newValue) {
-                    var res = $.parseJSON( response );
+                    var res = response;
                     if(res.code == 200){
+
                     }else{
                         return res.info;
                     }

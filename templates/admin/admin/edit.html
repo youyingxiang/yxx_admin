@@ -1,0 +1,121 @@
+{%  extends "admin/common/admin_base.html" %}
+{% block title -%}
+    操作员管理
+{% endblock %}
+{% block page_title -%}操作员管理{% endblock %}
+{% block page_btn_name -%}编辑操作员{% endblock %}
+{% block content -%}
+    <section class="content">
+        <div class="row">
+            <div class="col-md-12">
+                <form class="form-horizontal" method="POST" action="{{ url_for('adminadmin.edit') }}" onsubmit="return false" >
+                    <input type="hidden" name="id" value="{{ data.id }}">
+                    <div class="nav-tabs-custom">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#tab1" data-toggle="tab">基本参数</a></li>
+                            <li class="pull-right"><a href="javascript:history.back(-1)" class="btn btn-sm" style="padding:10px 2px;"><i class="fa fa-list"></i> 返回</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tab1">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">姓名</label>
+                                    <div class="col-sm-7"><input class="form-control" name="admin_name" value="{{ data.admin_name }}" placeholder="姓名"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">帐号</label>
+                                    <div class="col-sm-7"><input class="form-control" name="account" value="{{ data.account }}" placeholder="帐号"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">密码</label>
+                                    <div class="col-sm-7"><input class="form-control" name="password" value="" placeholder="密码" type="password"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">确认密码</label>
+                                    <div class="col-sm-7"><input class="form-control" name="repassword" value="" placeholder="确认密码" type="password"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">角色</label>
+                                    <div class="col-sm-7">
+                                         <select class="form-control select2" name="role_id" style="width:100%;">
+                                         {% for v in roles -%}
+                                            <option {% if data.roles.first().id == v.id %}selected="true"{% endif %} value="{{ v.id }}">{{ v.role_name }}</option>
+                                         {%- endfor %}
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">图像（108*108）</label>
+                                    <div class="col-sm-7">
+                                        <div class="input-group">
+                                            <input class="form-control" name="img"  placeholder="图像（108*108）" >
+                                            <span class="input-group-btn up_img"><button class="btn btn-success btn-flat" type="button"><i class="fa fa-cloud-upload"> 上传</i></button></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">性别</label>
+                                    <div class="col-sm-7">
+                                        <select class="form-control select2" name="sex" style="width:100%;">
+                                            <option value="1" {% if data.sex == 1%}selected="true"{% endif %}>男</option>
+                                            <option value="0" {% if data.sex == 0%}selected="true"{% endif %}>女</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">状态</label>
+                                    <div class="col-sm-7">
+                                        <select class="form-control select2" name="state" style="width:100%;">
+                                            <option value=1 {% if data.state == 1 %}selected="true"{% endif %} >启用</option>
+                                            <option value=0 {% if data.state == 0 %}selected="true"{% endif %}>停用</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box-footer">
+                            <div class="col-sm-2"></div>
+                            <div class="col-sm-7">
+                                <div class="btn-group pull-right">
+                                    <button type="submit" class="btn btn-info pull-right submits" data-loading-text="&lt;i class='fa fa-spinner fa-spin '&gt;&lt;/i&gt; 提交">提交</button>
+                                </div>
+                                <div class="btn-group pull-left">
+                                    <button type="reset" class="btn btn-warning">重置</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <script type="text/javascript">
+        $(function(){
+            /*ajax页面加载icheck，有该控件的页面才需要*/
+            $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
+                checkboxClass: 'icheckbox_minimal-blue',
+                radioClass: 'iradio_minimal-blue'
+            });
+            /*ajax页面加载icheck，有该控件的页面才需要*/
+            $(".select2").select2({language:"zh-CN"});
+            $('.datepicker').datepicker();
+            $('#fileupload_').fileupload({
+                dataType: 'json',
+                done: function (e, data) {
+                    if (data.result.error == 0) {
+                        var up_url = data.result.url.trim();
+                        obj.prev().val(up_url );
+                        if (obj.children('img').length>0) {
+                            obj.find('img').attr('src',up_url );
+                        }
+                    } else {
+                        $.amaran({'message':data.result.info});
+                    }
+                }
+            });
+            $(".up_img").on('click',function(){
+                obj = $(this);
+                $('#fileupload_').trigger('click');
+            })
+        })
+    </script>
+{% endblock %}

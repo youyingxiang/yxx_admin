@@ -9,3 +9,28 @@
     {% if cationType == 'delete' %}<a href="javascript:void(0)" data-url="{{ url }}" data-id="{{ param }}"class="btn btn-danger btn-xs delete-one"><i class="fa fa-trash"></i> 删除</a>{% endif %}
     {% if cationType == 'delete_all' %}<a href="javascript:void(0)" data-url="{{ url }}" class="btn btn-sm btn-danger delete-all"><i class="fa fa-trash"></i> 删除</a>{% endif %}
 {%- endmacro %}
+
+
+{% macro render_page_data(page_data,page_function) %}
+  <div class="box-footer clearfix">
+    <ul class="pagination pagination-sm no-margin pull-right">
+      <li><a href="{{ url_for(page_function,page = 1) }}">首页</a></li>
+      {% if page_data.has_prev %}
+        <li><a href="{{ url_for(page_function,page = page_data.prev_num) }}">«</a></li>
+      {% endif %}
+      {% for page in page_data.iter_pages() %}
+        {% if page %}
+          {% if page !=page_data.page %}
+            <li><a href="{{ url_for(page_function,page = page) }}">{{ page }}</a></li>
+          {% else %}
+            <li class="active"><a href="#">{{ page }}</a></li>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+      {% if page_data.has_next %}
+        <li><a href="{{ url_for(page_function,page = page_data.next_num) }}">»</a></li>
+      {% endif %}
+      <li><a href="{{ url_for(page_function,page = page_data.pages) }}">末页</a></li>
+    </ul>
+  </div>
+{% endmacro %}

@@ -1,14 +1,14 @@
 {%  extends "admin/common/admin_base.html" %}
 {% block title -%}
-    操作员管理
+    配置字段管理
 {% endblock %}
-{% block page_title -%}操作员管理{% endblock %}
-{% block page_btn_name -%}增加操作员{% endblock %}
+{% block page_title -%}配置字段管理{% endblock %}
+{% block page_btn_name -%}增加配置字段{% endblock %}
 {% block content -%}
     <section class="content">
         <div class="row">
             <div class="col-md-12">
-                <form class="form-horizontal" method="POST" action="{{ url_for('adminadmin.add') }}" onsubmit="return false" >
+                <form class="form-horizontal" method="POST" action="{{ url_for('adminconfig_field.add') }}" onsubmit="return false" >
                     <div class="nav-tabs-custom">
                         <ul class="nav nav-tabs">
                             <li class="active"><a href="#tab1" data-toggle="tab">基本参数</a></li>
@@ -17,49 +17,46 @@
                         <div class="tab-content">
                             <div class="tab-pane active" id="tab1">
                                 <div class="form-group">
-                                    <label class="col-sm-2 control-label">姓名</label>
-                                    <div class="col-sm-7"><input class="form-control" name="admin_name" value="" placeholder="姓名"></div>
+                                    <label class="col-sm-2 control-label">键</label>
+                                    <div class="col-sm-7"><input class="form-control" name="k" value="" placeholder="键"></div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-2 control-label">帐号</label>
-                                    <div class="col-sm-7"><input class="form-control" name="account" value="" placeholder="帐号"></div>
+                                    <label class="col-sm-2 control-label">值</label>
+                                    <div class="col-sm-7"><input class="form-control" name="v" value="" placeholder="值"></div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-2 control-label">密码</label>
-                                    <div class="col-sm-7"><input class="form-control" name="password" value="" placeholder="密码" type="password"></div>
+                                    <label class="col-sm-2 control-label">类型</label>
+                                    <div class="col-sm-7"><input class="form-control" name="type" value="" placeholder="类型"></div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-2 control-label">确认密码</label>
-                                    <div class="col-sm-7"><input class="form-control" name="repassword" value="" placeholder="确认密码" type="password"></div>
+                                    <label class="col-sm-2 control-label">描述</label>
+                                    <div class="col-sm-7"><input class="form-control" name="desc" value="" placeholder="描述"></div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-2 control-label">角色</label>
+                                    <label class="col-sm-2 control-label">文本框提示</label>
+                                    <div class="col-sm-7"><input class="form-control" name="prompt"  placeholder="文本框提示"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">排序</label>
+                                    <div class="col-sm-7"><input class="form-control" name="sorts"  value='99' placeholder="排序"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">文本类型</label>
                                     <div class="col-sm-7">
-                                         <select class="form-control select2" name="role_id" style="width:100%;">
-                                         {% for v in roles -%}
-                                            <option value="{{ v.id }}">{{ v.role_name }}</option>
-                                         {%- endfor %}
+                                        <select class="form-control select2" name="texttype" style="width:100%;">
+                                            <option value="text"  >text</option>
+                                            <option value="textarea">textarea</option>
+                                            <option value="select">select</option>
+                                            <option value="image">image</option>
+                                            <option value="file">file</option>
+                                            <option value="flash">flash</option>
+                                            <option value="media">media</option>
+                                            <option value="password">password</option>
+                                            <option value="content">content</option>
                                         </select>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label class="col-sm-2 control-label">图像（108*108）</label>
-                                    <div class="col-sm-7">
-                                        <div class="input-group">
-                                            <input class="form-control" name="img"  placeholder="图像（108*108）" >
-                                            <span class="input-group-btn up_img"><button class="btn btn-success btn-flat" type="button"><i class="fa fa-cloud-upload"> 上传</i></button></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-sm-2 control-label">性别</label>
-                                    <div class="col-sm-7">
-                                        <select class="form-control select2" name="sex" style="width:100%;">
-                                            <option value=1 >男</option>
-                                            <option value=0 >女</option>
-                                        </select>
-                                    </div>
-                                </div>
+
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label">状态</label>
                                     <div class="col-sm-7">
@@ -96,25 +93,6 @@
             });
             /*ajax页面加载icheck，有该控件的页面才需要*/
             $(".select2").select2({language:"zh-CN"});
-            $('.datepicker').datepicker();
-            $('#fileupload_').fileupload({
-                dataType: 'json',
-                done: function (e, data) {
-                    if (data.result.error == 0) {
-                        var up_url = data.result.url.trim();
-                        obj.prev().val(up_url );
-                        if (obj.children('img').length>0) {
-                            obj.find('img').attr('src',up_url );
-                        }
-                    } else {
-                        $.amaran({'message':data.result.info});
-                    }
-                }
-            });
-            $(".up_img").on('click',function(){
-                obj = $(this);
-                $('#fileupload_').trigger('click');
-            })
         })
     </script>
 {% endblock %}

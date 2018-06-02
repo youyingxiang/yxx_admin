@@ -6,6 +6,8 @@ from app import app
 from apps.admin.model.role_admin import role_admin
 from apps.admin.model.admin import Admin
 from apps.admin.model.role import Role
+from apps.admin.model.config_field import ConfigField
+from apps.admin.model.log import Log
 
 
 manger = Manager(app)           ###管理

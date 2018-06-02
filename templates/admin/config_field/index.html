@@ -1,9 +1,9 @@
 {%  extends "admin/common/admin_base.html" %}
 {% block title -%}
-    操作员管理
+    配置字段管理
 {% endblock %}
-{% block page_title -%}操作员管理{% endblock %}
-{% block page_btn_name -%}操作员列表{% endblock %}
+{% block page_title -%}配置字段管理{% endblock %}
+{% block page_btn_name -%}配置字段列表{% endblock %}
 {% block content -%}
 <section class="content">
     <div class="row">
@@ -12,8 +12,8 @@
                 <div class="box-header with-border">
                     <h3 class="box-title"></h3>
                     <div class="pull-left">
-                        {{authAction(url_for('adminadmin.add'), 'create')}}
-                        {{authAction(url_for('adminadmin.delete'),cationType='delete_all')}}
+                        {{authAction(url_for('adminconfig_field.add'), 'create')}}
+                        {{authAction(url_for('adminconfig_field.delete'),cationType='delete_all')}}
                     </div>
                         {% include 'admin/common/search.html' %}
                 </div>
@@ -22,40 +22,34 @@
                         <tr>
                             <th width="35"><input type="checkbox" class="minimal checkbox-toggle"></th>
                             <th>id{{ table_sort('id')|safe  }}</th>
-                            <th>姓名</th>
-                            <th>图像</th>
-                            <th>角色</th>
-                            <th>帐号{{ table_sort('account')|safe  }}</th>
-                            <th>性别</th>
+                            <th>键</th>
+                            <th>描述</th>
+                            <th>类型{{ table_sort('type')|safe  }}</th>
+                            <th>文本类型{{ table_sort('texttype')|safe  }}</th>
+                            <th>排序</th>
                             <th>状态</th>
-                            <th>上一次登陆时间{{ table_sort('_last_time')|safe  }}</th>
                             <th width="202">操作</th>
                         </tr>
                         {% for v in data.items -%}
                         <tr>
                             <td style="vertical-align:middle"><input type="checkbox" name="id[]" value="{{ v.id }}" class="minimal"></td>
                             <td style="vertical-align:middle">{{ v.id }}</td>
-                            <td style="vertical-align:middle"><span class="editable" data-pk="{{ v.id }}" data-name="admin_name" data-url="{{ url_for('adminadmin.edit',id=v.id) }}" >{{ v.admin_name }}</span></td>
-                            <td style="vertical-align:middle"><img src="{{ v.img|default("http://www.baidu.com") }}" style="width:40px;border-radius:40%;" /></td>
-                            <td style="vertical-align:middle">{{ v.roles.first().role_name }}</td>
-                            <td style="vertical-align:middle"><span class="editable" data-pk="{{ v.id }}" data-name="account" data-url="{{ url_for('adminadmin.edit',id=v.id) }}" >{{ v.account }}</span></td>
-                            <td style="vertical-align:middle">
-                                <a href="javascript:void(0);" data-id="{{ v.id }}" data-field="sex"
-                                data-value="{{ v.sex }}" data-url="{{ url_for('adminadmin.edit',id=v.id) }}"
-                                class='editimg sex fa {% if v.sex == 1 %}fa-male text-green{% else %}fa-female text-red{% endif %}'></a>
-                            </td>
+                            <td style="vertical-align:middle"><span class="editable" data-pk="{{ v.id }}" data-name="k" data-url="{{ url_for('adminconfig_field.edit',id=v.id) }}" >{{ v.k}}</span></td>
+                            <td style="vertical-align:middle"><span class="editable" data-pk="{{ v.id }}" data-name="desc" data-url="{{ url_for('adminconfig_field.edit',id=v.id) }}" >{{ v.desc}}</span></td>
+                            <td style="vertical-align:middle"><span class="editable" data-pk="{{ v.id }}" data-name="type" data-url="{{ url_for('adminconfig_field.edit',id=v.id) }}" >{{ v.type}}</span></td>
+                            <td style="vertical-align:middle">{{ v.texttype }}</td>
+                            <td><span class="editable" data-pk="{{ v.id }}" data-name="sorts" data-url="{{ url_for('adminconfig_field.edit',id=v.id) }}" >{{ v.sorts }}</span></td>
                             <td style="vertical-align:middle">
                                 <a href="javascript:void(0);" data-id="{{ v.id }}" data-field="state"
-                                data-value="{{ v.state }}" data-url="{{ url_for('adminadmin.edit',id=v.id) }}"
+                                data-value="{{ v.state }}" data-url="{{ url_for('adminconfig_field.edit',id=v.id) }}"
                                 class='editimg state fa {% if v.state == 1 %}fa-check-circle text-green{% else %}fa-times-circle text-red{% endif %}'></a>
                             </td>
-                            <td style="vertical-align:middle">{{ v.last_time }}</td>
-                            <td style="vertical-align:middle">{{authAction(url_for('adminadmin.edit',id=v.id), 'edit')}}  {{authAction(url_for('adminadmin.delete'),cationType='delete',param=v.id)}} </td>
+                            <td style="vertical-align:middle">{{authAction(url_for('adminconfig_field.edit',id=v.id), 'edit')}}  {{authAction(url_for('adminconfig_field.delete'),cationType='delete',param=v.id)}} </td>
                         </tr>
                         {%- endfor %}
                     </table>
                 </div>
-                    {{ render_page_data(data,'adminadmin.index') }}
+                    {{ render_page_data(data,'adminconfig_field.index') }}
             </div>
         </div>
     </div>

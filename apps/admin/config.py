@@ -37,6 +37,8 @@ menu = (
 role_type = {1:'超级管理员',2:'普通管理员'}
 
 
+ADMIN_SESSION_ID = 'a6273a8b622104d4d63d0'
 
-
+# 分页大小
+PAGE_SIZE = 15
 

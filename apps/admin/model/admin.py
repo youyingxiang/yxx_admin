@@ -34,10 +34,18 @@ class Admin(db.Model):
         create_time_value = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(self._create_time))
         return create_time_value
 
-    # 获取创建时间
+    @create_time.setter
+    def create_time(self, input_create_time):
+        self._create_time = input_create_time
+
+    # 获取最后一次登录时间
     @property
     def last_time(self):
         last_time_value = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(self._last_time))
         return last_time_value
+
+    @last_time.setter
+    def last_time(self, input_last_time):
+        self._last_time = input_last_time
 
 

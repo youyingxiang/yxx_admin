@@ -1,4 +1,6 @@
 from flask import Flask
+from apps.admin.controller.log import bp as adminlogbp
+from apps.admin.controller.config_field import bp as adminconfig_fieldbp
 from apps.admin.controller.upload import bp as adminuploadbp
 from apps.admin.controller.index import bp as adminindexbp
 from apps.common.controller.tool import bp as commontoolbp
@@ -11,9 +13,11 @@ from apps.admin.controller.role import bp as adminrolebp
 from apps.admin.controller.admin import bp as adminadminbp
 
 
-# # # # # # # from think.library.build import Build
-# # # # # # # Build().run()
+# # # # # # # # # # from think.library.build import Build
+# # # # # # # # # # Build().run()
 app = Flask(__name__)
+app.register_blueprint(adminlogbp)
+app.register_blueprint(adminconfig_fieldbp)
 app.register_blueprint(adminuploadbp)
 app.register_blueprint(adminindexbp)
 app.register_blueprint(commontoolbp)
@@ -85,7 +89,5 @@ def search_url(param):
         paramStrs = "&".join(paramStr)
         url_path = url_path + '?' + paramStrs
     return url_path
-
-
 if __name__ == '__main__':
     app.run()
