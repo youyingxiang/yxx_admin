@@ -2,12 +2,21 @@
     {{ url_for('static',filename=filename) }}
 {%- endmacro %}
 
+{% macro default_img(img) -%}
+    {{ img|default('/static/global/face/default.png',true)}}
+{%- endmacro %}
+
+{% macro no_img(img) -%}
+    {{ img|default('/static/global/face/no-image.png',true)}}
+{%- endmacro %}
 
 {% macro authAction(url,cationType="create",param="") -%}
+    {% if url.split('?')[0] in  g.role_pri_path -%}
     {% if cationType == 'create' %}<a href="{{ url }}" class="btn btn-sm btn-primary"><i class="fa fa-save"></i> 新增</a>{% endif %}
     {% if cationType == 'edit' %}<a href="{{ url }}" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i> 编辑</a>{% endif %}
     {% if cationType == 'delete' %}<a href="javascript:void(0)" data-url="{{ url }}" data-id="{{ param }}"class="btn btn-danger btn-xs delete-one"><i class="fa fa-trash"></i> 删除</a>{% endif %}
     {% if cationType == 'delete_all' %}<a href="javascript:void(0)" data-url="{{ url }}" class="btn btn-sm btn-danger delete-all"><i class="fa fa-trash"></i> 删除</a>{% endif %}
+    {%- endif %}
 {%- endmacro %}
 
 

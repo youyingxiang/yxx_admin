@@ -100,7 +100,7 @@ class Build(object):
                     self.checkDirBuild(os.path.join(modulepath,vv))
             elif 'file' == v:
                 for vv in list[v]:
-                    if os.path.exists(vv) == False:
+                    if os.path.exists(os.path.join(modulepath,vv)) == False:
                         f.file_put_contents(os.path.join(modulepath,vv), '')
             else:
                 # 生成mvc

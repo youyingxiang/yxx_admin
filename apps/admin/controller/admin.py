@@ -1,4 +1,4 @@
-from flask import Blueprint,views,render_template,request,url_for,abort
+from flask import Blueprint,views,render_template,request,url_for,abort,g
 from apps.admin.model.admin import Admin
 from apps.admin.model.role import Role
 from ..form.admin import LoginForm,AdminForm,AccountForm,SexForm,StateForm,AdminNameForm

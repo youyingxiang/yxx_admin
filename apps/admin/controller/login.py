@@ -1,4 +1,4 @@
-from flask import Blueprint,views,render_template,request,url_for,session
+from flask import Blueprint,views,render_template,request,url_for,session,redirect
 from apps.admin.model.admin import Admin
 from ..form.admin import LoginForm
 from exts import db
@@ -33,5 +33,6 @@ class LoginView(views.MethodView):
             return restful.params_error(message=message)
 @bp.route('/logout/')
 def logout():
-    pass
+    session.clear()
+    return redirect(url_for('adminlogin.login'))
 bp.add_url_rule('/login/',view_func=LoginView.as_view('login'))

@@ -5,6 +5,7 @@ from apps.admin.controller.upload import bp as adminuploadbp
 from apps.admin.controller.index import bp as adminindexbp
 from apps.common.controller.tool import bp as commontoolbp
 import config
+import apps.admin.hooks
 from exts import db
 from flask_session import Session
 from apps.home.controller.index import bp as homeindexbp
@@ -13,8 +14,8 @@ from apps.admin.controller.role import bp as adminrolebp
 from apps.admin.controller.admin import bp as adminadminbp
 
 
-# # # # # # # # # # from think.library.build import Build
-# # # # # # # # # # Build().run()
+# # # # # # # # # # # # # # # # from think.library.build import Build
+# # # # # # # # # # # # # # # # Build().run()
 app = Flask(__name__)
 app.register_blueprint(adminlogbp)
 app.register_blueprint(adminconfig_fieldbp)

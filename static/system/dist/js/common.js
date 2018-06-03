@@ -150,9 +150,9 @@ $(function(){
                         dataType:'json',
                         success:function(data){
                             if(data.code == 200){
-                                _this_up_btn.prev().attr("href", data.url);
-                                _this_up_btn.prev().find('img').attr("src", data.url);
-                                _this_up_btn.closest('.input-group').find('input').val(data.url);
+                                _this_up_btn.prev().attr("href", data.data.file_path);
+                                _this_up_btn.prev().find('img').attr("src", data.data.file_path);
+                                _this_up_btn.closest('.input-group').find('input').val(data.data.file_path);
                                 $.amaran({'message':'上传成功'});
                             }else{
                                 $.amaran({'message':data.info});

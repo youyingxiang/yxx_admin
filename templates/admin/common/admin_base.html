@@ -1,6 +1,4 @@
-{% from 'admin/common/_macro.html' import static %}
-{% from 'admin/common/_macro.html' import  render_page_data %}
-{% from 'admin/common/_macro.html' import  authAction %}
+{% from 'admin/common/_macro.html' import  authAction,no_img,default_img,render_page_data%}
 {%  extends "admin/common/base.html" %}
 
 {% block body -%}
@@ -31,22 +29,22 @@
           </li>
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="{{url_for('static',filename='global/face/no-image.png')}}" class="user-image" alt="User Image">
-              <span class="hidden-xs">用户名称</span>
+              <img src="{{default_img(g.admin.img)}}" class="user-image" alt="User Image">
+              <span class="hidden-xs">{{ g.admin.admin_name }}</span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="{{url_for('static',filename='global/face/no-image.png')}}" class="img-circle" alt="User Image">
+                <img src="{{default_img(g.admin.img)}}" class="img-circle" alt="User Image">
 
                 <p>
-                  用户名称
-                  <small>角色名称</small>
+                  {{ g.admin.admin_name }}
+                  <small>{{ g.role_name }}</small>
                 </p>
               </li>
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="#" class="btn btn-default btn-flat">个人设置</a>
+                  <a href="{{ url_for('adminadmin.edit',id=g.admin.id) }}" class="btn btn-default btn-flat">个人设置</a>
                 </div>
                 <div class="pull-right">
                   <a href="{{ url_for('adminlogin.logout') }}" class="btn btn-default btn-flat">退出</a>
@@ -66,50 +64,87 @@
           <!-- Sidebar user panel -->
           <div class="user-panel">
             <div class="pull-left image">
-              <img src="{{url_for('static',filename='global/face/no-image.png')}}" class="img-circle" alt="User Image">
+              <img src="{{default_img(g.admin.img)}}" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
-              <p>用户名称</p>
+              <p>{{default_img(g.admin.admin_name)}}</p>
               <a href="#"><i class="fa fa-circle text-success"></i>在线</a>
             </div>
           </div>
           <!--搜索-->
-          <form action="#" method="get" class="sidebar-form">
+          <div  class="sidebar-form">
             <div class="input-group">
-              <input type="text" name="q" class="form-control" placeholder="搜索">
+              <input type="text" name="q"  id="search-btn-value" class="form-control" placeholder="搜索">
               <span class="input-group-btn">
-                    <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                    <button type="submit" name="search" id="search-btn" class="search-btn-menu btn btn-flat"><i class="fa fa-search"></i>
                     </button>
-                  </span>
+              </span>
             </div>
-          </form>
+          </div>
+            <script>
+                $(function () {
+
+                    $(".search-btn-menu ").on('click',function () {
+                        var data_value = $("#search-btn-value").val().trim()
+                        $('.menu_check').each(function () {
+                            var obj = $(this)
+                            var search_content = obj.html()
+                            if (search_content.indexOf(data_value) >= 0) {
+                                if (obj.parent().parent().hasClass('treeview-menu')) {
+                                    if (obj.parent().parent().parent().hasClass('active') == false)
+                                        obj.parent().parent().parent().addClass('active')
+
+                                        obj.trigger('click');
+                                } else {
+                                    $(this).trigger('click');
+                                }
+                                return false
+                            }
+                        })
+                    })
+                })
+            </script>
           <!-- /.search form -->
           <!-- sidebar menu: : style can be found in sidebar.less -->
              <ul class="sidebar-menu">
                   <li class="header">菜单</li>
-                  <li class="treeview">
-                      <a href="javascript:void(0);">
-                          <i class="fa fa-edit"></i><span>新闻管理</span>
-                          <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
-                      </a>
-                      <ul class="treeview-menu">
-                        <li><a href="https://www.zkteco.com/en/admin/Category/news.html"><i class="fa fa-book"></i>新闻分类</a></li>
-                        <li><a href="https://www.zkteco.com/en/admin/Ad/news.html"><i class="fa fa-clock-o"></i>新闻广告列表</a></li>
-                        <li><a href="https://www.zkteco.com/en/admin/News/lst.html"><i class="fa fa-clock-o"></i>新闻列表</a></li>
-                      </ul>
-                  </li>
-                  <li class="treeview">
-                      <a href="javascript:void(0);">
-                          <i class="fa fa-share"></i><span>公司招聘</span>
-                          <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
-                      </a>
-                      <ul class="treeview-menu">
-                        <li><a href="https://www.zkteco.com/en/admin/Ad/recruit.html"><i class="fa fa-clock-o"></i>招聘广告列表</a></li>
-                        <li><a href="https://www.zkteco.com/en/admin/Post/lst.html"><i class="fa fa-clock-o"></i>岗位列表</a></li>
-                        <li><a href="https://www.zkteco.com/en/admin/Recruit/lst.html"><i class="fa fa-clock-o"></i>招聘信息列表</a></li>
-                      </ul>
-                  </li>
+                 {% for v in menu -%}
+                     {% if have_auth == 'all' or v.id|string  in have_auth -%}
+                      <li class="treeview">
+                          <a href="javascript:void(0);" class="menu_check">
+                              <i class="{{ v.icon }}"></i><span>{{ v.pri_name }}</span>
+                              {% if v.is_treeview == True -%}
+                                  <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+                              {%- endif %}
+                          </a>
+                          <ul class="treeview-menu">
+                          {% if v.is_treeview == True -%}
+                              {% for vv in v.child -%}
+                                   {% if have_auth == 'all' or vv.id|string in have_auth -%}
+                                       <li>
+                                           <a class="menu_check"  href="{{ url_for(vv.url_prefix+'.'+vv.action_name) }}">
+                                               <i class="{{ vv.icon }}"></i>{{ vv.pri_name }}
+                                               {% if vv.is_treeview == True -%}
+                                                   <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+                                               {%- endif %}
+                                           </a>
+                                            {% if vv.is_treeview == True -%}
+                                                <ul class="treeview-menu">
+                                                    {% for vvv in vv.child -%}
+                                                        <li ><a class="menu_check" href="{{ url_for(vvv.url_prefix+'.'+vvv.action_name) }}"><i class="{{ vvv.icon }}"></i>{{ vvv.pri_name }}</a></li>
+                                                    {%- endfor %}
+                                                </ul>
+                                            {%- endif %}
+                                       </li>
+                                   {%- endif %}
+                              {%- endfor %}
+                          {%- endif %}
+                          </ul>
+                      </li>
+                     {%- endif %}
+                 {%- endfor %}
               </ul>
+
         </section>
         <!-- /.sidebar -->
     </aside>

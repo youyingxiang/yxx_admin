@@ -47,8 +47,13 @@
                                     <label class="col-sm-2 control-label">图像（108*108）</label>
                                     <div class="col-sm-7">
                                         <div class="input-group">
-                                            <input class="form-control" name="img"  placeholder="图像（108*108）" >
-                                            <span class="input-group-btn up_img"><button class="btn btn-success btn-flat" type="button"><i class="fa fa-cloud-upload"> 上传</i></button></span>
+                                            <input class="form-control" name="img" value="{{ default_img(data.img)}}" placeholder="图像（108*108）" >
+                                            <span class="input-group-btn">
+                                                <a href="{{ default_img(data.img)}}" target="_blank" >
+                                                    <img src="{{ default_img(data.img)}}" style="height:34px; width:68px;" />
+                                                </a>
+                                                <button class="btn btn-success btn-flat up_img" type="button"><i class="fa fa-cloud-upload"> 上传</i></button>
+                                            </span>
                                         </div>
                                     </div>
                                 </div>
@@ -101,11 +106,13 @@
             $('#fileupload_').fileupload({
                 dataType: 'json',
                 done: function (e, data) {
-                    if (data.result.error == 0) {
-                        var up_url = data.result.url.trim();
-                        obj.prev().val(up_url );
-                        if (obj.children('img').length>0) {
-                            obj.find('img').attr('src',up_url );
+                    if (data.result.code == 200) {
+                        var up_url = data.result.data.file_path.trim();
+                        obj.parent().prev().val(up_url );
+                        if (obj.prev().children('img').length>0) {
+                            obj.prev().attr('href',up_url );
+                            obj.prev().find('img').attr('src',up_url );
+                            $.amaran({'message':data.result.info});
                         }
                     } else {
                         $.amaran({'message':data.result.info});

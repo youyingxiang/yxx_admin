@@ -1,0 +1,113 @@
+{%  extends "admin/common/admin_base.html" %}
+{% block title -%}
+    配置字段管理
+{% endblock %}
+{% block page_title -%}配置字段管理{% endblock %}
+{% block page_btn_name -%}设置配置字段{% endblock %}
+{% block content -%}
+    <section class="content">
+        <div class="row">
+            <div class="col-md-12">
+                <form class="form-horizontal" method="POST" action="{{ url_for('adminconfig_field.save') }}" onsubmit="return false" >
+                    <input type="hidden" name="type" value="{{ type }}" />
+                    <div class="nav-tabs-custom">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#tab1" data-toggle="tab">基本参数</a></li>
+                            <li class="pull-right"><a href="javascript:history.back(-1)" class="btn btn-sm" style="padding:10px 2px;"><i class="fa fa-list"></i> 返回</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tab1">
+                                {% for vo in data %}
+                                    {% if vo.texttype == 'textarea' -%}
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">{{ vo.desc }}</label>
+                                        <div class="col-sm-7"><textarea class="form-control" name="{{ vo.k }}" placeholder="{{ vo.prompt }}">{{ vo.v }}</textarea></div>
+                                    </div>
+                                    {%- elif vo.texttype == 'select' -%}
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">{{ vo.desc }}</label>
+                                        <div class="col-sm-7">
+                                            <select class="form-control select2" name="{{ vo.k }}" style="width:100%;">
+                                                <option value="1" {% if vo.v == 1 %}selected="selected"{% endif %}>是</option>
+                                                <option value="0" {% if vo.v == 0 %}selected="selected"{% endif %} >否</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    {%- elif vo.texttype == 'image' or vo.texttype == 'file' or vo.texttype == 'flash' or vo.texttype == 'media' -%}
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">{{ vo.desc }}</label>
+                                        <div class="col-sm-7">
+                                            <div class="input-group">
+                                                <input class="form-control" name="{{ vo.k }}" value="{{ vo.v }}" placeholder="{{ vo.prompt }}" >
+                                                <span class="input-group-btn">
+                                                    <a href="{{ no_img(vo.v) }}" target="_blank" >
+                                                        <img src="{{ no_img(vo.v) }}" style="height:34px; width:68px;" />
+                                                    </a>
+                                                    <button class="btn btn-success btn-flat up-btn" type="button" data-url="{{ url_for('adminupload.upload',dir=vo.texttype) }}">
+                                                        <i class="fa fa-cloud-upload">上传</i>
+                                                    </button>
+                                                </span>
+                                                <!--<span class="input-group-btn"><a class="btn btn-info btn-flat"><i class="fa fa-picture-o"> 查看图片</i></a></span>-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {%- elif vo.texttype == 'password' -%}
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">{{ vo.desc }}</label>
+                                        <div class="col-sm-7"><input class="form-control" type='password' name="{{ vo.k }}" value="{{ vo.v }}" placeholder="{{ vo.prompt }}"></div>
+                                    </div>
+                                    {%- elif vo.texttype == 'content' -%}
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">{{ vo.desc }}</label>
+                                        <div class="col-sm-7"><textarea class="form-control" name="{{ vo.k }}" >{{ vo.v }}</textarea></div>
+                                    </div>
+                                    {% else %}
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">{{ vo.desc }}</label>
+                                        <div class="col-sm-7"><input class="form-control" name="{{ vo.k }}" value="{{ vo.v }}" placeholder="{{ vo.prompt }}"></div>
+                                    </div>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="box-footer">
+                            <div class="col-sm-2"></div>
+                            <div class="col-sm-7">
+                                <div class="btn-group pull-right">
+                                    <button type="submit" class="btn btn-info pull-right submits" data-loading-text="&lt;i class='fa fa-spinner fa-spin '&gt;&lt;/i&gt;提交">提交</button>
+                                </div>
+                                <div class="btn-group pull-left">
+                                    <button type="reset" class="btn btn-warning">重置</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <script type="text/javascript">
+        $(function(){
+            /*ajax页面加载icheck，有该控件的页面才需要*/
+            $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
+                checkboxClass: 'icheckbox_minimal-blue',
+                radioClass: 'iradio_minimal-blue'
+            });
+            /*ajax页面加载icheck，有该控件的页面才需要*/
+            $(".select2").select2({language:"zh-CN"});
+        })
+
+        KindEditor.create('textarea[name="test"]',{
+            width : '100%',   //宽度
+            height : '320px',   //高度
+            resizeType : '0',   //禁止拖动
+            allowFileManager : true,   //允许对上传图片进行管理
+            uploadJson : '{{ url_for("adminupload.kinder_upload") }}',   //文件上传地址
+            fileManagerJson : '{{ url_for("adminupload.manager") }}',   //文件管理地址
+            //urlType : 'domain',   //带域名的路径
+            formatUploadUrl: true,   //自动格式化上传后的URL
+            autoHeightMode: false,   //开启自动高度模式
+            afterBlur: function () { this.sync(); }   //同步编辑器数据
+        });
+    </script>
+{% endblock %}

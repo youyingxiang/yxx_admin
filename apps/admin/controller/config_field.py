@@ -1,6 +1,6 @@
 from flask import Blueprint,views,render_template,request,url_for,abort
 from apps.admin.model.config_field import ConfigField
-from sqlalchemy import or_
+from sqlalchemy import or_,and_
 from exts import db
 from think import restful
 from ..common import get_str_upper,write_log
@@ -100,6 +100,34 @@ def index():
     cfs = ConfigField.query.filter(where).order_by(order).paginate(page, per_page=PAGE_SIZE)
     return render_template('/admin/config_field/index.html', data=cfs)
 
+@bp.route('/web/',methods=['GET'])
+def web():
+    '''
+    网站设置
+    :return:
+    '''
+    type = 'web'
+    order = "id desc"
+    where = and_(ConfigField.state == 1, ConfigField.type == type)
+    cfs = ConfigField.query.filter(where).order_by(order).all()
+    if len(cfs) < 1:
+        abort(404)
+    return render_template('/admin/config_field/common.html', data=cfs, type=type)
+
+@bp.route('/up/',methods=['GET'])
+def up():
+    '''
+    上传设置
+    :return:
+    '''
+    type = 'up'
+    order = "id desc"
+    where = and_(ConfigField.state == 1, ConfigField.type == type)
+    cfs = ConfigField.query.filter(where).order_by(order).all()
+    if len(cfs) < 1:
+        abort(404)
+    return render_template('/admin/config_field/common.html', data=cfs, type=type)
+
 @bp.route('/delete/',methods=['POST'])
 def delete():
     ids = request.form.get('id')
@@ -113,5 +141,25 @@ def delete():
         write_log(log_type='delete',log_detail='删除配置字段失败')
         return restful.server_error(message=str(e))
     pass
+@bp.route('/save/',methods=['POST'])
+def save():
+    type = request.form.get('type')
+    if type is not None:
+        data = request.form.to_dict()
+        data.pop('type')
+        try:
+            for v in data:
+                if data.get(v) is not None:
+                    cf = ConfigField.query.filter(ConfigField.k == v).first()
+                    cf.v = data.get(v)
+                    db.session.commit()
+            write_log(log_type='delete', log_detail='修改配置字段成功')
+            return restful.success('修改成功！', url=url_for('adminconfig_field.'+type))
+        except Exception as e:
+            write_log(log_type='delete', log_detail='修改配置字段失败')
+            return restful.server_error(message=str(e))
+    else:
+        abort(404)
+
 bp.add_url_rule('/add/',view_func=ConfigFieldAddView.as_view('add'))
 bp.add_url_rule('/edit/',view_func=ConfigFieldEditView.as_view('edit'))

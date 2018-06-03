@@ -36,7 +36,7 @@
                             <td style="vertical-align:middle"><input type="checkbox" name="id[]" value="{{ v.id }}" class="minimal"></td>
                             <td style="vertical-align:middle">{{ v.id }}</td>
                             <td style="vertical-align:middle"><span class="editable" data-pk="{{ v.id }}" data-name="admin_name" data-url="{{ url_for('adminadmin.edit',id=v.id) }}" >{{ v.admin_name }}</span></td>
-                            <td style="vertical-align:middle"><img src="{{ v.img|default("http://www.baidu.com") }}" style="width:40px;border-radius:40%;" /></td>
+                            <td style="vertical-align:middle"><img src="{{ default_img(v.img)}}" style="width:40px;border-radius:40%;" /></td>
                             <td style="vertical-align:middle">{{ v.roles.first().role_name }}</td>
                             <td style="vertical-align:middle"><span class="editable" data-pk="{{ v.id }}" data-name="account" data-url="{{ url_for('adminadmin.edit',id=v.id) }}" >{{ v.account }}</span></td>
                             <td style="vertical-align:middle">

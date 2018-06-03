@@ -19,7 +19,7 @@ def index():
         order = sort.split(',')
         order = order[0]+' '+order[1]
     else:
-        order = "id asc"
+        order = "id desc"
     get_page = request.args.get('page')
     if get_page is not None and get_page.isdigit() == True and int(get_page) > 1:
         page = int(get_page)

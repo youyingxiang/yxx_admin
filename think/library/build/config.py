@@ -11,10 +11,10 @@ build = {
                 'dir'    : [ 'controller', 'model','form'],
                 'form'   : ['admin','role','config_field'],
                 'controller' : ['admin', 'role','login','index','upload','config_field','log'],
-                'model'       : ['admin', 'role','role_user','config_field','log'],
+                'model'       : ['admin', 'role','role_admin','config_field','log'],
                 'templates'   : ['admin/add','admin/edit','admin/index','role/add','role/edit',
                                  'role/index','login/login','common/admin_base','common/base','common/_macro','index/index','common/search',
-                                 'config_field/add','config_field/edit','config_field/index','log/index'],
+                                 'config_field/add','config_field/edit','config_field/common','config_field/index','log/index','error/404','error/500'],
                 # 'static'      :  ['css/test.css','js/test.js','css/product.css']
             },
             'common' :{

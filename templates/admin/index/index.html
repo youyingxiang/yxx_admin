@@ -1,10 +1,53 @@
-{% from 'admin/common/_macro.html' import static %}
-{%  extends "admin/common/base.html" %}
+{%  extends "admin/common/admin_base.html" %}
 {% block title -%}
-   后台首页
-{%- endblock %}
-{% block body -%}
- <body class="hold-transition login-page" style="height:auto;">
+    系统管理
+{% endblock %}
+{% block page_title -%}系统管理{% endblock %}
+{% block page_btn_name -%}首页{% endblock %}
+{% block content -%}
+<section class="content">
 
- </body>
-{%- endblock %}
+</section>
+    <script type="text/javascript">
+        $(function(){
+            /*ajax页面加载icheck，有该控件的页面才需要*/
+            $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
+                checkboxClass: 'icheckbox_minimal-blue',
+                radioClass: 'iradio_minimal-blue'
+            });
+
+            /*ajax页面加载icheck，有该控件的页面才需要*/
+            $(".select2").select2({language:"zh-CN"});
+
+            /*全选-反选*/
+            $('.checkbox-toggle').on('ifChecked', function(event){
+                var _this = $(this);
+                var _table = _this.closest('.table');
+                _table.find("tr td input[type='checkbox']").iCheck("check");
+            });
+            $('.checkbox-toggle').on('ifUnchecked', function(event){
+                var _this = $(this);
+                var _table = _this.closest('.table');
+                _table.find("tr td input[type='checkbox']").iCheck("uncheck");
+            });
+
+            $('.editable').editable({
+                emptytext: "empty",
+                params: function(params) {      //参数
+                    var data = {};
+                    data['id'] = params.pk;
+                    data[params.name] = params.value;
+                    return data;
+                },
+                success: function(response, newValue) {
+                    var res = response;
+                    if(res.code == 200){
+
+                    }else{
+                        return res.info;
+                    }
+                }
+            });
+        })
+    </script>
+{% endblock %}

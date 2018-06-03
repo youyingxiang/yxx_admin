@@ -1,4 +1,5 @@
 from exts import db
+from flask import url_for
 from .role_admin import role_admin
 from ..config import menu
 import time
@@ -49,6 +50,31 @@ class Role(db.Model):
     @role_pri.setter
     def role_pri(self, input_role_pri):
         self._role_pri = ",".join(input_role_pri)
+
+    @property
+    def role_pri_path(self):
+        pris = self._role_pri.split(",")
+        pri_path = []
+        for v in menu:
+            if str(v.get('id')) in pris:
+                if v.get('action_name'):
+                    path = url_for(v.get('url_prefix') +'.'+  v.get('action_name'))
+                    pri_path.append(path)
+            if v.get('child'):
+                for vv in v.get('child'):
+                    if str(vv.get('id')) in pris:
+                        if vv.get('action_name'):
+                            path = url_for(vv.get('url_prefix') +'.'+ vv.get('action_name'))
+                            pri_path.append(path)
+                    if vv.get('child'):
+                        for vvv in vv.get('child'):
+                            if str(vvv.get('id')) in pris:
+                                if vv.get('action_name'):
+                                    path = url_for(vvv.get('url_prefix') +'.'+  vvv.get('action_name'))
+                                    pri_path.append(path)
+        return ",".join(pri_path)
+
+
 
 
 

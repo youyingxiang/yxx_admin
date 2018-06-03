@@ -41,8 +41,8 @@ def write_log(log_type,log_detail):
         log_type = log_type,
         ip = request.remote_addr,
         log_detail = log_detail,
-        # admin_id = session.get(ADMIN_SESSION_ID),
-        admin_id = 1,
+        admin_id = session.get(ADMIN_SESSION_ID),
+        # admin_id = 1,
         create_time = time.time()
     )
     db.session.add(l)
@@ -55,7 +55,7 @@ def is_login():
         return True
 
 def checkDirBuild(rootpath,path):
-    for v in path.split("\\"):
+    for v in path.split(os.sep):
         v = os.path.join(rootpath, v)
         rootpath = v
         if os.path.exists(v) == False:

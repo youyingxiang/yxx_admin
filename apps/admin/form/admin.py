@@ -24,7 +24,6 @@ class LoginForm(AccountForm,PasswordForm):
     code = StringField(validators=[InputRequired(message='验证码不能为空'),Length(max=4, min=4, message='验证码长度为4位')])
     def validate_code(self, field):
         code = field.data
-        print(code)
         try:
             c = Captcha();
             check_res = c.check(code)
