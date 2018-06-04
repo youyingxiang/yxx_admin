@@ -1,0 +1,69 @@
+{%  extends "admin/common/admin_base.html" %}
+{% block title -%}
+    数据库管理
+{% endblock %}
+{% block page_title -%}数据库管理{% endblock %}
+{% block page_btn_name -%}数据库列表{% endblock %}
+{% block content -%}
+    <section class="content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box box-primary">
+                    <div class="box-header with-border">
+                        <h3 class="box-title"></h3>
+                        <div class="pull-left">
+                        {{ authAction(url_for('admindatabase.backup'), 'backup')}}
+                        </div>
+                    </div>
+                    <div class="box-body table-responsive">
+                        <table class="table table-bordered table-hover">
+                            <tr>
+                                <th width="35"><input type="checkbox" class="minimal checkbox-toggle"></th>
+                                <th width="46">id</th>
+                                <th>表名</th>
+                                <th>数据条数</th>
+                                <th>类型</th>
+                                <th>创建时间</th>
+                            </tr>
+                            {% for v in data %}
+                                <tr>
+                                <td><input type="checkbox" name="id[]" value="{{ v[0] }}" class="minimal"></td>
+                                <td align="center">{{ loop.index }}</td>
+                                <td><span class="label label-danger">{{ v[0] }}</span></td>
+                                <td><span class="label label-success">{{ v[4] }}</span> 条记录</td>
+                                <td>{{ v[1] }}</td>
+                                <td>{{ v[11] }}</td>
+                                </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script type="text/javascript">
+        $(function(){
+            /*ajax页面加载icheck，有该控件的页面才需要*/
+            $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
+                checkboxClass: 'icheckbox_minimal-blue',
+                radioClass: 'iradio_minimal-blue'
+            });
+
+            /*ajax页面加载icheck，有该控件的页面才需要*/
+            $(".select2").select2({language:"zh-CN"});
+
+            /*全选-反选*/
+            $('.checkbox-toggle').on('ifChecked', function(event){
+                var _this = $(this);
+                var _table = _this.closest('.table');
+                _table.find("tr td input[type='checkbox']").iCheck("check");
+            });
+            $('.checkbox-toggle').on('ifUnchecked', function(event){
+                var _this = $(this);
+                var _table = _this.closest('.table');
+                _table.find("tr td input[type='checkbox']").iCheck("uncheck");
+            });
+
+        })
+    </script>
+{% endblock %}
