@@ -92,5 +92,6 @@ def search_url(param):
         paramStrs = "&".join(paramStr)
         url_path = url_path + '?' + paramStrs
     return url_path
+
 if __name__ == '__main__':
     app.run()

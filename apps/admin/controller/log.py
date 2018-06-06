@@ -34,9 +34,9 @@ def delete():
         endtime = time.time() - 60*60*24*7
         res = Log.query.filter(text("_create_time <"+ str(endtime))).delete(synchronize_session=False)
         db.session.commit()
-        write_log(log_type='add', log_detail='删除日志成功')
+        write_log(log_type='delete', log_detail='删除日志成功')
         return restful.success('删除成功！',url=url_for('adminlog.index'))
     except Exception as e:
-        write_log(log_type='add', log_detail='删除日志失败')
+        write_log(log_type='delete', log_detail="行为：删除日志失败；错误：" + str(e))
         return restful.server_error(message=str(e),url=url_for('adminlog.index'))
     pass

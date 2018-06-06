@@ -18,8 +18,8 @@ class AdminAddView(views.MethodView):
         return render_template('/admin/admin/add.html',roles=roles)
     def post(self):
         form = AdminForm(request.form)
-        if form.validate():
-            try:
+        try:
+            if form.validate():
                 a = Admin(
                     admin_name = request.form.get('admin_name'),
                     password = request.form.get('password'),
@@ -36,13 +36,11 @@ class AdminAddView(views.MethodView):
                 db.session.commit()
                 write_log(log_type='add',log_detail='增加操作员成功')
                 return restful.success(message="操作成功", url=url_for('adminadmin.index'))
-            except Exception as e:
-                write_log(log_type='add', log_detail='增加操作员失败')
-                return restful.server_error(message=str(e))
-        else:
-            write_log(log_type='add', log_detail='增加操作员失败')
-            return restful.params_error(message=form.get_err_one())
-        pass
+            else:
+                raise ValueError(form.get_err_one())
+        except Exception as e:
+            write_log(log_type='add',log_detail="行为：新增操作员；错误："+str(e))
+            return restful.server_error(message=str(e))
 
 class AdminEditView(views.MethodView):
     #decorators = [login_required]
@@ -55,15 +53,15 @@ class AdminEditView(views.MethodView):
         else:
             abort(404)
     def post(self):
-        if len(request.form) == 2:
-            for v in request.form:
-                if v != 'id':
-                    object_name = get_str_upper(v, '_') + "Form"
-                    form = eval(object_name)(request.form)
-        else:
-            form = AdminForm(request.form)
-        if form.validate():
-            try:
+        try:
+            if len(request.form) == 2:
+                for v in request.form:
+                    if v != 'id':
+                        object_name = get_str_upper(v, '_') + "Form"
+                        form = eval(object_name)(request.form)
+            else:
+                form = AdminForm(request.form)
+            if form.validate():
                 admin = Admin.query.get(request.form.get('id'))
                 if request.form.getlist('admin_name'): admin.admin_name = request.form.getlist('admin_name')
                 if request.form.get('password') is not None: admin.password = request.form.get('password')
@@ -75,15 +73,13 @@ class AdminEditView(views.MethodView):
                     role = Role.query.get(request.form.get('role_id'))
                     admin.roles = [role]
                 db.session.commit()
-                return restful.success(message="操作成功", url=url_for('adminadmin.index'))
                 write_log(log_type='edit', log_detail='修改操作员成功')
-            except Exception as e:
-                write_log(log_type='edit', log_detail='修改操作员失败')
-                return restful.server_error(message=str(e))
-        else:
-            write_log(log_type='edit', log_detail='修改操作员失败')
-            return restful.params_error(message=form.get_err_one())
-        pass
+                return restful.success(message="操作成功", url=url_for('adminadmin.index'))
+            else:
+                raise ValueError(form.get_err_one())
+        except Exception as e:
+            write_log(log_type='edit', log_detail="行为：修改操作员；错误："+str(e))
+            return restful.server_error(message=str(e))
 
 @bp.route('/index/',methods=['POST','GET'])
 def index():
@@ -115,7 +111,7 @@ def delete():
             write_log(log_type='delete', log_detail='删除操作员成功')
             return restful.success('删除成功！',url=url_for('adminadmin.index'))
     except Exception as e:
-        write_log(log_type='delete', log_detail='删除操作员失败')
+        write_log(log_type='delete', log_detail="行为：删除操作员；错误："+str(e))
         return restful.server_error(message=str(e))
     pass
 bp.add_url_rule('/add/',view_func=AdminAddView.as_view('add'))

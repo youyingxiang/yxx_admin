@@ -14,11 +14,10 @@ class RoleAddView(views.MethodView):
     pris = menu
     def get(self):
         return render_template('/admin/role/add.html', role_type=role_type,menu=menu)
-
     def post(self):
-        form = RoleInfoForm(request.form)
-        if form.validate():
-            try:
+        try:
+            form = RoleInfoForm(request.form)
+            if form.validate():
                 r = Role(
                     role_name=form.role_name.data,
                     role_type=request.form.get('role_type'),
@@ -30,16 +29,12 @@ class RoleAddView(views.MethodView):
                 db.session.commit()
                 write_log(log_type='add', log_detail='增加角色成功')
                 return restful.success(message="操作成功",url = url_for('adminrole.index'))
-            except Exception as e:
-                write_log(log_type='add', log_detail='增加角色失败')
-                return restful.server_error(message=str(e))
-        else:
-            write_log(log_type='add', log_detail='增加角色失败')
-            return restful.params_error(message=form.get_err_one())
-        pass
-
+            else:
+                raise ValueError(form.get_err_one())
+        except Exception as e:
+            write_log(log_type='add', log_detail="行为：新增角色；错误：" + str(e))
+            return restful.server_error(message=str(e))
 class RoleEditView(views.MethodView):
-    # decorators = [login_required]
     pris = menu
     def get(self):
         role_id = request.args.get('id')
@@ -49,15 +44,15 @@ class RoleEditView(views.MethodView):
         else:
             abort(404)
     def post(self):
-        if len(request.form) == 2:
-            for v in request.form:
-                if v != 'id':
-                    object_name = get_str_upper(v,'_')+"Form"
-                    form = eval(object_name)(request.form)
-        else:
-            form = RoleInfoForm(request.form)
-        if form.validate():
-            try:
+        try:
+            if len(request.form) == 2:
+                for v in request.form:
+                    if v != 'id':
+                        object_name = get_str_upper(v,'_')+"Form"
+                        form = eval(object_name)(request.form)
+            else:
+                form = RoleInfoForm(request.form)
+            if form.validate():
                 role= Role.query.get(request.form.get('id'))
                 if request.form.getlist('role_pri'):role.role_pri = request.form.getlist('role_pri')
                 if request.form.get('role_name') is not None:role.role_name = request.form.get('role_name')
@@ -66,13 +61,11 @@ class RoleEditView(views.MethodView):
                 db.session.commit()
                 write_log(log_type='edit', log_detail='修改角色成功')
                 return restful.success(message="操作成功", url=url_for('adminrole.index'))
-            except Exception as e:
-                write_log(log_type='edit', log_detail='修改角色失败')
-                return restful.server_error(message=str(e))
-        else:
-            write_log(log_type='edit', log_detail='修改角色失败')
-            return restful.params_error(message=form.get_err_one())
-        pass
+            else:
+                raise ValueError(form.get_err_one())
+        except Exception as e:
+            write_log(log_type='edit', log_detail="行为：修改角色；错误：" + str(e))
+            return restful.server_error(message=str(e))
 
 @bp.route('/index/',methods=['POST','GET'])
 def index():
@@ -104,7 +97,7 @@ def delete():
             write_log(log_type='delete', log_detail='删除角色成功')
             return restful.success('删除成功！',url=url_for('adminrole.index'))
     except Exception as e:
-        write_log(log_type='delete', log_detail='删除角色失败')
+        write_log(log_type='delete', log_detail="行为：删除角色；错误："+str(e))
         return restful.server_error(message=str(e))
     pass
 

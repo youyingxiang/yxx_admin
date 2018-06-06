@@ -61,7 +61,7 @@ class Baksql(object):
             for value_ in value:
                 dataSql += "'"+str(value_)+ "',"
             dataSql = dataSql[0:len(dataSql) - 1]
-            query += "INSERT INTO `" + table + "`("+ columns + ")  VALUES (" + dataSql +");\r\n"
+            query += "INSERT INTO `" + table + "`("+ columns + ")  VALUES (" + dataSql +");\n"
         return query
 
     def writeToFile(self,tables=[],ddl=[],data=[]):
@@ -72,20 +72,20 @@ class Baksql(object):
         :param data:
         :return:
         '''
-        string = "/*\r\nMySQL Database Backup Tools\r\n"
-        string += "Data:" + datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S") + "\r\n*/\r\n"
-        string += "SET FOREIGN_KEY_CHECKS=0;\r\n"
+        string = "/*\nMySQL Database Backup Tools\n"
+        string += "Data:" + datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S") +"\n*/\n"
+        string += "SET FOREIGN_KEY_CHECKS=0;\n"
         i = 0
         for table in tables:
-            string += "-- ----------------------------\r\n"
-            string += "-- Table structure for "+table+"\r\n"
-            string += "-- ----------------------------\r\n"
-            string += "DROP TABLE IF EXISTS `"+table+"`"+";\r\n"
-            string += ddl[i]+"\r\n"
-            string += "-- ----------------------------\r\n"
-            string += "-- Records of "+table+"\r\n"
-            string += "-- ----------------------------\r\n"
-            string += data[i]+"\r\n"
+            string += "-- ----------------------------\n"
+            string += "-- Table structure for "+table+"\n"
+            string += "-- ----------------------------\n"
+            string += "DROP TABLE IF EXISTS `"+table+"`"+";\n"
+            string += ddl[i]+"\n"
+            string += "-- ----------------------------\n"
+            string += "-- Records of "+table+"\n"
+            string += "-- ----------------------------\n"
+            string += data[i]
             i += 1
         if os.path.exists(self.save_path) == False:
             os.makedirs(self.save_path)
@@ -96,7 +96,7 @@ class Baksql(object):
             msg = "备份成功!花费时间 "+ backtime +"秒"
             return msg
         else:
-            return "备份失败"
+            raise ValueError("备份失败")
 
     def setTables(self,tables=[]):
         '''
@@ -124,15 +124,9 @@ class Baksql(object):
                 data.append(self.get_dbdata(table))
             return self.writeToFile(self.tables,ddl,data)
         else:
-            self.error = '数据库中没有表!'
-            return False
+            raise ValueError('数据库中没有表!')
 
-    def get_error(self):
-        '''
-        获取错误
-        :return:
-        '''
-        return self.error
+
 
     def restore(self,filename=""):
         '''
@@ -142,21 +136,13 @@ class Baksql(object):
         '''
         path = os.path.join(self.save_path,filename)
         if os.path.exists(path) == False:
-            self.error = 'SQL文件不存在!'
-            return False
+            raise ValueError('SQL文件不存在!')
         else:
             sql = self.parseSQL(path)
-            try:
-                print(sql)
-                sql ="SET FOREIGN_KEY_CHECKS=0;DROP TABLE IF EXISTS `alembic_version`;CREATE TABLE `alembic_version` (  `version_num` varchar(32) NOT NULL,  PRIMARY KEY (`version_num`)) ENGINE=MyISAM DEFAULT CHARSET=utf8;INSERT INTO `alembic_version` (`version_num`)  VALUES ('cf66c13e272b');"
-
-                print(self.s.execute(sql))
-                msg = '还原成功!花费时间'+str(time.time() - self.begtime)
-                return msg
-            except Exception as e:
-                self.error = str(e)
-                print(str(e))
-                return False
+            self.s.execute(sql)
+            backtime = str(round(time.time() - self.begtime, 3))
+            msg = '还原成功!花费时间'+ backtime +"秒"
+            return msg
 
     def parseSQL(self,path):
         '''
@@ -165,9 +151,7 @@ class Baksql(object):
         :return:
         '''
         sql = file_get_contents(path=path)
-
-        sql = sql.replace('\n','\r\n')
-        sql = sql.split('\r\n')
+        sql = sql.split('\n')
         sql = filter(lambda after_sql: re.match(re.compile(r'^--.*'),after_sql) is None,sql)
         sql = "".join(list(sql))
         sql = re.sub(re.compile(r'\/\*.*\*\/'),"",sql)
@@ -186,8 +170,7 @@ class Baksql(object):
             response.headers['Content-Disposition'] = 'attachment; filename={}'.format(filename.encode().decode('latin-1'))
             return response
         else:
-            self.error = "文件有错误!"
-            return False
+            raise ValueError("文件有错误!")
 
     def getfiletime(self,filename):
          '''
@@ -211,7 +194,7 @@ class Baksql(object):
         pos = 0
         while(size > 1024):
             size /= 1024
-            pos =+ pos
+            pos += 1
         return str(round(size,2)) + a[pos]
 
     def get_filelist(self,Order = 0):

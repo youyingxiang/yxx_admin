@@ -13,9 +13,9 @@ class ConfigFieldAddView(views.MethodView):
     def get(self):
         return render_template('/admin/config_field/add.html')
     def post(self):
-        form = Config_FieldForm(request.form)
-        if form.validate():
-            try:
+        try:
+            form = Config_FieldForm(request.form)
+            if form.validate():
                 c = ConfigField(
                     v = request.form.get('v'),
                     k = request.form.get('k'),
@@ -32,13 +32,11 @@ class ConfigFieldAddView(views.MethodView):
                 db.session.commit()
                 write_log(log_type='add', log_detail='增加配置字段成功')
                 return restful.success(message="操作成功", url=url_for('adminconfig_field.index'))
-            except Exception as e:
-                write_log(log_type='add', log_detail='增加配置字段失败')
-                return restful.server_error(message=str(e))
-        else:
-            write_log(log_type='add', log_detail='增加配置字段失败')
-            return restful.params_error(message=form.get_err_one())
-        pass
+            else:
+                raise ValueError(form.get_err_one())
+        except Exception as e:
+            write_log(log_type='add', log_detail="行为：增加配置字段；错误：" + str(e))
+            return restful.server_error(message=str(e))
 
 class ConfigFieldEditView(views.MethodView):
     def get(self):
@@ -49,15 +47,15 @@ class ConfigFieldEditView(views.MethodView):
         else:
             abort(404)
     def post(self):
-        if len(request.form) == 2:
-            for v in request.form:
-                if v != 'id':
-                    object_name = get_str_upper(v, '_') + "Form"
-                    form = eval(object_name)(request.form)
-        else:
-            form = Config_FieldForm(request.form)
-        if form.validate():
-            try:
+        try:
+            if len(request.form) == 2:
+                for v in request.form:
+                    if v != 'id':
+                        object_name = get_str_upper(v, '_') + "Form"
+                        form = eval(object_name)(request.form)
+            else:
+                form = Config_FieldForm(request.form)
+            if form.validate():
                 cf = ConfigField.query.get(request.form.get('id'))
                 if request.form.get('v') is not None: cf.v = request.form.get('v')
                 if request.form.get('k') is not None: cf.k = request.form.get('k')
@@ -71,13 +69,11 @@ class ConfigFieldEditView(views.MethodView):
                 db.session.commit()
                 write_log(log_type='edit', log_detail='修改配置字段成功')
                 return restful.success(message="操作成功", url=url_for('adminconfig_field.index'))
-            except Exception as e:
-                write_log(log_type='edit', log_detail='修改配置字段失败')
-                return restful.server_error(message=str(e))
-        else:
-            write_log(log_type='edit', log_detail='修改配置字段失败')
-            return restful.params_error(message=form.get_err_one())
-        pass
+            else:
+                raise ValueError(form.get_err_one())
+        except Exception as e:
+            write_log(log_type='edit', log_detail="行为：修改配置字段；错误：" + str(e))
+            return restful.server_error(message=str(e))
 
 @bp.route('/index/',methods=['POST','GET'])
 def index():
@@ -138,7 +134,7 @@ def delete():
             write_log(log_type='delete', log_detail='删除配置字段成功')
             return restful.success('删除成功！',url=url_for('adminconfig_field.index'))
     except Exception as e:
-        write_log(log_type='delete',log_detail='删除配置字段失败')
+        write_log(log_type='delete',log_detail="行为：删除配置字段；错误："+str(e))
         return restful.server_error(message=str(e))
     pass
 @bp.route('/save/',methods=['POST'])
@@ -153,10 +149,10 @@ def save():
                     cf = ConfigField.query.filter(ConfigField.k == v).first()
                     cf.v = data.get(v)
                     db.session.commit()
-            write_log(log_type='delete', log_detail='修改配置字段成功')
+            write_log(log_type='edit', log_detail='修改配置字段成功')
             return restful.success('修改成功！', url=url_for('adminconfig_field.'+type))
         except Exception as e:
-            write_log(log_type='delete', log_detail='修改配置字段失败')
+            write_log(log_type='edit',log_detail="行为：修改配置字段；错误："+str(e))
             return restful.server_error(message=str(e))
     else:
         abort(404)

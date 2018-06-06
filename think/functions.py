@@ -34,7 +34,7 @@ def file_get_contents(path,type='r'):
                       rl readlines()读取
     '''
     str = ''
-    with open(path, 'r',encoding='utf8') as f:
+    with open(path, 'r',encoding='utf-8') as f:
         if type == 'r':
             str = f.read()
         elif type == 'rl':
@@ -49,7 +49,7 @@ def file_put_contents(path,content,type='w'):
         @type         w 写文件不追加
                       a  追加
     '''
-    with open(path, type,encoding='utf8')as f:
+    with open(path, type,encoding='utf-8')as f:
         f.write(content)
 
 def touch(path):

@@ -6,48 +6,128 @@
 {% block page_btn_name -%}后台首页{% endblock %}
 {% block content -%}
 <section class="content">
+    <div class="alert alert-danger">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+        <p>欢迎来到后台</p>
+    </div>
+    <div class="row">
+        <div class="col-lg-6 col-sm-6 col-xs-12">
 
+          <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title">系统总计内存（<b>{{ svemm[0]}}</b>）G</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body no-padding">
+              <table class="table table-bordered">
+                <tbody><tr>
+                  <th style="width: 10px">#</th>
+                  <th>参数信息</th>
+                  <th>线状图</th>
+                  <th style="width: 40px">占比</th>
+                </tr>
+                <tr>
+                  <td>1.</td>
+                    <td>系统已使用内存(<b>{{ svemm[3] }}</b>)G</td>
+                  <td>
+                    <div class="progress progress-xs">
+                      <div class="progress-bar progress-bar-danger" style="width: {{ (svemm[3]/svemm[0]*100)|int}}%"></div>
+                    </div>
+                  </td>
+                  <td><span class="badge bg-red">{{ (svemm[3]/svemm[0]*100)|int}}%</span></td>
+                </tr>
+                <tr>
+                  <td>2.</td>
+                  <td>系统可用内存(<b>{{ svemm[1] }}</b>)G</td>
+                  <td>
+                    <div class="progress progress-xs progress-striped active">
+                      <div class="progress-bar progress-bar-primary" style="width: {{ (svemm[1]/svemm[0]*100)|int }}%"></div>
+                    </div>
+                  </td>
+                  <td><span class="badge bg-light-blue">{{ (svemm[1]/svemm[0]*100)|int }}%</span></td>
+                </tr>
+                <tr>
+                  <td>3.</td>
+                  <td>系统空闲内存(<b>{{ svemm[4] }}</b>)G</td>
+                  <td>
+                    <div class="progress progress-xs progress-striped active">
+                      <div class="progress-bar progress-bar-success" style="width: {{ (svemm[4]/svemm[0]*100)|int }}%"></div>
+                    </div>
+                  </td>
+                  <td><span class="badge bg-green">{{ (svemm[4]/svemm[0]*100)|int }}%</span></td>
+                </tr>
+              </tbody>
+              </table>
+            </div>
+        </div>
+
+        <div class="box box-primary">
+            <div class="box-header with-border">
+                <h3 class="box-title">服务器内存（<b>{{ svemm[0]}}G</b>）使用情况</h3>
+            </div>
+            <div class="box-body">
+                <canvas id="myChart" height="50%"></canvas>
+            </div>
+        </div>
+
+        </div>
+
+        <div class="col-lg-6 col-sm-6 col-xs-12">
+            <div class="box box-primary">
+                <div class="box-header">
+                    <h3 class="box-title">最新登录</h3>
+                </div>
+                <div class="box-body no-padding">
+                    <table class="table table-hover">
+                        <tr>
+                            <th>ip</th>
+                            <th>用户名称</th>
+                            <th>最后一次登录时间</th>
+                        </tr>
+                        {% for v in logins %}
+                        <tr>
+                            <td><span class="label label-success">{{ v.ip }}</span></td>
+                            <td>{{ v.admin.admin_name }}</td>
+                            <td>{{ v.admin.last_time }}</td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6 col-sm-6 col-xs-12">
+
+        </div>
+    </div>
 </section>
-    <script type="text/javascript">
-        $(function(){
-            /*ajax页面加载icheck，有该控件的页面才需要*/
-            $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
-                checkboxClass: 'icheckbox_minimal-blue',
-                radioClass: 'iradio_minimal-blue'
-            });
-
-            /*ajax页面加载icheck，有该控件的页面才需要*/
-            $(".select2").select2({language:"zh-CN"});
-
-            /*全选-反选*/
-            $('.checkbox-toggle').on('ifChecked', function(event){
-                var _this = $(this);
-                var _table = _this.closest('.table');
-                _table.find("tr td input[type='checkbox']").iCheck("check");
-            });
-            $('.checkbox-toggle').on('ifUnchecked', function(event){
-                var _this = $(this);
-                var _table = _this.closest('.table');
-                _table.find("tr td input[type='checkbox']").iCheck("uncheck");
-            });
-
-            $('.editable').editable({
-                emptytext: "empty",
-                params: function(params) {      //参数
-                    var data = {};
-                    data['id'] = params.pk;
-                    data[params.name] = params.value;
-                    return data;
-                },
-                success: function(response, newValue) {
-                    var res = response;
-                    if(res.code == 200){
-
-                    }else{
-                        return res.info;
-                    }
-                }
-            });
-        })
+    <script>
+    $(function () {
+        var config = {
+			type: 'pie',
+			data: {
+				datasets: [{
+					data: [
+						{{ (svemm[3]/svemm[0]*100)|int }},
+						{{ (svemm[4]/svemm[0]*100)|int }},
+					],
+					backgroundColor: [
+						"#dd4b39",
+                        "#3c8dbc",
+					],
+					label: 'Dataset 1'
+				}],
+				labels: [
+					'已使用内存 '+ {{ svemm[3] }} +"G",
+                    '可用内存 '+ {{ svemm[4] }} +"G",
+				]
+			},
+			options: {
+				responsive: true
+			}
+		};
+        var ctx = document.getElementById('myChart').getContext('2d');
+        new Chart(ctx, config)
+    })
     </script>
 {% endblock %}

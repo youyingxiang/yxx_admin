@@ -44,6 +44,16 @@ menu = (
         set_menu(34,'fa fa-fw fa-folder-o' ,'日志列表', 'adminlog', 'index', child_menu=(
             set_menu(341,'','删除日志', 'adminlog', 'delete'),
         ),is_treeview=False),
+    )),
+    set_menu(4,'fa fa-fw fa-database','数据库管理','','',child_menu=(
+        set_menu(41,'fa fa-fw fa-list-alt','数据库表', 'admindatabase', 'index',child_menu=(
+            set_menu(411,'','备份数据表', 'admindatabase', 'backup'),
+        ),is_treeview=False),
+    set_menu(42,'fa fa-fw fa-reply','还原数据库列表', 'admindatabase', 'reduction',child_menu=(
+            set_menu(421,'','下载备份', 'admindatabase', 'dowonload'),
+            set_menu(422,'','还原数据库', 'admindatabase', 'restore'),
+            set_menu(423,'','删除数据库', 'admindatabase', 'delete'),
+        ),is_treeview=False),
     ))
 )
 

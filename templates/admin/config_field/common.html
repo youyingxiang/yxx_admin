@@ -59,7 +59,7 @@
                                     {%- elif vo.texttype == 'content' -%}
                                     <div class="form-group">
                                         <label class="col-sm-2 control-label">{{ vo.desc }}</label>
-                                        <div class="col-sm-7"><textarea class="form-control" name="{{ vo.k }}" >{{ vo.v }}</textarea></div>
+                                        <div class="col-sm-7"><textarea class="form-control editer-html" name="{{ vo.k }}" >{{ vo.v }}</textarea></div>
                                     </div>
                                     {% else %}
                                     <div class="form-group">
@@ -97,12 +97,12 @@
             $(".select2").select2({language:"zh-CN"});
         })
 
-        KindEditor.create('textarea[name="test"]',{
+        KindEditor.create('textarea[.editer-html]',{
             width : '100%',   //宽度
             height : '320px',   //高度
             resizeType : '0',   //禁止拖动
             allowFileManager : true,   //允许对上传图片进行管理
-            uploadJson : '{{ url_for("adminupload.kinder_upload") }}',   //文件上传地址
+            uploadJson : '{{ url_for("adminupload.upload") }}',   //文件上传地址
             fileManagerJson : '{{ url_for("adminupload.manager") }}',   //文件管理地址
             //urlType : 'domain',   //带域名的路径
             formatUploadUrl: true,   //自动格式化上传后的URL

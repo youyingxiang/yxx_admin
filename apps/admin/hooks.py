@@ -88,5 +88,6 @@ def page_not_found(e):
 @admin_bp.errorhandler(500)
 @config_field_bp.errorhandler(500)
 @index_bp.errorhandler(500)
+@log_bp.errorhandler(500)
 def server_error(e):
     return render_template('/admin/error/500.html'),500
