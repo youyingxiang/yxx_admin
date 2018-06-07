@@ -13,51 +13,18 @@
     <div class="row">
         <div class="col-lg-6 col-sm-6 col-xs-12">
 
-          <div class="box box-primary">
-            <div class="box-header with-border">
-              <h3 class="box-title">系统总计内存（<b>{{ svemm[0]}}</b>）G</h3>
+        <div class="box box-primary">
+            <div class="box-header">
+                <h3 class="box-title">系统信息</h3>
             </div>
-            <!-- /.box-header -->
             <div class="box-body no-padding">
-              <table class="table table-bordered">
-                <tbody><tr>
-                  <th style="width: 10px">#</th>
-                  <th>参数信息</th>
-                  <th>线状图</th>
-                  <th style="width: 40px">占比</th>
-                </tr>
-                <tr>
-                  <td>1.</td>
-                    <td>系统已使用内存(<b>{{ svemm[3] }}</b>)G</td>
-                  <td>
-                    <div class="progress progress-xs">
-                      <div class="progress-bar progress-bar-danger" style="width: {{ (svemm[3]/svemm[0]*100)|int}}%"></div>
-                    </div>
-                  </td>
-                  <td><span class="badge bg-red">{{ (svemm[3]/svemm[0]*100)|int}}%</span></td>
-                </tr>
-                <tr>
-                  <td>2.</td>
-                  <td>系统可用内存(<b>{{ svemm[1] }}</b>)G</td>
-                  <td>
-                    <div class="progress progress-xs progress-striped active">
-                      <div class="progress-bar progress-bar-primary" style="width: {{ (svemm[1]/svemm[0]*100)|int }}%"></div>
-                    </div>
-                  </td>
-                  <td><span class="badge bg-light-blue">{{ (svemm[1]/svemm[0]*100)|int }}%</span></td>
-                </tr>
-                <tr>
-                  <td>3.</td>
-                  <td>系统空闲内存(<b>{{ svemm[4] }}</b>)G</td>
-                  <td>
-                    <div class="progress progress-xs progress-striped active">
-                      <div class="progress-bar progress-bar-success" style="width: {{ (svemm[4]/svemm[0]*100)|int }}%"></div>
-                    </div>
-                  </td>
-                  <td><span class="badge bg-green">{{ (svemm[4]/svemm[0]*100)|int }}%</span></td>
-                </tr>
-              </tbody>
-              </table>
+                <table class="table table-hover">
+                    {% for v in sysinfo %}
+                    <tr>
+                        <td>{{ v }}：{{ sysinfo[v]|default('未获取到系统信息',True) }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
             </div>
         </div>
 
