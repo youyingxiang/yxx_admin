@@ -8,6 +8,14 @@ from apps.admin.model.admin import Admin
 from apps.admin.model.role import Role
 from apps.admin.model.config_field import ConfigField
 from apps.admin.model.log import Log
+from apps.admin.model.resources_relationships import resources_relationships
+from apps.admin.model.posts import Posts
+from apps.admin.model.resources import Resources
+from apps.admin.model.term_relationships import term_relationships
+from apps.admin.model.term_taxonomy import TermTaxonomy
+from apps.admin.model.terms import Terms
+
+
 
 
 manger = Manager(app)           ###管理

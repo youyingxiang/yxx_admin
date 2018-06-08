@@ -59,9 +59,18 @@ menu = (
 
 role_type = {1:'超级管理员',2:'普通管理员'}
 
-
+# 登录成功session 记录标记
 ADMIN_SESSION_ID = 'a6273a8b622104d4d63d0'
 
 # 分页大小
 PAGE_SIZE = 15
+
+# tb_term_taxonomy表 taxonomy 字段 枚举
+TAXONOMY = {"category":1,"post_tag":2,"nav_menu":3}
+
+TAXONOMY_CN = {'category':'分类','post_tag':'标签','nav_menu':'菜单'}
+POST_TYPE = {"普通文章":1,"单页":2}
+
+
+
 
