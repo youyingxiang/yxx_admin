@@ -46,3 +46,27 @@
     </ul>
   </div>
 {% endmacro %}
+
+{% macro terms_render_page_data(page_data,page_function,param) %}
+  <div class="box-footer clearfix">
+    <ul class="pagination pagination-sm no-margin pull-right">
+      <li><a href="{{ url_for(page_function,page = 1,taxonomy=param) }}">首页</a></li>
+      {% if page_data.has_prev %}
+        <li><a href="{{ url_for(page_function,page = page_data.prev_num,taxonomy=param) }}">«</a></li>
+      {% endif %}
+      {% for page in page_data.iter_pages() %}
+        {% if page %}
+          {% if page !=page_data.page %}
+            <li><a href="{{ url_for(page_function,page = page,taxonomy=param) }}">{{ page }}</a></li>
+          {% else %}
+            <li class="active"><a href="#">{{ page }}</a></li>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+      {% if page_data.has_next %}
+        <li><a href="{{ url_for(page_function,page = page_data.next_num,taxonomy=param) }}">»</a></li>
+      {% endif %}
+      <li><a href="{{ url_for(page_function,page = page_data.pages,taxonomy=param) }}">末页</a></li>
+    </ul>
+  </div>
+{% endmacro %}

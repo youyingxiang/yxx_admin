@@ -20,6 +20,9 @@ menu = (
     set_menu(1,'fa fa-fw fa-paste (alias)','首页管理',None,None,child_menu=(
         set_menu(11,'fa fa-fw fa-copy (alias)','后台首页','adminindex','index',is_treeview=False),
     )),
+    set_menu(5,'fa fa-fw fa-paste (alias)','文章管理',None,None,child_menu=(
+        set_menu(51,'fa fa-fw fa-copy (alias)','标签编辑','adminterms','edit',is_treeview=False),
+    )),
     set_menu(2,'fa fa-fw fa-user-plus','权限管理',None,None,child_menu=(
         set_menu(21,'fa fa-fw fa-user','管理员列表','adminadmin','index',child_menu=(
             set_menu(211,'','增加管理员','adminadmin','add'),
