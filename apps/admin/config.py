@@ -20,8 +20,13 @@ menu = (
     set_menu(1,'fa fa-fw fa-paste (alias)','首页管理',None,None,child_menu=(
         set_menu(11,'fa fa-fw fa-copy (alias)','后台首页','adminindex','index',is_treeview=False),
     )),
-    set_menu(5,'fa fa-fw fa-paste (alias)','文章管理',None,None,child_menu=(
-        set_menu(51,'fa fa-fw fa-copy (alias)','标签编辑','adminterms','edit',is_treeview=False),
+    set_menu(5,'fa fa-fw fa-file','文章管理',None,None,child_menu=(
+        set_menu(51,'fa fa-fw fa-tag','标签编辑','adminterms','edit?taxonomy=post_tag',is_treeview=False,child_menu=(
+            set_menu(511,'','删除标签','adminterms','delete?taxonomy=post_tag'),
+        )),
+        set_menu(52,'fa fa-fw fa-folder-open','分类编辑','adminterms','edit?taxonomy=category',is_treeview=False,child_menu=(
+            set_menu(511,'','删除分类','adminterms','delete?taxonomy=category'),
+        )),
     )),
     set_menu(2,'fa fa-fw fa-user-plus','权限管理',None,None,child_menu=(
         set_menu(21,'fa fa-fw fa-user','管理员列表','adminadmin','index',child_menu=(
@@ -47,6 +52,7 @@ menu = (
         set_menu(34,'fa fa-fw fa-folder-o' ,'日志列表', 'adminlog', 'index', child_menu=(
             set_menu(341,'','删除日志', 'adminlog', 'delete'),
         ),is_treeview=False),
+        set_menu(35,'fa fa-fw fa-eraser','菜单管理', 'adminterms', 'menu', is_treeview=False),
     )),
     set_menu(4,'fa fa-fw fa-database','数据库管理','','',child_menu=(
         set_menu(41,'fa fa-fw fa-list-alt','数据库表', 'admindatabase', 'index',child_menu=(

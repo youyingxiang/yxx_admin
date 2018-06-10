@@ -6,7 +6,7 @@ class Log(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     log_type = db.Column(db.String(32),nullable=False)
     ip = db.Column(db.String(64),nullable=False)
-    log_detail = db.Column(db.String(128), nullable=False)
+    log_detail = db.Column(db.Text, nullable=False)
     admin_id = db.Column(db.Integer,nullable=False)
     admin = db.relationship("Admin",backref=db.backref('logs',lazy='dynamic'),primaryjoin=db.foreign(admin_id) == db.remote(Admin.id))
     _create_time = db.Column(db.Integer, nullable=False)

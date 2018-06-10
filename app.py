@@ -8,8 +8,8 @@ from apps.admin.controller.config_field import bp as adminconfig_fieldbp
 from apps.admin.controller.upload import bp as adminuploadbp
 from apps.admin.controller.index import bp as adminindexbp
 from apps.common.controller.tool import bp as commontoolbp
-import config
-import apps.admin.hooks
+import config,apps.admin.hooks,os,datetime
+import logging
 from exts import db
 from flask_session import Session
 from apps.home.controller.index import bp as homeindexbp
@@ -18,8 +18,8 @@ from apps.admin.controller.role import bp as adminrolebp
 from apps.admin.controller.admin import bp as adminadminbp
 
 
-# # # # # # # # # # # # # # # # # # # # # # # # # # # from think.library.build import Build
-# # # # # # # # # # # # # # # # # # # # # # # # # # # Build().run()
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # from think.library.build import Build
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # Build().run()
 app = Flask(__name__)
 app.register_blueprint(admintermsbp)
 app.register_blueprint(adminpostsbp)
@@ -98,6 +98,20 @@ def search_url(param):
         paramStrs = "&".join(paramStr)
         url_path = url_path + '?' + paramStrs
     return url_path
-
+def wirte_log():
+    y = str(datetime.datetime.now().year)
+    m = str(datetime.datetime.now().month)
+    d = str(datetime.datetime.now().day)
+    log_path = os.path.join(os.path.dirname(__file__),'log',y,m,d + '.log')
+    if os.path.exists(log_path) == False:
+        log_dir = os.path.dirname(log_path)
+        os.makedirs(log_dir)
+    handler = logging.FileHandler(log_path, encoding='UTF-8')
+    handler.setLevel(logging.DEBUG)
+    logging_format = logging.Formatter(
+        '%(asctime)s - %(levelname)s - %(filename)s - %(funcName)s - %(lineno)s - %(message)s')
+    handler.setFormatter(logging_format)
+    app.logger.addHandler(handler)
+wirte_log()
 if __name__ == '__main__':
     app.run()

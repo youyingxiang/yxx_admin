@@ -1,0 +1,170 @@
+{%  extends "admin/common/admin_base.html" %}
+{% block title -%}
+    菜单管理
+{% endblock %}
+{% block page_title -%}菜单管理{% endblock %}
+{% block page_btn_name -%}菜单列表{% endblock %}
+{% block content -%}
+<section class="content">
+    <div class="row">
+        <!---- srart ----->
+        <div class="col-md-12">
+            <form class="form-horizontal" method="POST" action="{{ url_for('adminadmin.add') }}" onsubmit="return false" >
+                <div class="nav-tabs-custom">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#tab1" data-toggle="tab">基本参数</a></li>
+                        <li class="pull-right"><a href="javascript:history.back(-1)" class="btn btn-sm" style="padding:10px 2px;"><i class="fa fa-list"></i> 返回</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="tab1">
+                            <div class="form-group">
+                                <label class="col-sm-2 col-md-2  control-label">选择要编辑的菜单</label>
+                                <div class="col-sm-5  input-group">
+                                     <select class="form-control select2 pull-right" name="menu_type" style="width:100%;">
+                                         <option value="">主菜单</option>
+                                         <option value="">页尾菜单</option>
+                                     </select>
+                                    <div class="input-group-btn">
+                                        <button type="submit" class="btn btn-default sreachs"><i class="fa fa-search"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!---- end ----->
+        <div class="col-md-3">
+
+            <div class="box box-solid collapsed-box">
+                <div class="box-header with-border">
+                  <h3 class="box-title">页面</h3>
+                  <div class="box-tools">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="box-body no-padding">
+                      <ul class="nav nav-pills nav-stacked">
+                        <li><a href="#"><i class="fa fa-inbox"></i> Inbox
+                          <span class="label label-primary pull-right">12</span></a></li>
+                      </ul>
+                </div>
+            </div>
+
+            <div class="box box-solid collapsed-box">
+                <div class="box-header with-border">
+                  <h3 class="box-title">页面</h3>
+                  <div class="box-tools">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="box-body no-padding">
+                      <ul class="nav nav-pills nav-stacked">
+                        <li><a href="#"><i class="fa fa-inbox"></i> Inbox
+                          <span class="label label-primary pull-right">12</span></a></li>
+                      </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9">
+          <!-- Horizontal Form -->
+          <div class="box">
+            <div class="box-header form-horizontal">
+                <div class="box box-solid">
+                    <div class="pull-left col-md-7">
+                        <input class="form-control" name="menu_name" value="" placeholder="填写菜单名称" type="text">
+                    </div>
+                    <div class="pull-right col-md-2"><a href="/admin/terms/edit/?taxonomy=category" class="btn btn-sm btn-primary"><i class="fa fa-save"></i> 保存</a>
+                    </div>
+                </div>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+            <form class="form-horizontal box-header">
+                <div class="col-md-9">
+                    <div class="box box-solid">
+                      <label  control-label>菜单结构</label>
+                      <div class="box-body">
+                          拖放各个项目到您喜欢的顺序，点击右侧的箭头可进行更详细的设置。
+                      </div>
+                    </div>
+                </div>
+              <!-- /.box-body -->
+                <div class="col-md-9">
+                    <div class="box box-solid collapsed-box">
+                        <div class="box-header with-border">
+                          <h3 class="box-title">页面</h3>
+                          <div class="box-tools">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
+                            </button>
+                          </div>
+                        </div>
+                        <div class="box-body no-padding">
+                              <ul class="nav nav-pills nav-stacked">
+                                <li><a href="#"><i class="fa fa-inbox"></i> Inbox
+                                  <span class="label label-primary pull-right">12</span></a></li>
+                              </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-9">
+                    <div class="box box-solid collapsed-box">
+                        <div class="box-header with-border">
+                          <h3 class="box-title">页面</h3>
+                          <div class="box-tools">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
+                            </button>
+                          </div>
+                        </div>
+                        <div class="box-body no-padding">
+                              <ul class="nav nav-pills nav-stacked">
+                                <li><a href="#"><i class="fa fa-inbox"></i> Inbox
+                                  <span class="label label-primary pull-right">12</span></a></li>
+                              </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-9">
+                    <div class="box box-solid collapsed-box">
+                        <div class="box-header with-border">
+                          <h3 class="box-title">页面</h3>
+                          <div class="box-tools">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
+                            </button>
+                          </div>
+                        </div>
+                        <div class="box-body no-padding">
+                              <ul class="nav nav-pills nav-stacked">
+                                <li><a href="#"><i class="fa fa-inbox"></i> Inbox
+                                  <span class="label label-primary pull-right">12</span></a></li>
+                              </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box-footer">
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-7">
+                        <div class="btn-group pull-right">
+                            <button type="submit" class="btn btn-info pull-right submits" data-loading-text="&lt;i class='fa fa-spinner fa-spin '&gt;&lt;/i&gt;提交">提交</button>
+                        </div>
+                        <div class="btn-group pull-left">
+                            <button type="reset" class="btn btn-warning">重置</button>
+                        </div>
+                    </div>
+                </div>
+              <!-- /.box-footer -->
+            </form>
+          </div>
+          <!-- /.box -->
+        </div>
+    </div>
+</section>
+<script type="text/javascript">
+</script>
+{% endblock %}

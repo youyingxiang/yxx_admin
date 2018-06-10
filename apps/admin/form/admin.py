@@ -2,8 +2,20 @@ from wtforms import StringField,IntegerField
 from ..common import FormBase
 from wtforms.validators import InputRequired,Length,ValidationError,NumberRange,EqualTo
 from think.library.captche import Captcha
+from ..model.admin import Admin
+from flask import request,session
+from config import ADMIN_SESSION_ID
+from sqlalchemy import func,and_
+from exts import db
 class AccountForm(FormBase):
-    account = StringField(validators=[Length(max=32, min=6, message='帐号长度必须为6-32位')])
+    account = StringField(validators=[Length(max=32, min=6, message='帐号长度必须为6-32位'),])
+    def validate_account(self, field):
+        account = field.data
+        if ADMIN_SESSION_ID in  session:
+            if request.form.get('id') and db.session.query(func.count(Admin.id)).filter(and_(Admin.account == account,Admin.id != request.form.get('id'))).scalar():
+                raise ValidationError('帐号已经存在！')
+            elif request.form.get('id') is None and db.session.query(func.count(Admin.id)).filter(Admin.account == account).scalar():
+                raise ValidationError('帐号已经存在！')
 
 class PasswordForm(FormBase):
     password = StringField(validators=[InputRequired(message='密码不能为空'), Length(max=32, min=6, message='密码长度必须为6-32位')])

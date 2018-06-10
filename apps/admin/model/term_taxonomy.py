@@ -1,6 +1,6 @@
 from exts import db
 import time
-from .posts import Posts
+from .postmeta import PostMeta
 from .term_relationships import term_relationships
 class TermTaxonomy(db.Model):
     __tablename__ = 'tb_term_taxonomy'
@@ -10,4 +10,4 @@ class TermTaxonomy(db.Model):
     img = db.Column(db.String(100), nullable=False,comment="图像描叙",default="")
     parent = db.Column(db.Integer,nullable=False,comment='上级ID')
     count = db.Column(db.Integer,nullable=False,comment='文章数统计',default=0)
-    posts = db.relationship('Posts', secondary=term_relationships, backref=db.backref('terms', lazy='dynamic'))
+    postmetas = db.relationship('PostMeta', secondary=term_relationships, backref=db.backref('terms', lazy='dynamic'))

@@ -58,19 +58,31 @@ class Role(db.Model):
         for v in menu:
             if str(v.get('id')) in pris:
                 if v.get('action_name'):
-                    path = url_for(v.get('url_prefix') +'.'+  v.get('action_name'))
+                    if '?' in v.get('action_name'):
+                        path = url_for(v.get('url_prefix') + '.' + v.get('action_name').split('?')[0]) + "?" + \
+                               v.get('action_name').split('?')[1]
+                    else:
+                        path = url_for(v.get('url_prefix') +'.'+  v.get('action_name'))
                     pri_path.append(path)
             if v.get('child'):
                 for vv in v.get('child'):
                     if str(vv.get('id')) in pris:
                         if vv.get('action_name'):
-                            path = url_for(vv.get('url_prefix') +'.'+ vv.get('action_name'))
+                            if '?' in vv.get('action_name'):
+                                path = url_for(vv.get('url_prefix') + '.' + vv.get('action_name').split('?')[0])+"?"+vv.get('action_name').split('?')[1]
+                            else:
+                                path = url_for(vv.get('url_prefix') +'.'+ vv.get('action_name'))
                             pri_path.append(path)
                     if vv.get('child'):
                         for vvv in vv.get('child'):
                             if str(vvv.get('id')) in pris:
-                                if vv.get('action_name'):
-                                    path = url_for(vvv.get('url_prefix') +'.'+  vvv.get('action_name'))
+                                if vvv.get('action_name'):
+                                    if '?' in vvv.get('action_name'):
+                                        path = url_for(
+                                            vvv.get('url_prefix') + '.' + vvv.get('action_name').split('?')[0]) + "?" + \
+                                               vvv.get('action_name').split('?')[1]
+                                    else:
+                                        path = url_for(vvv.get('url_prefix') +'.'+  vvv.get('action_name'))
                                     pri_path.append(path)
         return ",".join(pri_path)
 

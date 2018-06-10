@@ -61,3 +61,21 @@ def checkDirBuild(rootpath,path):
         if os.path.exists(v) == False:
             os.mkdir(v)
 
+def reSort(data,parent=0,level=0,ret = []):
+    '''
+    递归
+    :return:
+    '''
+    for v in data:
+        if v.parent == parent:
+            v.level = level
+            ret.append(v)
+            reSort(data,v.id,level+1,ret)
+    return ret
+
+def getChildren(data,id = 0,ret = []):
+    for v in data:
+        if v.parent == id:
+            ret.append(v.id)
+            getChildren(data,v.id,ret)
+    return ret

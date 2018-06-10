@@ -123,8 +123,13 @@
                           {% if v.is_treeview == True -%}
                               {% for vv in v.child -%}
                                    {% if have_auth == 'all' or vv.id|string in have_auth -%}
+                                       {%- if '?' in vv.action_name -%}
+                                           {% set href = url_for(vv.url_prefix+'.'+vv.action_name.split('?')[0])+"?"+vv.action_name.split('?')[1] %}
+                                       {%- else -%}
+                                           {% set href= url_for(vv.url_prefix+'.'+vv.action_name) %}
+                                       {%- endif -%}
                                        <li>
-                                           <a class="menu_check"  href="{{ url_for(vv.url_prefix+'.'+vv.action_name) }}">
+                                           <a class="menu_check"  href="{{ href }}">
                                                <i class="{{ vv.icon }}"></i>{{ vv.pri_name }}
                                                {% if vv.is_treeview == True -%}
                                                    <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>

@@ -33,7 +33,7 @@ def get_sys_info():
     '''
     sysinfo = {}
     sysinfo['系统cpu位数'] = platform.processor()
-    sysinfo['系统信息'] = platform.system()
-    sysinfo['操作系统类型'] = platform.dist()[0]
+    sysinfo['操作系统类型'] = platform.platform()
     sysinfo['系统主机名'] = platform.node()
+    sysinfo['python版本'] = platform.python_version()
     return sysinfo
