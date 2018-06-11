@@ -6,11 +6,13 @@ from .controller.log import bp as log_bp
 from .controller.index import bp as index_bp
 from .controller.database import bp as db_bp
 from .controller.terms import bp as terms_bp
+from .controller.posts import bp as posts_bp
 from .config import ADMIN_SESSION_ID
 from .model.admin import Admin
 from .config import menu
 
 
+@posts_bp.before_request
 @terms_bp.before_request
 @db_bp.before_request
 @log_bp.before_request
@@ -20,7 +22,7 @@ from .config import menu
 @index_bp.before_request
 def before_request():
     get_global_search()
-    session[ADMIN_SESSION_ID] = 2
+    session[ADMIN_SESSION_ID] = 1
     if check_login() == False:
         return redirect(url_for('adminlogin.login'))
     if hooks_auth(request.path) == False:
@@ -63,6 +65,8 @@ def hooks_auth(path):
             if path in pri:
                 have_auth = True
         return have_auth
+
+@posts_bp.context_processor
 @terms_bp.context_processor
 @db_bp.context_processor
 @log_bp.context_processor
@@ -80,6 +84,7 @@ def menu_c():
         have_auth = []
     return {'menu': menu, 'have_auth': have_auth}
 
+@posts_bp.errorhandler(404)
 @terms_bp.errorhandler(404)
 @db_bp.errorhandler(404)
 @role_bp.errorhandler(404)
@@ -89,6 +94,7 @@ def menu_c():
 def page_not_found(e):
     return render_template('/admin/error/404.html'),404
 
+@posts_bp.errorhandler(500)
 @terms_bp.errorhandler(500)
 @db_bp.errorhandler(500)
 @role_bp.errorhandler(500)

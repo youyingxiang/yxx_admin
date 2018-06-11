@@ -14,7 +14,8 @@ build = {
                 'model'       : ['admin', 'role','role_admin','config_field','log','terms','term_taxonomy','term_relationships','posts','resources','resources_relationships','postmeta'],
                 'templates'   : ['admin/add','admin/edit','admin/index','role/add','role/edit',
                                  'role/index','login/login','common/admin_base','common/base','common/_macro','index/index','common/search',
-                                 'config_field/add','config_field/edit','config_field/common','config_field/index','log/index','error/404','error/500','database/index','database/reduction','terms/edit','terms/menu'],
+                                 'config_field/add','config_field/edit','config_field/common','config_field/index','log/index','error/404','error/500',
+                                 'database/index','database/reduction','terms/edit','terms/menu','posts/index','posts/edit','posts/add'],
                 # 'static'      :  ['css/test.css','js/test.js','css/product.css']
             },
             'common' :{

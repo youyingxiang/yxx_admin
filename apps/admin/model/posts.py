@@ -1,6 +1,8 @@
 from exts import db
 import time
 from .admin import Admin
+from .postmeta import PostMeta
+from sqlalchemy import and_
 class Posts(db.Model):
     __tablename__ = 'tb_posts'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
@@ -26,3 +28,36 @@ class Posts(db.Model):
     @create_time.setter
     def create_time(self, input_create_time):
         self._create_time = input_create_time
+
+    @property
+    def update_time(self):
+        update_time_value = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(self._update_time))
+        return update_time_value
+
+    @update_time.setter
+    def update_time(self, input_update_time):
+        self._update_time = input_update_time
+
+    @property
+    def label(self):
+        id = self.id
+        pm = PostMeta.query.filter(and_(PostMeta.meta_key == 'termtaxonomy_label_posts_id',PostMeta.meta_value==id)).first()
+        labels = pm.terms.all()
+        labels = map(lambda data:data.terms[0].name,labels)
+        return ",".join(list(labels))
+
+    @property
+    def category(self):
+        id = self.id
+        pm = PostMeta.query.filter(and_(PostMeta.meta_key == 'termtaxonomy_category_posts_id', PostMeta.meta_value == id)).first()
+        cate = pm.terms.all()
+        cate = map(lambda data: data.terms[0].name, cate)
+        return ",".join(list(cate))
+
+    @property
+    def feature_img(self):
+        id = self.id
+        pm = PostMeta.query.filter(and_(PostMeta.meta_key == 'feature_img_resources_posts_id', PostMeta.meta_value == id)).first()
+        fi = pm.resources.all()
+        fi = map(lambda data: data.new_name, fi)
+        return ",".join(list(fi))

@@ -27,6 +27,11 @@ menu = (
         set_menu(52,'fa fa-fw fa-folder-open','分类编辑','adminterms','edit?taxonomy=category',is_treeview=False,child_menu=(
             set_menu(511,'','删除分类','adminterms','delete?taxonomy=category'),
         )),
+        set_menu(53,'fa fa-fw fa-book','文章管理','adminposts','index',is_treeview=False,child_menu=(
+            set_menu(531,'','修改文章','adminposts','edit'),
+            set_menu(532,'','新增文章','adminposts','add'),
+            set_menu(533,'','删除文章','adminposts','delete'),
+        )),
     )),
     set_menu(2,'fa fa-fw fa-user-plus','权限管理',None,None,child_menu=(
         set_menu(21,'fa fa-fw fa-user','管理员列表','adminadmin','index',child_menu=(

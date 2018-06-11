@@ -1,0 +1,244 @@
+{%  extends "admin/common/admin_base.html" %}
+{% block title -%}
+    文章管理
+{% endblock %}
+{% block page_title -%}文章管理{% endblock %}
+{% block page_btn_name -%}增加文章{% endblock %}
+{% block content -%}
+    <section class="content">
+        <div class="row">
+        <form  method="POST" action="{{ url_for('adminposts.add') }}" onsubmit="return false" >
+            <div class="col-md-9">
+                <div class="form-horizontal">
+                    <div class="nav-tabs-custom">
+                    <div class="tab-content">
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">标题</label>
+                            <div class="col-sm-7"><input class="form-control" name="post_title" value="" placeholder="在此输入标题"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">文章内容</label>
+                            <div class="col-sm-7"><textarea class="form-control editer-html" name="post_content" ></textarea></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">文章摘要</label>
+                            <div class="col-sm-7"><textarea class="form-control editer-html" name="post_excerpt" ></textarea></div>
+                        </div>
+
+                    </div>
+                        <div class="box-footer">
+                            <div class="col-sm-2"></div>
+                            <div class="col-sm-7">
+                                <div class="btn-group pull-right">
+                                    <button type="submit" class="btn btn-info pull-right submits" data-loading-text="&lt;i class='fa fa-spinner fa-spin '&gt;&lt;/i&gt;提交">提交</button>
+                                </div>
+                                <div class="btn-group pull-left">
+                                    <button type="reset" class="btn btn-warning">重置</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="box box-solid">
+                    <div class="box-header with-border">
+                      <h3 class="box-title">发布</h3>
+                      <div class="box-tools">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                        </button>
+                      </div>
+                    </div>
+                    <div class="box-body">
+                          <div class="form-group">
+                                <label class="control-label">状态</label>
+                                <select class="form-control select2" name="post_status" style="width:100%;">
+                                    <option value=1 >启用</option>
+                                    <option value=0 >停用</option>
+                                </select>
+                          </div>
+                          <div class="form-group">
+                                <label class="control-label">开启评论</label>
+                                <select class="form-control select2" name="comment_status" style="width:100%;">
+                                    <option value=1 >开启</option>
+                                    <option value=0 >关闭</option>
+                                </select>
+                          </div>
+                    </div>
+                </div>
+
+                <div class="box box-solid">
+                    <div class="box-header with-border">
+                      <h3 class="box-title">分类目录</h3>
+                      <div class="box-tools">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                        </button>
+                      </div>
+                    </div>
+                    <div class="box-body">
+                        <div class="form-group">
+                            <div class="rule_node">
+                                {%- for v in categorys -%}
+                                    {% set flag = v.level + 1 %}
+                                    <p class='left{{ flag }} {%- if v.level == 2 -%}p_left{% endif %}' >
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" name="category" value="{{ v.id }}" class="minimal"> {{ v.terms[0].name }}
+                                    </label>
+                                    </p>
+                                {%- endfor -%}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box box-solid">
+                    <div class="box-header with-border">
+                      <h3 class="box-title">标签</h3>
+                      <div class="box-tools">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                        </button>
+                      </div>
+                    </div>
+                    <div class="box-body">
+                        <div class="input-group">
+                        <input class="form-control"   placeholder="多个标签请用英文逗号（,）分开" >
+                        <span class="input-group-btn">
+                            <button type="button" class="btn" id="add_label">添加</button>
+                        </span>
+                        </div>
+                        <div class="box-body">
+                        <p id="select_label">
+                        </p>
+                            <a href="javascript:void(0)" id="more_label">从常用标签中选择</a>
+                            <p id="show_labels">
+                                {%- for v in labels_ -%}
+                                    <a href="javascript:void(0)" style="margin-left: 5px">{{ v }}</a>
+                                {%- endfor -%}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box box-solid">
+                    <div class="box-header with-border">
+                      <h3 class="box-title">设置特色照片</h3>
+                      <div class="box-tools">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                        </button>
+                      </div>
+                    </div>
+                    <div class="box-body">
+                        <div class="input-group">
+                        <input class="form-control" name="img"  placeholder="特色图片" >
+                        <span class="input-group-btn">
+                            <a href="{{ no_img('')}}" target="_blank" >
+                                <img src="{{ no_img('')}}" style="height:34px; width:68px;" />
+                            </a>
+                            <button class="btn btn-success btn-flat up_img" type="button"><i class="fa fa-cloud-upload"> 上传</i></button>
+                        </span>
+                        </div>
+                    </div>
+                </div>
+          <!-- /.box -->
+            </div>
+            <input type="hidden" name="file_size">
+            <input type="hidden" name="old_name">
+        </form>
+
+        </div>
+    </section>
+    <script type="text/javascript">
+        $(function(){
+            //从常用标签选择1
+            $("#show_labels").hide()
+            $("#more_label").on('click',function(){
+                if ($("#show_labels").is(':hidden')) {
+                    $("#show_labels").show()
+                } else {
+                    $("#show_labels").hide()
+                }
+            });
+            //增加标签
+            $("#add_label").on('click',function(){
+                var value = $(this).parent().prev().val().trim()
+                 var is_append = true
+                $("#select_label a span").each(function () {
+                    if (value == $(this).html().trim()) {
+                        is_append = false
+                    }
+                })
+                if (is_append == false) return;
+                var html = "<a href='javascript:void(0)'><input type='hidden' value='"+value+"' name='label'><i class='fa fa-fw fa-close'></i><span>"+value+"</span></a>"
+                $("#select_label").append(html)
+                $("#select_label i").on('click',function(){
+                    $(this).parent().remove()
+                })
+            })
+            //从常用标签选择2
+            $('#show_labels a').on('click',function(){
+                var value = $(this).html().trim()
+                var is_append = true
+                $("#select_label a span").each(function () {
+                    if (value == $(this).html().trim()) {
+                        is_append = false
+                    }
+                })
+                if (is_append == false) return;
+                var html = "<a href='javascript:void(0)'><input type='hidden' value='"+value+"' name='label'><i class='fa fa-fw fa-close'></i><span>"+value+"</span></a>"
+                $("#select_label").append(html)
+                $("#select_label i").on('click',function(){
+                    $(this).parent().remove()
+                })
+            })
+
+            /*ajax页面加载icheck，有该控件的页面才需要*/
+            $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
+                checkboxClass: 'icheckbox_minimal-blue',
+                radioClass: 'iradio_minimal-blue'
+            });
+            /*ajax页面加载icheck，有该控件的页面才需要*/
+            $(".select2").select2({language:"zh-CN"});
+            $('.datepicker').datepicker();
+            $('#fileupload_').fileupload({
+                dataType: 'json',
+                done: function (e, data) {
+                    if (data.result.code == 200) {
+                        var up_url = data.result.data.file_path
+                        var file_size = data.result.data.file_size
+                        var old_name = data.result.data.file_name.trim();
+                        obj.parent().prev().val(up_url );
+                        $("input[name='file_size']").val(file_size);
+                        $("input[name='old_name']").val(old_name);
+                        if (obj.prev().children('img').length>0) {
+                            obj.prev().attr('href',up_url );
+                            obj.prev().find('img').attr('src',up_url );
+                            $.amaran({'message':data.result.info});
+                        }
+                    } else {
+                        $.amaran({'message':data.result.info});
+                    }
+                }
+            });
+            $(".up_img").on('click',function(){
+                obj = $(this);
+                $('#fileupload_').trigger('click');
+            })
+            KindEditor.create('textarea[name=post_content]',{
+            width : '100%',   //宽度
+            height : '500px',   //高度
+            resizeType : '0',   //禁止拖动
+            allowFileManager : true,   //允许对上传图片进行管理
+            uploadJson : '{{ url_for("adminupload.upload") }}',   //文件上传地址
+            fileManagerJson : '{{ url_for("adminupload.manager") }}',   //文件管理地址
+            //urlType : 'domain',   //带域名的路径
+            formatUploadUrl: true,   //自动格式化上传后的URL
+            autoHeightMode: false,   //开启自动高度模式
+            afterBlur: function () { this.sync(); }   //同步编辑器数据
+            })
+        })
+    </script>
+{% endblock %}

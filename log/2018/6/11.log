@@ -1,0 +1,600 @@
+2018-06-11 12:36:08,589 - ERROR - app.py - log_exception - 1560 - Exception on /admin/posts/index/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\python_project\yxx_admin\apps\admin\controller\posts.py", line 25, in index
+    return render_template('admin/posts/index.html',data = p)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\templating.py", line 134, in render_template
+    context, ctx.app)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\templating.py", line 116, in _render
+    rv = template.render(context)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "D:\python_project\yxx_admin\templates\admin\posts\index.html", line 1, in top-level template code
+    {%  extends "admin/common/admin_base.html" %}
+  File "D:\python_project\yxx_admin\templates\admin\common\admin_base.html", line 2, in top-level template code
+    {%  extends "admin/common/base.html" %}
+  File "D:\python_project\yxx_admin\templates\admin\common\base.html", line 32, in top-level template code
+    {% block body%}{% endblock %}
+  File "D:\python_project\yxx_admin\templates\admin\common\admin_base.html", line 32, in block "body"
+    <img src="{{default_img(g.admin.img)}}" class="user-image" alt="User Image">
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 430, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'flask.ctx._AppCtxGlobals object' has no attribute 'admin'
+2018-06-11 12:40:19,399 - ERROR - app.py - log_exception - 1560 - Exception on /admin/posts/index/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\python_project\yxx_admin\apps\admin\controller\posts.py", line 25, in index
+    return render_template('admin/posts/index.html',data = p)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\templating.py", line 134, in render_template
+    context, ctx.app)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\templating.py", line 116, in _render
+    rv = template.render(context)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "D:\python_project\yxx_admin\templates\admin\posts\index.html", line 1, in top-level template code
+    {%  extends "admin/common/admin_base.html" %}
+  File "D:\python_project\yxx_admin\templates\admin\common\admin_base.html", line 2, in top-level template code
+    {%  extends "admin/common/base.html" %}
+  File "D:\python_project\yxx_admin\templates\admin\common\base.html", line 32, in top-level template code
+    {% block body%}{% endblock %}
+  File "D:\python_project\yxx_admin\templates\admin\common\admin_base.html", line 32, in block "body"
+    <img src="{{default_img(g.admin.img)}}" class="user-image" alt="User Image">
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 430, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'flask.ctx._AppCtxGlobals object' has no attribute 'admin'
+2018-06-11 14:39:34,209 - ERROR - app.py - log_exception - 1560 - Exception on /admin/posts/index/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\python_project\yxx_admin\apps\admin\controller\posts.py", line 25, in index
+    return render_template('admin/posts/index.html',data = p)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\templating.py", line 134, in render_template
+    context, ctx.app)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\templating.py", line 116, in _render
+    rv = template.render(context)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "D:\python_project\yxx_admin\templates\admin\posts\index.html", line 1, in top-level template code
+    {%  extends "admin/common/admin_base.html" %}
+  File "D:\python_project\yxx_admin\templates\admin\common\admin_base.html", line 2, in top-level template code
+    {%  extends "admin/common/base.html" %}
+  File "D:\python_project\yxx_admin\templates\admin\common\base.html", line 32, in top-level template code
+    {% block body%}{% endblock %}
+  File "D:\python_project\yxx_admin\templates\admin\common\admin_base.html", line 32, in block "body"
+    <img src="{{default_img(g.admin.img)}}" class="user-image" alt="User Image">
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 430, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'flask.ctx._AppCtxGlobals object' has no attribute 'admin'
+2018-06-11 14:39:46,515 - ERROR - app.py - log_exception - 1560 - Exception on /admin/posts/index/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\python_project\yxx_admin\apps\admin\controller\posts.py", line 25, in index
+    return render_template('admin/posts/index.html',data = p)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\templating.py", line 134, in render_template
+    context, ctx.app)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\templating.py", line 116, in _render
+    rv = template.render(context)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "D:\python_project\yxx_admin\templates\admin\posts\index.html", line 1, in top-level template code
+    {%  extends "admin/common/admin_base.html" %}
+  File "D:\python_project\yxx_admin\templates\admin\common\admin_base.html", line 2, in top-level template code
+    {%  extends "admin/common/base.html" %}
+  File "D:\python_project\yxx_admin\templates\admin\common\base.html", line 32, in top-level template code
+    {% block body%}{% endblock %}
+  File "D:\python_project\yxx_admin\templates\admin\common\admin_base.html", line 32, in block "body"
+    <img src="{{default_img(g.admin.img)}}" class="user-image" alt="User Image">
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 430, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'flask.ctx._AppCtxGlobals object' has no attribute 'admin'
+2018-06-11 14:39:46,564 - ERROR - app.py - log_exception - 1560 - Exception on /admin/posts/index/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\python_project\yxx_admin\apps\admin\controller\posts.py", line 25, in index
+    return render_template('admin/posts/index.html',data = p)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\templating.py", line 134, in render_template
+    context, ctx.app)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\templating.py", line 116, in _render
+    rv = template.render(context)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "D:\python_project\yxx_admin\templates\admin\posts\index.html", line 1, in top-level template code
+    {%  extends "admin/common/admin_base.html" %}
+  File "D:\python_project\yxx_admin\templates\admin\common\admin_base.html", line 2, in top-level template code
+    {%  extends "admin/common/base.html" %}
+  File "D:\python_project\yxx_admin\templates\admin\common\base.html", line 32, in top-level template code
+    {% block body%}{% endblock %}
+  File "D:\python_project\yxx_admin\templates\admin\common\admin_base.html", line 32, in block "body"
+    <img src="{{default_img(g.admin.img)}}" class="user-image" alt="User Image">
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 430, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'flask.ctx._AppCtxGlobals object' has no attribute 'admin'
+2018-06-11 16:42:15,456 - ERROR - app.py - log_exception - 1560 - Exception on /admin/posts/add/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\views.py", line 84, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\views.py", line 149, in dispatch_request
+    return meth(*args, **kwargs)
+  File "D:\python_project\yxx_admin\apps\admin\controller\posts.py", line 38, in get
+    labels_.append(v.terms.name)
+AttributeError: 'InstrumentedList' object has no attribute 'name'
+2018-06-11 16:43:07,104 - ERROR - app.py - log_exception - 1560 - Exception on /admin/posts/add/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\views.py", line 84, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\views.py", line 149, in dispatch_request
+    return meth(*args, **kwargs)
+  File "D:\python_project\yxx_admin\apps\admin\controller\posts.py", line 38, in get
+    labels_.append(v.terms.name)
+AttributeError: 'InstrumentedList' object has no attribute 'name'
+2018-06-11 16:55:04,239 - ERROR - app.py - log_exception - 1560 - Exception on /admin/posts/add/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\views.py", line 84, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\views.py", line 149, in dispatch_request
+    return meth(*args, **kwargs)
+  File "D:\python_project\yxx_admin\apps\admin\controller\posts.py", line 39, in get
+    return render_template('admin/posts/add.html',categorys=categorys,labels_=labels_)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\templating.py", line 133, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 869, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\loaders.py", line 125, in load
+    code = environment.compile(source, name, filename)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 591, in compile
+    self.handle_exception(exc_info, source_hint=source_hint)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "D:\python_project\yxx_admin\templates\admin\posts\add.html", line 73, in template
+    <p class='left{%- int(v.level) + 1 -%} {%- if v.level == 2 -%}p_left{% endif %}' >
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 497, in _parse
+    return Parser(self, source, name, encode_filename(filename)).parse()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\parser.py", line 901, in parse
+    result = nodes.Template(self.subparse(), lineno=1)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\parser.py", line 883, in subparse
+    rv = self.parse_statement()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\parser.py", line 130, in parse_statement
+    return getattr(self, 'parse_' + self.stream.current.value)()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\parser.py", line 268, in parse_block
+    node.body = self.parse_statements(('name:endblock',), drop_needle=True)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\parser.py", line 165, in parse_statements
+    result = self.subparse(end_tokens)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\parser.py", line 883, in subparse
+    rv = self.parse_statement()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\parser.py", line 130, in parse_statement
+    return getattr(self, 'parse_' + self.stream.current.value)()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\parser.py", line 199, in parse_for
+    body = self.parse_statements(('name:endfor', 'name:else'))
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\parser.py", line 165, in parse_statements
+    result = self.subparse(end_tokens)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\parser.py", line 883, in subparse
+    rv = self.parse_statement()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\parser.py", line 144, in parse_statement
+    self.fail_unknown_tag(token.value, token.lineno)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\parser.py", line 97, in fail_unknown_tag
+    return self._fail_ut_eof(name, self._end_token_stack, lineno)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\parser.py", line 90, in _fail_ut_eof
+    self.fail(' '.join(message), lineno)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\parser.py", line 59, in fail
+    raise exc(msg, lineno, self.name, self.filename)
+jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'int'. Jinja was looking for the following tags: 'endfor' or 'else'. The innermost block that needs to be closed is 'for'.
+2018-06-11 16:56:21,680 - ERROR - app.py - log_exception - 1560 - Exception on /admin/posts/add/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\views.py", line 84, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\views.py", line 149, in dispatch_request
+    return meth(*args, **kwargs)
+  File "D:\python_project\yxx_admin\apps\admin\controller\posts.py", line 39, in get
+    return render_template('admin/posts/add.html',categorys=categorys,labels_=labels_)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\templating.py", line 134, in render_template
+    context, ctx.app)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\templating.py", line 116, in _render
+    rv = template.render(context)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "D:\python_project\yxx_admin\templates\admin\posts\add.html", line 1, in top-level template code
+    {%  extends "admin/common/admin_base.html" %}
+  File "D:\python_project\yxx_admin\templates\admin\common\admin_base.html", line 2, in top-level template code
+    {%  extends "admin/common/base.html" %}
+  File "D:\python_project\yxx_admin\templates\admin\common\base.html", line 32, in top-level template code
+    {% block body%}{% endblock %}
+  File "D:\python_project\yxx_admin\templates\admin\common\admin_base.html", line 171, in block "body"
+    {% block content%}{% endblock %}
+  File "D:\python_project\yxx_admin\templates\admin\posts\add.html", line 76, in block "content"
+    <input type="checkbox" name="category[]" value="{{ v.id }}" class="minimal">{{ v.term[0].name }}
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 411, in getitem
+    return obj[argument]
+jinja2.exceptions.UndefinedError: 'apps.admin.model.term_taxonomy.TermTaxonomy object' has no attribute 'term'
+2018-06-11 19:02:25,815 - ERROR - app.py - log_exception - 1560 - Exception on /admin/posts/add/ [POST]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1615, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1630, in finalize_request
+    response = self.make_response(rv)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1725, in make_response
+    raise ValueError('View function did not return a response')
+ValueError: View function did not return a response
+2018-06-11 19:20:20,912 - ERROR - app.py - log_exception - 1560 - Exception on /admin/posts/add/ [POST]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1615, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1630, in finalize_request
+    response = self.make_response(rv)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1725, in make_response
+    raise ValueError('View function did not return a response')
+ValueError: View function did not return a response
+2018-06-11 19:21:40,313 - ERROR - app.py - log_exception - 1560 - Exception on /admin/posts/add/ [POST]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1615, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1630, in finalize_request
+    response = self.make_response(rv)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1725, in make_response
+    raise ValueError('View function did not return a response')
+ValueError: View function did not return a response
+2018-06-11 19:22:16,124 - ERROR - app.py - log_exception - 1560 - Exception on /admin/posts/add/ [POST]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1615, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1630, in finalize_request
+    response = self.make_response(rv)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1725, in make_response
+    raise ValueError('View function did not return a response')
+ValueError: View function did not return a response
+2018-06-11 19:23:38,129 - ERROR - app.py - log_exception - 1560 - Exception on /admin/posts/add/ [POST]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1615, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1630, in finalize_request
+    response = self.make_response(rv)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1725, in make_response
+    raise ValueError('View function did not return a response')
+ValueError: View function did not return a response
+2018-06-11 20:39:21,398 - ERROR - app.py - log_exception - 1560 - Exception on /admin/posts/edit/ [POST]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1615, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1630, in finalize_request
+    response = self.make_response(rv)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1725, in make_response
+    raise ValueError('View function did not return a response')
+ValueError: View function did not return a response
+2018-06-11 20:39:22,319 - ERROR - app.py - log_exception - 1560 - Exception on /admin/posts/edit/ [POST]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1615, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1630, in finalize_request
+    response = self.make_response(rv)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1725, in make_response
+    raise ValueError('View function did not return a response')
+ValueError: View function did not return a response
+2018-06-11 20:54:13,052 - ERROR - app.py - log_exception - 1560 - Exception on /admin/posts/index/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\python_project\yxx_admin\apps\admin\controller\posts.py", line 34, in index
+    return render_template('admin/posts/index.html',data = p)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\templating.py", line 134, in render_template
+    context, ctx.app)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\templating.py", line 116, in _render
+    rv = template.render(context)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "D:\python_project\yxx_admin\templates\admin\posts\index.html", line 1, in top-level template code
+    {%  extends "admin/common/admin_base.html" %}
+  File "D:\python_project\yxx_admin\templates\admin\common\admin_base.html", line 2, in top-level template code
+    {%  extends "admin/common/base.html" %}
+  File "D:\python_project\yxx_admin\templates\admin\common\base.html", line 32, in top-level template code
+    {% block body%}{% endblock %}
+  File "D:\python_project\yxx_admin\templates\admin\common\admin_base.html", line 171, in block "body"
+    {% block content%}{% endblock %}
+  File "D:\python_project\yxx_admin\templates\admin\posts\index.html", line 38, in block "content"
+    <td style="vertical-align:middle">{{ v.label }}</td>
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 430, in getattr
+    return getattr(obj, attribute)
+  File "D:\python_project\yxx_admin\apps\admin\model\posts.py", line 49, in label
+    return ",".join(list(labels))
+TypeError: sequence item 0: expected str instance, TermTaxonomy found
+2018-06-11 20:54:57,292 - ERROR - app.py - log_exception - 1560 - Exception on /admin/posts/index/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\python_project\yxx_admin\apps\admin\controller\posts.py", line 34, in index
+    return render_template('admin/posts/index.html',data = p)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\templating.py", line 134, in render_template
+    context, ctx.app)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\templating.py", line 116, in _render
+    rv = template.render(context)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "D:\python_project\yxx_admin\templates\admin\posts\index.html", line 1, in top-level template code
+    {%  extends "admin/common/admin_base.html" %}
+  File "D:\python_project\yxx_admin\templates\admin\common\admin_base.html", line 2, in top-level template code
+    {%  extends "admin/common/base.html" %}
+  File "D:\python_project\yxx_admin\templates\admin\common\base.html", line 32, in top-level template code
+    {% block body%}{% endblock %}
+  File "D:\python_project\yxx_admin\templates\admin\common\admin_base.html", line 171, in block "body"
+    {% block content%}{% endblock %}
+  File "D:\python_project\yxx_admin\templates\admin\posts\index.html", line 38, in block "content"
+    <td style="vertical-align:middle">{{ v.label }}</td>
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 430, in getattr
+    return getattr(obj, attribute)
+  File "D:\python_project\yxx_admin\apps\admin\model\posts.py", line 49, in label
+    return ",".join(list(labels))
+TypeError: sequence item 0: expected str instance, TermTaxonomy found
+2018-06-11 20:55:25,084 - ERROR - app.py - log_exception - 1560 - Exception on /admin/posts/index/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\python_project\yxx_admin\apps\admin\controller\posts.py", line 34, in index
+    return render_template('admin/posts/index.html',data = p)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\templating.py", line 134, in render_template
+    context, ctx.app)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\templating.py", line 116, in _render
+    rv = template.render(context)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "D:\python_project\yxx_admin\templates\admin\posts\index.html", line 1, in top-level template code
+    {%  extends "admin/common/admin_base.html" %}
+  File "D:\python_project\yxx_admin\templates\admin\common\admin_base.html", line 2, in top-level template code
+    {%  extends "admin/common/base.html" %}
+  File "D:\python_project\yxx_admin\templates\admin\common\base.html", line 32, in top-level template code
+    {% block body%}{% endblock %}
+  File "D:\python_project\yxx_admin\templates\admin\common\admin_base.html", line 171, in block "body"
+    {% block content%}{% endblock %}
+  File "D:\python_project\yxx_admin\templates\admin\posts\index.html", line 38, in block "content"
+    <td style="vertical-align:middle">{{ v.label }}</td>
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 430, in getattr
+    return getattr(obj, attribute)
+  File "D:\python_project\yxx_admin\apps\admin\model\posts.py", line 49, in label
+    return ",".join(list(labels))
+TypeError: sequence item 0: expected str instance, TermTaxonomy found
+2018-06-11 20:55:42,776 - ERROR - app.py - log_exception - 1560 - Exception on /admin/posts/index/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\python_project\yxx_admin\apps\admin\controller\posts.py", line 34, in index
+    return render_template('admin/posts/index.html',data = p)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\templating.py", line 134, in render_template
+    context, ctx.app)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\templating.py", line 116, in _render
+    rv = template.render(context)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "D:\python_project\yxx_admin\templates\admin\posts\index.html", line 1, in top-level template code
+    {%  extends "admin/common/admin_base.html" %}
+  File "D:\python_project\yxx_admin\templates\admin\common\admin_base.html", line 2, in top-level template code
+    {%  extends "admin/common/base.html" %}
+  File "D:\python_project\yxx_admin\templates\admin\common\base.html", line 32, in top-level template code
+    {% block body%}{% endblock %}
+  File "D:\python_project\yxx_admin\templates\admin\common\admin_base.html", line 171, in block "body"
+    {% block content%}{% endblock %}
+  File "D:\python_project\yxx_admin\templates\admin\posts\index.html", line 38, in block "content"
+    <td style="vertical-align:middle">{{ v.label }}</td>
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 430, in getattr
+    return getattr(obj, attribute)
+  File "D:\python_project\yxx_admin\apps\admin\model\posts.py", line 49, in label
+    return ",".join(list(labels))
+TypeError: sequence item 0: expected str instance, TermTaxonomy found
