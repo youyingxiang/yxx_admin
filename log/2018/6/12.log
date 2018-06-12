@@ -1,0 +1,1753 @@
+2018-06-12 10:49:18,292 - ERROR - app.py - log_exception - 1560 - Exception on /admin/admin/index/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 875, in connect
+    (self.host, self.port), self.connect_timeout)
+  File "c:\users\administrator\appdata\local\programs\python\python36\Lib\socket.py", line 724, in create_connection
+    raise err
+  File "c:\users\administrator\appdata\local\programs\python\python36\Lib\socket.py", line 713, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 2158, in _wrap_pool_connect
+    return fn()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\pool.py", line 403, in connect
+    return _ConnectionFairy._checkout(self)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\pool.py", line 788, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\pool.py", line 532, in checkout
+    rec = pool._do_get()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\pool.py", line 1193, in _do_get
+    self._dec_overflow()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\util\langhelpers.py", line 66, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\util\compat.py", line 187, in reraise
+    raise value
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\pool.py", line 1190, in _do_get
+    return self._create_connection()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\pool.py", line 350, in _create_connection
+    return _ConnectionRecord(self)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\pool.py", line 477, in __init__
+    self.__connect(first_connect_check=True)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\pool.py", line 671, in __connect
+    connection = pool._invoke_creator(self)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\strategies.py", line 106, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\default.py", line 410, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\__init__.py", line 88, in Connect
+    return Connection(*args, **kwargs)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 679, in __init__
+    self.connect()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 922, in connect
+    raise exc
+pymysql.err.OperationalError: (2003, "Can't connect to MySQL server on '127.0.0.1' ([WinError 10061] 由于目标计算机积极拒绝，无法连接。)")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1610, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1831, in preprocess_request
+    rv = func()
+  File "D:\python_project\yxx_admin\apps\admin\hooks.py", line 26, in before_request
+    if check_login() == False:
+  File "D:\python_project\yxx_admin\apps\admin\hooks.py", line 39, in check_login
+    admin = Admin.query.get(admin_id)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\query.py", line 882, in get
+    ident, loading.load_on_pk_identity)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\query.py", line 952, in _get_impl
+    return db_load_fn(self, primary_key_identity)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\loading.py", line 247, in load_on_pk_identity
+    return q.one()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\query.py", line 2884, in one
+    ret = self.one_or_none()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\query.py", line 2854, in one_or_none
+    ret = list(self)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\query.py", line 2925, in __iter__
+    return self._execute_and_instances(context)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\query.py", line 2946, in _execute_and_instances
+    close_with_result=True)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\query.py", line 2955, in _get_bind_args
+    **kw
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\query.py", line 2937, in _connection_from_session
+    conn = self.session.connection(**kw)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\session.py", line 1035, in connection
+    execution_options=execution_options)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\session.py", line 1040, in _connection_for_bind
+    engine, execution_options)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\session.py", line 409, in _connection_for_bind
+    conn = bind.contextual_connect()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 2123, in contextual_connect
+    self._wrap_pool_connect(self.pool.connect, None),
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 2162, in _wrap_pool_connect
+    e, dialect, self)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 1476, in _handle_dbapi_exception_noconnection
+    exc_info
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\util\compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\util\compat.py", line 186, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 2158, in _wrap_pool_connect
+    return fn()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\pool.py", line 403, in connect
+    return _ConnectionFairy._checkout(self)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\pool.py", line 788, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\pool.py", line 532, in checkout
+    rec = pool._do_get()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\pool.py", line 1193, in _do_get
+    self._dec_overflow()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\util\langhelpers.py", line 66, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\util\compat.py", line 187, in reraise
+    raise value
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\pool.py", line 1190, in _do_get
+    return self._create_connection()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\pool.py", line 350, in _create_connection
+    return _ConnectionRecord(self)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\pool.py", line 477, in __init__
+    self.__connect(first_connect_check=True)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\pool.py", line 671, in __connect
+    connection = pool._invoke_creator(self)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\strategies.py", line 106, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\default.py", line 410, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\__init__.py", line 88, in Connect
+    return Connection(*args, **kwargs)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 679, in __init__
+    self.connect()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 922, in connect
+    raise exc
+sqlalchemy.exc.OperationalError: (pymysql.err.OperationalError) (2003, "Can't connect to MySQL server on '127.0.0.1' ([WinError 10061] 由于目标计算机积极拒绝，无法连接。)") (Background on this error at: http://sqlalche.me/e/e3q8)
+2018-06-12 10:49:34,627 - ERROR - app.py - log_exception - 1560 - Exception on /admin/admin/index/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 875, in connect
+    (self.host, self.port), self.connect_timeout)
+  File "c:\users\administrator\appdata\local\programs\python\python36\Lib\socket.py", line 724, in create_connection
+    raise err
+  File "c:\users\administrator\appdata\local\programs\python\python36\Lib\socket.py", line 713, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 2158, in _wrap_pool_connect
+    return fn()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\pool.py", line 403, in connect
+    return _ConnectionFairy._checkout(self)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\pool.py", line 788, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\pool.py", line 532, in checkout
+    rec = pool._do_get()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\pool.py", line 1193, in _do_get
+    self._dec_overflow()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\util\langhelpers.py", line 66, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\util\compat.py", line 187, in reraise
+    raise value
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\pool.py", line 1190, in _do_get
+    return self._create_connection()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\pool.py", line 350, in _create_connection
+    return _ConnectionRecord(self)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\pool.py", line 477, in __init__
+    self.__connect(first_connect_check=True)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\pool.py", line 671, in __connect
+    connection = pool._invoke_creator(self)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\strategies.py", line 106, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\default.py", line 410, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\__init__.py", line 88, in Connect
+    return Connection(*args, **kwargs)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 679, in __init__
+    self.connect()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 922, in connect
+    raise exc
+pymysql.err.OperationalError: (2003, "Can't connect to MySQL server on '127.0.0.1' ([WinError 10061] 由于目标计算机积极拒绝，无法连接。)")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1610, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1831, in preprocess_request
+    rv = func()
+  File "D:\python_project\yxx_admin\apps\admin\hooks.py", line 26, in before_request
+    if check_login() == False:
+  File "D:\python_project\yxx_admin\apps\admin\hooks.py", line 39, in check_login
+    admin = Admin.query.get(admin_id)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\query.py", line 882, in get
+    ident, loading.load_on_pk_identity)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\query.py", line 952, in _get_impl
+    return db_load_fn(self, primary_key_identity)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\loading.py", line 247, in load_on_pk_identity
+    return q.one()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\query.py", line 2884, in one
+    ret = self.one_or_none()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\query.py", line 2854, in one_or_none
+    ret = list(self)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\query.py", line 2925, in __iter__
+    return self._execute_and_instances(context)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\query.py", line 2946, in _execute_and_instances
+    close_with_result=True)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\query.py", line 2955, in _get_bind_args
+    **kw
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\query.py", line 2937, in _connection_from_session
+    conn = self.session.connection(**kw)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\session.py", line 1035, in connection
+    execution_options=execution_options)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\session.py", line 1040, in _connection_for_bind
+    engine, execution_options)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\session.py", line 409, in _connection_for_bind
+    conn = bind.contextual_connect()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 2123, in contextual_connect
+    self._wrap_pool_connect(self.pool.connect, None),
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 2162, in _wrap_pool_connect
+    e, dialect, self)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 1476, in _handle_dbapi_exception_noconnection
+    exc_info
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\util\compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\util\compat.py", line 186, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 2158, in _wrap_pool_connect
+    return fn()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\pool.py", line 403, in connect
+    return _ConnectionFairy._checkout(self)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\pool.py", line 788, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\pool.py", line 532, in checkout
+    rec = pool._do_get()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\pool.py", line 1193, in _do_get
+    self._dec_overflow()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\util\langhelpers.py", line 66, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\util\compat.py", line 187, in reraise
+    raise value
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\pool.py", line 1190, in _do_get
+    return self._create_connection()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\pool.py", line 350, in _create_connection
+    return _ConnectionRecord(self)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\pool.py", line 477, in __init__
+    self.__connect(first_connect_check=True)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\pool.py", line 671, in __connect
+    connection = pool._invoke_creator(self)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\strategies.py", line 106, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\default.py", line 410, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\__init__.py", line 88, in Connect
+    return Connection(*args, **kwargs)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 679, in __init__
+    self.connect()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 922, in connect
+    raise exc
+sqlalchemy.exc.OperationalError: (pymysql.err.OperationalError) (2003, "Can't connect to MySQL server on '127.0.0.1' ([WinError 10061] 由于目标计算机积极拒绝，无法连接。)") (Background on this error at: http://sqlalche.me/e/e3q8)
+2018-06-12 10:51:24,822 - ERROR - app.py - log_exception - 1560 - Exception on /admin/posts/edit/ [POST]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1615, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1630, in finalize_request
+    response = self.make_response(rv)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1725, in make_response
+    raise ValueError('View function did not return a response')
+ValueError: View function did not return a response
+2018-06-12 10:56:46,367 - ERROR - app.py - log_exception - 1560 - Exception on /admin/posts/index/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\python_project\yxx_admin\apps\admin\controller\posts.py", line 34, in index
+    tt = TermTaxonomy.quer.all()
+AttributeError: type object 'TermTaxonomy' has no attribute 'quer'
+2018-06-12 10:57:33,117 - ERROR - app.py - log_exception - 1560 - Exception on /admin/posts/index/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\python_project\yxx_admin\apps\admin\controller\posts.py", line 36, in index
+    print(tt[v])
+TypeError: list indices must be integers or slices, not TermTaxonomy
+2018-06-12 11:03:41,754 - ERROR - app.py - log_exception - 1560 - Exception on /admin/posts/index/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\python_project\yxx_admin\apps\admin\controller\posts.py", line 36, in index
+    print(list(tt))
+  File "D:\python_project\yxx_admin\apps\admin\controller\posts.py", line 35, in <lambda>
+    tt = map(lambda data:tt[tt.index(data)].count+1,tt)
+AttributeError: 'map' object has no attribute 'index'
+2018-06-12 11:18:57,434 - ERROR - app.py - log_exception - 1560 - Exception on /admin/posts/index/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\python_project\yxx_admin\apps\admin\controller\posts.py", line 36, in index
+    if v.taxonomy == 1:
+AttributeError: 'Terms' object has no attribute 'taxonomy'
+2018-06-12 11:27:03,191 - ERROR - app.py - log_exception - 1560 - Exception on /admin/posts/index/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\python_project\yxx_admin\apps\admin\controller\posts.py", line 37, in index
+    tt[tt.index[v]].count += 1
+TypeError: 'builtin_function_or_method' object is not subscriptable
+2018-06-12 11:27:03,636 - ERROR - app.py - log_exception - 1560 - Exception on /admin/posts/index/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\python_project\yxx_admin\apps\admin\controller\posts.py", line 37, in index
+    tt[tt.index[v]].count += 1
+TypeError: 'builtin_function_or_method' object is not subscriptable
+2018-06-12 11:27:28,647 - ERROR - app.py - log_exception - 1560 - Exception on /admin/posts/index/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\python_project\yxx_admin\apps\admin\controller\posts.py", line 37, in index
+    tt[tt.index[v]].count =v.count+1
+TypeError: 'builtin_function_or_method' object is not subscriptable
+2018-06-12 11:27:47,075 - ERROR - app.py - log_exception - 1560 - Exception on /admin/posts/index/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\python_project\yxx_admin\apps\admin\controller\posts.py", line 37, in index
+    tt[tt.index[v]].count = v.count + 1
+TypeError: 'builtin_function_or_method' object is not subscriptable
+2018-06-12 11:28:22,811 - ERROR - app.py - log_exception - 1560 - Exception on /admin/posts/index/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\python_project\yxx_admin\apps\admin\controller\posts.py", line 37, in index
+    print(tt[tt.index[v]])
+TypeError: 'builtin_function_or_method' object is not subscriptable
+2018-06-12 11:28:40,383 - ERROR - app.py - log_exception - 1560 - Exception on /admin/posts/index/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\python_project\yxx_admin\apps\admin\controller\posts.py", line 37, in index
+    print(tt.index[v])
+TypeError: 'builtin_function_or_method' object is not subscriptable
+2018-06-12 12:02:19,610 - ERROR - app.py - log_exception - 1560 - Exception on /admin/posts/add/ [POST]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 1193, in _execute_context
+    context)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\cursors.py", line 158, in execute
+    result = self._query(query)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\cursors.py", line 308, in _query
+    conn.query(q)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 820, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 1002, in _read_query_result
+    result.read()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 1285, in read
+    first_packet = self.connection._read_packet()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 966, in _read_packet
+    packet.check_error()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 394, in check_error
+    err.raise_mysql_exception(self._data)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\err.py", line 120, in raise_mysql_exception
+    _check_mysql_exception(errinfo)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\err.py", line 115, in _check_mysql_exception
+    raise InternalError(errno, errorvalue)
+pymysql.err.InternalError: (1366, "Incorrect integer value: '' for column 'size' at row 1")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\python_project\yxx_admin\apps\admin\controller\posts.py", line 80, in post
+    db.session.flush()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\scoping.py", line 153, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\session.py", line 2254, in flush
+    self._flush(objects)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\session.py", line 2380, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\util\langhelpers.py", line 66, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\util\compat.py", line 187, in reraise
+    raise value
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\session.py", line 2344, in _flush
+    flush_context.execute()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 391, in execute
+    rec.execute(self)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 556, in execute
+    uow
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\persistence.py", line 181, in save_obj
+    mapper, table, insert)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\persistence.py", line 866, in _emit_insert_statements
+    execute(statement, params)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 948, in execute
+    return meth(self, multiparams, params)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\sql\elements.py", line 269, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 1060, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 1200, in _execute_context
+    context)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 1413, in _handle_dbapi_exception
+    exc_info
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\util\compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\util\compat.py", line 186, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 1193, in _execute_context
+    context)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\cursors.py", line 158, in execute
+    result = self._query(query)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\cursors.py", line 308, in _query
+    conn.query(q)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 820, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 1002, in _read_query_result
+    result.read()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 1285, in read
+    first_packet = self.connection._read_packet()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 966, in _read_packet
+    packet.check_error()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 394, in check_error
+    err.raise_mysql_exception(self._data)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\err.py", line 120, in raise_mysql_exception
+    _check_mysql_exception(errinfo)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\err.py", line 115, in _check_mysql_exception
+    raise InternalError(errno, errorvalue)
+sqlalchemy.exc.InternalError: (pymysql.err.InternalError) (1366, "Incorrect integer value: '' for column 'size' at row 1") [SQL: 'INSERT INTO tb_resources (old_name, new_name, size) VALUES (%(old_name)s, %(new_name)s, %(size)s)'] [parameters: {'old_name': '', 'new_name': '321', 'size': ''}] (Background on this error at: http://sqlalche.me/e/2j85)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\views.py", line 84, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\views.py", line 149, in dispatch_request
+    return meth(*args, **kwargs)
+  File "D:\python_project\yxx_admin\apps\admin\controller\posts.py", line 116, in post
+    write_log(log_type='add', log_detail="行为：新增文章；错误：" + str(e))
+  File "D:\python_project\yxx_admin\apps\admin\common.py", line 49, in write_log
+    db.session.commit()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\scoping.py", line 153, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\session.py", line 943, in commit
+    self.transaction.commit()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\session.py", line 465, in commit
+    self._assert_active(prepared_ok=True)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\session.py", line 276, in _assert_active
+    % self._rollback_exception
+sqlalchemy.exc.InvalidRequestError: This Session's transaction has been rolled back due to a previous exception during flush. To begin a new transaction with this Session, first issue Session.rollback(). Original exception was: (pymysql.err.InternalError) (1366, "Incorrect integer value: '' for column 'size' at row 1") [SQL: 'INSERT INTO tb_resources (old_name, new_name, size) VALUES (%(old_name)s, %(new_name)s, %(size)s)'] [parameters: {'old_name': '', 'new_name': '321', 'size': ''}] (Background on this error at: http://sqlalche.me/e/2j85)
+2018-06-12 12:35:52,145 - ERROR - app.py - log_exception - 1560 - Exception on /admin/posts/index/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\python_project\yxx_admin\apps\admin\controller\posts.py", line 36, in index
+    setattr(v,'count',v.vount+1)
+AttributeError: 'TermTaxonomy' object has no attribute 'vount'
+2018-06-12 12:41:32,341 - ERROR - app.py - log_exception - 1560 - Exception on /admin/upload/upload/ [POST]
+Traceback (most recent call last):
+  File "D:\python_project\yxx_admin\apps\admin\controller\upload.py", line 13, in upload
+    raise ValueError("用户没有登录!没有上传权限")
+ValueError: 用户没有登录!没有上传权限
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 1193, in _execute_context
+    context)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\cursors.py", line 158, in execute
+    result = self._query(query)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\cursors.py", line 308, in _query
+    conn.query(q)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 820, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 1002, in _read_query_result
+    result.read()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 1285, in read
+    first_packet = self.connection._read_packet()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 966, in _read_packet
+    packet.check_error()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 394, in check_error
+    err.raise_mysql_exception(self._data)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\err.py", line 120, in raise_mysql_exception
+    _check_mysql_exception(errinfo)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\err.py", line 112, in _check_mysql_exception
+    raise errorclass(errno, errorvalue)
+pymysql.err.IntegrityError: (1048, "Column 'admin_id' cannot be null")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\python_project\yxx_admin\apps\admin\controller\upload.py", line 58, in upload
+    write_log(log_type='upload', log_detail="行为：上传；错误："+str(e))
+  File "D:\python_project\yxx_admin\apps\admin\common.py", line 49, in write_log
+    db.session.commit()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\scoping.py", line 153, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\session.py", line 943, in commit
+    self.transaction.commit()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\session.py", line 467, in commit
+    self._prepare_impl()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\session.py", line 447, in _prepare_impl
+    self.session.flush()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\session.py", line 2254, in flush
+    self._flush(objects)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\session.py", line 2380, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\util\langhelpers.py", line 66, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\util\compat.py", line 187, in reraise
+    raise value
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\session.py", line 2344, in _flush
+    flush_context.execute()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 391, in execute
+    rec.execute(self)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 556, in execute
+    uow
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\persistence.py", line 181, in save_obj
+    mapper, table, insert)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\persistence.py", line 866, in _emit_insert_statements
+    execute(statement, params)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 948, in execute
+    return meth(self, multiparams, params)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\sql\elements.py", line 269, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 1060, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 1200, in _execute_context
+    context)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 1413, in _handle_dbapi_exception
+    exc_info
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\util\compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\util\compat.py", line 186, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 1193, in _execute_context
+    context)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\cursors.py", line 158, in execute
+    result = self._query(query)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\cursors.py", line 308, in _query
+    conn.query(q)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 820, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 1002, in _read_query_result
+    result.read()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 1285, in read
+    first_packet = self.connection._read_packet()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 966, in _read_packet
+    packet.check_error()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 394, in check_error
+    err.raise_mysql_exception(self._data)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\err.py", line 120, in raise_mysql_exception
+    _check_mysql_exception(errinfo)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\err.py", line 112, in _check_mysql_exception
+    raise errorclass(errno, errorvalue)
+sqlalchemy.exc.IntegrityError: (pymysql.err.IntegrityError) (1048, "Column 'admin_id' cannot be null") [SQL: 'INSERT INTO tb_log (log_type, ip, log_detail, admin_id, _create_time) VALUES (%(log_type)s, %(ip)s, %(log_detail)s, %(admin_id)s, %(_create_time)s)'] [parameters: {'log_type': 'upload', 'ip': '127.0.0.1', 'log_detail': '行为：上传；错误：用户没有登录!没有上传权限', 'admin_id': None, '_create_time': 1528778492.213904}] (Background on this error at: http://sqlalche.me/e/gkpj)
+2018-06-12 13:20:37,008 - ERROR - app.py - log_exception - 1560 - Exception on /admin/posts/add/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\views.py", line 84, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\views.py", line 149, in dispatch_request
+    return meth(*args, **kwargs)
+  File "D:\python_project\yxx_admin\apps\admin\controller\posts.py", line 45, in get
+    return render_template('admin/posts/add.html',categorys=categorys,labels_=labels_)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\templating.py", line 134, in render_template
+    context, ctx.app)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\templating.py", line 116, in _render
+    rv = template.render(context)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "D:\python_project\yxx_admin\templates\admin\posts\add.html", line 1, in top-level template code
+    {%  extends "admin/common/admin_base.html" %}
+  File "D:\python_project\yxx_admin\templates\admin\common\admin_base.html", line 2, in top-level template code
+    {%  extends "admin/common/base.html" %}
+  File "D:\python_project\yxx_admin\templates\admin\common\base.html", line 32, in top-level template code
+    {% block body%}{% endblock %}
+  File "D:\python_project\yxx_admin\templates\admin\common\admin_base.html", line 171, in block "body"
+    {% block content%}{% endblock %}
+  File "D:\python_project\yxx_admin\templates\admin\posts\add.html", line 177, in block "content"
+    url: "{{ url_for('adminterms','ajax_add_label') }}",
+TypeError: url_for() takes 1 positional argument but 2 were given
+2018-06-12 14:20:51,129 - ERROR - app.py - log_exception - 1560 - Exception on /admin/posts/edit/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\views.py", line 84, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\views.py", line 149, in dispatch_request
+    return meth(*args, **kwargs)
+  File "D:\python_project\yxx_admin\apps\admin\controller\posts.py", line 133, in get
+    return render_template('/admin/posts/edit.html', data=postsinfo,categorys=categorys,labels_=labels_)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\templating.py", line 133, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 869, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\loaders.py", line 125, in load
+    code = environment.compile(source, name, filename)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 591, in compile
+    self.handle_exception(exc_info, source_hint=source_hint)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "D:\python_project\yxx_admin\templates\admin\posts\edit.html", line 92, in template
+    {%- endfor -%}
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 497, in _parse
+    return Parser(self, source, name, encode_filename(filename)).parse()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\parser.py", line 901, in parse
+    result = nodes.Template(self.subparse(), lineno=1)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\parser.py", line 883, in subparse
+    rv = self.parse_statement()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\parser.py", line 130, in parse_statement
+    return getattr(self, 'parse_' + self.stream.current.value)()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\parser.py", line 268, in parse_block
+    node.body = self.parse_statements(('name:endblock',), drop_needle=True)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\parser.py", line 165, in parse_statements
+    result = self.subparse(end_tokens)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\parser.py", line 883, in subparse
+    rv = self.parse_statement()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\parser.py", line 130, in parse_statement
+    return getattr(self, 'parse_' + self.stream.current.value)()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\parser.py", line 199, in parse_for
+    body = self.parse_statements(('name:endfor', 'name:else'))
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\parser.py", line 165, in parse_statements
+    result = self.subparse(end_tokens)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\parser.py", line 883, in subparse
+    rv = self.parse_statement()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\parser.py", line 130, in parse_statement
+    return getattr(self, 'parse_' + self.stream.current.value)()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\parser.py", line 213, in parse_if
+    'name:endif'))
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\parser.py", line 165, in parse_statements
+    result = self.subparse(end_tokens)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\parser.py", line 883, in subparse
+    rv = self.parse_statement()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\parser.py", line 144, in parse_statement
+    self.fail_unknown_tag(token.value, token.lineno)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\parser.py", line 97, in fail_unknown_tag
+    return self._fail_ut_eof(name, self._end_token_stack, lineno)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\parser.py", line 90, in _fail_ut_eof
+    self.fail(' '.join(message), lineno)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\parser.py", line 59, in fail
+    raise exc(msg, lineno, self.name, self.filename)
+jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'endfor'. You probably made a nesting mistake. Jinja is expecting this tag, but currently looking for 'elif' or 'else' or 'endif'. The innermost block that needs to be closed is 'if'.
+2018-06-12 14:57:15,923 - ERROR - app.py - log_exception - 1560 - Exception on /admin/posts/edit/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\views.py", line 84, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\views.py", line 149, in dispatch_request
+    return meth(*args, **kwargs)
+  File "D:\python_project\yxx_admin\apps\admin\controller\posts.py", line 133, in get
+    return render_template('/admin/posts/edit.html', data=postsinfo,categorys=categorys,labels_=labels_)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\templating.py", line 134, in render_template
+    context, ctx.app)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\templating.py", line 116, in _render
+    rv = template.render(context)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "D:\python_project\yxx_admin\templates\admin\posts\edit.html", line 1, in top-level template code
+    {%  extends "admin/common/admin_base.html" %}
+  File "D:\python_project\yxx_admin\templates\admin\common\admin_base.html", line 2, in top-level template code
+    {%  extends "admin/common/base.html" %}
+  File "D:\python_project\yxx_admin\templates\admin\common\base.html", line 32, in top-level template code
+    {% block body%}{% endblock %}
+  File "D:\python_project\yxx_admin\templates\admin\common\admin_base.html", line 171, in block "body"
+    {% block content%}{% endblock %}
+  File "D:\python_project\yxx_admin\templates\admin\posts\edit.html", line 89, in block "content"
+    <label class="checkbox-inline">
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 430, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'apps.admin.model.posts.Posts object' has no attribute 'category'
+2018-06-12 14:57:15,988 - ERROR - app.py - log_exception - 1560 - Exception on /admin/posts/edit/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\views.py", line 84, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\views.py", line 149, in dispatch_request
+    return meth(*args, **kwargs)
+  File "D:\python_project\yxx_admin\apps\admin\controller\posts.py", line 133, in get
+    return render_template('/admin/posts/edit.html', data=postsinfo,categorys=categorys,labels_=labels_)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\templating.py", line 134, in render_template
+    context, ctx.app)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\templating.py", line 116, in _render
+    rv = template.render(context)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "D:\python_project\yxx_admin\templates\admin\posts\edit.html", line 1, in top-level template code
+    {%  extends "admin/common/admin_base.html" %}
+  File "D:\python_project\yxx_admin\templates\admin\common\admin_base.html", line 2, in top-level template code
+    {%  extends "admin/common/base.html" %}
+  File "D:\python_project\yxx_admin\templates\admin\common\base.html", line 32, in top-level template code
+    {% block body%}{% endblock %}
+  File "D:\python_project\yxx_admin\templates\admin\common\admin_base.html", line 171, in block "body"
+    {% block content%}{% endblock %}
+  File "D:\python_project\yxx_admin\templates\admin\posts\edit.html", line 89, in block "content"
+    <label class="checkbox-inline">
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 430, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'apps.admin.model.posts.Posts object' has no attribute 'category'
+2018-06-12 16:04:02,411 - ERROR - app.py - log_exception - 1560 - Exception on /admin/posts/edit/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\views.py", line 84, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\views.py", line 149, in dispatch_request
+    return meth(*args, **kwargs)
+  File "D:\python_project\yxx_admin\apps\admin\controller\posts.py", line 133, in get
+    return render_template('/admin/posts/edit.html', data=postsinfo,categorys=categorys,labels_=labels_)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\templating.py", line 134, in render_template
+    context, ctx.app)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\templating.py", line 116, in _render
+    rv = template.render(context)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "D:\python_project\yxx_admin\templates\admin\posts\edit.html", line 1, in top-level template code
+    {%  extends "admin/common/admin_base.html" %}
+  File "D:\python_project\yxx_admin\templates\admin\common\admin_base.html", line 2, in top-level template code
+    {%  extends "admin/common/base.html" %}
+  File "D:\python_project\yxx_admin\templates\admin\common\base.html", line 32, in top-level template code
+    {% block body%}{% endblock %}
+  File "D:\python_project\yxx_admin\templates\admin\common\admin_base.html", line 171, in block "body"
+    {% block content%}{% endblock %}
+  File "D:\python_project\yxx_admin\templates\admin\posts\edit.html", line 90, in block "content"
+    <input type="checkbox" {% if v.terms[0].name in data.category.split(',') %}checked="checked"{% endif %}name="category" value="{{ v.id }}" class="minimal"> {{ v.terms[0].name }}
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 430, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'apps.admin.model.posts.Posts object' has no attribute 'category'
+2018-06-12 16:04:02,879 - ERROR - app.py - log_exception - 1560 - Exception on /admin/posts/edit/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\views.py", line 84, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\views.py", line 149, in dispatch_request
+    return meth(*args, **kwargs)
+  File "D:\python_project\yxx_admin\apps\admin\controller\posts.py", line 133, in get
+    return render_template('/admin/posts/edit.html', data=postsinfo,categorys=categorys,labels_=labels_)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\templating.py", line 134, in render_template
+    context, ctx.app)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\templating.py", line 116, in _render
+    rv = template.render(context)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "D:\python_project\yxx_admin\templates\admin\posts\edit.html", line 1, in top-level template code
+    {%  extends "admin/common/admin_base.html" %}
+  File "D:\python_project\yxx_admin\templates\admin\common\admin_base.html", line 2, in top-level template code
+    {%  extends "admin/common/base.html" %}
+  File "D:\python_project\yxx_admin\templates\admin\common\base.html", line 32, in top-level template code
+    {% block body%}{% endblock %}
+  File "D:\python_project\yxx_admin\templates\admin\common\admin_base.html", line 171, in block "body"
+    {% block content%}{% endblock %}
+  File "D:\python_project\yxx_admin\templates\admin\posts\edit.html", line 90, in block "content"
+    <input type="checkbox" {% if v.terms[0].name in data.category.split(',') %}checked="checked"{% endif %}name="category" value="{{ v.id }}" class="minimal"> {{ v.terms[0].name }}
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 430, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'apps.admin.model.posts.Posts object' has no attribute 'category'
+2018-06-12 17:23:53,882 - ERROR - app.py - log_exception - 1560 - Exception on /admin/upload/upload/ [POST]
+Traceback (most recent call last):
+  File "D:\python_project\yxx_admin\apps\admin\controller\upload.py", line 13, in upload
+    raise ValueError("用户没有登录!没有上传权限")
+ValueError: 用户没有登录!没有上传权限
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 1193, in _execute_context
+    context)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\cursors.py", line 158, in execute
+    result = self._query(query)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\cursors.py", line 308, in _query
+    conn.query(q)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 820, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 1002, in _read_query_result
+    result.read()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 1285, in read
+    first_packet = self.connection._read_packet()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 966, in _read_packet
+    packet.check_error()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 394, in check_error
+    err.raise_mysql_exception(self._data)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\err.py", line 120, in raise_mysql_exception
+    _check_mysql_exception(errinfo)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\err.py", line 112, in _check_mysql_exception
+    raise errorclass(errno, errorvalue)
+pymysql.err.IntegrityError: (1048, "Column 'admin_id' cannot be null")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\python_project\yxx_admin\apps\admin\controller\upload.py", line 58, in upload
+    write_log(log_type='upload', log_detail="行为：上传；错误："+str(e))
+  File "D:\python_project\yxx_admin\apps\admin\common.py", line 49, in write_log
+    db.session.commit()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\scoping.py", line 153, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\session.py", line 943, in commit
+    self.transaction.commit()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\session.py", line 467, in commit
+    self._prepare_impl()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\session.py", line 447, in _prepare_impl
+    self.session.flush()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\session.py", line 2254, in flush
+    self._flush(objects)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\session.py", line 2380, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\util\langhelpers.py", line 66, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\util\compat.py", line 187, in reraise
+    raise value
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\session.py", line 2344, in _flush
+    flush_context.execute()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 391, in execute
+    rec.execute(self)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 556, in execute
+    uow
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\persistence.py", line 181, in save_obj
+    mapper, table, insert)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\persistence.py", line 866, in _emit_insert_statements
+    execute(statement, params)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 948, in execute
+    return meth(self, multiparams, params)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\sql\elements.py", line 269, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 1060, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 1200, in _execute_context
+    context)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 1413, in _handle_dbapi_exception
+    exc_info
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\util\compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\util\compat.py", line 186, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 1193, in _execute_context
+    context)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\cursors.py", line 158, in execute
+    result = self._query(query)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\cursors.py", line 308, in _query
+    conn.query(q)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 820, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 1002, in _read_query_result
+    result.read()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 1285, in read
+    first_packet = self.connection._read_packet()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 966, in _read_packet
+    packet.check_error()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 394, in check_error
+    err.raise_mysql_exception(self._data)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\err.py", line 120, in raise_mysql_exception
+    _check_mysql_exception(errinfo)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\err.py", line 112, in _check_mysql_exception
+    raise errorclass(errno, errorvalue)
+sqlalchemy.exc.IntegrityError: (pymysql.err.IntegrityError) (1048, "Column 'admin_id' cannot be null") [SQL: 'INSERT INTO tb_log (log_type, ip, log_detail, admin_id, _create_time) VALUES (%(log_type)s, %(ip)s, %(log_detail)s, %(admin_id)s, %(_create_time)s)'] [parameters: {'log_type': 'upload', 'ip': '127.0.0.1', 'log_detail': '行为：上传；错误：用户没有登录!没有上传权限', 'admin_id': None, '_create_time': 1528795433.6959012}] (Background on this error at: http://sqlalche.me/e/gkpj)
+2018-06-12 18:38:26,887 - ERROR - app.py - log_exception - 1560 - Exception on /admin/posts/edit/ [POST]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 1193, in _execute_context
+    context)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\cursors.py", line 158, in execute
+    result = self._query(query)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\cursors.py", line 308, in _query
+    conn.query(q)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 820, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 1002, in _read_query_result
+    result.read()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 1285, in read
+    first_packet = self.connection._read_packet()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 966, in _read_packet
+    packet.check_error()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 394, in check_error
+    err.raise_mysql_exception(self._data)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\err.py", line 120, in raise_mysql_exception
+    _check_mysql_exception(errinfo)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\err.py", line 112, in _check_mysql_exception
+    raise errorclass(errno, errorvalue)
+pymysql.err.IntegrityError: (1048, "Column 'post_name' cannot be null")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\python_project\yxx_admin\apps\admin\controller\posts.py", line 156, in post
+    if request.form.get('img') and request.form.get('img') != posts.feature_img and request.form.get('img') != "/static/global/face/default.png":
+  File "D:\python_project\yxx_admin\apps\admin\model\posts.py", line 88, in feature_img
+    pm = PostMeta.query.filter(and_(PostMeta.meta_key == 'feature_img_resources_posts_id', PostMeta.meta_value == id)).first()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\query.py", line 2825, in first
+    ret = list(self[0:1])
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\query.py", line 2617, in __getitem__
+    return list(res)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\query.py", line 2924, in __iter__
+    self.session._autoflush()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\session.py", line 1444, in _autoflush
+    util.raise_from_cause(e)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\util\compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\util\compat.py", line 187, in reraise
+    raise value
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\session.py", line 1434, in _autoflush
+    self.flush()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\session.py", line 2254, in flush
+    self._flush(objects)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\session.py", line 2380, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\util\langhelpers.py", line 66, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\util\compat.py", line 187, in reraise
+    raise value
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\session.py", line 2344, in _flush
+    flush_context.execute()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 391, in execute
+    rec.execute(self)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 556, in execute
+    uow
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\persistence.py", line 177, in save_obj
+    mapper, table, update)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\persistence.py", line 768, in _emit_update_statements
+    execute(statement, multiparams)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 948, in execute
+    return meth(self, multiparams, params)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\sql\elements.py", line 269, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 1060, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 1200, in _execute_context
+    context)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 1413, in _handle_dbapi_exception
+    exc_info
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\util\compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\util\compat.py", line 186, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 1193, in _execute_context
+    context)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\cursors.py", line 158, in execute
+    result = self._query(query)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\cursors.py", line 308, in _query
+    conn.query(q)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 820, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 1002, in _read_query_result
+    result.read()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 1285, in read
+    first_packet = self.connection._read_packet()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 966, in _read_packet
+    packet.check_error()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 394, in check_error
+    err.raise_mysql_exception(self._data)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\err.py", line 120, in raise_mysql_exception
+    _check_mysql_exception(errinfo)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\err.py", line 112, in _check_mysql_exception
+    raise errorclass(errno, errorvalue)
+sqlalchemy.exc.IntegrityError: (raised as a result of Query-invoked autoflush; consider using a session.no_autoflush block if this flush is occurring prematurely) (pymysql.err.IntegrityError) (1048, "Column 'post_name' cannot be null") [SQL: 'UPDATE tb_posts SET post_status=%(post_status)s, comment_status=%(comment_status)s, post_name=%(post_name)s, _update_time=%(_update_time)s, menu_order=%(menu_order)s WHERE tb_posts.id = %(tb_posts_id)s'] [parameters: {'post_status': '1', 'comment_status': '1', 'post_name': None, '_update_time': (1528799906.8717523,), 'menu_order': None, 'tb_posts_id': 32}] (Background on this error at: http://sqlalche.me/e/gkpj)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\views.py", line 84, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\views.py", line 149, in dispatch_request
+    return meth(*args, **kwargs)
+  File "D:\python_project\yxx_admin\apps\admin\controller\posts.py", line 190, in post
+    write_log(log_type='edit', log_detail="行为：修改文章；错误：" + str(e))
+  File "D:\python_project\yxx_admin\apps\admin\common.py", line 49, in write_log
+    db.session.commit()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\scoping.py", line 153, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\session.py", line 943, in commit
+    self.transaction.commit()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\session.py", line 465, in commit
+    self._assert_active(prepared_ok=True)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\session.py", line 276, in _assert_active
+    % self._rollback_exception
+sqlalchemy.exc.InvalidRequestError: This Session's transaction has been rolled back due to a previous exception during flush. To begin a new transaction with this Session, first issue Session.rollback(). Original exception was: (raised as a result of Query-invoked autoflush; consider using a session.no_autoflush block if this flush is occurring prematurely) (pymysql.err.IntegrityError) (1048, "Column 'post_name' cannot be null") [SQL: 'UPDATE tb_posts SET post_status=%(post_status)s, comment_status=%(comment_status)s, post_name=%(post_name)s, _update_time=%(_update_time)s, menu_order=%(menu_order)s WHERE tb_posts.id = %(tb_posts_id)s'] [parameters: {'post_status': '1', 'comment_status': '1', 'post_name': None, '_update_time': (1528799906.8717523,), 'menu_order': None, 'tb_posts_id': 32}] (Background on this error at: http://sqlalche.me/e/gkpj)
+2018-06-12 18:57:23,034 - ERROR - app.py - log_exception - 1560 - Exception on /admin/posts/edit/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\views.py", line 84, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\views.py", line 149, in dispatch_request
+    return meth(*args, **kwargs)
+  File "D:\python_project\yxx_admin\apps\admin\controller\posts.py", line 133, in get
+    if d is None:
+NameError: name 'd' is not defined
+2018-06-12 19:45:43,833 - ERROR - app.py - log_exception - 1560 - Exception on /admin/upload/upload/ [POST]
+Traceback (most recent call last):
+  File "D:\python_project\yxx_admin\apps\admin\controller\upload.py", line 13, in upload
+    raise ValueError("用户没有登录!没有上传权限")
+ValueError: 用户没有登录!没有上传权限
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 1193, in _execute_context
+    context)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\cursors.py", line 158, in execute
+    result = self._query(query)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\cursors.py", line 308, in _query
+    conn.query(q)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 820, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 1002, in _read_query_result
+    result.read()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 1285, in read
+    first_packet = self.connection._read_packet()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 966, in _read_packet
+    packet.check_error()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 394, in check_error
+    err.raise_mysql_exception(self._data)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\err.py", line 120, in raise_mysql_exception
+    _check_mysql_exception(errinfo)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\err.py", line 112, in _check_mysql_exception
+    raise errorclass(errno, errorvalue)
+pymysql.err.IntegrityError: (1048, "Column 'admin_id' cannot be null")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\python_project\yxx_admin\apps\admin\controller\upload.py", line 58, in upload
+    write_log(log_type='upload', log_detail="行为：上传；错误："+str(e))
+  File "D:\python_project\yxx_admin\apps\admin\common.py", line 49, in write_log
+    db.session.commit()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\scoping.py", line 153, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\session.py", line 943, in commit
+    self.transaction.commit()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\session.py", line 467, in commit
+    self._prepare_impl()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\session.py", line 447, in _prepare_impl
+    self.session.flush()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\session.py", line 2254, in flush
+    self._flush(objects)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\session.py", line 2380, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\util\langhelpers.py", line 66, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\util\compat.py", line 187, in reraise
+    raise value
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\session.py", line 2344, in _flush
+    flush_context.execute()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 391, in execute
+    rec.execute(self)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 556, in execute
+    uow
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\persistence.py", line 181, in save_obj
+    mapper, table, insert)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\persistence.py", line 866, in _emit_insert_statements
+    execute(statement, params)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 948, in execute
+    return meth(self, multiparams, params)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\sql\elements.py", line 269, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 1060, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 1200, in _execute_context
+    context)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 1413, in _handle_dbapi_exception
+    exc_info
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\util\compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\util\compat.py", line 186, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 1193, in _execute_context
+    context)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\cursors.py", line 158, in execute
+    result = self._query(query)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\cursors.py", line 308, in _query
+    conn.query(q)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 820, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 1002, in _read_query_result
+    result.read()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 1285, in read
+    first_packet = self.connection._read_packet()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 966, in _read_packet
+    packet.check_error()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 394, in check_error
+    err.raise_mysql_exception(self._data)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\err.py", line 120, in raise_mysql_exception
+    _check_mysql_exception(errinfo)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\err.py", line 112, in _check_mysql_exception
+    raise errorclass(errno, errorvalue)
+sqlalchemy.exc.IntegrityError: (pymysql.err.IntegrityError) (1048, "Column 'admin_id' cannot be null") [SQL: 'INSERT INTO tb_log (log_type, ip, log_detail, admin_id, _create_time) VALUES (%(log_type)s, %(ip)s, %(log_detail)s, %(admin_id)s, %(_create_time)s)'] [parameters: {'log_type': 'upload', 'ip': '127.0.0.1', 'log_detail': '行为：上传；错误：用户没有登录!没有上传权限', 'admin_id': None, '_create_time': 1528803943.6476426}] (Background on this error at: http://sqlalche.me/e/gkpj)
+2018-06-12 19:45:52,498 - ERROR - app.py - log_exception - 1560 - Exception on /admin/upload/upload/ [POST]
+Traceback (most recent call last):
+  File "D:\python_project\yxx_admin\apps\admin\controller\upload.py", line 13, in upload
+    raise ValueError("用户没有登录!没有上传权限")
+ValueError: 用户没有登录!没有上传权限
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 1193, in _execute_context
+    context)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\cursors.py", line 158, in execute
+    result = self._query(query)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\cursors.py", line 308, in _query
+    conn.query(q)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 820, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 1002, in _read_query_result
+    result.read()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 1285, in read
+    first_packet = self.connection._read_packet()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 966, in _read_packet
+    packet.check_error()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 394, in check_error
+    err.raise_mysql_exception(self._data)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\err.py", line 120, in raise_mysql_exception
+    _check_mysql_exception(errinfo)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\err.py", line 112, in _check_mysql_exception
+    raise errorclass(errno, errorvalue)
+pymysql.err.IntegrityError: (1048, "Column 'admin_id' cannot be null")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\python_project\yxx_admin\apps\admin\controller\upload.py", line 58, in upload
+    write_log(log_type='upload', log_detail="行为：上传；错误："+str(e))
+  File "D:\python_project\yxx_admin\apps\admin\common.py", line 49, in write_log
+    db.session.commit()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\scoping.py", line 153, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\session.py", line 943, in commit
+    self.transaction.commit()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\session.py", line 467, in commit
+    self._prepare_impl()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\session.py", line 447, in _prepare_impl
+    self.session.flush()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\session.py", line 2254, in flush
+    self._flush(objects)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\session.py", line 2380, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\util\langhelpers.py", line 66, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\util\compat.py", line 187, in reraise
+    raise value
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\session.py", line 2344, in _flush
+    flush_context.execute()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 391, in execute
+    rec.execute(self)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 556, in execute
+    uow
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\persistence.py", line 181, in save_obj
+    mapper, table, insert)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\persistence.py", line 866, in _emit_insert_statements
+    execute(statement, params)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 948, in execute
+    return meth(self, multiparams, params)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\sql\elements.py", line 269, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 1060, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 1200, in _execute_context
+    context)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 1413, in _handle_dbapi_exception
+    exc_info
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\util\compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\util\compat.py", line 186, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 1193, in _execute_context
+    context)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\cursors.py", line 158, in execute
+    result = self._query(query)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\cursors.py", line 308, in _query
+    conn.query(q)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 820, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 1002, in _read_query_result
+    result.read()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 1285, in read
+    first_packet = self.connection._read_packet()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 966, in _read_packet
+    packet.check_error()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 394, in check_error
+    err.raise_mysql_exception(self._data)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\err.py", line 120, in raise_mysql_exception
+    _check_mysql_exception(errinfo)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\err.py", line 112, in _check_mysql_exception
+    raise errorclass(errno, errorvalue)
+sqlalchemy.exc.IntegrityError: (pymysql.err.IntegrityError) (1048, "Column 'admin_id' cannot be null") [SQL: 'INSERT INTO tb_log (log_type, ip, log_detail, admin_id, _create_time) VALUES (%(log_type)s, %(ip)s, %(log_detail)s, %(admin_id)s, %(_create_time)s)'] [parameters: {'log_type': 'upload', 'ip': '127.0.0.1', 'log_detail': '行为：上传；错误：用户没有登录!没有上传权限', 'admin_id': None, '_create_time': 1528803952.4941485}] (Background on this error at: http://sqlalche.me/e/gkpj)
+2018-06-12 19:53:29,838 - ERROR - app.py - log_exception - 1560 - Exception on /admin/upload/upload/ [POST]
+Traceback (most recent call last):
+  File "D:\python_project\yxx_admin\apps\admin\controller\upload.py", line 13, in upload
+    raise ValueError("用户没有登录!没有上传权限")
+ValueError: 用户没有登录!没有上传权限
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 1193, in _execute_context
+    context)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\cursors.py", line 158, in execute
+    result = self._query(query)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\cursors.py", line 308, in _query
+    conn.query(q)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 820, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 1002, in _read_query_result
+    result.read()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 1285, in read
+    first_packet = self.connection._read_packet()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 966, in _read_packet
+    packet.check_error()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 394, in check_error
+    err.raise_mysql_exception(self._data)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\err.py", line 120, in raise_mysql_exception
+    _check_mysql_exception(errinfo)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\err.py", line 112, in _check_mysql_exception
+    raise errorclass(errno, errorvalue)
+pymysql.err.IntegrityError: (1048, "Column 'admin_id' cannot be null")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\python_project\yxx_admin\apps\admin\controller\upload.py", line 58, in upload
+    write_log(log_type='upload', log_detail="行为：上传；错误："+str(e))
+  File "D:\python_project\yxx_admin\apps\admin\common.py", line 49, in write_log
+    db.session.commit()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\scoping.py", line 153, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\session.py", line 943, in commit
+    self.transaction.commit()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\session.py", line 467, in commit
+    self._prepare_impl()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\session.py", line 447, in _prepare_impl
+    self.session.flush()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\session.py", line 2254, in flush
+    self._flush(objects)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\session.py", line 2380, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\util\langhelpers.py", line 66, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\util\compat.py", line 187, in reraise
+    raise value
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\session.py", line 2344, in _flush
+    flush_context.execute()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 391, in execute
+    rec.execute(self)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 556, in execute
+    uow
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\persistence.py", line 181, in save_obj
+    mapper, table, insert)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\persistence.py", line 866, in _emit_insert_statements
+    execute(statement, params)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 948, in execute
+    return meth(self, multiparams, params)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\sql\elements.py", line 269, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 1060, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 1200, in _execute_context
+    context)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 1413, in _handle_dbapi_exception
+    exc_info
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\util\compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\util\compat.py", line 186, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 1193, in _execute_context
+    context)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\cursors.py", line 158, in execute
+    result = self._query(query)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\cursors.py", line 308, in _query
+    conn.query(q)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 820, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 1002, in _read_query_result
+    result.read()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 1285, in read
+    first_packet = self.connection._read_packet()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 966, in _read_packet
+    packet.check_error()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 394, in check_error
+    err.raise_mysql_exception(self._data)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\err.py", line 120, in raise_mysql_exception
+    _check_mysql_exception(errinfo)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\err.py", line 112, in _check_mysql_exception
+    raise errorclass(errno, errorvalue)
+sqlalchemy.exc.IntegrityError: (pymysql.err.IntegrityError) (1048, "Column 'admin_id' cannot be null") [SQL: 'INSERT INTO tb_log (log_type, ip, log_detail, admin_id, _create_time) VALUES (%(log_type)s, %(ip)s, %(log_detail)s, %(admin_id)s, %(_create_time)s)'] [parameters: {'log_type': 'upload', 'ip': '127.0.0.1', 'log_detail': '行为：上传；错误：用户没有登录!没有上传权限', 'admin_id': None, '_create_time': 1528804409.7543025}] (Background on this error at: http://sqlalche.me/e/gkpj)
+2018-06-12 20:04:00,245 - ERROR - app.py - log_exception - 1560 - Exception on /admin/posts/edit/ [POST]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 1193, in _execute_context
+    context)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\cursors.py", line 158, in execute
+    result = self._query(query)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\cursors.py", line 308, in _query
+    conn.query(q)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 820, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 1002, in _read_query_result
+    result.read()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 1285, in read
+    first_packet = self.connection._read_packet()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 966, in _read_packet
+    packet.check_error()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 394, in check_error
+    err.raise_mysql_exception(self._data)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\err.py", line 120, in raise_mysql_exception
+    _check_mysql_exception(errinfo)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\err.py", line 112, in _check_mysql_exception
+    raise errorclass(errno, errorvalue)
+pymysql.err.IntegrityError: (1048, "Column 'post_excerpt' cannot be null")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\python_project\yxx_admin\apps\admin\controller\posts.py", line 116, in post
+    if request.form.get('img') != posts.feature_img and request.form.get('img') != '/static/global/face/default.png':
+  File "D:\python_project\yxx_admin\apps\admin\model\posts.py", line 106, in feature_img
+    pm = PostMeta.query.filter(and_(PostMeta.meta_key == 'feature_img_resources_posts_id', PostMeta.meta_value == id)).first()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\query.py", line 2825, in first
+    ret = list(self[0:1])
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\query.py", line 2617, in __getitem__
+    return list(res)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\query.py", line 2924, in __iter__
+    self.session._autoflush()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\session.py", line 1444, in _autoflush
+    util.raise_from_cause(e)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\util\compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\util\compat.py", line 187, in reraise
+    raise value
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\session.py", line 1434, in _autoflush
+    self.flush()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\session.py", line 2254, in flush
+    self._flush(objects)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\session.py", line 2380, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\util\langhelpers.py", line 66, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\util\compat.py", line 187, in reraise
+    raise value
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\session.py", line 2344, in _flush
+    flush_context.execute()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 391, in execute
+    rec.execute(self)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 556, in execute
+    uow
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\persistence.py", line 177, in save_obj
+    mapper, table, update)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\persistence.py", line 768, in _emit_update_statements
+    execute(statement, multiparams)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 948, in execute
+    return meth(self, multiparams, params)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\sql\elements.py", line 269, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 1060, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 1200, in _execute_context
+    context)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 1413, in _handle_dbapi_exception
+    exc_info
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\util\compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\util\compat.py", line 186, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 1193, in _execute_context
+    context)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\cursors.py", line 158, in execute
+    result = self._query(query)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\cursors.py", line 308, in _query
+    conn.query(q)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 820, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 1002, in _read_query_result
+    result.read()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 1285, in read
+    first_packet = self.connection._read_packet()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 966, in _read_packet
+    packet.check_error()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 394, in check_error
+    err.raise_mysql_exception(self._data)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\err.py", line 120, in raise_mysql_exception
+    _check_mysql_exception(errinfo)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\err.py", line 112, in _check_mysql_exception
+    raise errorclass(errno, errorvalue)
+sqlalchemy.exc.IntegrityError: (raised as a result of Query-invoked autoflush; consider using a session.no_autoflush block if this flush is occurring prematurely) (pymysql.err.IntegrityError) (1048, "Column 'post_excerpt' cannot be null") [SQL: 'UPDATE tb_posts SET post_content=%(post_content)s, post_excerpt=%(post_excerpt)s, post_status=%(post_status)s, comment_status=%(comment_status)s, _update_time=%(_update_time)s WHERE tb_posts.id = %(tb_posts_id)s'] [parameters: {'post_content': 'Python中join函数和os.path.join用法1', 'post_excerpt': None, 'post_status': None, 'comment_status': None, '_update_time': (1528805040.2423644,), 'tb_posts_id': 1}] (Background on this error at: http://sqlalche.me/e/gkpj)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\views.py", line 84, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\views.py", line 149, in dispatch_request
+    return meth(*args, **kwargs)
+  File "D:\python_project\yxx_admin\apps\admin\controller\posts.py", line 128, in post
+    write_log(log_type='edit', log_detail="行为：修改文章；错误：" + str(e))
+  File "D:\python_project\yxx_admin\apps\admin\common.py", line 49, in write_log
+    db.session.commit()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\scoping.py", line 153, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\session.py", line 943, in commit
+    self.transaction.commit()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\session.py", line 465, in commit
+    self._assert_active(prepared_ok=True)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\session.py", line 276, in _assert_active
+    % self._rollback_exception
+sqlalchemy.exc.InvalidRequestError: This Session's transaction has been rolled back due to a previous exception during flush. To begin a new transaction with this Session, first issue Session.rollback(). Original exception was: (raised as a result of Query-invoked autoflush; consider using a session.no_autoflush block if this flush is occurring prematurely) (pymysql.err.IntegrityError) (1048, "Column 'post_excerpt' cannot be null") [SQL: 'UPDATE tb_posts SET post_content=%(post_content)s, post_excerpt=%(post_excerpt)s, post_status=%(post_status)s, comment_status=%(comment_status)s, _update_time=%(_update_time)s WHERE tb_posts.id = %(tb_posts_id)s'] [parameters: {'post_content': 'Python中join函数和os.path.join用法1', 'post_excerpt': None, 'post_status': None, 'comment_status': None, '_update_time': (1528805040.2423644,), 'tb_posts_id': 1}] (Background on this error at: http://sqlalche.me/e/gkpj)

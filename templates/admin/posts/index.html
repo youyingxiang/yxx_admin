@@ -38,8 +38,8 @@
                             <td style="vertical-align:middle">{{ v.label }}</td>
                             <td style="vertical-align:middle">
                                 <a href="javascript:void(0);" data-id="{{ v.id }}" data-field="post_status"
-                                data-value="{{ post_status }}" data-url="{{ url_for('adminposts.edit',id=v.id) }}"
-                                class='editimg state fa {% if v.post_status == 1 %}fa-check-circle text-green{% else %}fa-times-circle text-red{% endif %}'></a>
+                                data-value="{{ v.post_status }}" data-url="{{ url_for('adminposts.edit',id=v.id) }}"
+                                class='editimg state fa {% if v.post_status== 1 %}fa-check-circle text-green{% else %}fa-times-circle text-red{% endif %}'></a>
                             </td>
                             <td style="vertical-align:middle">{{ v.create_time }}</td>
                             <td style="vertical-align:middle">{{authAction(url_for('adminposts.edit',id=v.id), 'edit')}}  {{authAction(url_for('adminposts.delete'),cationType='delete',param=v.id)}} </td>

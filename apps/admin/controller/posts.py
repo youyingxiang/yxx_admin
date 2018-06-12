@@ -1,4 +1,4 @@
-from flask import Blueprint,render_template,views,request,g,url_for
+from flask import Blueprint,render_template,views,request,g,url_for,abort
 from ..model.posts import Posts
 from ..model.term_taxonomy import TermTaxonomy
 from ..model.resources import Resources
@@ -6,11 +6,11 @@ from ..model.postmeta import PostMeta
 from ..model.terms import Terms
 from sqlalchemy import and_,or_
 from ..config import PAGE_SIZE
-from ..common import reSort,write_log
+from ..common import reSort,write_log,get_str_upper
 from think import restful
 from exts import db
-import time
-from ..form.posts import PostExcerpt,PostTitle,PostsForm
+import time,os
+from ..form.posts import PostExcerptForm,PostTitleForm,PostsForm,PostStatusForm
 bp = Blueprint('adminposts',__name__,url_prefix='/admin/posts')
 
 @bp.route('/index/')
@@ -31,6 +31,7 @@ def index():
     else:
         page = 1
     p = Posts.query.filter(where).order_by(order).paginate(page, per_page=PAGE_SIZE)
+    tt = TermTaxonomy.query.all()
     return render_template('admin/posts/index.html',data = p)
 
 class PostsAddView(views.MethodView):
@@ -40,9 +41,7 @@ class PostsAddView(views.MethodView):
         categorys = reSort(categorys,parent=0,level=0,ret = [])
         #获取标签
         labels = TermTaxonomy.query.filter(TermTaxonomy.taxonomy == 2).order_by("count desc").all()
-        labels_ = []
-        for v in labels:
-            labels_.append(v.terms[0].name)
+        labels_ = map(lambda data:data.terms[0].name,labels)
         return render_template('admin/posts/add.html',categorys=categorys,labels_=labels_)
     def post(self):
         form = PostsForm(request.form)
@@ -65,49 +64,15 @@ class PostsAddView(views.MethodView):
                 db.session.add(posts)
                 db.session.flush()
                 # step1  看是否有特色图片
-                if request.form.get('img'):
-                    resour = Resources(
-                        old_name = request.form.get('old_name'),
-                        size = request.form.get('file_size'),
-                        new_name = request.form.get('img')
-                    )
-                    # posts_meta 操作
-                    postsm = PostMeta(
-                        meta_key = "feature_img_resources_posts_id",
-                        meta_value = posts.id
-                    )
-                    # posts_meta 与 resources关联
-                    resour.postmetas = [postsm]
-                    db.session.add(resour)
-                    db.session.flush()
-                # step2 查看是否有分类
-                category = request.form.getlist('category')
-                if len(category) > 0:
-                    # posts_meta 操作
-                    postsm = PostMeta(
-                        meta_key="termtaxonomy_category_posts_id",
-                        meta_value=posts.id
-                    )
-                    tt = TermTaxonomy.query.filter(TermTaxonomy.id.in_(category)).all()
-                    postsm.terms = tt
-                    db.session.add(postsm)
-                    db.session.flush()
-                # 标签
-                label = request.form.getlist('label')
-                if len(label) > 0:
-                    # posts_meta 操作
-                    postsm = PostMeta(
-                        meta_key="termtaxonomy_label_posts_id",
-                        meta_value=posts.id
-                    )
-                    tm = Terms.query.filter(Terms.name.in_(label)).all()
-                    tt = map(lambda data:data.term_taxonomy,tm)
-                    postsm.terms = list(tt)
-                    db.session.add(postsm)
-                    db.session.flush()
+                if request.form.get('img') != "/static/global/face/default.png":
+                    posts.feature_img = [request.form.get('img'),request.form.get('file_size'),request.form.get('old_name')]
+                # 分类
+                posts.category = request.form.getlist('category')
+                # step3 标签
+                posts.label = request.form.getlist('label')
                 db.session.commit()
                 write_log(log_type='add', log_detail='增加文章成功')
-                return restful.success(message="操作成功", url=url_for('adminposts.add'))
+                return restful.success(message="操作成功", url=url_for('adminposts.index'))
             else:
                 raise ValueError(form.get_err_one())
         except Exception as e:
@@ -117,13 +82,78 @@ class PostsAddView(views.MethodView):
 
 class PostsEditView(views.MethodView):
     def get(self):
-        return render_template('admin/posts/edit.html')
-        pass
+        posts_id = request.args.get('id')
+        if posts_id is not None:
+            postsinfo = Posts.query.get(posts_id)
+            # 获取分类
+            categorys = TermTaxonomy.query.filter(TermTaxonomy.taxonomy == 1).all()
+            categorys = reSort(categorys, parent=0, level=0, ret=[])
+            # 获取标签
+            labels = TermTaxonomy.query.filter(TermTaxonomy.taxonomy == 2).order_by("count desc").all()
+            labels_ = map(lambda data: data.terms[0].name, labels)
+            return render_template('/admin/posts/edit.html', data=postsinfo,categorys=categorys,labels_=labels_)
+        else:
+            abort(404)
     def post(self):
-        pass
+        try:
+            if len(request.form) == 2:
+                for v in request.form:
+                    if v != 'id':
+                        v_old_name = v
+                        object_name = get_str_upper(v, '_') + "Form"
+                        form = eval(object_name)(request.form)
+            else:
+                form = PostsForm(request.form)
+            if form.validate():
+                posts = Posts.query.get(request.form.get('id'))
+                if len(request.form) == 2:
+                    setattr(posts,v_old_name,form.data[v_old_name])
+                else:
+                    posts.post_content = request.form.get('post_content')
+                    posts.post_content = request.form.get('post_title')
+                    posts.post_excerpt = request.form.get('post_excerpt')
+                    posts.post_status = request.form.get('post_status')
+                    posts.comment_status = request.form.get('comment_status')
+                    posts.post_name = request.form.get('post_name') if request.form.get('post_name') else "";
+                    posts.update_time = time.time(),
+                    posts.menu_order = request.form.get('menu_order') if request.form.get('menu_order') else 0;
+                    if request.form.get('img') != posts.feature_img and request.form.get('img') != '/static/global/face/default.png':
+                        posts.feature_img = [request.form.get('img'),request.form.get('file_size'),request.form.get('old_name')]
+                    # 分类
+                    posts.category = request.form.getlist('category')
+                    # step3 标签
+                    posts.label = request.form.getlist('label')
+                db.session.commit()
+                write_log(log_type='add', log_detail='修改文章成功')
+                return restful.success(message="操作成功", url=url_for('adminposts.index'))
+            else:
+                raise ValueError(form.get_err_one())
+        except Exception as e:
+            write_log(log_type='edit', log_detail="行为：修改文章；错误：" + str(e))
+            return restful.server_error(message=str(e))
 
 @bp.route('/delete/',methods=['POST'])
 def delete():
+    ids = request.form.get('id')
+    try:
+        if id is not None:
+            res = Posts.query.filter(Posts.id.in_(ids.split(','))).delete(synchronize_session=False)
+            mks = ['termtaxonomy_category_posts_id','feature_img_resources_posts_id','feature_img_resources_posts_id']
+            pms = PostMeta.query.filter(or_(PostMeta.meta_key.in_(mks),PostMeta.meta_value.in_(ids))).all()
+            if pms:
+                for v in pms:
+                    if v.terms.all():
+                        for vv in v.terms.all():
+                            vv.count -= 1
+                        v.terms = []
+                        v.resources = []
+                    db.session.delete(v)
+            db.session.commit()
+            write_log(log_type='delete', log_detail='删除文章成功')
+            return restful.success('删除成功！', url=url_for('adminposts.index'))
+    except Exception as e:
+        write_log(log_type='delete', log_detail="行为：删除文章；错误：" + str(e))
+        return restful.server_error(message=str(e))
     pass
 
 bp.add_url_rule('/add/',view_func=PostsAddView.as_view('add'))

@@ -4,7 +4,7 @@ from ..common import get_str_upper,write_log,reSort,getChildren
 from ..config import PAGE_SIZE,TAXONOMY,TAXONOMY_CN
 from think import restful
 from sqlalchemy import or_,and_
-from ..form.terms import TermsForm
+from ..form.terms import TermsForm,NameForm
 from exts import db
 bp = Blueprint('adminterms',__name__,url_prefix='/admin/terms')
 
@@ -130,6 +130,37 @@ class TermsMenuView(views.MethodView):
         pass
     def post(self):
         pass
+
+@bp.route('/ajax_add_label/',methods=['POST'])
+def ajax_add_label():
+    form = NameForm(request.form)
+    try:
+        if form.validate():
+            name = request.form.get('name')
+            res = db.session.query(TermTaxonomy,Terms).filter(and_(TermTaxonomy.taxonomy == 2,Terms.name == name,TermTaxonomy.term_id==Terms.id )).all()
+            # 没有当前标签
+            if len(res) == 0:
+                t = Terms(
+                    name = request.form.get('name'),
+                    slug = request.form.get('name'),
+                    term_order=99
+                )
+                db.session.add(t)
+                db.session.flush()
+                t.term_taxonomy = TermTaxonomy(
+                    term_id=t.id,
+                    taxonomy = 2,
+                    img = "",
+                    parent= 0,
+                    count=0)
+                db.session.commit()
+            write_log(log_type='add', log_detail='添加标签成功')
+            return restful.success('添加成功')
+        else:
+            raise ValueError(form.get_err_one())
+    except Exception as e:
+        write_log(log_type='add', log_detail="行为：添加标签；错误：" + str(e))
+        return restful.server_error(message=str(e))
 
 bp.add_url_rule('/edit/',view_func=TermsEditView.as_view('edit'))
 bp.add_url_rule('/menu/',view_func=TermsMenuView.as_view('menu'))

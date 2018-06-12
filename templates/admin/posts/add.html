@@ -133,7 +133,7 @@
                     </div>
                     <div class="box-body">
                         <div class="input-group">
-                        <input class="form-control" name="img"  placeholder="特色图片" >
+                        <input class="form-control" name="img" placeholder="特色图片" >
                         <span class="input-group-btn">
                             <a href="{{ no_img('')}}" target="_blank" >
                                 <img src="{{ no_img('')}}" style="height:34px; width:68px;" />
@@ -145,8 +145,8 @@
                 </div>
           <!-- /.box -->
             </div>
-            <input type="hidden" name="file_size">
-            <input type="hidden" name="old_name">
+            <input type="hidden" value="" name="file_size">
+            <input type="hidden" value="" name="old_name">
         </form>
 
         </div>
@@ -165,18 +165,32 @@
             //增加标签
             $("#add_label").on('click',function(){
                 var value = $(this).parent().prev().val().trim()
-                 var is_append = true
+                var is_append = true
+                if (value.length == 0) return false;
                 $("#select_label a span").each(function () {
                     if (value == $(this).html().trim()) {
                         is_append = false
                     }
                 })
                 if (is_append == false) return;
-                var html = "<a href='javascript:void(0)'><input type='hidden' value='"+value+"' name='label'><i class='fa fa-fw fa-close'></i><span>"+value+"</span></a>"
-                $("#select_label").append(html)
-                $("#select_label i").on('click',function(){
-                    $(this).parent().remove()
-                })
+                $.ajax({
+                    url: "{{ url_for('adminterms.ajax_add_label') }}",
+                    data:{"name":value},
+                    type:'post',
+                    dataType: "json",
+                    success:function(result){
+                        if (result.code == 200) {
+                            var html = "<a href='javascript:void(0)'><input type='hidden' value='"+value+"' name='label'><i class='fa fa-fw fa-close'></i><span>"+value+"</span></a>"
+                            $("#select_label").append(html)
+                            $("#select_label i").on('click',function(){
+                                $(this).parent().remove()
+                            })
+                        } else {
+                            $.amaran({'message':result.info});
+                        }
+                    },
+                });
+
             })
             //从常用标签选择2
             $('#show_labels a').on('click',function(){

@@ -103,8 +103,8 @@ def wirte_log():
     m = str(datetime.datetime.now().month)
     d = str(datetime.datetime.now().day)
     log_path = os.path.join(os.path.dirname(__file__),'log',y,m,d + '.log')
-    if os.path.exists(log_path) == False:
-        log_dir = os.path.dirname(log_path)
+    log_dir = os.path.dirname(log_path)
+    if os.path.exists(log_dir) == False:
         os.makedirs(log_dir)
     handler = logging.FileHandler(log_path, encoding='UTF-8')
     handler.setLevel(logging.DEBUG)
