@@ -1,0 +1,1052 @@
+2018-06-13 10:20:27,743 - ERROR - app.py - log_exception - 1560 - Exception on /admin/posts/index/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 1193, in _execute_context
+    context)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\cursors.py", line 158, in execute
+    result = self._query(query)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\cursors.py", line 308, in _query
+    conn.query(q)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 820, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 1002, in _read_query_result
+    result.read()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 1285, in read
+    first_packet = self.connection._read_packet()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 966, in _read_packet
+    packet.check_error()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 394, in check_error
+    err.raise_mysql_exception(self._data)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\err.py", line 120, in raise_mysql_exception
+    _check_mysql_exception(errinfo)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\err.py", line 115, in _check_mysql_exception
+    raise InternalError(errno, errorvalue)
+pymysql.err.InternalError: (1054, "Unknown column 'create_time' in 'order clause'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\python_project\yxx_admin\apps\admin\controller\posts.py", line 33, in index
+    p = Posts.query.filter(where).order_by(order).paginate(page, per_page=PAGE_SIZE)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask_sqlalchemy\__init__.py", line 491, in paginate
+    items = self.limit(per_page).offset((page - 1) * per_page).all()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\query.py", line 2773, in all
+    return list(self)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\query.py", line 2925, in __iter__
+    return self._execute_and_instances(context)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\query.py", line 2948, in _execute_and_instances
+    result = conn.execute(querycontext.statement, self._params)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 948, in execute
+    return meth(self, multiparams, params)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\sql\elements.py", line 269, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 1060, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 1200, in _execute_context
+    context)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 1413, in _handle_dbapi_exception
+    exc_info
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\util\compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\util\compat.py", line 186, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 1193, in _execute_context
+    context)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\cursors.py", line 158, in execute
+    result = self._query(query)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\cursors.py", line 308, in _query
+    conn.query(q)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 820, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 1002, in _read_query_result
+    result.read()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 1285, in read
+    first_packet = self.connection._read_packet()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 966, in _read_packet
+    packet.check_error()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 394, in check_error
+    err.raise_mysql_exception(self._data)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\err.py", line 120, in raise_mysql_exception
+    _check_mysql_exception(errinfo)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\err.py", line 115, in _check_mysql_exception
+    raise InternalError(errno, errorvalue)
+sqlalchemy.exc.InternalError: (pymysql.err.InternalError) (1054, "Unknown column 'create_time' in 'order clause'") [SQL: 'SELECT tb_posts.id AS tb_posts_id, tb_posts.post_author AS tb_posts_post_author, tb_posts._create_time AS tb_posts__create_time, tb_posts.post_content AS tb_posts_post_content, tb_posts.post_title AS tb_posts_post_title, tb_posts.post_excerpt AS tb_posts_post_excerpt, tb_posts.post_status AS tb_posts_post_status, tb_posts.comment_status AS tb_posts_comment_status, tb_posts.post_name AS tb_posts_post_name, tb_posts._update_time AS tb_posts__update_time, tb_posts.menu_order AS tb_posts_menu_order, tb_posts.post_type AS tb_posts_post_type, tb_posts.comment_count AS tb_posts_comment_count \nFROM tb_posts ORDER BY create_time asc \n LIMIT %(param_1)s, %(param_2)s'] [parameters: {'param_1': 0, 'param_2': 15}] (Background on this error at: http://sqlalche.me/e/2j85)
+2018-06-13 10:20:28,097 - ERROR - app.py - log_exception - 1560 - Exception on /admin/posts/index/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 1193, in _execute_context
+    context)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\cursors.py", line 158, in execute
+    result = self._query(query)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\cursors.py", line 308, in _query
+    conn.query(q)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 820, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 1002, in _read_query_result
+    result.read()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 1285, in read
+    first_packet = self.connection._read_packet()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 966, in _read_packet
+    packet.check_error()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 394, in check_error
+    err.raise_mysql_exception(self._data)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\err.py", line 120, in raise_mysql_exception
+    _check_mysql_exception(errinfo)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\err.py", line 115, in _check_mysql_exception
+    raise InternalError(errno, errorvalue)
+pymysql.err.InternalError: (1054, "Unknown column 'create_time' in 'order clause'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\python_project\yxx_admin\apps\admin\controller\posts.py", line 33, in index
+    p = Posts.query.filter(where).order_by(order).paginate(page, per_page=PAGE_SIZE)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask_sqlalchemy\__init__.py", line 491, in paginate
+    items = self.limit(per_page).offset((page - 1) * per_page).all()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\query.py", line 2773, in all
+    return list(self)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\query.py", line 2925, in __iter__
+    return self._execute_and_instances(context)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\query.py", line 2948, in _execute_and_instances
+    result = conn.execute(querycontext.statement, self._params)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 948, in execute
+    return meth(self, multiparams, params)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\sql\elements.py", line 269, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 1060, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 1200, in _execute_context
+    context)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 1413, in _handle_dbapi_exception
+    exc_info
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\util\compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\util\compat.py", line 186, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 1193, in _execute_context
+    context)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\cursors.py", line 158, in execute
+    result = self._query(query)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\cursors.py", line 308, in _query
+    conn.query(q)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 820, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 1002, in _read_query_result
+    result.read()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 1285, in read
+    first_packet = self.connection._read_packet()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 966, in _read_packet
+    packet.check_error()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 394, in check_error
+    err.raise_mysql_exception(self._data)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\err.py", line 120, in raise_mysql_exception
+    _check_mysql_exception(errinfo)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\err.py", line 115, in _check_mysql_exception
+    raise InternalError(errno, errorvalue)
+sqlalchemy.exc.InternalError: (pymysql.err.InternalError) (1054, "Unknown column 'create_time' in 'order clause'") [SQL: 'SELECT tb_posts.id AS tb_posts_id, tb_posts.post_author AS tb_posts_post_author, tb_posts._create_time AS tb_posts__create_time, tb_posts.post_content AS tb_posts_post_content, tb_posts.post_title AS tb_posts_post_title, tb_posts.post_excerpt AS tb_posts_post_excerpt, tb_posts.post_status AS tb_posts_post_status, tb_posts.comment_status AS tb_posts_comment_status, tb_posts.post_name AS tb_posts_post_name, tb_posts._update_time AS tb_posts__update_time, tb_posts.menu_order AS tb_posts_menu_order, tb_posts.post_type AS tb_posts_post_type, tb_posts.comment_count AS tb_posts_comment_count \nFROM tb_posts ORDER BY create_time asc \n LIMIT %(param_1)s, %(param_2)s'] [parameters: {'param_1': 0, 'param_2': 15}] (Background on this error at: http://sqlalche.me/e/2j85)
+2018-06-13 10:21:51,883 - ERROR - app.py - log_exception - 1560 - Exception on /admin/posts/index/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 1193, in _execute_context
+    context)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\cursors.py", line 158, in execute
+    result = self._query(query)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\cursors.py", line 308, in _query
+    conn.query(q)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 820, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 1002, in _read_query_result
+    result.read()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 1285, in read
+    first_packet = self.connection._read_packet()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 966, in _read_packet
+    packet.check_error()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 394, in check_error
+    err.raise_mysql_exception(self._data)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\err.py", line 120, in raise_mysql_exception
+    _check_mysql_exception(errinfo)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\err.py", line 115, in _check_mysql_exception
+    raise InternalError(errno, errorvalue)
+pymysql.err.InternalError: (1054, "Unknown column 'create_time' in 'order clause'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\python_project\yxx_admin\apps\admin\controller\posts.py", line 33, in index
+    p = Posts.query.filter(where).order_by(order).paginate(page, per_page=PAGE_SIZE)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask_sqlalchemy\__init__.py", line 491, in paginate
+    items = self.limit(per_page).offset((page - 1) * per_page).all()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\query.py", line 2773, in all
+    return list(self)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\query.py", line 2925, in __iter__
+    return self._execute_and_instances(context)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\query.py", line 2948, in _execute_and_instances
+    result = conn.execute(querycontext.statement, self._params)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 948, in execute
+    return meth(self, multiparams, params)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\sql\elements.py", line 269, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 1060, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 1200, in _execute_context
+    context)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 1413, in _handle_dbapi_exception
+    exc_info
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\util\compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\util\compat.py", line 186, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 1193, in _execute_context
+    context)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\cursors.py", line 158, in execute
+    result = self._query(query)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\cursors.py", line 308, in _query
+    conn.query(q)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 820, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 1002, in _read_query_result
+    result.read()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 1285, in read
+    first_packet = self.connection._read_packet()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 966, in _read_packet
+    packet.check_error()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 394, in check_error
+    err.raise_mysql_exception(self._data)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\err.py", line 120, in raise_mysql_exception
+    _check_mysql_exception(errinfo)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\err.py", line 115, in _check_mysql_exception
+    raise InternalError(errno, errorvalue)
+sqlalchemy.exc.InternalError: (pymysql.err.InternalError) (1054, "Unknown column 'create_time' in 'order clause'") [SQL: 'SELECT tb_posts.id AS tb_posts_id, tb_posts.post_author AS tb_posts_post_author, tb_posts._create_time AS tb_posts__create_time, tb_posts.post_content AS tb_posts_post_content, tb_posts.post_title AS tb_posts_post_title, tb_posts.post_excerpt AS tb_posts_post_excerpt, tb_posts.post_status AS tb_posts_post_status, tb_posts.comment_status AS tb_posts_comment_status, tb_posts.post_name AS tb_posts_post_name, tb_posts._update_time AS tb_posts__update_time, tb_posts.menu_order AS tb_posts_menu_order, tb_posts.post_type AS tb_posts_post_type, tb_posts.comment_count AS tb_posts_comment_count \nFROM tb_posts ORDER BY create_time asc \n LIMIT %(param_1)s, %(param_2)s'] [parameters: {'param_1': 0, 'param_2': 15}] (Background on this error at: http://sqlalche.me/e/2j85)
+2018-06-13 10:21:55,344 - ERROR - app.py - log_exception - 1560 - Exception on /admin/posts/index/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 1193, in _execute_context
+    context)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\cursors.py", line 158, in execute
+    result = self._query(query)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\cursors.py", line 308, in _query
+    conn.query(q)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 820, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 1002, in _read_query_result
+    result.read()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 1285, in read
+    first_packet = self.connection._read_packet()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 966, in _read_packet
+    packet.check_error()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 394, in check_error
+    err.raise_mysql_exception(self._data)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\err.py", line 120, in raise_mysql_exception
+    _check_mysql_exception(errinfo)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\err.py", line 115, in _check_mysql_exception
+    raise InternalError(errno, errorvalue)
+pymysql.err.InternalError: (1054, "Unknown column 'create_time' in 'order clause'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\python_project\yxx_admin\apps\admin\controller\posts.py", line 33, in index
+    p = Posts.query.filter(where).order_by(order).paginate(page, per_page=PAGE_SIZE)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask_sqlalchemy\__init__.py", line 491, in paginate
+    items = self.limit(per_page).offset((page - 1) * per_page).all()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\query.py", line 2773, in all
+    return list(self)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\query.py", line 2925, in __iter__
+    return self._execute_and_instances(context)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\query.py", line 2948, in _execute_and_instances
+    result = conn.execute(querycontext.statement, self._params)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 948, in execute
+    return meth(self, multiparams, params)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\sql\elements.py", line 269, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 1060, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 1200, in _execute_context
+    context)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 1413, in _handle_dbapi_exception
+    exc_info
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\util\compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\util\compat.py", line 186, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 1193, in _execute_context
+    context)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\cursors.py", line 158, in execute
+    result = self._query(query)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\cursors.py", line 308, in _query
+    conn.query(q)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 820, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 1002, in _read_query_result
+    result.read()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 1285, in read
+    first_packet = self.connection._read_packet()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 966, in _read_packet
+    packet.check_error()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 394, in check_error
+    err.raise_mysql_exception(self._data)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\err.py", line 120, in raise_mysql_exception
+    _check_mysql_exception(errinfo)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\err.py", line 115, in _check_mysql_exception
+    raise InternalError(errno, errorvalue)
+sqlalchemy.exc.InternalError: (pymysql.err.InternalError) (1054, "Unknown column 'create_time' in 'order clause'") [SQL: 'SELECT tb_posts.id AS tb_posts_id, tb_posts.post_author AS tb_posts_post_author, tb_posts._create_time AS tb_posts__create_time, tb_posts.post_content AS tb_posts_post_content, tb_posts.post_title AS tb_posts_post_title, tb_posts.post_excerpt AS tb_posts_post_excerpt, tb_posts.post_status AS tb_posts_post_status, tb_posts.comment_status AS tb_posts_comment_status, tb_posts.post_name AS tb_posts_post_name, tb_posts._update_time AS tb_posts__update_time, tb_posts.menu_order AS tb_posts_menu_order, tb_posts.post_type AS tb_posts_post_type, tb_posts.comment_count AS tb_posts_comment_count \nFROM tb_posts ORDER BY create_time asc \n LIMIT %(param_1)s, %(param_2)s'] [parameters: {'param_1': 0, 'param_2': 15}] (Background on this error at: http://sqlalche.me/e/2j85)
+2018-06-13 10:21:55,382 - ERROR - app.py - log_exception - 1560 - Exception on /admin/posts/index/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 1193, in _execute_context
+    context)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\cursors.py", line 158, in execute
+    result = self._query(query)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\cursors.py", line 308, in _query
+    conn.query(q)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 820, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 1002, in _read_query_result
+    result.read()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 1285, in read
+    first_packet = self.connection._read_packet()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 966, in _read_packet
+    packet.check_error()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 394, in check_error
+    err.raise_mysql_exception(self._data)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\err.py", line 120, in raise_mysql_exception
+    _check_mysql_exception(errinfo)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\err.py", line 115, in _check_mysql_exception
+    raise InternalError(errno, errorvalue)
+pymysql.err.InternalError: (1054, "Unknown column 'create_time' in 'order clause'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\python_project\yxx_admin\apps\admin\controller\posts.py", line 33, in index
+    p = Posts.query.filter(where).order_by(order).paginate(page, per_page=PAGE_SIZE)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask_sqlalchemy\__init__.py", line 491, in paginate
+    items = self.limit(per_page).offset((page - 1) * per_page).all()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\query.py", line 2773, in all
+    return list(self)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\query.py", line 2925, in __iter__
+    return self._execute_and_instances(context)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\orm\query.py", line 2948, in _execute_and_instances
+    result = conn.execute(querycontext.statement, self._params)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 948, in execute
+    return meth(self, multiparams, params)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\sql\elements.py", line 269, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 1060, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 1200, in _execute_context
+    context)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 1413, in _handle_dbapi_exception
+    exc_info
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\util\compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\util\compat.py", line 186, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\base.py", line 1193, in _execute_context
+    context)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\sqlalchemy\engine\default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\cursors.py", line 158, in execute
+    result = self._query(query)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\cursors.py", line 308, in _query
+    conn.query(q)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 820, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 1002, in _read_query_result
+    result.read()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 1285, in read
+    first_packet = self.connection._read_packet()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 966, in _read_packet
+    packet.check_error()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\connections.py", line 394, in check_error
+    err.raise_mysql_exception(self._data)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\err.py", line 120, in raise_mysql_exception
+    _check_mysql_exception(errinfo)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\pymysql\err.py", line 115, in _check_mysql_exception
+    raise InternalError(errno, errorvalue)
+sqlalchemy.exc.InternalError: (pymysql.err.InternalError) (1054, "Unknown column 'create_time' in 'order clause'") [SQL: 'SELECT tb_posts.id AS tb_posts_id, tb_posts.post_author AS tb_posts_post_author, tb_posts._create_time AS tb_posts__create_time, tb_posts.post_content AS tb_posts_post_content, tb_posts.post_title AS tb_posts_post_title, tb_posts.post_excerpt AS tb_posts_post_excerpt, tb_posts.post_status AS tb_posts_post_status, tb_posts.comment_status AS tb_posts_comment_status, tb_posts.post_name AS tb_posts_post_name, tb_posts._update_time AS tb_posts__update_time, tb_posts.menu_order AS tb_posts_menu_order, tb_posts.post_type AS tb_posts_post_type, tb_posts.comment_count AS tb_posts_comment_count \nFROM tb_posts ORDER BY create_time asc \n LIMIT %(param_1)s, %(param_2)s'] [parameters: {'param_1': 0, 'param_2': 15}] (Background on this error at: http://sqlalche.me/e/2j85)
+2018-06-13 12:46:30,763 - ERROR - app.py - log_exception - 1560 - Exception on /admin/terms/ajax_add_menu/ [POST]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1615, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1630, in finalize_request
+    response = self.make_response(rv)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1725, in make_response
+    raise ValueError('View function did not return a response')
+ValueError: View function did not return a response
+2018-06-13 15:20:46,943 - ERROR - app.py - log_exception - 1560 - Exception on /admin/terms/menu/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\views.py", line 84, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\views.py", line 149, in dispatch_request
+    return meth(*args, **kwargs)
+  File "D:\python_project\yxx_admin\apps\admin\controller\terms.py", line 135, in get
+    return render_template('admin/terms/menu.html',menus = menus,menu=menu)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\templating.py", line 133, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 869, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\loaders.py", line 125, in load
+    code = environment.compile(source, name, filename)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 591, in compile
+    self.handle_exception(exc_info, source_hint=source_hint)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "D:\python_project\yxx_admin\templates\admin\terms\menu.html", line 17, in template
+    <option {% id menu.id == v.id %}selected="selected"{% endif %} value="{{ v.id }}">{{ v.terms[0].name }}</option>
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 497, in _parse
+    return Parser(self, source, name, encode_filename(filename)).parse()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\parser.py", line 901, in parse
+    result = nodes.Template(self.subparse(), lineno=1)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\parser.py", line 883, in subparse
+    rv = self.parse_statement()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\parser.py", line 130, in parse_statement
+    return getattr(self, 'parse_' + self.stream.current.value)()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\parser.py", line 268, in parse_block
+    node.body = self.parse_statements(('name:endblock',), drop_needle=True)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\parser.py", line 165, in parse_statements
+    result = self.subparse(end_tokens)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\parser.py", line 883, in subparse
+    rv = self.parse_statement()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\parser.py", line 130, in parse_statement
+    return getattr(self, 'parse_' + self.stream.current.value)()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\parser.py", line 199, in parse_for
+    body = self.parse_statements(('name:endfor', 'name:else'))
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\parser.py", line 165, in parse_statements
+    result = self.subparse(end_tokens)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\parser.py", line 883, in subparse
+    rv = self.parse_statement()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\parser.py", line 144, in parse_statement
+    self.fail_unknown_tag(token.value, token.lineno)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\parser.py", line 97, in fail_unknown_tag
+    return self._fail_ut_eof(name, self._end_token_stack, lineno)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\parser.py", line 90, in _fail_ut_eof
+    self.fail(' '.join(message), lineno)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\parser.py", line 59, in fail
+    raise exc(msg, lineno, self.name, self.filename)
+jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'id'. Jinja was looking for the following tags: 'endfor' or 'else'. The innermost block that needs to be closed is 'for'.
+2018-06-13 15:21:29,949 - ERROR - app.py - log_exception - 1560 - Exception on /admin/terms/menu/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\views.py", line 84, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\views.py", line 149, in dispatch_request
+    return meth(*args, **kwargs)
+  File "D:\python_project\yxx_admin\apps\admin\controller\terms.py", line 135, in get
+    return render_template('admin/terms/menu.html',menus = menus,menu=menu)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\templating.py", line 134, in render_template
+    context, ctx.app)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\templating.py", line 116, in _render
+    rv = template.render(context)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "D:\python_project\yxx_admin\templates\admin\terms\menu.html", line 1, in top-level template code
+    {%  extends "admin/common/admin_base.html" %}
+  File "D:\python_project\yxx_admin\templates\admin\common\admin_base.html", line 2, in top-level template code
+    {%  extends "admin/common/base.html" %}
+  File "D:\python_project\yxx_admin\templates\admin\common\base.html", line 32, in top-level template code
+    {% block body%}{% endblock %}
+  File "D:\python_project\yxx_admin\templates\admin\common\admin_base.html", line 113, in block "body"
+    {% for v in menu -%}
+TypeError: 'TermTaxonomy' object is not iterable
+2018-06-13 15:22:22,773 - ERROR - app.py - log_exception - 1560 - Exception on /admin/terms/menu/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\views.py", line 84, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\views.py", line 149, in dispatch_request
+    return meth(*args, **kwargs)
+  File "D:\python_project\yxx_admin\apps\admin\controller\terms.py", line 136, in get
+    return render_template('admin/terms/menu.html',menus = menus,menu=menu)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\templating.py", line 133, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 869, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\loaders.py", line 125, in load
+    code = environment.compile(source, name, filename)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 591, in compile
+    self.handle_exception(exc_info, source_hint=source_hint)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "D:\python_project\yxx_admin\templates\admin\terms\menu.html", line 17, in template
+    <option {% id menu.id == v.id %}selected="selected"{% endif %} value="{{ v.id }}">{{ v.terms[0].name }}</option>
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 497, in _parse
+    return Parser(self, source, name, encode_filename(filename)).parse()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\parser.py", line 901, in parse
+    result = nodes.Template(self.subparse(), lineno=1)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\parser.py", line 883, in subparse
+    rv = self.parse_statement()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\parser.py", line 130, in parse_statement
+    return getattr(self, 'parse_' + self.stream.current.value)()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\parser.py", line 268, in parse_block
+    node.body = self.parse_statements(('name:endblock',), drop_needle=True)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\parser.py", line 165, in parse_statements
+    result = self.subparse(end_tokens)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\parser.py", line 883, in subparse
+    rv = self.parse_statement()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\parser.py", line 130, in parse_statement
+    return getattr(self, 'parse_' + self.stream.current.value)()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\parser.py", line 199, in parse_for
+    body = self.parse_statements(('name:endfor', 'name:else'))
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\parser.py", line 165, in parse_statements
+    result = self.subparse(end_tokens)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\parser.py", line 883, in subparse
+    rv = self.parse_statement()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\parser.py", line 144, in parse_statement
+    self.fail_unknown_tag(token.value, token.lineno)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\parser.py", line 97, in fail_unknown_tag
+    return self._fail_ut_eof(name, self._end_token_stack, lineno)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\parser.py", line 90, in _fail_ut_eof
+    self.fail(' '.join(message), lineno)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\parser.py", line 59, in fail
+    raise exc(msg, lineno, self.name, self.filename)
+jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'id'. Jinja was looking for the following tags: 'endfor' or 'else'. The innermost block that needs to be closed is 'for'.
+2018-06-13 15:22:53,180 - ERROR - app.py - log_exception - 1560 - Exception on /admin/terms/menu/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\views.py", line 84, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\views.py", line 149, in dispatch_request
+    return meth(*args, **kwargs)
+  File "D:\python_project\yxx_admin\apps\admin\controller\terms.py", line 135, in get
+    return render_template('admin/terms/menu.html',menus = menus,menu=menu)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\templating.py", line 134, in render_template
+    context, ctx.app)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\templating.py", line 116, in _render
+    rv = template.render(context)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "D:\python_project\yxx_admin\templates\admin\terms\menu.html", line 1, in top-level template code
+    {%  extends "admin/common/admin_base.html" %}
+  File "D:\python_project\yxx_admin\templates\admin\common\admin_base.html", line 2, in top-level template code
+    {%  extends "admin/common/base.html" %}
+  File "D:\python_project\yxx_admin\templates\admin\common\base.html", line 32, in top-level template code
+    {% block body%}{% endblock %}
+  File "D:\python_project\yxx_admin\templates\admin\common\admin_base.html", line 113, in block "body"
+    {% for v in menu -%}
+TypeError: 'TermTaxonomy' object is not iterable
+2018-06-13 15:23:45,887 - ERROR - app.py - log_exception - 1560 - Exception on /admin/terms/menu/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\views.py", line 84, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\views.py", line 149, in dispatch_request
+    return meth(*args, **kwargs)
+  File "D:\python_project\yxx_admin\apps\admin\controller\terms.py", line 135, in get
+    return render_template('admin/terms/menu.html',menus = menus,menu=menu)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\templating.py", line 134, in render_template
+    context, ctx.app)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\templating.py", line 116, in _render
+    rv = template.render(context)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "D:\python_project\yxx_admin\templates\admin\terms\menu.html", line 1, in top-level template code
+    {%  extends "admin/common/admin_base.html" %}
+  File "D:\python_project\yxx_admin\templates\admin\common\admin_base.html", line 2, in top-level template code
+    {%  extends "admin/common/base.html" %}
+  File "D:\python_project\yxx_admin\templates\admin\common\base.html", line 32, in top-level template code
+    {% block body%}{% endblock %}
+  File "D:\python_project\yxx_admin\templates\admin\common\admin_base.html", line 113, in block "body"
+    {% for v in menu -%}
+TypeError: 'TermTaxonomy' object is not iterable
+2018-06-13 16:14:58,365 - ERROR - app.py - log_exception - 1560 - Exception on /admin/terms/menu/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\views.py", line 84, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\views.py", line 149, in dispatch_request
+    return meth(*args, **kwargs)
+  File "D:\python_project\yxx_admin\apps\admin\controller\terms.py", line 135, in get
+    return render_template('admin/terms/menu.html',menus = menus,select_menu=select_menu)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\templating.py", line 134, in render_template
+    context, ctx.app)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\templating.py", line 116, in _render
+    rv = template.render(context)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "D:\python_project\yxx_admin\templates\admin\terms\menu.html", line 1, in top-level template code
+    {%  extends "admin/common/admin_base.html" %}
+  File "D:\python_project\yxx_admin\templates\admin\common\admin_base.html", line 2, in top-level template code
+    {%  extends "admin/common/base.html" %}
+  File "D:\python_project\yxx_admin\templates\admin\common\base.html", line 32, in top-level template code
+    {% block body%}{% endblock %}
+  File "D:\python_project\yxx_admin\templates\admin\common\admin_base.html", line 171, in block "body"
+    {% block content%}{% endblock %}
+  File "D:\python_project\yxx_admin\templates\admin\terms\menu.html", line 85, in block "content"
+    <input class="form-control" name="menu_name" value="{{ select_menu.terms[0].name }}" placeholder="填写菜单名称" type="text">
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 411, in getitem
+    return obj[argument]
+jinja2.exceptions.UndefinedError: 'None' has no attribute 'terms'
+2018-06-13 16:35:48,686 - ERROR - app.py - log_exception - 1560 - Exception on /admin/terms/menu/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\views.py", line 84, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\views.py", line 149, in dispatch_request
+    return meth(*args, **kwargs)
+  File "D:\python_project\yxx_admin\apps\admin\controller\terms.py", line 139, in get
+    return render_template('admin/terms/menu.html',menus = menus,select_menu=select_menu,categorys = categorys)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\templating.py", line 134, in render_template
+    context, ctx.app)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\templating.py", line 116, in _render
+    rv = template.render(context)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "D:\python_project\yxx_admin\templates\admin\terms\menu.html", line 1, in top-level template code
+    {%  extends "admin/common/admin_base.html" %}
+  File "D:\python_project\yxx_admin\templates\admin\common\admin_base.html", line 2, in top-level template code
+    {%  extends "admin/common/base.html" %}
+  File "D:\python_project\yxx_admin\templates\admin\common\base.html", line 32, in top-level template code
+    {% block body%}{% endblock %}
+  File "D:\python_project\yxx_admin\templates\admin\common\admin_base.html", line 171, in block "body"
+    {% block content%}{% endblock %}
+  File "D:\python_project\yxx_admin\templates\admin\terms\menu.html", line 58, in block "content"
+    {% set flag = v.level + 1 %}
+jinja2.exceptions.UndefinedError: 'apps.admin.model.term_taxonomy.TermTaxonomy object' has no attribute 'level'
+2018-06-13 16:35:49,374 - ERROR - app.py - log_exception - 1560 - Exception on /admin/terms/menu/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\views.py", line 84, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\views.py", line 149, in dispatch_request
+    return meth(*args, **kwargs)
+  File "D:\python_project\yxx_admin\apps\admin\controller\terms.py", line 139, in get
+    return render_template('admin/terms/menu.html',menus = menus,select_menu=select_menu,categorys = categorys)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\templating.py", line 134, in render_template
+    context, ctx.app)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\templating.py", line 116, in _render
+    rv = template.render(context)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "D:\python_project\yxx_admin\templates\admin\terms\menu.html", line 1, in top-level template code
+    {%  extends "admin/common/admin_base.html" %}
+  File "D:\python_project\yxx_admin\templates\admin\common\admin_base.html", line 2, in top-level template code
+    {%  extends "admin/common/base.html" %}
+  File "D:\python_project\yxx_admin\templates\admin\common\base.html", line 32, in top-level template code
+    {% block body%}{% endblock %}
+  File "D:\python_project\yxx_admin\templates\admin\common\admin_base.html", line 171, in block "body"
+    {% block content%}{% endblock %}
+  File "D:\python_project\yxx_admin\templates\admin\terms\menu.html", line 58, in block "content"
+    {% set flag = v.level + 1 %}
+jinja2.exceptions.UndefinedError: 'apps.admin.model.term_taxonomy.TermTaxonomy object' has no attribute 'level'
+2018-06-13 17:05:50,925 - ERROR - app.py - log_exception - 1560 - Exception on /admin/posts/ajax_get_posts/ [POST]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\python_project\yxx_admin\apps\admin\controller\posts.py", line 167, in ajax_get_posts
+    p = Posts.query(Posts.id,Posts.name).filter(Posts.post_status == 1).order_by(order).paginate(page, per_page=PAGE_SIZE)
+AttributeError: type object 'Posts' has no attribute 'name'
+2018-06-13 17:06:35,945 - ERROR - app.py - log_exception - 1560 - Exception on /admin/posts/ajax_get_posts/ [POST]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\python_project\yxx_admin\apps\admin\controller\posts.py", line 167, in ajax_get_posts
+    p = Posts.query(Posts.id,Posts.post_title).filter(Posts.post_status == 1).order_by(order).paginate(page, per_page=PAGE_SIZE)
+TypeError: 'BaseQuery' object is not callable
+2018-06-13 17:09:21,209 - ERROR - app.py - log_exception - 1560 - Exception on /admin/posts/ajax_get_posts/ [POST]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\python_project\yxx_admin\apps\admin\controller\posts.py", line 169, in ajax_get_posts
+    return restful.success('请求成功！',data=p)
+  File "D:\python_project\yxx_admin\think\restful.py", line 13, in success
+    return restful_result(code=HttpCode.success,message=message or '请求成功！',data=data,url=url)
+  File "D:\python_project\yxx_admin\think\restful.py", line 10, in restful_result
+    return jsonify({"code":code,"info":message,"data":data or {},"url":url})
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\json.py", line 263, in jsonify
+    (dumps(data, indent=indent, separators=separators), '\n'),
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\json.py", line 123, in dumps
+    rv = _json.dumps(obj, **kwargs)
+  File "c:\users\administrator\appdata\local\programs\python\python36\Lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "c:\users\administrator\appdata\local\programs\python\python36\Lib\json\encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "c:\users\administrator\appdata\local\programs\python\python36\Lib\json\encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\json.py", line 80, in default
+    return _json.JSONEncoder.default(self, o)
+  File "c:\users\administrator\appdata\local\programs\python\python36\Lib\json\encoder.py", line 180, in default
+    o.__class__.__name__)
+TypeError: Object of type 'Pagination' is not JSON serializable
+2018-06-13 17:10:08,962 - ERROR - app.py - log_exception - 1560 - Exception on /admin/posts/ajax_get_posts/ [POST]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\python_project\yxx_admin\apps\admin\controller\posts.py", line 167, in ajax_get_posts
+    p = Posts.query('id','post_title').filter(Posts.post_status == 1).order_by(order).paginate(page, per_page=PAGE_SIZE)
+TypeError: 'BaseQuery' object is not callable
+2018-06-13 17:11:16,369 - ERROR - app.py - log_exception - 1560 - Exception on /admin/posts/ajax_get_posts/ [POST]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\python_project\yxx_admin\apps\admin\controller\posts.py", line 167, in ajax_get_posts
+    p = Posts.query(Posts.id,Posts.post_title).filter(Posts.post_status == 1).order_by(order).paginate(page, per_page=PAGE_SIZE)
+TypeError: 'BaseQuery' object is not callable
+2018-06-13 19:18:22,714 - ERROR - app.py - log_exception - 1560 - Exception on /admin/terms/menu/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\views.py", line 84, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\views.py", line 149, in dispatch_request
+    return meth(*args, **kwargs)
+  File "D:\python_project\yxx_admin\apps\admin\controller\terms.py", line 140, in get
+    return render_template('admin/terms/menu.html',menus = menus,select_menu=select_menu,categorys = categorys)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\templating.py", line 134, in render_template
+    context, ctx.app)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\templating.py", line 116, in _render
+    rv = template.render(context)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "D:\python_project\yxx_admin\templates\admin\terms\menu.html", line 1, in top-level template code
+    {%  extends "admin/common/admin_base.html" %}
+  File "D:\python_project\yxx_admin\templates\admin\common\admin_base.html", line 2, in top-level template code
+    {%  extends "admin/common/base.html" %}
+  File "D:\python_project\yxx_admin\templates\admin\common\base.html", line 32, in top-level template code
+    {% block body%}{% endblock %}
+  File "D:\python_project\yxx_admin\templates\admin\common\admin_base.html", line 171, in block "body"
+    {% block content%}{% endblock %}
+  File "D:\python_project\yxx_admin\templates\admin\terms\menu.html", line 237, in block "content"
+    url: "{{ url_for('adminterms.ajax_join_menu') }}",
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\helpers.py", line 333, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1805, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\helpers.py", line 323, in url_for
+    force_external=external)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\werkzeug\routing.py", line 1776, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'adminterms.ajax_join_menu'. Did you mean 'adminposts.ajax_join_menu' instead?
+2018-06-13 19:18:36,806 - ERROR - app.py - log_exception - 1560 - Exception on /admin/terms/menu/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\views.py", line 84, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\views.py", line 149, in dispatch_request
+    return meth(*args, **kwargs)
+  File "D:\python_project\yxx_admin\apps\admin\controller\terms.py", line 140, in get
+    return render_template('admin/terms/menu.html',menus = menus,select_menu=select_menu,categorys = categorys)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\templating.py", line 134, in render_template
+    context, ctx.app)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\templating.py", line 116, in _render
+    rv = template.render(context)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\jinja2\_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "D:\python_project\yxx_admin\templates\admin\terms\menu.html", line 1, in top-level template code
+    {%  extends "admin/common/admin_base.html" %}
+  File "D:\python_project\yxx_admin\templates\admin\common\admin_base.html", line 2, in top-level template code
+    {%  extends "admin/common/base.html" %}
+  File "D:\python_project\yxx_admin\templates\admin\common\base.html", line 32, in top-level template code
+    {% block body%}{% endblock %}
+  File "D:\python_project\yxx_admin\templates\admin\common\admin_base.html", line 171, in block "body"
+    {% block content%}{% endblock %}
+  File "D:\python_project\yxx_admin\templates\admin\terms\menu.html", line 237, in block "content"
+    url: "{{ url_for('adminterms.ajax_join_menu') }}",
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\helpers.py", line 333, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\app.py", line 1805, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\flask\helpers.py", line 323, in url_for
+    force_external=external)
+  File "C:\Users\Administrator\Envs\my_env\lib\site-packages\werkzeug\routing.py", line 1776, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'adminterms.ajax_join_menu'. Did you mean 'adminposts.ajax_join_menu' instead?

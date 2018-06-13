@@ -19,6 +19,7 @@ def index():
     sort = request.args.get('_sort')
     where = ""
     if search is not None:
+        where = or_(Posts.post_content.like("%"+search.strip()+"%"),Posts.post_title.like("%"+search.strip()+"%"))
         pass
     if sort is not None:
         order = sort.split(',')
@@ -31,7 +32,6 @@ def index():
     else:
         page = 1
     p = Posts.query.filter(where).order_by(order).paginate(page, per_page=PAGE_SIZE)
-    tt = TermTaxonomy.query.all()
     return render_template('admin/posts/index.html',data = p)
 
 class PostsAddView(views.MethodView):
@@ -155,6 +155,20 @@ def delete():
         write_log(log_type='delete', log_detail="行为：删除文章；错误：" + str(e))
         return restful.server_error(message=str(e))
     pass
+
+@bp.route('/ajax_get_posts/',methods=['POST'])
+def ajax_get_posts():
+    order = "id asc"
+    get_page = request.form.get('page')
+    if get_page is not None and get_page.isdigit() == True and int(get_page) > 1:
+        page = int(get_page)
+    else:
+        page = 1
+    p = db.session.query(Posts.id,Posts.post_title).filter(Posts.post_status == 1).order_by(order).limit(PAGE_SIZE).offset((page-1)*PAGE_SIZE).all()
+    if p:
+        return restful.success('请求成功！',data=p)
+    else:
+        return restful.server_error("没有更多内容加载了！")
 
 bp.add_url_rule('/add/',view_func=PostsAddView.as_view('add'))
 bp.add_url_rule('/edit/',view_func=PostsEditView.as_view('edit'))

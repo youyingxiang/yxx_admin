@@ -2,7 +2,6 @@ from wtforms import StringField,IntegerField
 from ..common import FormBase
 from wtforms.validators import email,InputRequired,Length,EqualTo,ValidationError
 
-
 class NameForm(FormBase):
     name = StringField(validators=[Length(max=256, min=1, message='名称长度必须为1-256位')])
 

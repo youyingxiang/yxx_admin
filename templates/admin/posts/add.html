@@ -84,7 +84,7 @@
                             <div class="rule_node">
                                 {%- for v in categorys -%}
                                     {% set flag = v.level + 1 %}
-                                    <p class='left{{ flag }} {%- if v.level == 2 -%}p_left{% endif %}' >
+                                    <p class='left{{ flag }} {%- if v.level == 2 %} p_left{% endif %}' >
                                     <label class="checkbox-inline">
                                         <input type="checkbox" name="category" value="{{ v.id }}" class="minimal"> {{ v.terms[0].name }}
                                     </label>

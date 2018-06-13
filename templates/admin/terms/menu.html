@@ -9,82 +9,100 @@
     <div class="row">
         <!---- srart ----->
         <div class="col-md-12">
-            <form class="form-horizontal" method="POST" action="{{ url_for('adminadmin.add') }}" onsubmit="return false" >
-                <div class="nav-tabs-custom">
-                    <ul class="nav nav-tabs">
-                        <li class="active"><a href="#tab1" data-toggle="tab">基本参数</a></li>
-                        <li class="pull-right"><a href="javascript:history.back(-1)" class="btn btn-sm" style="padding:10px 2px;"><i class="fa fa-list"></i> 返回</a></li>
-                    </ul>
-                    <div class="tab-content">
-                        <div class="tab-pane active" id="tab1">
-                            <div class="form-group">
-                                <label class="col-sm-2 col-md-2  control-label">选择要编辑的菜单</label>
-                                <div class="col-sm-5  input-group">
-                                     <select class="form-control select2 pull-right" name="menu_type" style="width:100%;">
-                                         <option value="">主菜单</option>
-                                         <option value="">页尾菜单</option>
-                                     </select>
-                                    <div class="input-group-btn">
-                                        <button type="submit" class="btn btn-default sreachs"><i class="fa fa-search"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+            <div class="box-body">
+                <label class="col-sm-2 control-label">选择要编辑的菜单</label>
+                <div class="col-sm-5 input-group">
+                     <select class="form-control select2 pull-right menu_" name="menu_type" style="width:100%;">
+                         {% for v in menus -%}
+                             <option {% if select_menu.id == v.id %}selected="selected"{% endif %} value="{{ v.id }}">{{ v.terms[0].name }}</option>
+                         {%- endfor %}
+                     </select>
+                    <div class="input-group-btn">
+                        <button type="submit" class="btn btn-info add_menu">增加新菜单</button>
                     </div>
                 </div>
-            </form>
+            </div>
         </div>
         <!---- end ----->
         <div class="col-md-3">
 
             <div class="box box-solid collapsed-box">
                 <div class="box-header with-border">
-                  <h3 class="box-title">页面</h3>
+                  <h3 class="box-title">文章</h3>
                   <div class="box-tools">
-                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
+                    <button type="button" class="btn btn-box-tool m_posts" data-widget="collapse"><i class="fa fa-plus"></i>
                     </button>
                   </div>
                 </div>
-                <div class="box-body no-padding">
-                      <ul class="nav nav-pills nav-stacked">
-                        <li><a href="#"><i class="fa fa-inbox"></i> Inbox
-                          <span class="label label-primary pull-right">12</span></a></li>
-                      </ul>
+                <div class="box-body">
+                    <div class="form-group">
+                        <div class="rule_node"></div>
+                        <a href="javascript:void(0)" class="load_more_posts">加载更多</a><button data-type="posts" class="btn pull-right btn_add_menu">添加到菜单</button>
+                    </div>
                 </div>
             </div>
 
             <div class="box box-solid collapsed-box">
                 <div class="box-header with-border">
-                  <h3 class="box-title">页面</h3>
+                  <h3 class="box-title">分类</h3>
                   <div class="box-tools">
                     <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
                     </button>
                   </div>
                 </div>
-                <div class="box-body no-padding">
-                      <ul class="nav nav-pills nav-stacked">
-                        <li><a href="#"><i class="fa fa-inbox"></i> Inbox
-                          <span class="label label-primary pull-right">12</span></a></li>
-                      </ul>
+                <div class="box-body">
+                    <div class="form-group">
+                        <div class="rule_node">
+                            {%- for v in categorys -%}
+                                {% set flag = v.level + 1 %}
+                                <p class='left{{ flag }} {%- if v.level == 2 %} p_left{% endif %}' >
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" name="category" value="{{ v.id }}" class="minimal"> {{ v.terms[0].name }}
+                                </label>
+                                </p>
+                            {%- endfor -%}
+                        </div>
+                    </div>
+                    <button class="btn pull-right btn_add_menu" data-type="category">添加到菜单</button>
                 </div>
             </div>
+
+            <div class="box box-solid collapsed-box">
+                <div class="box-header with-border">
+                  <h3 class="box-title">自定义链接</h3>
+                  <div class="box-tools">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="box-body">
+                    <div class="form-group">
+                            <label class="control-label">url链接</label>
+                            <input class="form-control" name="url" value="http://">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">链接文本</label>
+                        <input class="form-control" name="nav_title" value="">
+                    </div>
+                    <button class="btn pull-right btn_add_menu" data-type="url">添加到菜单</button>
+                </div>
+            </div>
+
         </div>
         <div class="col-md-9">
           <!-- Horizontal Form -->
-          <div class="box">
-            <div class="box-header form-horizontal">
+          <form class="form-horizontal box-header">
+            <div class="col-md-9" style="margin-top: 20px">
                 <div class="box box-solid">
-                    <div class="pull-left col-md-7">
-                        <input class="form-control" name="menu_name" value="" placeholder="填写菜单名称" type="text">
-                    </div>
-                    <div class="pull-right col-md-2"><a href="/admin/terms/edit/?taxonomy=category" class="btn btn-sm btn-primary"><i class="fa fa-save"></i> 保存</a>
+                    <div class="box-body">
+                        <input class="form-control" name="menu_name" value="{{ select_menu.terms[0].name }}" placeholder="填写菜单名称" type="text">
                     </div>
                 </div>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form class="form-horizontal box-header">
-                <div class="col-md-9">
+
+                <div class="col-md-9" style="margin-top: 20px">
                     <div class="box box-solid">
                       <label class="control-label">菜单结构</label>
                       <div class="box-body">
@@ -162,9 +180,125 @@
             </form>
           </div>
           <!-- /.box -->
-        </div>
     </div>
 </section>
 <script type="text/javascript">
+$(function(){
+    var page = 1
+    $(".menu_").change(function () {
+        var mid = $(this).val()
+        $.pjax({url:"{{ url_for('adminterms.menu') }}?id="+mid, container: '#pjax-container', fragment:'#pjax-container'})
+    })
+    $(".add_menu").on('click',function(){
+        BootstrapDialog.confirm({
+                title: "添加新菜单",
+                message: "<form method='POST' action='{{ url_for('adminterms.ajax_add_menu') }}' ><input class='form-control' name='name' value='' placeholder='菜单名称'></form>",
+                btnCancelLabel: '取消',
+                btnOKLabel: '确定',
+                callback: function(result) {
+                    if(result) {
+                        var form = $('.modal-dialog').find('form');
+                        var ajax_option={
+                            dataType:'json',
+                            success:function(data){
+                                if (data.code == 200) {
+                                    var html = '<option value="'+data.data.id+'">'+data.data.name+'</option>'
+                                    $(".menu_").append(html)
+                                    $.amaran({'message':data.info});
+                                } else {
+                                    $.amaran({'message':data.info});
+                                }
+                            }
+                        }
+                        form.ajaxSubmit(ajax_option);
+                    }
+                }
+            });
+    })
+    $(".btn_add_menu").on('click',function(){
+        var type = $(this).attr('data-type').trim()
+        var value_ = new Array();
+        var i = 0
+        if (type != 'url') {
+            $("input[name='"+type+"']").each(function(){
+                if ($(this).is(':checked')) {
+                    value_[i] = $(this).val();
+                    i++;
+                }
+            })
+            if (value_.length == 0) return false;
+        } else {
+            value_[0] = $(this).parent().find("input[name='url']").val()
+            value_[1] = $(this).parent().find("input[name='nav_title']").val()
+            if ( value_[1].length == 0 ) return false
+        }
+        var data_value ={"id":"{{ select_menu.id }}","value":value_,"type":type}
+        $.ajax({
+            url: "{{ url_for('adminterms.ajax_join_menu') }}",
+            data:data_value,
+            type:'post',
+            dataType: "json",
+            success:function(result){
+
+            }
+        })
+    })
+    $('.m_posts').on('click',function(){
+        var child_show = $(this).parent().parent().next().find('.rule_node')
+        var str = child_show.html().trim()
+        if (child_show.hasClass('add') == false) {
+            $.ajax({
+                url: "{{ url_for('adminposts.ajax_get_posts') }}",
+                data:{"page":page},
+                type:'post',
+                dataType: "json",
+                success:function(result){
+                    if (result.code == 200) {
+                        var html=""
+                        $(result.data).each(function(){
+                            html += "<p class='left1><label class='checkbox-inline'><input type='checkbox' name='posts' value='"+$(this)[0]+"' class='minimal'> "+$(this)[1]
+                        })
+                        child_show.html(html)
+                        child_show.addClass('add')
+                        radio_css()
+                        page = page + 1
+                    } else {
+                        $.amaran({'message':result.info});
+                    }
+                },
+            });
+        }
+    })
+    $('.load_more_posts').on('click',function(){
+        $.ajax({
+            url: "{{ url_for('adminposts.ajax_get_posts') }}",
+            data:{"page":page},
+            type:'post',
+            dataType: "json",
+            success:function(result){
+                if (result.code == 200) {
+                    var html=""
+                    $(result.data).each(function(){
+                        html += "<p class='left1><label class='checkbox-inline'><input type='checkbox' name='posts' value='"+$(this)[0]+"' class='minimal'> "+$(this)[1]
+                    })
+                    $('.rule_node').append(html)
+                    radio_css()
+                    page = page + 1
+                } else {
+                    $.amaran({'message':result.info});
+                    $('.load_more_posts').hide()
+                }
+            },
+        });
+    })
+    function radio_css() {
+        /*ajax页面加载icheck，有该控件的页面才需要*/
+        $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
+            checkboxClass: 'icheckbox_minimal-blue',
+            radioClass: 'iradio_minimal-blue'
+        });
+    }
+    radio_css()
+})
 </script>
 {% endblock %}

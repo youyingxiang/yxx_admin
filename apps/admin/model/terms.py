@@ -1,6 +1,7 @@
 from exts import db
 import time
 from .term_taxonomy import TermTaxonomy
+from ..model.postmeta import PostMeta
 class Terms(db.Model):
     __tablename__ = 'tb_terms'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)

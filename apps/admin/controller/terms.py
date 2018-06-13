@@ -1,11 +1,15 @@
 from flask import Blueprint,render_template,views,render_template,request,url_for,abort
-from ..model.terms import Terms,TermTaxonomy
+from ..model.terms import Terms
+from ..model.term_taxonomy import TermTaxonomy
+from ..model.postmeta import PostMeta
+from ..model.posts import Posts
 from ..common import get_str_upper,write_log,reSort,getChildren
 from ..config import PAGE_SIZE,TAXONOMY,TAXONOMY_CN
 from think import restful
 from sqlalchemy import or_,and_
 from ..form.terms import TermsForm,NameForm
 from exts import db
+import json
 bp = Blueprint('adminterms',__name__,url_prefix='/admin/terms')
 
 class TermsEditView(views.MethodView):
@@ -126,8 +130,18 @@ def delete():
 
 class TermsMenuView(views.MethodView):
     def get(self):
-        return render_template('admin/terms/menu.html')
-        pass
+        id = request.args.get('id')
+        menus = TermTaxonomy.query.filter(TermTaxonomy.taxonomy == 3).all()
+        if id is None:
+            select_menu = menus[0]
+        else:
+            select_menu = TermTaxonomy.query.get(id)
+        if select_menu is None:
+            abort(404)
+        # 获取分类
+        categorys = TermTaxonomy.query.filter(TermTaxonomy.taxonomy == 1).all()
+        categorys = reSort(categorys, parent=0, level=0, ret=[])
+        return render_template('admin/terms/menu.html',menus = menus,select_menu=select_menu,categorys = categorys)
     def post(self):
         pass
 
@@ -162,5 +176,57 @@ def ajax_add_label():
         write_log(log_type='add', log_detail="行为：添加标签；错误：" + str(e))
         return restful.server_error(message=str(e))
 
+@bp.route('/ajax_add_menu/',methods=['POST'])
+def ajax_add_menu():
+    form = NameForm(request.form)
+    try:
+        if form.validate():
+            name = request.form.get('name')
+            res = db.session.query(TermTaxonomy,Terms).filter(and_(TermTaxonomy.taxonomy == 3,Terms.name == name,TermTaxonomy.term_id==Terms.id )).all()
+            #没有当前菜单
+            if any(res) == False:
+                t = Terms(
+                    name = request.form.get('name'),
+                    slug = request.form.get('name'),
+                    term_order=99
+                )
+                db.session.add(t)
+                db.session.flush()
+                t.term_taxonomy = TermTaxonomy(
+                    term_id=t.id,
+                    taxonomy = 3,
+                    img = "",
+                    parent= 0,
+                    count=0)
+                db.session.commit()
+            write_log(log_type='add', log_detail='添加菜单成功')
+            return restful.success('添加成功',data={"id":t.term_taxonomy.id,"name":t.name})
+        else:
+            raise ValueError(form.get_err_one())
+    except Exception as e:
+        write_log(log_type='add', log_detail="行为：添加菜单；错误：" + str(e))
+        return restful.server_error(message=str(e))
+    pass
+
+@bp.route('/ajax_join_menu/',methods=['POST'])
+def ajax_join_menu():
+    try:
+        menu_id = request.form.get('id')
+        menu_value = request.form.getlist('value[]')
+        menu_type = request.form.get('type')
+        #获取菜单
+        tm = TermTaxonomy.query.filter(TermTaxonomy.id == menu_id).first()
+        if tm:
+            if menu_type == 'posts':
+                tm.postmeta_menu_posts = menu_value
+            elif menu_type == 'category':
+                tm.postmeta_menu_category == menu_value
+            elif menu_type == 'url':
+                tm.postmeta_menu_url == menu_value
+            db.session.commit()
+        return restful.success('添加成功')
+    except Exception as e:
+        write_log(log_type='join', log_detail="行为：菜单关联；错误：" + str(e))
+        return restful.server_error(str(e))
 bp.add_url_rule('/edit/',view_func=TermsEditView.as_view('edit'))
 bp.add_url_rule('/menu/',view_func=TermsMenuView.as_view('menu'))

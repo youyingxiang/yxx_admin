@@ -59,7 +59,7 @@ class Baksql(object):
         for value in data:
             dataSql = ""
             for value_ in value:
-                dataSql += "'"+str(value_)+ "',"
+                dataSql += "'"+self.str_transference(str(value_))+ "',"
             dataSql = dataSql[0:len(dataSql) - 1]
             query += "INSERT INTO `" + table + "`("+ columns + ")  VALUES (" + dataSql +");\n"
         return query
@@ -223,8 +223,17 @@ class Baksql(object):
         os.remove(path)
         return '删除成功'
 
-
-
+    def str_transference(self,str):
+        '''
+        转义
+        :param str:
+        :return:
+        '''
+        fbsArr = ["\\", "'",'"']
+        for v in fbsArr:
+            if str.find(v) > 0:
+                str = str.replace(v,"\\"+v)
+        return str
 
 
 
