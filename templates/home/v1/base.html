@@ -70,7 +70,7 @@
                   </a>
                   <ul class="treeview-menu">
                       {%- for vv in v.childs %}
-                        <li><a href=""><i class="fa fa-circle-o"></i>{% if vv.post_name %}{{ vv.post_name }}{% else %}{{ vv.post_title }}{% endif %}</a></li>
+                        <li><a href="{{ url_for('homeindex.category',category=vv.terms[0].slug) }}"><i class="fa fa-circle-o"></i>{% if vv.terms[0].slug %}{{ vv.terms[0].slug }}{% else %}{{ vv.terms[0].name }}{% endif %}</a></li>
                       {%- endfor -%}
                   </ul>
                 </li>

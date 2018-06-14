@@ -134,7 +134,10 @@ class TermsMenuView(views.MethodView):
         id = request.args.get('id')
         menus = TermTaxonomy.query.filter(TermTaxonomy.taxonomy == 3).all()
         if id is None:
-            select_menu = menus[0]
+            if menus:
+                select_menu = menus[0]
+            else:
+                select_menu = {}
         else:
             select_menu = TermTaxonomy.query.get(id)
         if select_menu is None:
@@ -142,7 +145,10 @@ class TermsMenuView(views.MethodView):
         # 获取分类
         categorys = TermTaxonomy.query.filter(TermTaxonomy.taxonomy == 1).all()
         categorys = reSort(categorys, parent=0, level=0, ret=[])
-        menu_result = get_menu(select_menu.postmetas)
+        if select_menu:
+            menu_result = get_menu(select_menu.postmetas)
+        else:
+            menu_result=[]
         return render_template('admin/terms/menu.html',menus = menus,select_menu=select_menu,categorys = categorys,menu_result = menu_result)
 
 @bp.route('/ajax_add_label/',methods=['POST'])

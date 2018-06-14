@@ -4,6 +4,7 @@ from .postmeta import PostMeta
 from .term_relationships import term_relationships
 from .link import Link
 from sqlalchemy import and_
+from ..common import getChildren
 class TermTaxonomy(db.Model):
     __tablename__ = 'tb_term_taxonomy'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
@@ -95,4 +96,16 @@ class TermTaxonomy(db.Model):
                 if v.meta_key == "termtaxonomy_category_posts_id":
                     ids.append(v.meta_value)
         return ids
+
+    @property
+    def get_childs(self):
+        tm = TermTaxonomy.query.filter(TermTaxonomy.taxonomy ==1).all()
+        childs = []
+        if tm:
+            result = getChildren(data=tm,id=self.id,ret=[])
+            if result:
+                for v in tm:
+                    if v.id in result:
+                        childs.append(v)
+        return childs
 

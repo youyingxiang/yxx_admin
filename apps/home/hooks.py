@@ -28,8 +28,7 @@ def nav():
                             # 2 关联分类
                             elif vv.meta_key == 'termtaxonomy_menu_category_id':
                                 n = TermTaxonomy.query.filter(TermTaxonomy.id == vv.meta_value).first()
-                                childs = Posts.query.filter(and_(Posts.id.in_(n.get_posts),Posts.post_status == 1)).order_by('id desc').all()
-                                result = {"name": n.terms[0].slug if n.terms[0].slug else n.terms[0].name, 'link': "",'type':'category','childs':childs}
+                                result = {"name": n.terms[0].slug if n.terms[0].slug else n.terms[0].name, 'link': "",'type':'category','childs':n.get_childs}
                             # 3 关联文章
                             elif vv.meta_key == 'termtaxonomy_menu_posts_id':
                                 n = Posts.query.filter(Posts.id == vv.meta_value).first()

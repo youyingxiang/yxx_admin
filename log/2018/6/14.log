@@ -649,3 +649,1541 @@ Traceback (most recent call last):
   File "D:\python_project\yxx_admin\apps\home\hooks.py", line 33, in nav
     print(n.get_pos)
 AttributeError: 'TermTaxonomy' object has no attribute 'get_pos'
+2018-06-14 23:14:03,138 - ERROR - app.py - log_exception - 1560 - Exception on /admin/terms/menu/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\views.py", line 84, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\views.py", line 149, in dispatch_request
+    return meth(*args, **kwargs)
+  File "D:\py\yxx_admin\apps\admin\controller\terms.py", line 137, in get
+    select_menu = menus[0]
+IndexError: list index out of range
+2018-06-14 23:14:03,169 - ERROR - app.py - log_exception - 1560 - Exception on /admin/terms/menu/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\views.py", line 84, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\views.py", line 149, in dispatch_request
+    return meth(*args, **kwargs)
+  File "D:\py\yxx_admin\apps\admin\controller\terms.py", line 137, in get
+    select_menu = menus[0]
+IndexError: list index out of range
+2018-06-14 23:14:03,215 - ERROR - app.py - log_exception - 1560 - Exception on /admin/terms/menu/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\views.py", line 84, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\views.py", line 149, in dispatch_request
+    return meth(*args, **kwargs)
+  File "D:\py\yxx_admin\apps\admin\controller\terms.py", line 137, in get
+    select_menu = menus[0]
+IndexError: list index out of range
+2018-06-14 23:14:47,262 - ERROR - app.py - log_exception - 1560 - Exception on /admin/terms/menu/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\views.py", line 84, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\views.py", line 149, in dispatch_request
+    return meth(*args, **kwargs)
+  File "D:\py\yxx_admin\apps\admin\controller\terms.py", line 137, in get
+    select_menu = menus[0]
+IndexError: list index out of range
+2018-06-14 23:16:56,375 - ERROR - app.py - log_exception - 1560 - Exception on /admin/terms/menu/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\views.py", line 84, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\views.py", line 149, in dispatch_request
+    return meth(*args, **kwargs)
+  File "D:\py\yxx_admin\apps\admin\controller\terms.py", line 139, in get
+    select_menu = TermTaxonomy.query.get(id)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\query.py", line 882, in get
+    ident, loading.load_on_pk_identity)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\query.py", line 930, in _get_impl
+    if len(primary_key_identity) != len(mapper.primary_key):
+TypeError: object of type 'NoneType' has no len()
+2018-06-14 23:17:15,966 - ERROR - app.py - log_exception - 1560 - Exception on /admin/terms/menu/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\views.py", line 84, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\views.py", line 149, in dispatch_request
+    return meth(*args, **kwargs)
+  File "D:\py\yxx_admin\apps\admin\controller\terms.py", line 140, in get
+    select_menu = TermTaxonomy.query.get(id)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\query.py", line 882, in get
+    ident, loading.load_on_pk_identity)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\query.py", line 930, in _get_impl
+    if len(primary_key_identity) != len(mapper.primary_key):
+TypeError: object of type 'NoneType' has no len()
+2018-06-14 23:17:17,860 - ERROR - app.py - log_exception - 1560 - Exception on /admin/terms/menu/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\views.py", line 84, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\views.py", line 149, in dispatch_request
+    return meth(*args, **kwargs)
+  File "D:\py\yxx_admin\apps\admin\controller\terms.py", line 140, in get
+    select_menu = TermTaxonomy.query.get(id)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\query.py", line 882, in get
+    ident, loading.load_on_pk_identity)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\query.py", line 930, in _get_impl
+    if len(primary_key_identity) != len(mapper.primary_key):
+TypeError: object of type 'NoneType' has no len()
+2018-06-14 23:20:16,997 - ERROR - app.py - log_exception - 1560 - Exception on /admin/terms/menu/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\views.py", line 84, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\views.py", line 149, in dispatch_request
+    return meth(*args, **kwargs)
+  File "D:\py\yxx_admin\apps\admin\controller\terms.py", line 148, in get
+    menu_result = get_menu(select_menu.postmetas)
+AttributeError: 'list' object has no attribute 'postmetas'
+2018-06-14 23:20:37,288 - ERROR - app.py - log_exception - 1560 - Exception on /admin/terms/menu/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\views.py", line 84, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\views.py", line 149, in dispatch_request
+    return meth(*args, **kwargs)
+  File "D:\py\yxx_admin\apps\admin\controller\terms.py", line 148, in get
+    menu_result = get_menu(select_menu.postmetas)
+AttributeError: 'dict' object has no attribute 'postmetas'
+2018-06-14 23:27:07,903 - ERROR - app.py - log_exception - 1560 - Exception on /favicon.ico/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\py\yxx_admin\apps\home\controller\index.py", line 7, in index
+    return render_template('/home/v1/index.html')
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\templating.py", line 132, in render_template
+    ctx.app.update_template_context(context)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 764, in update_template_context
+    context.update(func())
+  File "D:\py\yxx_admin\apps\home\hooks.py", line 31, in nav
+    childs = Posts.query.filter(and_(Posts.id.in_(n.get_posts),Posts.post_status == 1)).order_by('id desc').all()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\operators.py", line 513, in in_
+    return self.operate(in_op, other)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\attributes.py", line 180, in operate
+    return op(self.comparator, *other, **kwargs)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\operators.py", line 1147, in in_op
+    return a.in_(b)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\operators.py", line 513, in in_
+    return self.operate(in_op, other)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\properties.py", line 270, in operate
+    return op(self.__clause_element__(), *other, **kwargs)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\operators.py", line 1147, in in_op
+    return a.in_(b)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\operators.py", line 513, in in_
+    return self.operate(in_op, other)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\elements.py", line 692, in operate
+    return op(self.comparator, *other, **kwargs)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\operators.py", line 1147, in in_op
+    return a.in_(b)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\operators.py", line 513, in in_
+    return self.operate(in_op, other)
+  File "<string>", line 1, in <lambda>
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\type_api.py", line 63, in operate
+    return o[0](self.expr, op, *(other + o[1:]), **kwargs)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\default_comparator.py", line 161, in _in_impl
+    for o in seq_or_selectable:
+TypeError: 'NoneType' object is not iterable
+2018-06-14 23:27:08,053 - ERROR - app.py - log_exception - 1560 - Exception on /favicon.ico/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\py\yxx_admin\apps\home\controller\index.py", line 7, in index
+    return render_template('/home/v1/index.html')
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\templating.py", line 132, in render_template
+    ctx.app.update_template_context(context)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 764, in update_template_context
+    context.update(func())
+  File "D:\py\yxx_admin\apps\home\hooks.py", line 31, in nav
+    childs = Posts.query.filter(and_(Posts.id.in_(n.get_posts),Posts.post_status == 1)).order_by('id desc').all()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\operators.py", line 513, in in_
+    return self.operate(in_op, other)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\attributes.py", line 180, in operate
+    return op(self.comparator, *other, **kwargs)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\operators.py", line 1147, in in_op
+    return a.in_(b)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\operators.py", line 513, in in_
+    return self.operate(in_op, other)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\properties.py", line 270, in operate
+    return op(self.__clause_element__(), *other, **kwargs)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\operators.py", line 1147, in in_op
+    return a.in_(b)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\operators.py", line 513, in in_
+    return self.operate(in_op, other)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\elements.py", line 692, in operate
+    return op(self.comparator, *other, **kwargs)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\operators.py", line 1147, in in_op
+    return a.in_(b)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\operators.py", line 513, in in_
+    return self.operate(in_op, other)
+  File "<string>", line 1, in <lambda>
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\type_api.py", line 63, in operate
+    return o[0](self.expr, op, *(other + o[1:]), **kwargs)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\default_comparator.py", line 161, in _in_impl
+    for o in seq_or_selectable:
+TypeError: 'NoneType' object is not iterable
+2018-06-14 23:33:35,513 - ERROR - app.py - log_exception - 1560 - Exception on /admin/terms/edit/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\pymysql\connections.py", line 912, in connect
+    **kwargs)
+  File "c:\users\lenovo\appdata\local\programs\python\python36\Lib\socket.py", line 724, in create_connection
+    raise err
+  File "c:\users\lenovo\appdata\local\programs\python\python36\Lib\socket.py", line 713, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\engine\base.py", line 2158, in _wrap_pool_connect
+    return fn()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 403, in connect
+    return _ConnectionFairy._checkout(self)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 788, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 532, in checkout
+    rec = pool._do_get()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 1193, in _do_get
+    self._dec_overflow()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\util\langhelpers.py", line 66, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\util\compat.py", line 187, in reraise
+    raise value
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 1190, in _do_get
+    return self._create_connection()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 350, in _create_connection
+    return _ConnectionRecord(self)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 477, in __init__
+    self.__connect(first_connect_check=True)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 671, in __connect
+    connection = pool._invoke_creator(self)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\engine\strategies.py", line 106, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\engine\default.py", line 410, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\pymysql\__init__.py", line 90, in Connect
+    return Connection(*args, **kwargs)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\pymysql\connections.py", line 699, in __init__
+    self.connect()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\pymysql\connections.py", line 959, in connect
+    raise exc
+pymysql.err.OperationalError: (2003, "Can't connect to MySQL server on '127.0.0.1' ([WinError 10061] 由于目标计算机积极拒绝，无法连接。)")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1610, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1831, in preprocess_request
+    rv = func()
+  File "D:\py\yxx_admin\apps\admin\hooks.py", line 26, in before_request
+    if check_login() == False:
+  File "D:\py\yxx_admin\apps\admin\hooks.py", line 39, in check_login
+    admin = Admin.query.get(admin_id)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\query.py", line 882, in get
+    ident, loading.load_on_pk_identity)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\query.py", line 952, in _get_impl
+    return db_load_fn(self, primary_key_identity)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\loading.py", line 247, in load_on_pk_identity
+    return q.one()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\query.py", line 2884, in one
+    ret = self.one_or_none()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\query.py", line 2854, in one_or_none
+    ret = list(self)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\query.py", line 2925, in __iter__
+    return self._execute_and_instances(context)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\query.py", line 2946, in _execute_and_instances
+    close_with_result=True)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\query.py", line 2955, in _get_bind_args
+    **kw
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\query.py", line 2937, in _connection_from_session
+    conn = self.session.connection(**kw)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\session.py", line 1035, in connection
+    execution_options=execution_options)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\session.py", line 1040, in _connection_for_bind
+    engine, execution_options)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\session.py", line 409, in _connection_for_bind
+    conn = bind.contextual_connect()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\engine\base.py", line 2123, in contextual_connect
+    self._wrap_pool_connect(self.pool.connect, None),
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\engine\base.py", line 2162, in _wrap_pool_connect
+    e, dialect, self)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\engine\base.py", line 1476, in _handle_dbapi_exception_noconnection
+    exc_info
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\util\compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\util\compat.py", line 186, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\engine\base.py", line 2158, in _wrap_pool_connect
+    return fn()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 403, in connect
+    return _ConnectionFairy._checkout(self)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 788, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 532, in checkout
+    rec = pool._do_get()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 1193, in _do_get
+    self._dec_overflow()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\util\langhelpers.py", line 66, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\util\compat.py", line 187, in reraise
+    raise value
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 1190, in _do_get
+    return self._create_connection()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 350, in _create_connection
+    return _ConnectionRecord(self)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 477, in __init__
+    self.__connect(first_connect_check=True)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 671, in __connect
+    connection = pool._invoke_creator(self)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\engine\strategies.py", line 106, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\engine\default.py", line 410, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\pymysql\__init__.py", line 90, in Connect
+    return Connection(*args, **kwargs)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\pymysql\connections.py", line 699, in __init__
+    self.connect()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\pymysql\connections.py", line 959, in connect
+    raise exc
+sqlalchemy.exc.OperationalError: (pymysql.err.OperationalError) (2003, "Can't connect to MySQL server on '127.0.0.1' ([WinError 10061] 由于目标计算机积极拒绝，无法连接。)") (Background on this error at: http://sqlalche.me/e/e3q8)
+2018-06-14 23:33:36,991 - ERROR - app.py - log_exception - 1560 - Exception on /favicon.ico/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\pymysql\connections.py", line 912, in connect
+    **kwargs)
+  File "c:\users\lenovo\appdata\local\programs\python\python36\Lib\socket.py", line 724, in create_connection
+    raise err
+  File "c:\users\lenovo\appdata\local\programs\python\python36\Lib\socket.py", line 713, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\engine\base.py", line 2158, in _wrap_pool_connect
+    return fn()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 403, in connect
+    return _ConnectionFairy._checkout(self)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 788, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 532, in checkout
+    rec = pool._do_get()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 1193, in _do_get
+    self._dec_overflow()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\util\langhelpers.py", line 66, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\util\compat.py", line 187, in reraise
+    raise value
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 1190, in _do_get
+    return self._create_connection()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 350, in _create_connection
+    return _ConnectionRecord(self)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 477, in __init__
+    self.__connect(first_connect_check=True)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 671, in __connect
+    connection = pool._invoke_creator(self)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\engine\strategies.py", line 106, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\engine\default.py", line 410, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\pymysql\__init__.py", line 90, in Connect
+    return Connection(*args, **kwargs)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\pymysql\connections.py", line 699, in __init__
+    self.connect()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\pymysql\connections.py", line 959, in connect
+    raise exc
+pymysql.err.OperationalError: (2003, "Can't connect to MySQL server on '127.0.0.1' ([WinError 10061] 由于目标计算机积极拒绝，无法连接。)")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\py\yxx_admin\apps\home\controller\index.py", line 7, in index
+    return render_template('/home/v1/index.html')
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\templating.py", line 132, in render_template
+    ctx.app.update_template_context(context)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 764, in update_template_context
+    context.update(func())
+  File "D:\py\yxx_admin\apps\home\hooks.py", line 15, in nav
+    tm = Terms.query.filter(Terms.name=="主界面菜单").all()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\query.py", line 2773, in all
+    return list(self)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\query.py", line 2925, in __iter__
+    return self._execute_and_instances(context)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\query.py", line 2946, in _execute_and_instances
+    close_with_result=True)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\query.py", line 2955, in _get_bind_args
+    **kw
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\query.py", line 2937, in _connection_from_session
+    conn = self.session.connection(**kw)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\session.py", line 1035, in connection
+    execution_options=execution_options)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\session.py", line 1040, in _connection_for_bind
+    engine, execution_options)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\session.py", line 409, in _connection_for_bind
+    conn = bind.contextual_connect()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\engine\base.py", line 2123, in contextual_connect
+    self._wrap_pool_connect(self.pool.connect, None),
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\engine\base.py", line 2162, in _wrap_pool_connect
+    e, dialect, self)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\engine\base.py", line 1476, in _handle_dbapi_exception_noconnection
+    exc_info
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\util\compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\util\compat.py", line 186, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\engine\base.py", line 2158, in _wrap_pool_connect
+    return fn()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 403, in connect
+    return _ConnectionFairy._checkout(self)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 788, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 532, in checkout
+    rec = pool._do_get()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 1193, in _do_get
+    self._dec_overflow()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\util\langhelpers.py", line 66, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\util\compat.py", line 187, in reraise
+    raise value
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 1190, in _do_get
+    return self._create_connection()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 350, in _create_connection
+    return _ConnectionRecord(self)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 477, in __init__
+    self.__connect(first_connect_check=True)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 671, in __connect
+    connection = pool._invoke_creator(self)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\engine\strategies.py", line 106, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\engine\default.py", line 410, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\pymysql\__init__.py", line 90, in Connect
+    return Connection(*args, **kwargs)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\pymysql\connections.py", line 699, in __init__
+    self.connect()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\pymysql\connections.py", line 959, in connect
+    raise exc
+sqlalchemy.exc.OperationalError: (pymysql.err.OperationalError) (2003, "Can't connect to MySQL server on '127.0.0.1' ([WinError 10061] 由于目标计算机积极拒绝，无法连接。)") (Background on this error at: http://sqlalche.me/e/e3q8)
+2018-06-14 23:34:24,362 - ERROR - app.py - log_exception - 1560 - Exception on /admin/terms/edit/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\pymysql\connections.py", line 912, in connect
+    **kwargs)
+  File "c:\users\lenovo\appdata\local\programs\python\python36\Lib\socket.py", line 724, in create_connection
+    raise err
+  File "c:\users\lenovo\appdata\local\programs\python\python36\Lib\socket.py", line 713, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\engine\base.py", line 2158, in _wrap_pool_connect
+    return fn()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 403, in connect
+    return _ConnectionFairy._checkout(self)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 788, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 532, in checkout
+    rec = pool._do_get()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 1193, in _do_get
+    self._dec_overflow()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\util\langhelpers.py", line 66, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\util\compat.py", line 187, in reraise
+    raise value
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 1190, in _do_get
+    return self._create_connection()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 350, in _create_connection
+    return _ConnectionRecord(self)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 477, in __init__
+    self.__connect(first_connect_check=True)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 671, in __connect
+    connection = pool._invoke_creator(self)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\engine\strategies.py", line 106, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\engine\default.py", line 410, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\pymysql\__init__.py", line 90, in Connect
+    return Connection(*args, **kwargs)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\pymysql\connections.py", line 699, in __init__
+    self.connect()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\pymysql\connections.py", line 959, in connect
+    raise exc
+pymysql.err.OperationalError: (2003, "Can't connect to MySQL server on '127.0.0.1' ([WinError 10061] 由于目标计算机积极拒绝，无法连接。)")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1610, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1831, in preprocess_request
+    rv = func()
+  File "D:\py\yxx_admin\apps\admin\hooks.py", line 26, in before_request
+    if check_login() == False:
+  File "D:\py\yxx_admin\apps\admin\hooks.py", line 39, in check_login
+    admin = Admin.query.get(admin_id)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\query.py", line 882, in get
+    ident, loading.load_on_pk_identity)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\query.py", line 952, in _get_impl
+    return db_load_fn(self, primary_key_identity)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\loading.py", line 247, in load_on_pk_identity
+    return q.one()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\query.py", line 2884, in one
+    ret = self.one_or_none()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\query.py", line 2854, in one_or_none
+    ret = list(self)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\query.py", line 2925, in __iter__
+    return self._execute_and_instances(context)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\query.py", line 2946, in _execute_and_instances
+    close_with_result=True)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\query.py", line 2955, in _get_bind_args
+    **kw
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\query.py", line 2937, in _connection_from_session
+    conn = self.session.connection(**kw)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\session.py", line 1035, in connection
+    execution_options=execution_options)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\session.py", line 1040, in _connection_for_bind
+    engine, execution_options)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\session.py", line 409, in _connection_for_bind
+    conn = bind.contextual_connect()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\engine\base.py", line 2123, in contextual_connect
+    self._wrap_pool_connect(self.pool.connect, None),
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\engine\base.py", line 2162, in _wrap_pool_connect
+    e, dialect, self)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\engine\base.py", line 1476, in _handle_dbapi_exception_noconnection
+    exc_info
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\util\compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\util\compat.py", line 186, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\engine\base.py", line 2158, in _wrap_pool_connect
+    return fn()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 403, in connect
+    return _ConnectionFairy._checkout(self)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 788, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 532, in checkout
+    rec = pool._do_get()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 1193, in _do_get
+    self._dec_overflow()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\util\langhelpers.py", line 66, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\util\compat.py", line 187, in reraise
+    raise value
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 1190, in _do_get
+    return self._create_connection()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 350, in _create_connection
+    return _ConnectionRecord(self)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 477, in __init__
+    self.__connect(first_connect_check=True)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 671, in __connect
+    connection = pool._invoke_creator(self)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\engine\strategies.py", line 106, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\engine\default.py", line 410, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\pymysql\__init__.py", line 90, in Connect
+    return Connection(*args, **kwargs)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\pymysql\connections.py", line 699, in __init__
+    self.connect()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\pymysql\connections.py", line 959, in connect
+    raise exc
+sqlalchemy.exc.OperationalError: (pymysql.err.OperationalError) (2003, "Can't connect to MySQL server on '127.0.0.1' ([WinError 10061] 由于目标计算机积极拒绝，无法连接。)") (Background on this error at: http://sqlalche.me/e/e3q8)
+2018-06-14 23:34:25,435 - ERROR - app.py - log_exception - 1560 - Exception on /favicon.ico/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\pymysql\connections.py", line 912, in connect
+    **kwargs)
+  File "c:\users\lenovo\appdata\local\programs\python\python36\Lib\socket.py", line 724, in create_connection
+    raise err
+  File "c:\users\lenovo\appdata\local\programs\python\python36\Lib\socket.py", line 713, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\engine\base.py", line 2158, in _wrap_pool_connect
+    return fn()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 403, in connect
+    return _ConnectionFairy._checkout(self)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 788, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 532, in checkout
+    rec = pool._do_get()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 1193, in _do_get
+    self._dec_overflow()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\util\langhelpers.py", line 66, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\util\compat.py", line 187, in reraise
+    raise value
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 1190, in _do_get
+    return self._create_connection()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 350, in _create_connection
+    return _ConnectionRecord(self)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 477, in __init__
+    self.__connect(first_connect_check=True)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 671, in __connect
+    connection = pool._invoke_creator(self)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\engine\strategies.py", line 106, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\engine\default.py", line 410, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\pymysql\__init__.py", line 90, in Connect
+    return Connection(*args, **kwargs)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\pymysql\connections.py", line 699, in __init__
+    self.connect()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\pymysql\connections.py", line 959, in connect
+    raise exc
+pymysql.err.OperationalError: (2003, "Can't connect to MySQL server on '127.0.0.1' ([WinError 10061] 由于目标计算机积极拒绝，无法连接。)")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\py\yxx_admin\apps\home\controller\index.py", line 7, in index
+    return render_template('/home/v1/index.html')
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\templating.py", line 132, in render_template
+    ctx.app.update_template_context(context)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 764, in update_template_context
+    context.update(func())
+  File "D:\py\yxx_admin\apps\home\hooks.py", line 15, in nav
+    tm = Terms.query.filter(Terms.name=="主界面菜单").all()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\query.py", line 2773, in all
+    return list(self)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\query.py", line 2925, in __iter__
+    return self._execute_and_instances(context)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\query.py", line 2946, in _execute_and_instances
+    close_with_result=True)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\query.py", line 2955, in _get_bind_args
+    **kw
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\query.py", line 2937, in _connection_from_session
+    conn = self.session.connection(**kw)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\session.py", line 1035, in connection
+    execution_options=execution_options)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\session.py", line 1040, in _connection_for_bind
+    engine, execution_options)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\session.py", line 409, in _connection_for_bind
+    conn = bind.contextual_connect()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\engine\base.py", line 2123, in contextual_connect
+    self._wrap_pool_connect(self.pool.connect, None),
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\engine\base.py", line 2162, in _wrap_pool_connect
+    e, dialect, self)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\engine\base.py", line 1476, in _handle_dbapi_exception_noconnection
+    exc_info
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\util\compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\util\compat.py", line 186, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\engine\base.py", line 2158, in _wrap_pool_connect
+    return fn()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 403, in connect
+    return _ConnectionFairy._checkout(self)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 788, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 532, in checkout
+    rec = pool._do_get()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 1193, in _do_get
+    self._dec_overflow()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\util\langhelpers.py", line 66, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\util\compat.py", line 187, in reraise
+    raise value
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 1190, in _do_get
+    return self._create_connection()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 350, in _create_connection
+    return _ConnectionRecord(self)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 477, in __init__
+    self.__connect(first_connect_check=True)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 671, in __connect
+    connection = pool._invoke_creator(self)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\engine\strategies.py", line 106, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\engine\default.py", line 410, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\pymysql\__init__.py", line 90, in Connect
+    return Connection(*args, **kwargs)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\pymysql\connections.py", line 699, in __init__
+    self.connect()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\pymysql\connections.py", line 959, in connect
+    raise exc
+sqlalchemy.exc.OperationalError: (pymysql.err.OperationalError) (2003, "Can't connect to MySQL server on '127.0.0.1' ([WinError 10061] 由于目标计算机积极拒绝，无法连接。)") (Background on this error at: http://sqlalche.me/e/e3q8)
+2018-06-14 23:34:45,650 - ERROR - app.py - log_exception - 1560 - Exception on /admin/terms/edit/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\pymysql\connections.py", line 912, in connect
+    **kwargs)
+  File "c:\users\lenovo\appdata\local\programs\python\python36\Lib\socket.py", line 724, in create_connection
+    raise err
+  File "c:\users\lenovo\appdata\local\programs\python\python36\Lib\socket.py", line 713, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\engine\base.py", line 2158, in _wrap_pool_connect
+    return fn()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 403, in connect
+    return _ConnectionFairy._checkout(self)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 788, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 532, in checkout
+    rec = pool._do_get()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 1193, in _do_get
+    self._dec_overflow()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\util\langhelpers.py", line 66, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\util\compat.py", line 187, in reraise
+    raise value
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 1190, in _do_get
+    return self._create_connection()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 350, in _create_connection
+    return _ConnectionRecord(self)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 477, in __init__
+    self.__connect(first_connect_check=True)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 671, in __connect
+    connection = pool._invoke_creator(self)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\engine\strategies.py", line 106, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\engine\default.py", line 410, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\pymysql\__init__.py", line 90, in Connect
+    return Connection(*args, **kwargs)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\pymysql\connections.py", line 699, in __init__
+    self.connect()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\pymysql\connections.py", line 959, in connect
+    raise exc
+pymysql.err.OperationalError: (2003, "Can't connect to MySQL server on '127.0.0.1' ([WinError 10061] 由于目标计算机积极拒绝，无法连接。)")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1610, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1831, in preprocess_request
+    rv = func()
+  File "D:\py\yxx_admin\apps\admin\hooks.py", line 26, in before_request
+    if check_login() == False:
+  File "D:\py\yxx_admin\apps\admin\hooks.py", line 39, in check_login
+    admin = Admin.query.get(admin_id)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\query.py", line 882, in get
+    ident, loading.load_on_pk_identity)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\query.py", line 952, in _get_impl
+    return db_load_fn(self, primary_key_identity)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\loading.py", line 247, in load_on_pk_identity
+    return q.one()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\query.py", line 2884, in one
+    ret = self.one_or_none()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\query.py", line 2854, in one_or_none
+    ret = list(self)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\query.py", line 2925, in __iter__
+    return self._execute_and_instances(context)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\query.py", line 2946, in _execute_and_instances
+    close_with_result=True)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\query.py", line 2955, in _get_bind_args
+    **kw
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\query.py", line 2937, in _connection_from_session
+    conn = self.session.connection(**kw)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\session.py", line 1035, in connection
+    execution_options=execution_options)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\session.py", line 1040, in _connection_for_bind
+    engine, execution_options)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\session.py", line 409, in _connection_for_bind
+    conn = bind.contextual_connect()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\engine\base.py", line 2123, in contextual_connect
+    self._wrap_pool_connect(self.pool.connect, None),
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\engine\base.py", line 2162, in _wrap_pool_connect
+    e, dialect, self)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\engine\base.py", line 1476, in _handle_dbapi_exception_noconnection
+    exc_info
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\util\compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\util\compat.py", line 186, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\engine\base.py", line 2158, in _wrap_pool_connect
+    return fn()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 403, in connect
+    return _ConnectionFairy._checkout(self)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 788, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 532, in checkout
+    rec = pool._do_get()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 1193, in _do_get
+    self._dec_overflow()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\util\langhelpers.py", line 66, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\util\compat.py", line 187, in reraise
+    raise value
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 1190, in _do_get
+    return self._create_connection()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 350, in _create_connection
+    return _ConnectionRecord(self)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 477, in __init__
+    self.__connect(first_connect_check=True)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 671, in __connect
+    connection = pool._invoke_creator(self)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\engine\strategies.py", line 106, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\engine\default.py", line 410, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\pymysql\__init__.py", line 90, in Connect
+    return Connection(*args, **kwargs)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\pymysql\connections.py", line 699, in __init__
+    self.connect()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\pymysql\connections.py", line 959, in connect
+    raise exc
+sqlalchemy.exc.OperationalError: (pymysql.err.OperationalError) (2003, "Can't connect to MySQL server on '127.0.0.1' ([WinError 10061] 由于目标计算机积极拒绝，无法连接。)") (Background on this error at: http://sqlalche.me/e/e3q8)
+2018-06-14 23:34:46,698 - ERROR - app.py - log_exception - 1560 - Exception on /favicon.ico/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\pymysql\connections.py", line 912, in connect
+    **kwargs)
+  File "c:\users\lenovo\appdata\local\programs\python\python36\Lib\socket.py", line 724, in create_connection
+    raise err
+  File "c:\users\lenovo\appdata\local\programs\python\python36\Lib\socket.py", line 713, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\engine\base.py", line 2158, in _wrap_pool_connect
+    return fn()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 403, in connect
+    return _ConnectionFairy._checkout(self)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 788, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 532, in checkout
+    rec = pool._do_get()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 1193, in _do_get
+    self._dec_overflow()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\util\langhelpers.py", line 66, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\util\compat.py", line 187, in reraise
+    raise value
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 1190, in _do_get
+    return self._create_connection()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 350, in _create_connection
+    return _ConnectionRecord(self)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 477, in __init__
+    self.__connect(first_connect_check=True)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 671, in __connect
+    connection = pool._invoke_creator(self)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\engine\strategies.py", line 106, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\engine\default.py", line 410, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\pymysql\__init__.py", line 90, in Connect
+    return Connection(*args, **kwargs)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\pymysql\connections.py", line 699, in __init__
+    self.connect()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\pymysql\connections.py", line 959, in connect
+    raise exc
+pymysql.err.OperationalError: (2003, "Can't connect to MySQL server on '127.0.0.1' ([WinError 10061] 由于目标计算机积极拒绝，无法连接。)")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\py\yxx_admin\apps\home\controller\index.py", line 7, in index
+    return render_template('/home/v1/index.html')
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\templating.py", line 132, in render_template
+    ctx.app.update_template_context(context)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 764, in update_template_context
+    context.update(func())
+  File "D:\py\yxx_admin\apps\home\hooks.py", line 15, in nav
+    tm = Terms.query.filter(Terms.name=="主界面菜单").all()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\query.py", line 2773, in all
+    return list(self)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\query.py", line 2925, in __iter__
+    return self._execute_and_instances(context)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\query.py", line 2946, in _execute_and_instances
+    close_with_result=True)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\query.py", line 2955, in _get_bind_args
+    **kw
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\query.py", line 2937, in _connection_from_session
+    conn = self.session.connection(**kw)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\session.py", line 1035, in connection
+    execution_options=execution_options)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\session.py", line 1040, in _connection_for_bind
+    engine, execution_options)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\session.py", line 409, in _connection_for_bind
+    conn = bind.contextual_connect()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\engine\base.py", line 2123, in contextual_connect
+    self._wrap_pool_connect(self.pool.connect, None),
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\engine\base.py", line 2162, in _wrap_pool_connect
+    e, dialect, self)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\engine\base.py", line 1476, in _handle_dbapi_exception_noconnection
+    exc_info
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\util\compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\util\compat.py", line 186, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\engine\base.py", line 2158, in _wrap_pool_connect
+    return fn()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 403, in connect
+    return _ConnectionFairy._checkout(self)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 788, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 532, in checkout
+    rec = pool._do_get()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 1193, in _do_get
+    self._dec_overflow()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\util\langhelpers.py", line 66, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\util\compat.py", line 187, in reraise
+    raise value
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 1190, in _do_get
+    return self._create_connection()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 350, in _create_connection
+    return _ConnectionRecord(self)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 477, in __init__
+    self.__connect(first_connect_check=True)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\pool.py", line 671, in __connect
+    connection = pool._invoke_creator(self)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\engine\strategies.py", line 106, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\engine\default.py", line 410, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\pymysql\__init__.py", line 90, in Connect
+    return Connection(*args, **kwargs)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\pymysql\connections.py", line 699, in __init__
+    self.connect()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\pymysql\connections.py", line 959, in connect
+    raise exc
+sqlalchemy.exc.OperationalError: (pymysql.err.OperationalError) (2003, "Can't connect to MySQL server on '127.0.0.1' ([WinError 10061] 由于目标计算机积极拒绝，无法连接。)") (Background on this error at: http://sqlalche.me/e/e3q8)
+2018-06-14 23:34:54,429 - ERROR - app.py - log_exception - 1560 - Exception on /favicon.ico/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\py\yxx_admin\apps\home\controller\index.py", line 7, in index
+    return render_template('/home/v1/index.html')
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\templating.py", line 132, in render_template
+    ctx.app.update_template_context(context)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 764, in update_template_context
+    context.update(func())
+  File "D:\py\yxx_admin\apps\home\hooks.py", line 31, in nav
+    childs = Posts.query.filter(and_(Posts.id.in_(n.get_posts),Posts.post_status == 1)).order_by('id desc').all()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\operators.py", line 513, in in_
+    return self.operate(in_op, other)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\attributes.py", line 180, in operate
+    return op(self.comparator, *other, **kwargs)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\operators.py", line 1147, in in_op
+    return a.in_(b)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\operators.py", line 513, in in_
+    return self.operate(in_op, other)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\properties.py", line 270, in operate
+    return op(self.__clause_element__(), *other, **kwargs)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\operators.py", line 1147, in in_op
+    return a.in_(b)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\operators.py", line 513, in in_
+    return self.operate(in_op, other)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\elements.py", line 692, in operate
+    return op(self.comparator, *other, **kwargs)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\operators.py", line 1147, in in_op
+    return a.in_(b)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\operators.py", line 513, in in_
+    return self.operate(in_op, other)
+  File "<string>", line 1, in <lambda>
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\type_api.py", line 63, in operate
+    return o[0](self.expr, op, *(other + o[1:]), **kwargs)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\default_comparator.py", line 161, in _in_impl
+    for o in seq_or_selectable:
+TypeError: 'NoneType' object is not iterable
+2018-06-14 23:34:57,052 - ERROR - app.py - log_exception - 1560 - Exception on /favicon.ico/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\py\yxx_admin\apps\home\controller\index.py", line 7, in index
+    return render_template('/home/v1/index.html')
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\templating.py", line 132, in render_template
+    ctx.app.update_template_context(context)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 764, in update_template_context
+    context.update(func())
+  File "D:\py\yxx_admin\apps\home\hooks.py", line 31, in nav
+    childs = Posts.query.filter(and_(Posts.id.in_(n.get_posts),Posts.post_status == 1)).order_by('id desc').all()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\operators.py", line 513, in in_
+    return self.operate(in_op, other)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\attributes.py", line 180, in operate
+    return op(self.comparator, *other, **kwargs)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\operators.py", line 1147, in in_op
+    return a.in_(b)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\operators.py", line 513, in in_
+    return self.operate(in_op, other)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\properties.py", line 270, in operate
+    return op(self.__clause_element__(), *other, **kwargs)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\operators.py", line 1147, in in_op
+    return a.in_(b)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\operators.py", line 513, in in_
+    return self.operate(in_op, other)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\elements.py", line 692, in operate
+    return op(self.comparator, *other, **kwargs)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\operators.py", line 1147, in in_op
+    return a.in_(b)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\operators.py", line 513, in in_
+    return self.operate(in_op, other)
+  File "<string>", line 1, in <lambda>
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\type_api.py", line 63, in operate
+    return o[0](self.expr, op, *(other + o[1:]), **kwargs)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\default_comparator.py", line 161, in _in_impl
+    for o in seq_or_selectable:
+TypeError: 'NoneType' object is not iterable
+2018-06-14 23:34:57,081 - ERROR - app.py - log_exception - 1560 - Exception on /favicon.ico/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\py\yxx_admin\apps\home\controller\index.py", line 7, in index
+    return render_template('/home/v1/index.html')
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\templating.py", line 132, in render_template
+    ctx.app.update_template_context(context)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 764, in update_template_context
+    context.update(func())
+  File "D:\py\yxx_admin\apps\home\hooks.py", line 31, in nav
+    childs = Posts.query.filter(and_(Posts.id.in_(n.get_posts),Posts.post_status == 1)).order_by('id desc').all()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\operators.py", line 513, in in_
+    return self.operate(in_op, other)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\attributes.py", line 180, in operate
+    return op(self.comparator, *other, **kwargs)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\operators.py", line 1147, in in_op
+    return a.in_(b)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\operators.py", line 513, in in_
+    return self.operate(in_op, other)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\properties.py", line 270, in operate
+    return op(self.__clause_element__(), *other, **kwargs)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\operators.py", line 1147, in in_op
+    return a.in_(b)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\operators.py", line 513, in in_
+    return self.operate(in_op, other)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\elements.py", line 692, in operate
+    return op(self.comparator, *other, **kwargs)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\operators.py", line 1147, in in_op
+    return a.in_(b)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\operators.py", line 513, in in_
+    return self.operate(in_op, other)
+  File "<string>", line 1, in <lambda>
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\type_api.py", line 63, in operate
+    return o[0](self.expr, op, *(other + o[1:]), **kwargs)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\default_comparator.py", line 161, in _in_impl
+    for o in seq_or_selectable:
+TypeError: 'NoneType' object is not iterable
+2018-06-14 23:34:57,098 - ERROR - app.py - log_exception - 1560 - Exception on /favicon.ico/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\py\yxx_admin\apps\home\controller\index.py", line 7, in index
+    return render_template('/home/v1/index.html')
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\templating.py", line 132, in render_template
+    ctx.app.update_template_context(context)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 764, in update_template_context
+    context.update(func())
+  File "D:\py\yxx_admin\apps\home\hooks.py", line 31, in nav
+    childs = Posts.query.filter(and_(Posts.id.in_(n.get_posts),Posts.post_status == 1)).order_by('id desc').all()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\operators.py", line 513, in in_
+    return self.operate(in_op, other)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\attributes.py", line 180, in operate
+    return op(self.comparator, *other, **kwargs)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\operators.py", line 1147, in in_op
+    return a.in_(b)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\operators.py", line 513, in in_
+    return self.operate(in_op, other)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\properties.py", line 270, in operate
+    return op(self.__clause_element__(), *other, **kwargs)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\operators.py", line 1147, in in_op
+    return a.in_(b)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\operators.py", line 513, in in_
+    return self.operate(in_op, other)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\elements.py", line 692, in operate
+    return op(self.comparator, *other, **kwargs)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\operators.py", line 1147, in in_op
+    return a.in_(b)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\operators.py", line 513, in in_
+    return self.operate(in_op, other)
+  File "<string>", line 1, in <lambda>
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\type_api.py", line 63, in operate
+    return o[0](self.expr, op, *(other + o[1:]), **kwargs)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\default_comparator.py", line 161, in _in_impl
+    for o in seq_or_selectable:
+TypeError: 'NoneType' object is not iterable
+2018-06-14 23:34:57,135 - ERROR - app.py - log_exception - 1560 - Exception on /favicon.ico/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\py\yxx_admin\apps\home\controller\index.py", line 7, in index
+    return render_template('/home/v1/index.html')
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\templating.py", line 132, in render_template
+    ctx.app.update_template_context(context)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 764, in update_template_context
+    context.update(func())
+  File "D:\py\yxx_admin\apps\home\hooks.py", line 31, in nav
+    childs = Posts.query.filter(and_(Posts.id.in_(n.get_posts),Posts.post_status == 1)).order_by('id desc').all()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\operators.py", line 513, in in_
+    return self.operate(in_op, other)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\attributes.py", line 180, in operate
+    return op(self.comparator, *other, **kwargs)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\operators.py", line 1147, in in_op
+    return a.in_(b)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\operators.py", line 513, in in_
+    return self.operate(in_op, other)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\properties.py", line 270, in operate
+    return op(self.__clause_element__(), *other, **kwargs)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\operators.py", line 1147, in in_op
+    return a.in_(b)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\operators.py", line 513, in in_
+    return self.operate(in_op, other)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\elements.py", line 692, in operate
+    return op(self.comparator, *other, **kwargs)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\operators.py", line 1147, in in_op
+    return a.in_(b)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\operators.py", line 513, in in_
+    return self.operate(in_op, other)
+  File "<string>", line 1, in <lambda>
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\type_api.py", line 63, in operate
+    return o[0](self.expr, op, *(other + o[1:]), **kwargs)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\default_comparator.py", line 161, in _in_impl
+    for o in seq_or_selectable:
+TypeError: 'NoneType' object is not iterable
+2018-06-14 23:35:51,841 - ERROR - app.py - log_exception - 1560 - Exception on /favicon.ico/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\py\yxx_admin\apps\home\controller\index.py", line 7, in index
+    return render_template('/home/v1/index.html')
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\templating.py", line 132, in render_template
+    ctx.app.update_template_context(context)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 764, in update_template_context
+    context.update(func())
+  File "D:\py\yxx_admin\apps\home\hooks.py", line 31, in nav
+    childs = Posts.query.filter(and_(Posts.id.in_(n.get_posts),Posts.post_status == 1)).order_by('id desc').all()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\operators.py", line 513, in in_
+    return self.operate(in_op, other)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\attributes.py", line 180, in operate
+    return op(self.comparator, *other, **kwargs)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\operators.py", line 1147, in in_op
+    return a.in_(b)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\operators.py", line 513, in in_
+    return self.operate(in_op, other)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\properties.py", line 270, in operate
+    return op(self.__clause_element__(), *other, **kwargs)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\operators.py", line 1147, in in_op
+    return a.in_(b)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\operators.py", line 513, in in_
+    return self.operate(in_op, other)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\elements.py", line 692, in operate
+    return op(self.comparator, *other, **kwargs)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\operators.py", line 1147, in in_op
+    return a.in_(b)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\operators.py", line 513, in in_
+    return self.operate(in_op, other)
+  File "<string>", line 1, in <lambda>
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\type_api.py", line 63, in operate
+    return o[0](self.expr, op, *(other + o[1:]), **kwargs)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\default_comparator.py", line 161, in _in_impl
+    for o in seq_or_selectable:
+TypeError: 'NoneType' object is not iterable
+2018-06-14 23:38:15,338 - ERROR - app.py - log_exception - 1560 - Exception on / [GET]
+Traceback (most recent call last):
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+TypeError: index() missing 1 required positional argument: 'posts_name'
+2018-06-14 23:38:25,045 - ERROR - app.py - log_exception - 1560 - Exception on / [GET]
+Traceback (most recent call last):
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\py\yxx_admin\apps\home\controller\index.py", line 7, in index
+    return render_template('/home/v1/index.html')
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\templating.py", line 132, in render_template
+    ctx.app.update_template_context(context)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 764, in update_template_context
+    context.update(func())
+  File "D:\py\yxx_admin\apps\home\hooks.py", line 31, in nav
+    childs = Posts.query.filter(and_(Posts.id.in_(n.get_posts),Posts.post_status == 1)).order_by('id desc').all()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\operators.py", line 513, in in_
+    return self.operate(in_op, other)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\attributes.py", line 180, in operate
+    return op(self.comparator, *other, **kwargs)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\operators.py", line 1147, in in_op
+    return a.in_(b)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\operators.py", line 513, in in_
+    return self.operate(in_op, other)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\properties.py", line 270, in operate
+    return op(self.__clause_element__(), *other, **kwargs)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\operators.py", line 1147, in in_op
+    return a.in_(b)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\operators.py", line 513, in in_
+    return self.operate(in_op, other)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\elements.py", line 692, in operate
+    return op(self.comparator, *other, **kwargs)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\operators.py", line 1147, in in_op
+    return a.in_(b)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\operators.py", line 513, in in_
+    return self.operate(in_op, other)
+  File "<string>", line 1, in <lambda>
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\type_api.py", line 63, in operate
+    return o[0](self.expr, op, *(other + o[1:]), **kwargs)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\default_comparator.py", line 161, in _in_impl
+    for o in seq_or_selectable:
+TypeError: 'NoneType' object is not iterable
+2018-06-14 23:38:47,259 - ERROR - app.py - log_exception - 1560 - Exception on / [GET]
+Traceback (most recent call last):
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\py\yxx_admin\apps\home\controller\index.py", line 7, in index
+    return render_template('/home/v1/index.html')
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\templating.py", line 132, in render_template
+    ctx.app.update_template_context(context)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 764, in update_template_context
+    context.update(func())
+  File "D:\py\yxx_admin\apps\home\hooks.py", line 31, in nav
+    childs = Posts.query.filter(and_(Posts.id.in_(n.get_posts),Posts.post_status == 1)).order_by('id desc').all()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\operators.py", line 513, in in_
+    return self.operate(in_op, other)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\attributes.py", line 180, in operate
+    return op(self.comparator, *other, **kwargs)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\operators.py", line 1147, in in_op
+    return a.in_(b)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\operators.py", line 513, in in_
+    return self.operate(in_op, other)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\properties.py", line 270, in operate
+    return op(self.__clause_element__(), *other, **kwargs)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\operators.py", line 1147, in in_op
+    return a.in_(b)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\operators.py", line 513, in in_
+    return self.operate(in_op, other)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\elements.py", line 692, in operate
+    return op(self.comparator, *other, **kwargs)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\operators.py", line 1147, in in_op
+    return a.in_(b)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\operators.py", line 513, in in_
+    return self.operate(in_op, other)
+  File "<string>", line 1, in <lambda>
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\type_api.py", line 63, in operate
+    return o[0](self.expr, op, *(other + o[1:]), **kwargs)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\default_comparator.py", line 161, in _in_impl
+    for o in seq_or_selectable:
+TypeError: 'NoneType' object is not iterable
+2018-06-14 23:47:17,105 - ERROR - app.py - log_exception - 1560 - Exception on / [GET]
+Traceback (most recent call last):
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\py\yxx_admin\apps\home\controller\index.py", line 7, in index
+    return render_template('/home/v1/index.html')
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\templating.py", line 132, in render_template
+    ctx.app.update_template_context(context)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 764, in update_template_context
+    context.update(func())
+  File "D:\py\yxx_admin\apps\home\hooks.py", line 31, in nav
+    print(childs)
+UnboundLocalError: local variable 'childs' referenced before assignment
+2018-06-14 23:55:55,934 - ERROR - app.py - log_exception - 1560 - Exception on / [GET]
+Traceback (most recent call last):
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\py\yxx_admin\apps\home\controller\index.py", line 7, in index
+    return render_template('/home/v1/index.html')
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\templating.py", line 134, in render_template
+    context, ctx.app)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\templating.py", line 116, in _render
+    rv = template.render(context)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\jinja2\environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\jinja2\_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "D:\py\yxx_admin\templates\home\v1\index.html", line 1, in top-level template code
+    {%- extends "home/v1/base.html" -%}
+  File "D:\py\yxx_admin\templates\home\v1\base.html", line 73, in top-level template code
+    <li><a href="{{ url('homeindex.category',category=vv.terms[0].slug) }}"><i class="fa fa-circle-o"></i>{% if vv.terms[0].slug %}{{ vv.terms[0].slug }}{% else %}{{ vv.terms[0].name }}{% endif %}</a></li>
+jinja2.exceptions.UndefinedError: 'url' is undefined
