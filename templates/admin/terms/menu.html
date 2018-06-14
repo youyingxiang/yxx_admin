@@ -37,7 +37,7 @@
                 <div class="box-body">
                     <div class="form-group">
                         <div class="rule_node"></div>
-                        <a href="javascript:void(0)" class="load_more_posts">加载更多</a><button data-type="posts" class="btn pull-right btn_add_menu">添加到菜单</button>
+                        <a href="javascript:void(0)" class="load_more_posts">加载更多</a><button data-type="posts" class="btn pull-right btn_add_menu submits" data-loading-text="&lt;i class='fa fa-spinner fa-spin '&gt;&lt;/i&gt;添加新标签">添加到菜单</button>
                     </div>
                 </div>
             </div>
@@ -63,7 +63,7 @@
                             {%- endfor -%}
                         </div>
                     </div>
-                    <button class="btn pull-right btn_add_menu" data-type="category">添加到菜单</button>
+                    <button class="btn pull-right btn_add_menu submits" data-loading-text="&lt;i class='fa fa-spinner fa-spin '&gt;&lt;/i&gt;添加新标签" data-type="category">添加到菜单</button>
                 </div>
             </div>
 
@@ -84,100 +84,50 @@
                         <label class="control-label">链接文本</label>
                         <input class="form-control" name="nav_title" value="">
                     </div>
-                    <button class="btn pull-right btn_add_menu" data-type="url">添加到菜单</button>
+                    <button class="btn pull-right btn_add_menu submits" data-loading-text="&lt;i class='fa fa-spinner fa-spin '&gt;&lt;/i&gt;添加新标签" data-type="url">添加到菜单</button>
                 </div>
             </div>
 
         </div>
         <div class="col-md-9">
           <!-- Horizontal Form -->
-          <form class="form-horizontal box-header">
-            <div class="col-md-9" style="margin-top: 20px">
-                <div class="box box-solid">
-                    <div class="box-body">
-                        <input class="form-control" name="menu_name" value="{{ select_menu.terms[0].name }}" placeholder="填写菜单名称" type="text">
-                    </div>
-                </div>
-            </div>
+          <div class="form-horizontal box-header">
             <!-- /.box-header -->
             <!-- form start -->
 
-                <div class="col-md-9" style="margin-top: 20px">
-                    <div class="box box-solid">
-                      <label class="control-label">菜单结构</label>
-                      <div class="box-body">
-                          拖放各个项目到您喜欢的顺序，点击右侧的箭头可进行更详细的设置。
-                      </div>
+                <div class="col-md-9">
+                    <div class="box box-solid with-border">
+                        <h3 class="box-title" style="margin: 10px 10px">菜单结构</h3>
+                        <div class="box-body">
+                              拖放各个项目到您喜欢的顺序，点击右侧的箭头可进行更详细的设置。
+                        </div>
                     </div>
                 </div>
               <!-- /.box-body -->
-                <div class="col-md-9">
+              <div class="col-md-9">
+              {% for v in menu_result %}
                     <div class="box box-solid collapsed-box">
                         <div class="box-header with-border">
-                          <h3 class="box-title">页面</h3>
+                          <h3 class="box-title">{{ v.title }}  【{{ v.type }}】</h3>
                           <div class="box-tools">
                             <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
                             </button>
                           </div>
                         </div>
-                        <div class="box-body no-padding">
-                              <ul class="nav nav-pills nav-stacked">
-                                <li><a href="#"><i class="fa fa-inbox"></i> Inbox
-                                  <span class="label label-primary pull-right">12</span></a></li>
-                              </ul>
+                        <div class="box-body">
+                            <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label">导航链接</label>
+                                <input class="form-control edit_slug" data-old="{{ v.slug }}" data-type="{{ v.type_en }}" data-id="{{ v.id }}" name="slug" value="{{ v.slug }}">
+                            </div>
+                                <button class="btn pull-right delete_slug submits" data-loading-text="&lt;i class='fa fa-spinner fa-spin '&gt;&lt;/i&gt;添加新标签" data-type="{{ v.type_en }}" data-id="{{ v.pm_id }}">移除</button>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="col-md-9">
-                    <div class="box box-solid collapsed-box">
-                        <div class="box-header with-border">
-                          <h3 class="box-title">页面</h3>
-                          <div class="box-tools">
-                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
-                            </button>
-                          </div>
-                        </div>
-                        <div class="box-body no-padding">
-                              <ul class="nav nav-pills nav-stacked">
-                                <li><a href="#"><i class="fa fa-inbox"></i> Inbox
-                                  <span class="label label-primary pull-right">12</span></a></li>
-                              </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-9">
-                    <div class="box box-solid collapsed-box">
-                        <div class="box-header with-border">
-                          <h3 class="box-title">页面</h3>
-                          <div class="box-tools">
-                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
-                            </button>
-                          </div>
-                        </div>
-                        <div class="box-body no-padding">
-                              <ul class="nav nav-pills nav-stacked">
-                                <li><a href="#"><i class="fa fa-inbox"></i> Inbox
-                                  <span class="label label-primary pull-right">12</span></a></li>
-                              </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="box-footer">
-                    <div class="col-sm-2"></div>
-                    <div class="col-sm-7">
-                        <div class="btn-group pull-right">
-                            <button type="submit" class="btn btn-info pull-right submits" data-loading-text="&lt;i class='fa fa-spinner fa-spin '&gt;&lt;/i&gt;提交">提交</button>
-                        </div>
-                        <div class="btn-group pull-left">
-                            <button type="reset" class="btn btn-warning">重置</button>
-                        </div>
-                    </div>
-                </div>
+              {% endfor %}
+              </div>
               <!-- /.box-footer -->
-            </form>
+            </div>
           </div>
           <!-- /.box -->
     </div>
@@ -215,6 +165,44 @@ $(function(){
                 }
             });
     })
+    $(".edit_slug").on('blur',function(){
+        var val_ = $(this).val().trim()
+        if (val_.length == 0) return false;
+        if (val_ == $(this).attr('data-old'))return false;
+        var data_value = {'id':$(this).attr('data-id'),'type':$(this).attr('data-type'),'new_name':val_}
+        if (confirm("确定修改当前选项名称吗")) {
+            $.ajax({
+                url: "{{ url_for('adminterms.ajax_terms_slug') }}",
+                data: data_value,
+                type: 'post',
+                dataType: "json",
+                success: function (result) {
+                    if (result.code == 200) {
+                        $.amaran({'message': result.info});
+                    }
+                }
+            })
+        }
+    })
+    $(".delete_slug").on('click',function(){
+        var data_value = {'id':$(this).attr('data-id')}
+        $.ajax({
+            url: "{{ url_for('adminterms.ajax_unjoin_menu') }}",
+            data:data_value,
+            type:'post',
+            dataType: "json",
+            success:function(result){
+                if (result.code == 200) {
+                    $.amaran({'message': result.info});
+                    $.pjax({
+                        url: "{{ url_for('adminterms.menu') }}?id={{ select_menu.id }}",
+                        container: '#pjax-container',
+                        fragment: '#pjax-container'
+                    })
+                }
+            }
+        })
+    })
     $(".btn_add_menu").on('click',function(){
         var type = $(this).attr('data-type').trim()
         var value_ = new Array();
@@ -239,7 +227,8 @@ $(function(){
             type:'post',
             dataType: "json",
             success:function(result){
-
+                $.amaran({'message':result.info});
+                $.pjax({url:"{{ url_for('adminterms.menu') }}?id={{ select_menu.id }}", container: '#pjax-container', fragment:'#pjax-container'})
             }
         })
     })

@@ -15,6 +15,7 @@ from apps.admin.model.term_taxonomy import TermTaxonomy
 from apps.admin.model.terms import Terms
 from apps.admin.model.resources_relationships import resources_relationships
 from apps.admin.model.postmeta import PostMeta
+from apps.admin.model.link import Link
 
 
 

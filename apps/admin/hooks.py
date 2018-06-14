@@ -22,7 +22,7 @@ from .config import menu
 @index_bp.before_request
 def before_request():
     get_global_search()
-    session[ADMIN_SESSION_ID] = 1
+    session[ADMIN_SESSION_ID] = 2
     if check_login() == False:
         return redirect(url_for('adminlogin.login'))
     if hooks_auth(request.path) == False:
@@ -57,7 +57,9 @@ def hooks_auth(path):
     if g.admin:
         if g.role_type == 1:
             have_auth = True
-        elif str(path) in ['/admin/login/login/','/admin/admin/logout/','/admin/index/index/','/admin/config_field/save/']:
+        elif str(path) in ['/admin/login/login/','/admin/admin/logout/','/admin/index/index/','/admin/config_field/save/',
+                           '/admin/terms/ajax_add_label/','/admin/terms/ajax_add_menu/','/admin/terms/ajax_join_menu/',
+                           '/admin/terms/ajax_unjoin_menu/','/admin/terms/ajax_terms_slug/','/admin/posts/ajax_get_posts/']:
             have_auth = True
         else:
             pri = g.role_pri_path

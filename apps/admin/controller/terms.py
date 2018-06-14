@@ -3,6 +3,7 @@ from ..model.terms import Terms
 from ..model.term_taxonomy import TermTaxonomy
 from ..model.postmeta import PostMeta
 from ..model.posts import Posts
+from ..model.link import Link
 from ..common import get_str_upper,write_log,reSort,getChildren
 from ..config import PAGE_SIZE,TAXONOMY,TAXONOMY_CN
 from think import restful
@@ -141,9 +142,8 @@ class TermsMenuView(views.MethodView):
         # 获取分类
         categorys = TermTaxonomy.query.filter(TermTaxonomy.taxonomy == 1).all()
         categorys = reSort(categorys, parent=0, level=0, ret=[])
-        return render_template('admin/terms/menu.html',menus = menus,select_menu=select_menu,categorys = categorys)
-    def post(self):
-        pass
+        menu_result = get_menu(select_menu.postmetas)
+        return render_template('admin/terms/menu.html',menus = menus,select_menu=select_menu,categorys = categorys,menu_result = menu_result)
 
 @bp.route('/ajax_add_label/',methods=['POST'])
 def ajax_add_label():
@@ -217,16 +217,86 @@ def ajax_join_menu():
         #获取菜单
         tm = TermTaxonomy.query.filter(TermTaxonomy.id == menu_id).first()
         if tm:
-            if menu_type == 'posts':
-                tm.postmeta_menu_posts = menu_value
+            if menu_type == 'url':
+                tm.menu_url = menu_value
             elif menu_type == 'category':
-                tm.postmeta_menu_category == menu_value
-            elif menu_type == 'url':
-                tm.postmeta_menu_url == menu_value
+                tm.menu_category = menu_value
+            elif menu_type == 'posts':
+                tm.menu_posts = menu_value
             db.session.commit()
-        return restful.success('添加成功')
+        return restful.success('关联菜单成功',url=url_for('adminterms.menu'))
     except Exception as e:
         write_log(log_type='join', log_detail="行为：菜单关联；错误：" + str(e))
         return restful.server_error(str(e))
+
+@bp.route('/ajax_unjoin_menu/',methods = ['POST'])
+def ajax_unjoin_menu():
+    try:
+        pm_id = request.form.get('id')
+        join_object = PostMeta.query.filter(PostMeta.id==pm_id).first()
+        join_object.terms = []
+        db.session.delete(join_object)
+        db.session.commit()
+        return restful.success('取消菜单关联成功', url=url_for('adminterms.menu'))
+    except Exception as e:
+        write_log(log_type='join', log_detail="行为：取消菜单关联；错误：" + str(e))
+        return restful.server_error(str(e))
+
+@bp.route('/ajax_terms_slug/',methods = ['POST'])
+def ajax_terms_slug():
+    try:
+        id = request.form.get('id')
+        type = request.form.get('type')
+        value = request.form.get('new_name')
+        if type == 'category':
+            c = TermTaxonomy.query.get(id)
+            c.terms[0].slug = value
+        elif type == 'posts':
+            p = Posts.query.get(id)
+            p.post_name = value
+        elif type == 'url':
+            l = Link.query.get(id)
+            l.slug = value
+        db.session.commit()
+        return restful.success('编辑成功')
+    except Exception as e:
+        return restful.server_error(str(e))
+def get_menu(menu_postmetas):
+    menu_result = []
+    for v in menu_postmetas:
+        d = {}
+        if v.meta_key == 'termtaxonomy_menu_url_id':
+            l = Link.query.filter(Link.id == v.meta_value).first()
+            d['type'] = '自定义链接'
+            d['type_en'] = "url"
+            d['title'] = l.name
+            if l.slug:
+                d['slug'] = l.slug
+            else:
+                d['slug'] = l.name
+            d['id'] = l.id
+        elif v.meta_key == 'termtaxonomy_menu_posts_id':
+            p = Posts.query.filter(Posts.id == v.meta_value).first()
+            d['type'] = '文章'
+            d['type_en'] = "posts"
+            d['title'] = p.post_title
+            if p.post_name:
+                d['slug'] = p.post_name
+            else:
+                d['slug'] = p.post_title
+            d['id'] = p.id
+        elif v.meta_key == 'termtaxonomy_menu_category_id':
+            c = TermTaxonomy.query.filter(TermTaxonomy.id == v.meta_value).first()
+            d['type'] = '分类'
+            d['type_en'] = "category"
+            d['title'] = c.terms[0].name
+            if c.terms[0].slug:
+                d['slug'] = c.terms[0].slug
+            else:
+                d['slug'] = c.terms[0].name
+            d['id'] = c.id
+        d['pm_id'] = v.id
+        menu_result.append(d)
+    return menu_result
 bp.add_url_rule('/edit/',view_func=TermsEditView.as_view('edit'))
 bp.add_url_rule('/menu/',view_func=TermsMenuView.as_view('menu'))

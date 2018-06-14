@@ -1,0 +1,130 @@
+{% from 'home/v1/_macro.html' import static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>{% block title%}{% endblock %}</title>
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <meta name="renderer" content="webkit">
+<!-- 引入css文件   -->
+<link rel="stylesheet" type="text/css" href="{{ static('home/v1/bootstrap/css/bootstrap.min.css') }}" />
+<link rel="stylesheet" type="text/css" href="{{ static('home/v1/bootstrap/css/font-awesome.min.css') }}" />
+<link rel="stylesheet" type="text/css" href="{{ static('home/v1/dist/css/AdminLTE.min.css') }}" />
+<link rel="stylesheet" type="text/css" href="{{ static('home/v1/dist/skins/skins.min.css') }}" />
+{% block css -%}{%- endblock %}
+<!-- 引入css文件 end  -->
+</head>
+<!-- 内容区域   -->
+<body class="hold-transition skin-blue layout-boxed sidebar-mini">
+<!-- Site wrapper -->
+<div class="wrapper">
+
+  <header class="main-header">
+    <!-- Logo -->
+    <a href="/" class="logo">
+      <!-- mini logo for sidebar mini 50x50 pixels -->
+      <span class="logo-mini"><b>A</b>PF</span>
+      <!-- logo for regular state and mobile devices -->
+      <span class="logo-lg"><b>PF</b>CMS</span>
+    </a>
+    <!-- Header Navbar: style can be found in header.less -->
+    <nav class="navbar navbar-static-top">
+      <!-- Sidebar toggle button-->
+      <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+        <span class="sr-only">切换导航</span>
+      </a>
+    </nav>
+  </header>
+
+  <!-- =============================================== -->
+
+  <!-- Left side column. contains the sidebar -->
+  <aside class="main-sidebar">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+
+      <!-- search form -->
+      <form action="#" method="get" class="sidebar-form">
+        <div class="input-group">
+          <input type="text" name="q" class="form-control" placeholder="Search...">
+              <span class="input-group-btn">
+                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                </button>
+              </span>
+        </div>
+      </form>
+      <!-- /.search form -->
+      <!-- sidebar menu: : style can be found in sidebar.less -->
+      <ul class="sidebar-menu">
+        <li class="header">主导航</li>
+        {%- for v in navs -%}
+            {%- if v.type == 'category' -%}
+                <li class="treeview">
+                  <a href="{% if v.link %}{{ v.link }}{% else %}javascript:void(0){% endif %}">
+                    <i class="fa fa-circle-o"></i>
+                    <span>{{ v.name }}</span>
+                    <span class="pull-right-container">
+                      <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                  </a>
+                  <ul class="treeview-menu">
+                      {%- for vv in v.childs %}
+                        <li><a href=""><i class="fa fa-circle-o"></i>{% if vv.post_name %}{{ vv.post_name }}{% else %}{{ vv.post_title }}{% endif %}</a></li>
+                      {%- endfor -%}
+                  </ul>
+                </li>
+            {% else %}
+                <li><a href="{{ v.link }}"><i class="fa fa-circle-o"></i> <span>{{ v.name }}</span></a></li>
+            {%- endif -%}
+        {%- endfor -%}
+      </ul>
+    </section>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- =============================================== -->
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper" id="pjax-container">
+
+      <section class="content-header">
+        <h1>
+          {% block page_title%}{% endblock %}
+        </h1>
+        <ol class="breadcrumb">
+          <li><a href="#"><i class="fa fa-dashboard"></i> {% block page_btn_name%}{% endblock %}</a></li>
+        </ol>
+      </section>
+        {% block content -%}{%- endblock  %}
+  </div>
+
+  <!-- /.content-wrapper -->
+
+  <footer class="main-footer">
+    <div class="pull-right hidden-xs">
+      <b>Version</b> 2018-06-14
+    </div>
+    <strong>Copyright yxx <a target="_blank" href="http://www.echo500.com">yxx</a>.</strong> All rights
+    reserved.
+  </footer>
+
+  <!-- /.control-sidebar -->
+  <!-- Add the sidebar's background. This div must be placed
+       immediately after the control sidebar -->
+  <div class="control-sidebar-bg"></div>
+</div>
+
+<!-- 内容区域 end   -->
+<!-- 引入js文件   -->
+<script type="text/javascript" src="{{ static('home/v1/plugins/jQuery/jquery-2.2.3.min.js') }}"></script>
+<script type="text/javascript" src="{{ static('home/v1/bootstrap/js/bootstrap.min.js') }}"></script>
+<script type="text/javascript" src="{{ static('home/v1/slimScroll/jquery.slimscroll.min.js') }}"></script>
+<script type="text/javascript" src="{{ static('home/v1/fastclick/fastclick.js') }}"></script>
+<script type="text/javascript" src="{{ static('home/v1/dist/js/app.min.js') }}"></script>
+<script type="text/javascript" src="{{ static('home/v1/dist/js/demo.js') }}"></script>
+<script type="text/javascript" src="{{ static('home/v1/plugins/jQuery/jquery.pjax.js') }}"></script>
+{% block js -%}{%- endblock %}
+<!-- 引入js文件 end  -->
+</body>
+</html>

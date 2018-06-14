@@ -1,5 +1,6 @@
 from flask import Blueprint,render_template,session
 from ..model.log import Log
+from ..model.posts import Posts
 import psutil,urllib.request,platform
 bp = Blueprint('adminindex',__name__,url_prefix='/admin/index')
 
@@ -9,7 +10,8 @@ def index():
     svemm = get_virtual_memory()
     logins = get_login_info()
     sysinfo = get_sys_info()
-    return  render_template('/admin/index/index.html',svemm=svemm,logins=logins,sysinfo=sysinfo)
+    posts_new = get_posts_info()
+    return  render_template('/admin/index/index.html',svemm=svemm,logins=logins,sysinfo=sysinfo,posts_new=posts_new)
 
 #打印本机的内存信息
 def get_virtual_memory():
@@ -37,3 +39,7 @@ def get_sys_info():
     sysinfo['系统主机名'] = platform.node()
     sysinfo['python版本'] = platform.python_version()
     return sysinfo
+
+def get_posts_info():
+    p = Posts.query.filter(Posts.post_status == 1).order_by("id desc").limit(10).offset(0).all()
+    return p

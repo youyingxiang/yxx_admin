@@ -1,7 +1,7 @@
 {%  extends "admin/common/admin_base.html" %}
 {% block title -%}
     首页管理
-{% endblock %}
+{%- endblock %}
 {% block page_title -%}首页管理{% endblock %}
 {% block page_btn_name -%}后台首页{% endblock %}
 {% block content -%}
@@ -64,7 +64,30 @@
         </div>
 
         <div class="col-lg-6 col-sm-6 col-xs-12">
+               <!-- Chat box -->
+          <div class="box box-success">
+            <div class="box-header">
+              <i class="fa fa-comments-o"></i>
 
+              <h3 class="box-title">最新文章</h3>
+            </div>
+            <div class="box-body chat" id="chat-box">
+              <!-- chat item -->
+                {% for v in posts_new -%}
+                  <div class="item">
+                    <img src="{{ no_img(v.feature_img.split(',')[0]) }}" alt="{{ v.post_title }}" class="online">
+
+                    <p class="message">
+                      <a href="#" class="name">
+                        <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> {{ v.create_time }}</small>
+                       {{ v.admin.admin_name }}
+                      </a>
+                      {{ v.post_title }}
+                    </p>
+                  </div>
+                {%- endfor %}
+            </div>
+          </div>
         </div>
     </div>
 </section>

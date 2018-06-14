@@ -2,6 +2,7 @@ from exts import db
 import time,json
 from .postmeta import PostMeta
 from .term_relationships import term_relationships
+from .link import Link
 from sqlalchemy import and_
 class TermTaxonomy(db.Model):
     __tablename__ = 'tb_term_taxonomy'
@@ -13,87 +14,85 @@ class TermTaxonomy(db.Model):
     count = db.Column(db.Integer,nullable=False,comment='文章数统计',default=0)
     postmetas = db.relationship('PostMeta', secondary=term_relationships, backref=db.backref('terms', lazy='dynamic'))
 
+
     @property
-    def postmeta_menu_url(self):
+    def menu_url(self):
         id = self.id
-        pm = PostMeta.query.filter(and_(PostMeta.meta_key == 'termtaxonomy_menu_object')).all()
+        pm = self.postmetas
         if pm:
             result = []
             for v in pm:
-                mv = json.loads(v.meta_value)
-                if mv.get('type') == 'url':
-                    result.append(v.id)
+                if v.meta_key == "termtaxonomy_menu_url_id":
+                    result.append(v.meta_value)
             return result
         else:
             return []
 
-    @postmeta_menu_url.setter
-    def postmeta_menu_url(self,input_postmeta_menu_url):
-        menu_urls = self.postmeta_menu_url
-        if menu_urls:
-            PostMeta.query.filter(PostMeta.id.in_(menu_urls)).delete(synchronize_session=False)
-        meta_value = {'value': input_postmeta_menu_url[0], 'title': input_postmeta_menu_url[1], 'type':'url', "order": 0}
-        meta_value = json.dumps(meta_value)
-        pm = PostMeta(
-            meta_key= "termtaxonomy_menu_object",
-            meta_value= meta_value
+    @menu_url.setter
+    def menu_url(self,input_postmeta_menu_url):
+        l = Link(
+            name = input_postmeta_menu_url[1],
+            link = input_postmeta_menu_url[0],
+            slug = ""
         )
-        self.postmetas = [pm]
+        db.session.add(l)
+        db.session.flush()
+        pm = PostMeta(
+            meta_key="termtaxonomy_menu_url_id",
+            meta_value= l.id
+        )
+        pm.terms = [self]
     @property
-    def postmeta_menu_category(self):
+    def menu_category(self):
         id = self.id
-        pm = PostMeta.query.filter(and_(PostMeta.meta_key == 'termtaxonomy_menu_object')).all()
+        pm = self.postmetas
         if pm:
             result = []
             for v in pm:
-                mv = json.loads(v.meta_value)
-                if mv.get('type') == 'category':
-                    result.append(v.id)
+                if v.meta_key == "termtaxonomy_menu_category_id":
+                    result.append(v.meta_value)
             return result
         else:
             return []
 
-    @postmeta_menu_category.setter
-    def postmeta_menu_category(self,input_postmeta_menu_category):
-        menu_categorys = self.postmeta_menu_category
-        if menu_categorys:
-            PostMeta.query.filter(PostMeta.id.in_(menu_categorys)).delete(synchronize_session=False)
-        pms = []
-        for v in input_postmeta_menu_category:
-            meta_value = {'value':v, 'title': "", 'type': 'category',"order": 0}
-            meta_value = json.dumps(meta_value)
-            pm = PostMeta(
-                meta_key="termtaxonomy_menu_object",
-                meta_value=meta_value
-            )
-            pms.append(pm)
-        self.postmetas = pms
+    @menu_category.setter
+    def menu_category(self,input_postmeta_menu_category):
+        if len(input_postmeta_menu_category) > 0:
+            for v in input_postmeta_menu_category:
+                pm =  PostMeta(
+                    meta_key="termtaxonomy_menu_category_id",
+                    meta_value= v
+                )
+                pm.terms = [self]
     @property
-    def postmeta_menu_posts(self):
+    def menu_posts(self):
         id = self.id
-        pm = PostMeta.query.filter(and_(PostMeta.meta_key == 'termtaxonomy_menu_object')).all()
+        pm = self.postmetas
         if pm:
             result = []
             for v in pm:
-                mv = json.loads(v.meta_value)
-                if mv.get('type') == 'posts':
-                    result.append(v.id)
+                if v.meta_key == "termtaxonomy_menu_posts_id":
+                    result.append(v.meta_value)
             return result
         else:
             return []
 
-    @postmeta_menu_posts.setter
-    def postmeta_menu_posts(self, input_postmeta_menu_posts):
-        menu_posts = self.postmeta_menu_posts
-        if menu_posts:
-            PostMeta.query.filter(PostMeta.id.in_(menu_posts)).delete(synchronize_session=False)
-        pms = []
-        for v in input_postmeta_menu_posts:
-            meta_value = {'value': v, 'title': "", 'type': 'posts', "order": 0}
-            meta_value = json.dumps(meta_value)
-            pm = PostMeta(
-                meta_key="termtaxonomy_menu_object",
-                meta_value=meta_value
-            )
-            pms.append(pm)
-        self.postmetas = pms
+    @menu_posts.setter
+    def menu_posts(self, input_postmeta_menu_posts):
+        if len(input_postmeta_menu_posts) > 0:
+            for v in input_postmeta_menu_posts:
+                pm =  PostMeta(
+                    meta_key="termtaxonomy_menu_posts_id",
+                    meta_value= v
+                )
+                pm.terms = [self]
+
+    @property
+    def get_posts(self):
+        ids = []
+        if self.postmetas:
+            for v in self.postmetas:
+                if v.meta_key == "termtaxonomy_category_posts_id":
+                    ids.append(v.meta_value)
+        return ids
+
