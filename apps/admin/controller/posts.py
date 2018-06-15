@@ -110,7 +110,7 @@ class PostsEditView(views.MethodView):
                     setattr(posts,v_old_name,form.data[v_old_name])
                 else:
                     posts.post_content = request.form.get('post_content')
-                    posts.post_content = request.form.get('post_title')
+                    posts.post_title = request.form.get('post_title')
                     posts.post_excerpt = request.form.get('post_excerpt')
                     posts.post_status = request.form.get('post_status')
                     posts.comment_status = request.form.get('comment_status')

@@ -19,4 +19,13 @@ SESSION_KEY_PREFIX          = 'session_yxx:'  # 保存到session中的值的前�
 PERMANENT_SESSION_LIFETIME  = 1200  # 如果没有设置延迟时间，默认的延时时间会被使用。单位为秒。
 SESSION_REDIS               = redis.Redis(host='127.0.0.1', port='6379', password='',db=1)  # 用于连接redis的配置
 
+
+#缓存设置
+CACHE_TYPE                  = 'redis'
+CACHE_REDIS_DB              = 2
+CACHE_REDIS_PASSWORD        = ""
+CACHE_REDIS_PORT            = 6379
+CACHE_REDIS_HOST            = '127.0.0.1'
+CACHE_DEFAULT_TIMEOUT       = 7200
+
 APP_ROOT_PATH = os.path.abspath(os.path.join(os.path.abspath(__file__),".."))

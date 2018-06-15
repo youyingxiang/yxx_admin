@@ -10,7 +10,7 @@ from apps.admin.controller.index import bp as adminindexbp
 from apps.common.controller.tool import bp as commontoolbp
 import config,apps.admin.hooks,os,datetime,apps.home.hooks
 import logging
-from exts import db
+from exts import db,cache
 from flask_session import Session
 from apps.home.controller.index import bp as homeindexbp
 from apps.admin.controller.login import bp as adminloginbp
@@ -18,8 +18,8 @@ from apps.admin.controller.role import bp as adminrolebp
 from apps.admin.controller.admin import bp as adminadminbp
 
 
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # from think.library.build import Build
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # Build().run()
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # from think.library.build import Build
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # Build().run()
 app = Flask(__name__)
 app.register_blueprint(admintermsbp)
 app.register_blueprint(adminpostsbp)
@@ -37,6 +37,7 @@ app.register_blueprint(adminrolebp)
 app.register_blueprint(adminadminbp)
 Session(app)
 
+cache.init_app(app)
 db.init_app(app)
 
 @app.template_global('table_sort')

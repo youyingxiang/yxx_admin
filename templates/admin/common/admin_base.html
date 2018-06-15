@@ -7,10 +7,9 @@
     <header class="main-header">
     <!-- Logo -->
     <a href="{{ url_for('adminindex.index') }}" class="logo">
-      <!-- 窗口折叠 -->
-      <span class="logo-mini"><img src="{{url_for('static',filename='admin/img/logo-inverse.png')}}"></span>
-      <!-- 窗口展开 -->
-      <span class="logo-lg"><img src="{{url_for('static',filename='admin/img/logo-inverse.png')}}"></span>
+       <span class="logo-mini"><b>PF</b></span>
+      <!-- logo for regular state and mobile devices -->
+      <span class="logo-lg"><b>PF</b>CMS</span>
     </a>
     <!-- 右上导航 -->
     <nav class="navbar navbar-static-top">
@@ -26,6 +25,9 @@
         <ul class="nav navbar-nav">
           <li class="dropdown messages-menu">
              <a href="/" target="_blank">网站首页</a>
+          </li>
+          <li class="dropdown messages-menu">
+             <a href="javascript:void(0)" data-url="{{ url_for('adminindex.clear_cache') }}" data-id="1" class="delete-one">清除缓存</a>
           </li>
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">

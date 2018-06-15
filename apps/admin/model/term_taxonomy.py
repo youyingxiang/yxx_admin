@@ -98,6 +98,15 @@ class TermTaxonomy(db.Model):
         return ids
 
     @property
+    def get_posts_label(self):
+        ids = []
+        if self.postmetas:
+            for v in self.postmetas:
+                if v.meta_key == "termtaxonomy_label_posts_id":
+                    ids.append(v.meta_value)
+        return ids
+
+    @property
     def get_childs(self):
         tm = TermTaxonomy.query.filter(TermTaxonomy.taxonomy ==1).all()
         childs = []

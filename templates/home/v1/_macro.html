@@ -1,3 +1,35 @@
 {% macro static(filename) -%}
-    {{ url_for('static',filename=filename) }}
+    {{ url_for('static',filename=filename,v='3.1415') }}
 {%- endmacro %}
+
+{% macro default_img(img) -%}
+    {{ img|default('/static/global/face/default.png',true)}}
+{%- endmacro %}
+
+{% macro no_img(img) -%}
+    {{ img|default('/static/global/face/no-image.png',true)}}
+{%- endmacro %}
+
+{% macro render_page_data(page_data,page_function) %}
+  <div class="box-footer clearfix">
+    <ul class="pagination pagination-sm no-margin pull-right">
+      <li><a href="{{ page_function}}?page = 1">首页</a></li>
+      {% if page_data.has_prev %}
+        <li><a href="{{ page_function}}?page={{page_data.prev_num}}">«</a></li>
+      {% endif %}
+      {% for page in page_data.iter_pages() %}
+        {% if page %}
+          {% if page !=page_data.page %}
+            <li><a href="{{ page_function}}?page={{page}}">{{ page }}</a></li>
+          {% else %}
+            <li class="active"><a href="#">{{ page }}</a></li>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+      {% if page_data.has_next %}
+        <li><a href="{{ page_function }}?page={{page_data.next_num}}">»</a></li>
+      {% endif %}
+      <li><a href="{{ page_function }}?page={{ page_data.pages }}">末页</a></li>
+    </ul>
+  </div>
+{% endmacro %}

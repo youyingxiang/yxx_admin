@@ -28,7 +28,7 @@ build = {
                 'dir'    : [ 'controller', 'model','form'],
                 'form'   : [ 'index'],
                 'controller' : [ 'index'],
-                'templates'   : ['v1/index','v1/base','v1/_macro'],
+                'templates'   : ['v1/index','v1/base','v1/_macro','v1/category','v1/posts'],
                 # 'static'      :  ['css/test.css','js/test.js','js/user.js']
             }
         }

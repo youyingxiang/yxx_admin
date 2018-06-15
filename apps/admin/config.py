@@ -56,6 +56,7 @@ menu = (
         set_menu(33,'fa fa-fw fa-cloud-upload','上传设置', 'adminconfig_field', 'up', is_treeview=False),
         set_menu(34,'fa fa-fw fa-folder-o' ,'日志列表', 'adminlog', 'index', child_menu=(
             set_menu(341,'','删除日志', 'adminlog', 'delete'),
+            set_menu(342,'','删除缓存', 'adminindex', 'clear_cache'),
         ),is_treeview=False),
         set_menu(35,'fa fa-fw fa-eraser','菜单管理', 'adminterms', 'menu', is_treeview=False),
     )),

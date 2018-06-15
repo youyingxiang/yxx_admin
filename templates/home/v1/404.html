@@ -1,0 +1,28 @@
+{%  extends "home/v1/base.html" %}
+{% block title -%}
+    页面没有找到
+{% endblock %}
+{% block page_title -%}页面没有找到{% endblock %}
+{% block page_btn_name -%}404{% endblock %}
+{% block content -%}
+<section class="content">
+      <div class="error-page">
+        <h2 class="headline text-yellow"> 404</h2>
+
+        <div class="error-content">
+          <h3><i class="fa fa-warning text-yellow"></i>哎呀！找不到网页</h3>
+
+          <p>
+              我们无法找到您正在寻找的页面。同时，您可以返回<a href="{{ url_for('homeindex.index') }}">仪表板</a>或尝试使用搜索表单。
+          </p>
+
+
+        </div>
+        <!-- /.error-content -->
+      </div>
+      <!-- /.error-page -->
+    </section>
+    <script type="text/javascript">
+
+    </script>
+{% endblock %}

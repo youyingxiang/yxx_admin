@@ -1,4 +1,4 @@
-{% from 'home/v1/_macro.html' import static %}
+{% from 'home/v1/_macro.html' import static,default_img,no_img,render_page_data %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,11 +7,15 @@
   <title>{% block title%}{% endblock %}</title>
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <meta name="renderer" content="webkit">
+  <meta name="keywords" content="{% block keywords -%}{%- endblock %} " />
+  <meta name="description" content="{% block description -%}{%- endblock %}" />
+
 <!-- 引入css文件   -->
 <link rel="stylesheet" type="text/css" href="{{ static('home/v1/bootstrap/css/bootstrap.min.css') }}" />
 <link rel="stylesheet" type="text/css" href="{{ static('home/v1/bootstrap/css/font-awesome.min.css') }}" />
 <link rel="stylesheet" type="text/css" href="{{ static('home/v1/dist/css/AdminLTE.min.css') }}" />
 <link rel="stylesheet" type="text/css" href="{{ static('home/v1/dist/skins/skins.min.css') }}" />
+<link rel="stylesheet" type="text/css" href="{{ static('home/v1/nprogress/nprogress.css')}}" />
 {% block css -%}{%- endblock %}
 <!-- 引入css文件 end  -->
 </head>
@@ -24,7 +28,7 @@
     <!-- Logo -->
     <a href="/" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>A</b>PF</span>
+      <span class="logo-mini"><b>PF</b></span>
       <!-- logo for regular state and mobile devices -->
       <span class="logo-lg"><b>PF</b>CMS</span>
     </a>
@@ -45,15 +49,13 @@
     <section class="sidebar">
 
       <!-- search form -->
-      <form action="#" method="get" class="sidebar-form">
         <div class="input-group">
-          <input type="text" name="q" class="form-control" placeholder="Search...">
+          <input type="text" name="q" id="search-btn-value" class="form-control" placeholder="搜索.">
               <span class="input-group-btn">
-                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                <button type="submit" name="search" id="search-btn" class="search-btn-menu btn btn-flat"><i class="fa fa-search"></i>
                 </button>
               </span>
         </div>
-      </form>
       <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
@@ -61,7 +63,7 @@
         {%- for v in navs -%}
             {%- if v.type == 'category' -%}
                 <li class="treeview">
-                  <a href="{% if v.link %}{{ v.link }}{% else %}javascript:void(0){% endif %}">
+                  <a class="menu_check" href="{{ url_for('homeindex.category',category=v.link ) }}">
                     <i class="fa fa-circle-o"></i>
                     <span>{{ v.name }}</span>
                     <span class="pull-right-container">
@@ -69,12 +71,16 @@
                     </span>
                   </a>
                   <ul class="treeview-menu">
-                      {%- for vv in v.childs %}
-                        <li><a href="{{ url_for('homeindex.category',category=vv.terms[0].slug) }}"><i class="fa fa-circle-o"></i>{% if vv.terms[0].slug %}{{ vv.terms[0].slug }}{% else %}{{ vv.terms[0].name }}{% endif %}</a></li>
+                  {% if v.get('childs') %}
+                      {%- for vv in v.get('childs') %}
+                        <li><a class="menu_check" href="{{ url_for('homeindex.category',category=vv.id|string +"_"+ vv.terms[0].name) }}"><i class="fa fa-circle-o"></i>{% if vv.terms[0].slug %}{{ vv.terms[0].slug }}{% else %}{{ vv.terms[0].name }}{% endif %}</a></li>
                       {%- endfor -%}
+                  {% endif %}
                   </ul>
                 </li>
-            {% else %}
+            {%- elif  v.type == 'posts' -%}
+                <li><a href="{{ url_for('homeindex.posts',posts=v.link) }}"><i class="fa fa-circle-o"></i> <span>{{ v.name }}</span></a></li>
+            {%- else -%}
                 <li><a href="{{ v.link }}"><i class="fa fa-circle-o"></i> <span>{{ v.name }}</span></a></li>
             {%- endif -%}
         {%- endfor -%}
@@ -124,6 +130,8 @@
 <script type="text/javascript" src="{{ static('home/v1/dist/js/app.min.js') }}"></script>
 <script type="text/javascript" src="{{ static('home/v1/dist/js/demo.js') }}"></script>
 <script type="text/javascript" src="{{ static('home/v1/plugins/jQuery/jquery.pjax.js') }}"></script>
+<script type="text/javascript" src="{{ static('home/v1/nprogress/nprogress.js') }}"></script>
+<script type="text/javascript" src="{{ static('home/v1/dist/js/common.js') }}"></script>
 {% block js -%}{%- endblock %}
 <!-- 引入js文件 end  -->
 </body>

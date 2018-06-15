@@ -1,0 +1,99 @@
+{%- extends "home/v1/base.html" -%}
+{%- block title -%}
+    文章列表
+{%- endblock %}
+{% block page_btn_name -%}文章列表{% endblock %}
+{%- block content -%}
+<section class="content" style="margin-top: 20px">
+    <div class="row">
+        <div class="col-md-9">
+            {% for v in list.items -%}
+            <div class="box box-widget">
+                <div class="box-header with-border">
+              <div class="user-block">
+                <img class="img-circle" src="{{ default_img(v.admin.img) }}" alt="User Image">
+                <span class="username"><a href="#">{{ v.admin.admin_name }}</a></span>
+                <span class="description">{{ v.create_time }}</span>
+              </div>
+
+            </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+              <!-- Attachment -->
+              <div class="attachment-block clearfix">
+                <img class="attachment-img" src="{{ no_img(v.feature_img) }}" alt="{{ v.post_title }}">
+
+                <div class="attachment-pushed">
+                  <h4 class="attachment-heading"><a href="{{ url_for('homeindex.posts',posts=v.id|string+"_"+v.post_title) }}">{{ v.post_title }}</a></h4>
+
+                  <div class="attachment-text">
+                    {{ v.post_excerpt }}
+                  </div>
+                  <!-- /.attachment-text -->
+                </div>
+                <!-- /.attachment-pushed -->
+              </div>
+               {% if v.label -%}
+               <button type="button" class="btn btn-default btn-xs"><i class="fa fa-tag"></i> {{ v.label }}</button>
+               {%- endif %}
+               {% if v.category -%}
+                    <button type="button" class="btn btn-default btn-xs"><i class="fa fa-circle-o"></i> {{ v.category }}</button>
+               {%- endif -%}
+            <span class="pull-right text-muted"><i class="fa fa-hand-o-right"><a href="{{ url_for('homeindex.posts',posts=v.id|string+"_"+v.post_title) }}"> 查看详细</a></i></span>
+            </div>
+                <!-- /.box-body -->
+            </div>
+            {%- endfor %}
+          <!-- /.box -->
+        {% if list.items %}
+            {% if label_get %}
+                {{ render_page_data(list,url_for("homeindex.label",label=label_get)) }}
+            {% elif category_get %}
+                {{ render_page_data(list,url_for("homeindex.category",category=category_get)) }}
+            {% else %}
+                {{ render_page_data(list,url_for("homeindex.index")) }}
+            {% endif %}
+        {% endif %}
+        </div>
+        <div class="col-md-3">
+            <div class="box box-solid">
+                <div class="box-header with-border">
+                  <h3 class="box-title">热门标签</h3>
+                  <div class="box-tools">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="box-body">
+                    <ul class="nav nav-pills nav-stacked">
+                        {%- for v in top_label -%}
+                        <li>
+                            <a href="{{ url_for('homeindex.label',label=v.id|string+'_'+v.terms[0].name) }}">
+                                <span class="label label-info pull-right">{{ v.count }}</span><i class="fa fa-tag"></i> {{ v.terms[0].name }}
+                            </a>
+                        </li>
+                        {%- endfor -%}
+                    </ul>
+                </div>
+            </div>
+            <div class="box box-solid">
+                <div class="box-header with-border">
+                  <h3 class="box-title">常用分类</h3>
+                  <div class="box-tools">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="box-body">
+                    <ul class="nav nav-pills nav-stacked">
+                        {%- for v in top_category -%}
+                        <li><a href="{{ url_for('homeindex.category',category=v.id|string+'_'+v.terms[0].name) }}">
+                            <span class="label label-info pull-right">{{ v.count }}</span><i class="fa fa-circle-o"></i> {{ v.terms[0].name }}</a></li>
+                        {%- endfor -%}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{%- endblock -%}

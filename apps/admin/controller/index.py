@@ -1,6 +1,8 @@
 from flask import Blueprint,render_template,session
 from ..model.log import Log
 from ..model.posts import Posts
+from exts import cache
+from think import restful
 import psutil,urllib.request,platform
 bp = Blueprint('adminindex',__name__,url_prefix='/admin/index')
 
@@ -43,3 +45,8 @@ def get_sys_info():
 def get_posts_info():
     p = Posts.query.filter(Posts.post_status == 1).order_by("id desc").limit(10).offset(0).all()
     return p
+
+@bp.route('/clear_cache/',methods=['POST'])
+def clear_cache():
+    cache.clear()
+    return restful.success('删除成功！')

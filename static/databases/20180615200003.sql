@@ -1,6 +1,6 @@
 /*
 MySQL Database Backup Tools
-Data:2018-06-13 10:57:32
+Data:2018-06-15 20:00:03
 */
 SET FOREIGN_KEY_CHECKS=0;
 -- ----------------------------
@@ -14,7 +14,7 @@ CREATE TABLE `alembic_version` (
 -- ----------------------------
 -- Records of alembic_version
 -- ----------------------------
-INSERT INTO `alembic_version`(`version_num`)  VALUES ('b742f875c673');
+INSERT INTO `alembic_version`(`version_num`)  VALUES ('5db0cbe43198');
 -- ----------------------------
 -- Table structure for tb_admin
 -- ----------------------------
@@ -35,8 +35,8 @@ CREATE TABLE `tb_admin` (
 -- ----------------------------
 -- Records of tb_admin
 -- ----------------------------
-INSERT INTO `tb_admin`(`id`,`admin_name`,`_password`,`img`,`account`,`sex`,`state`,`_last_time`,`_create_time`)  VALUES ('1','yxx','pbkdf2:sha256:50000$Omaln4yN$f57ad77e636835132a280f47473e52de116a355de6cadd2f28b736f175dcce5c','/static/uploads/image/2018/6/3/1528018920.jpg','666666','1','1','1528638128','1528082236');
-INSERT INTO `tb_admin`(`id`,`admin_name`,`_password`,`img`,`account`,`sex`,`state`,`_last_time`,`_create_time`)  VALUES ('2','test','pbkdf2:sha256:50000$OG3oZpGI$2a665a6b1cd060e47c71a66089eb517c7b92526ce0e543aa75a323a0553cf1d1','','123456','1','1','1528638139','1528633584');
+INSERT INTO `tb_admin`(`id`,`admin_name`,`_password`,`img`,`account`,`sex`,`state`,`_last_time`,`_create_time`)  VALUES ('1','yxx','pbkdf2:sha256:50000$Omaln4yN$f57ad77e636835132a280f47473e52de116a355de6cadd2f28b736f175dcce5c','/static/uploads/image/2018/6/3/1528018920.jpg','666666','1','1','1528963866','1528082236');
+INSERT INTO `tb_admin`(`id`,`admin_name`,`_password`,`img`,`account`,`sex`,`state`,`_last_time`,`_create_time`)  VALUES ('2','test','pbkdf2:sha256:50000$OG3oZpGI$2a665a6b1cd060e47c71a66089eb517c7b92526ce0e543aa75a323a0553cf1d1','','123456','1','1','1528963632','1528633584');
 -- ----------------------------
 -- Table structure for tb_config_field
 -- ----------------------------
@@ -54,7 +54,7 @@ CREATE TABLE `tb_config_field` (
   `textvalue` varchar(100) NOT NULL,
   `_create_time` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
 -- ----------------------------
 -- Records of tb_config_field
 -- ----------------------------
@@ -71,7 +71,30 @@ INSERT INTO `tb_config_field`(`id`,`k`,`v`,`type`,`desc`,`prompt`,`sorts`,`state
 INSERT INTO `tb_config_field`(`id`,`k`,`v`,`type`,`desc`,`prompt`,`sorts`,`state`,`texttype`,`textvalue`,`_create_time`)  VALUES ('12','flash_format','swf,flv','up','上传Flash格式','上传Flash格式','99','1','text','','1528031967');
 INSERT INTO `tb_config_field`(`id`,`k`,`v`,`type`,`desc`,`prompt`,`sorts`,`state`,`texttype`,`textvalue`,`_create_time`)  VALUES ('13','media_size','11111111','up','上传音频大小','1024：1KB，1048576：1MB，5242880：5MB。建议不要超过5MB，避免音频上传失败','99','1','text','','1528032165');
 INSERT INTO `tb_config_field`(`id`,`k`,`v`,`type`,`desc`,`prompt`,`sorts`,`state`,`texttype`,`textvalue`,`_create_time`)  VALUES ('14','flash_size','11111111','up','上传flash大小','1024：1KB，1048576：1MB，5242880：5MB。建议不要超过5MB，避免上传失败','99','1','text','','1528032209');
-INSERT INTO `tb_config_field`(`id`,`k`,`v`,`type`,`desc`,`prompt`,`sorts`,`state`,`texttype`,`textvalue`,`_create_time`)  VALUES ('17','test','','web','测试','测试','99','1','content','','1528173898');
+INSERT INTO `tb_config_field`(`id`,`k`,`v`,`type`,`desc`,`prompt`,`sorts`,`state`,`texttype`,`textvalue`,`_create_time`)  VALUES ('17','test','','web','测试','测试','99','0','content','','1528173898');
+INSERT INTO `tb_config_field`(`id`,`k`,`v`,`type`,`desc`,`prompt`,`sorts`,`state`,`texttype`,`textvalue`,`_create_time`)  VALUES ('18','menu_master','主菜单界面','web','界面主菜单导航','界面主菜单导航','99','1','text','','1529029557');
+INSERT INTO `tb_config_field`(`id`,`k`,`v`,`type`,`desc`,`prompt`,`sorts`,`state`,`texttype`,`textvalue`,`_create_time`)  VALUES ('19','select_template','v1','web','前台显示模版选择','前台显示模版选择','99','1','text','','1529029655');
+INSERT INTO `tb_config_field`(`id`,`k`,`v`,`type`,`desc`,`prompt`,`sorts`,`state`,`texttype`,`textvalue`,`_create_time`)  VALUES ('20','page_size','10','web','列表显示页数','列表显示页数','99','1','text','','1529049622');
+-- ----------------------------
+-- Table structure for tb_link
+-- ----------------------------
+DROP TABLE IF EXISTS `tb_link`;
+CREATE TABLE `tb_link` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(150) NOT NULL,
+  `link` varchar(150) NOT NULL,
+  `slug` varchar(150) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+-- ----------------------------
+-- Records of tb_link
+-- ----------------------------
+INSERT INTO `tb_link`(`id`,`name`,`link`,`slug`)  VALUES ('1','中控韩文','http://www.zkteco.com/cn','');
+INSERT INTO `tb_link`(`id`,`name`,`link`,`slug`)  VALUES ('2','中控英文','http://www.zkteco.com/en','');
+INSERT INTO `tb_link`(`id`,`name`,`link`,`slug`)  VALUES ('3','【Python】Python的单引号字符串和转义引号','','');
+INSERT INTO `tb_link`(`id`,`name`,`link`,`slug`)  VALUES ('4','中那个','http://www.zkteco.com/cn','中那个121');
+INSERT INTO `tb_link`(`id`,`name`,`link`,`slug`)  VALUES ('5','中控智慧','http://www.zkteco.com/en','');
+INSERT INTO `tb_link`(`id`,`name`,`link`,`slug`)  VALUES ('6','英文网站','http://www.zkteco.com/en','');
 -- ----------------------------
 -- Table structure for tb_log
 -- ----------------------------
@@ -84,7 +107,7 @@ CREATE TABLE `tb_log` (
   `admin_id` int(11) NOT NULL,
   `_create_time` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=422 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=539 DEFAULT CHARSET=utf8;
 -- ----------------------------
 -- Records of tb_log
 -- ----------------------------
@@ -461,6 +484,123 @@ INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`
 INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('419','upload','127.0.0.1','上传成功','1','1528857449');
 INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('420','add','127.0.0.1','修改文章成功','1','1528857465');
 INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('421','backup','127.0.0.1','备份成功！','1','1528857999');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('422','restore','127.0.0.1','还原备份成功！','1','1528858710');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('423','add','127.0.0.1','增加文章成功','1','1528858747');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('424','add','127.0.0.1','修改文章成功','1','1528859288');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('425','add','127.0.0.1','修改文章成功','1','1528859295');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('426','add','127.0.0.1','修改文章成功','1','1528859366');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('427','add','127.0.0.1','添加菜单成功','1','1528873448');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('428','add','127.0.0.1','添加菜单成功','1','1528873768');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('429','edit','127.0.0.1','行为：修改标签；错误：别名长度必须为1-256位','1','1528877273');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('430','add','127.0.0.1','行为：新增标签；错误：别名长度必须为1-256位','1','1528877277');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('431','add','127.0.0.1','添加菜单成功','1','1528877501');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('432','add','127.0.0.1','添加菜单成功','1','1528877539');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('433','add','127.0.0.1','添加菜单成功','1','1528877548');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('434','add','127.0.0.1','添加菜单成功','1','1528877648');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('435','add','127.0.0.1','行为：添加菜单；错误：Object of type \'TermTaxonomy\' is not JSON serializable','1','1528877648');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('436','add','127.0.0.1','添加菜单成功','1','1528877894');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('437','add','127.0.0.1','修改文章成功','1','1528879787');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('438','add','127.0.0.1','修改文章成功','1','1528885230');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('439','join','127.0.0.1','行为：菜单关联；错误：\'InstrumentedList\' object has no attribute \'all\'','1','1528890474');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('440','join','127.0.0.1','行为：菜单关联；错误：\'InstrumentedList\' object has no attribute \'all\'','1','1528890493');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('441','join','127.0.0.1','行为：菜单关联；错误：\'InstrumentedList\' object has no attribute \'all\'','1','1528891264');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('442','join','127.0.0.1','行为：菜单关联；错误：\'InstrumentedList\' object has no attribute \'all\'','1','1528891309');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('443','join','127.0.0.1','行为：菜单关联；错误：\'InstrumentedList\' object has no attribute \'all\'','1','1528891321');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('444','join','127.0.0.1','行为：菜单关联；错误：\'InstrumentedList\' object has no attribute \'all\'','1','1528891328');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('445','join','127.0.0.1','行为：菜单关联；错误：\'InstrumentedList\' object has no attribute \'all\'','1','1528891342');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('446','join','127.0.0.1','行为：菜单关联；错误：\'InstrumentedList\' object has no attribute \'all\'','1','1528891367');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('447','join','127.0.0.1','行为：菜单关联；错误：\'InstrumentedList\' object has no attribute \'all\'','1','1528891380');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('448','join','127.0.0.1','行为：菜单关联；错误：\'InstrumentedList\' object has no attribute \'all\'','1','1528891390');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('449','join','127.0.0.1','行为：菜单关联；错误：\'InstrumentedList\' object has no attribute \'all\'','1','1528891393');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('450','join','127.0.0.1','行为：菜单关联；错误：\'InstrumentedList\' object has no attribute \'all\'','1','1528891410');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('451','join','127.0.0.1','行为：菜单关联；错误：\'InstrumentedList\' object has no attribute \'all\'','1','1528891424');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('452','join','127.0.0.1','行为：菜单关联；错误：\'InstrumentedList\' object has no attribute \'all\'','1','1528891454');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('453','join','127.0.0.1','行为：菜单关联；错误：list index out of range','1','1528891505');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('454','join','127.0.0.1','行为：菜单关联；错误：list index out of range','1','1528891517');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('455','join','127.0.0.1','行为：菜单关联；错误：list index out of range','1','1528891534');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('456','join','127.0.0.1','行为：菜单关联；错误：list index out of range','1','1528891558');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('457','join','127.0.0.1','行为：菜单关联；错误：list index out of range','1','1528891585');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('458','join','127.0.0.1','行为：菜单关联；错误：list index out of range','1','1528891608');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('459','join','127.0.0.1','行为：菜单关联；错误：\'NoneType\' object is not subscriptable','1','1528891621');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('460','join','127.0.0.1','行为：菜单关联；错误：list index out of range','1','1528891854');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('461','join','127.0.0.1','行为：菜单关联；错误：\'Request\' object has no attribute \'menu_value\'','1','1528891870');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('462','join','127.0.0.1','行为：菜单关联；错误：\'Request\' object has no attribute \'menu_value\'','1','1528891880');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('463','join','127.0.0.1','行为：菜单关联；错误：\'Request\' object has no attribute \'menu_value\'','1','1528891892');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('464','join','127.0.0.1','行为：菜单关联；错误：\'Request\' object has no attribute \'menu_value\'','1','1528891900');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('465','join','127.0.0.1','行为：菜单关联；错误：list index out of range','1','1528891935');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('466','join','127.0.0.1','行为：菜单关联；错误：\'NoneType\' object is not subscriptable','1','1528891946');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('467','join','127.0.0.1','行为：菜单关联；错误：\'str\' object has no attribute \'read\'','1','1528893115');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('468','join','127.0.0.1','行为：菜单关联；错误：\'str\' object has no attribute \'read\'','1','1528893136');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('469','join','127.0.0.1','行为：菜单关联；错误：\'str\' object has no attribute \'read\'','1','1528893178');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('470','join','127.0.0.1','行为：菜单关联；错误：\'str\' object has no attribute \'read\'','1','1528893202');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('471','join','127.0.0.1','行为：菜单关联；错误：\'TermTaxonomy\' object has no attribute \'term_taxonomy\'','1','1528893427');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('472','join','127.0.0.1','行为：菜单关联；错误：\'TermTaxonomy\' object has no attribute \'term_taxonomy\'','1','1528893476');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('473','join','127.0.0.1','行为：菜单关联；错误：\'TermTaxonomy\' object has no attribute \'term_taxonomy\'','1','1528893489');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('474','join','127.0.0.1','行为：菜单关联；错误：\'TermTaxonomy\' object has no attribute \'term_taxonomy\'','1','1528893491');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('475','join','127.0.0.1','行为：菜单关联；错误：\'PostMeta\' object is not iterable','1','1528893505');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('476','join','127.0.0.1','行为：菜单关联；错误：\'PostMeta\' object is not iterable','1','1528893540');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('477','join','127.0.0.1','行为：菜单关联；错误：\'PostMeta\' object is not iterable','1','1528893563');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('478','join','127.0.0.1','行为：菜单关联；错误：\'PostMeta\' object is not iterable','1','1528893582');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('479','join','127.0.0.1','行为：菜单关联；错误：\'PostMeta\' object is not iterable','1','1528893594');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('480','join','127.0.0.1','行为：菜单关联；错误：\'str\' object has no attribute \'read\'','1','1528893616');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('481','join','127.0.0.1','行为：菜单关联；错误：\'str\' object has no attribute \'read\'','1','1528893631');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('482','join','127.0.0.1','行为：菜单关联；错误：\'str\' object has no attribute \'read\'','1','1528893646');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('483','join','127.0.0.1','行为：菜单关联；错误：\'str\' object has no attribute \'id\'','1','1528893690');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('484','join','127.0.0.1','行为：菜单关联；错误：\'dict\' object has no attribute \'value\'','1','1528893812');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('485','join','127.0.0.1','行为：菜单关联；错误：\'>\' not supported between instances of \'list\' and \'int\'','1','1528896135');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('486','join','127.0.0.1','行为：菜单关联；错误：\'list\' object has no attribute \'meta_key\'','1','1528943673');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('487','join','127.0.0.1','行为：菜单关联；错误：\'list\' object has no attribute \'all\'','1','1528943683');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('488','join','127.0.0.1','行为：菜单关联；错误：\'TermTaxonomy\' object has no attribute \'postmeta_menu_category\'','1','1528947609');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('489','add','127.0.0.1','添加菜单成功','1','1528956416');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('490','join','127.0.0.1','行为：取消菜单关联；错误：join() takes exactly one argument (3 given)','1','1528957769');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('491','join','127.0.0.1','行为：取消菜单关联；错误：join() takes exactly one argument (3 given)','1','1528957801');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('492','join','127.0.0.1','行为：取消菜单关联；错误：join() takes exactly one argument (3 given)','1','1528957850');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('493','join','127.0.0.1','行为：取消菜单关联；错误：join() takes exactly one argument (3 given)','1','1528957853');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('494','join','127.0.0.1','行为：取消菜单关联；错误：join() takes exactly one argument (3 given)','1','1528957857');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('495','join','127.0.0.1','行为：取消菜单关联；错误：join() takes exactly one argument (3 given)','1','1528957863');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('496','join','127.0.0.1','行为：取消菜单关联；错误：join() takes exactly one argument (3 given)','1','1528957913');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('497','join','127.0.0.1','行为：取消菜单关联；错误：join() takes exactly one argument (3 given)','1','1528958034');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('498','join','127.0.0.1','行为：取消菜单关联；错误：\'list\' object has no attribute \'terms\'','1','1528959384');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('499','add','127.0.0.1','修改文章成功','1','1528962605');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('500','edit','127.0.0.1','修改角色成功','2','1528962737');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('501','edit','127.0.0.1','修改角色成功','2','1528962753');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('502','add','127.0.0.1','修改文章成功','2','1528962758');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('503','add','127.0.0.1','添加菜单成功','2','1528963430');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('504','login','127.0.0.1','登录成功','1','1528963609');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('505','login','127.0.0.1','登录成功','2','1528963632');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('506','login','127.0.0.1','登录成功','1','1528963866');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('507','add','127.0.0.1','增加配置字段成功','2','1529029557');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('508','edit','127.0.0.1','修改配置字段成功','2','1529029584');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('509','add','127.0.0.1','增加配置字段成功','2','1529029655');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('510','edit','127.0.0.1','修改配置字段成功','2','1529030740');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('511','edit','127.0.0.1','修改配置字段成功','2','1529030881');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('512','add','127.0.0.1','增加配置字段成功','2','1529049622');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('513','add','127.0.0.1','修改文章成功','2','1529051648');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('514','edit','127.0.0.1','修改配置字段成功','2','1529051969');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('515','add','127.0.0.1','修改文章成功','2','1529054718');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('516','add','127.0.0.1','修改文章成功','2','1529054742');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('517','add','127.0.0.1','修改文章成功','2','1529054756');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('518','add','127.0.0.1','修改文章成功','2','1529054818');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('519','add','127.0.0.1','修改文章成功','2','1529054826');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('520','add','127.0.0.1','修改文章成功','2','1529056100');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('521','add','127.0.0.1','添加菜单成功','2','1529057442');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('522','edit','127.0.0.1','修改配置字段成功','2','1529057463');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('523','add','127.0.0.1','新增分类成功','2','1529057542');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('524','add','127.0.0.1','新增分类成功','2','1529057633');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('525','add','127.0.0.1','新增分类成功','2','1529057660');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('526','add','127.0.0.1','行为：新增分类；错误：别名长度必须为1-256位','2','1529057676');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('527','add','127.0.0.1','新增分类成功','2','1529057689');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('528','add','127.0.0.1','新增分类成功','2','1529057765');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('529','add','127.0.0.1','新增分类成功','2','1529057822');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('530','add','127.0.0.1','新增分类成功','2','1529057844');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('531','add','127.0.0.1','新增分类成功','2','1529057860');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('532','add','127.0.0.1','新增分类成功','2','1529057896');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('533','edit','127.0.0.1','修改配置字段成功','2','1529058098');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('534','add','127.0.0.1','增加文章成功','2','1529059564');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('535','add','127.0.0.1','添加标签成功','2','1529059687');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('536','add','127.0.0.1','修改文章成功','2','1529059695');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('537','backup','127.0.0.1','备份成功！','2','1529059897');
+INSERT INTO `tb_log`(`id`,`log_type`,`ip`,`log_detail`,`admin_id`,`_create_time`)  VALUES ('538','edit','127.0.0.1','修改角色成功','2','1529063831');
 -- ----------------------------
 -- Table structure for tb_postmeta
 -- ----------------------------
@@ -472,13 +612,18 @@ CREATE TABLE `tb_postmeta` (
   PRIMARY KEY (`id`),
   KEY `ix_tb_postmeta_meta_key` (`meta_key`),
   KEY `ix_tb_postmeta_meta_value` (`meta_value`)
-) ENGINE=MyISAM AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 -- ----------------------------
 -- Records of tb_postmeta
 -- ----------------------------
-INSERT INTO `tb_postmeta`(`id`,`meta_key`,`meta_value`)  VALUES ('21','termtaxonomy_label_posts_id','7');
-INSERT INTO `tb_postmeta`(`id`,`meta_key`,`meta_value`)  VALUES ('20','termtaxonomy_category_posts_id','7');
-INSERT INTO `tb_postmeta`(`id`,`meta_key`,`meta_value`)  VALUES ('19','feature_img_resources_posts_id','7');
+INSERT INTO `tb_postmeta`(`id`,`meta_key`,`meta_value`)  VALUES ('1','termtaxonomy_menu_category_id','2');
+INSERT INTO `tb_postmeta`(`id`,`meta_key`,`meta_value`)  VALUES ('2','termtaxonomy_menu_category_id','4');
+INSERT INTO `tb_postmeta`(`id`,`meta_key`,`meta_value`)  VALUES ('3','termtaxonomy_menu_category_id','10');
+INSERT INTO `tb_postmeta`(`id`,`meta_key`,`meta_value`)  VALUES ('4','termtaxonomy_menu_category_id','8');
+INSERT INTO `tb_postmeta`(`id`,`meta_key`,`meta_value`)  VALUES ('5','termtaxonomy_menu_category_id','9');
+INSERT INTO `tb_postmeta`(`id`,`meta_key`,`meta_value`)  VALUES ('6','feature_img_resources_posts_id','1');
+INSERT INTO `tb_postmeta`(`id`,`meta_key`,`meta_value`)  VALUES ('7','termtaxonomy_category_posts_id','1');
+INSERT INTO `tb_postmeta`(`id`,`meta_key`,`meta_value`)  VALUES ('8','termtaxonomy_label_posts_id','1');
 -- ----------------------------
 -- Table structure for tb_posts
 -- ----------------------------
@@ -501,11 +646,83 @@ CREATE TABLE `tb_posts` (
   KEY `ix_tb_posts_post_author` (`post_author`),
   KEY `ix_tb_posts_post_name` (`post_name`),
   KEY `ix_tb_posts_post_title` (`post_title`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 -- ----------------------------
 -- Records of tb_posts
 -- ----------------------------
-INSERT INTO `tb_posts`(`id`,`post_author`,`_create_time`,`post_content`,`post_title`,`post_excerpt`,`post_status`,`comment_status`,`post_name`,`_update_time`,`menu_order`,`post_type`,`comment_count`)  VALUES ('7','1','1528857374','【Python】Python的单引号字符串和转义引号','【Python】Python的单引号字符串和转义引号','上述的两段代码，都出现同时用到了单引号\'\'和双引号\"\"，如果单纯的只使用单引号\'\'或者双引号\"\"，编译器都会报错。所以说就会引入转义字符的概念：使用 反斜杠\\对字符串的引号进行转义：','1','1','','1528857465','0','1','0');
+INSERT INTO `tb_posts`(`id`,`post_author`,`_create_time`,`post_content`,`post_title`,`post_excerpt`,`post_status`,`comment_status`,`post_name`,`_update_time`,`menu_order`,`post_type`,`comment_count`)  VALUES ('1','2','1529059564','<p>
+	<span style=\"color:\'rgba(0, 0, 0, 0.870588235294118)\';font-family:\'Microsoft Yahei, Helvetica Neue, Arial, Helvetica, sans-serif\';\"><span style=\"font-size:15.96px;background-color:#FFFFFF;\"></span></span>
+</p>
+<h4 style=\"white-space:normal;\">
+	<span style=\"color:rgba(0, 0, 0, 0.87);font-family:&quot;Microsoft Yahei&quot;, &quot;Helvetica Neue&quot;, Arial, Helvetica, sans-serif;font-size:15.96px;background-color:#FFFFFF;\"><span style=\"font-family:KaiTi_GB2312;\"></span>简介：</span>
+</h4>
+<p>
+	<br />
+</p>
+<p>
+	<span style=\"color:rgba(0, 0, 0, 0.87);font-family:&quot;Microsoft Yahei&quot;, &quot;Helvetica Neue&quot;, Arial, Helvetica, sans-serif;font-size:15.96px;white-space:normal;background-color:#FFFFFF;\">PFCMS是一个免费开源的cms内容管理框架，是为了敏捷WEB应用开发和简化企业应用开发而诞生的。PFCMS从诞生以来一直秉承简洁实用的设计原则，在保持出色的性能和至简的代码的同时，也注重易用性。遵循</span><code style=\"box-sizing:inherit;-webkit-tap-highlight-color:transparent;text-size-adjust:none;-webkit-font-smoothing:antialiased;font-family:Consolas, &quot;Liberation Mono&quot;, Menlo, Courier, monospace;font-size:15.96px;display:inline-block;border-radius:4px;padding:2px 6px;background:#F9FAFA;word-break:break-all;white-space:pre;line-height:1.3;border:1px solid #DED9D9;margin:0px 5px;color:rgba(0, 0, 0, 0.87);\">Apache2</code><span style=\"color:rgba(0, 0, 0, 0.87);font-family:&quot;Microsoft Yahei&quot;, &quot;Helvetica Neue&quot;, Arial, Helvetica, sans-serif;font-size:15.96px;white-space:normal;background-color:#FFFFFF;\">开源许可协议发布，意味着你可以免费使用<span style=\"color:rgba(0, 0, 0, 0.87);font-family:&quot;Microsoft Yahei&quot;, &quot;Helvetica Neue&quot;, Arial, Helvetica, sans-serif;font-size:15.96px;white-space:normal;background-color:#FFFFFF;\">PFCMS</span>，甚至允许把你基于<span style=\"color:rgba(0, 0, 0, 0.87);font-family:&quot;Microsoft Yahei&quot;, &quot;Helvetica Neue&quot;, Arial, Helvetica, sans-serif;font-size:15.96px;white-space:normal;background-color:#FFFFFF;\">PFCMS</span>开发的应用开源或商业产品发布/销售。</span>
+</p>
+<p>
+	<span style=\"color:rgba(0, 0, 0, 0.87);font-family:&quot;Microsoft Yahei&quot;, &quot;Helvetica Neue&quot;, Arial, Helvetica, sans-serif;font-size:15.96px;white-space:normal;background-color:#FFFFFF;\"><br />
+</span>
+</p>
+<h4>
+	<span style=\"color:rgba(0, 0, 0, 0.87);font-family:&quot;Microsoft Yahei&quot;, &quot;Helvetica Neue&quot;, Arial, Helvetica, sans-serif;font-size:15.96px;white-space:normal;background-color:#FFFFFF;\">技术结构：</span>
+</h4>
+<p>
+	<span style=\"color:rgba(0, 0, 0, 0.87);font-family:&quot;Microsoft Yahei&quot;, &quot;Helvetica Neue&quot;, Arial, Helvetica, sans-serif;font-size:15.96px;white-space:normal;background-color:#FFFFFF;\"><span style=\"color:rgba(0, 0, 0, 0.87);font-family:&quot;Microsoft Yahei&quot;, &quot;Helvetica Neue&quot;, Arial, Helvetica, sans-serif;font-size:15.96px;white-space:normal;background-color:#FFFFFF;\">PFCMS采用的是python3.6版本。</span></span>
+</p>
+<p>
+	<span style=\"color:rgba(0, 0, 0, 0.87);font-family:&quot;Microsoft Yahei&quot;, &quot;Helvetica Neue&quot;, Arial, Helvetica, sans-serif;font-size:15.96px;white-space:normal;background-color:#FFFFFF;\"><span style=\"color:rgba(0, 0, 0, 0.87);font-family:&quot;Microsoft Yahei&quot;, &quot;Helvetica Neue&quot;, Arial, Helvetica, sans-serif;font-size:15.96px;white-space:normal;background-color:#FFFFFF;\">web开发框架采用的是flask。</span></span>
+</p>
+<p>
+	<span style=\"color:rgba(0, 0, 0, 0.87);font-family:&quot;Microsoft Yahei&quot;, &quot;Helvetica Neue&quot;, Arial, Helvetica, sans-serif;font-size:15.96px;white-space:normal;background-color:#FFFFFF;\"><span style=\"color:rgba(0, 0, 0, 0.87);font-family:&quot;Microsoft Yahei&quot;, &quot;Helvetica Neue&quot;, Arial, Helvetica, sans-serif;font-size:15.96px;white-space:normal;background-color:#FFFFFF;\">数据表的设计部分借鉴的wordpress开源项目。</span></span>
+</p>
+<p>
+	<span style=\"color:rgba(0, 0, 0, 0.87);font-family:&quot;Microsoft Yahei&quot;, &quot;Helvetica Neue&quot;, Arial, Helvetica, sans-serif;font-size:15.96px;white-space:normal;background-color:#FFFFFF;\"><span style=\"color:rgba(0, 0, 0, 0.87);font-family:&quot;Microsoft Yahei&quot;, &quot;Helvetica Neue&quot;, Arial, Helvetica, sans-serif;font-size:15.96px;white-space:normal;background-color:#FFFFFF;\">orm采用的</span>sqlalchemy关系模型系统。</span>
+</p>
+<p>
+	<span style=\"color:rgba(0, 0, 0, 0.87);font-family:&quot;Microsoft Yahei&quot;, &quot;Helvetica Neue&quot;, Arial, Helvetica, sans-serif;font-size:15.96px;white-space:normal;background-color:#FFFFFF;\">前端主要采用的bootstrap框架，以及jQuery.pjax页面无刷新。</span>
+</p>
+<p>
+	<span style=\"color:rgba(0, 0, 0, 0.87);font-family:&quot;Microsoft Yahei&quot;, &quot;Helvetica Neue&quot;, Arial, Helvetica, sans-serif;font-size:15.96px;white-space:normal;background-color:#FFFFFF;\">权限设计是rbac模式，本人从中进行了简化</span>
+</p>
+<p>
+	<br />
+</p>
+<h4>
+	<span style=\"color:rgba(0, 0, 0, 0.87);font-family:&quot;Microsoft Yahei&quot;, &quot;Helvetica Neue&quot;, Arial, Helvetica, sans-serif;font-size:15.96px;white-space:normal;background-color:#FFFFFF;\">面向人群：</span>
+</h4>
+<p>
+	<span style=\"color:rgba(0, 0, 0, 0.87);font-family:&quot;Microsoft Yahei&quot;, &quot;Helvetica Neue&quot;, Arial, Helvetica, sans-serif;font-size:15.96px;white-space:normal;background-color:#FFFFFF;\">python web二次开发。</span>
+</p>
+<p>
+	<span style=\"white-space:normal;\"></span><span style=\"white-space:normal;color:rgba(0, 0, 0, 0.87);font-family:&quot;Microsoft Yahei&quot;, &quot;Helvetica Neue&quot;, Arial, Helvetica, sans-serif;font-size:15.96px;background-color:#FFFFFF;\">学习python 以及flask框架的学习者</span>
+</p>
+<p>
+	<br />
+</p>
+<h4>
+	<span style=\"color:rgba(0, 0, 0, 0.87);font-family:&quot;Microsoft Yahei&quot;, &quot;Helvetica Neue&quot;, Arial, Helvetica, sans-serif;font-size:15.96px;white-space:normal;background-color:#FFFFFF;\">心得：</span>
+</h4>
+<p>
+	<span style=\"color:rgba(0, 0, 0, 0.87);font-family:&quot;Microsoft Yahei&quot;, &quot;Helvetica Neue&quot;, Arial, Helvetica, sans-serif;font-size:15.96px;white-space:normal;background-color:#FFFFFF;\">作者本人长期从事的是PHP开发，php有很多优秀的开源项目。后面接触了python,于是抱着学习的目地。完成了PFCMS的开发。代码中有不合理的地方，可以及时反馈。</span>
+</p>
+<p>
+	<span style=\"color:rgba(0, 0, 0, 0.87);font-family:&quot;Microsoft Yahei&quot;, &quot;Helvetica Neue&quot;, Arial, Helvetica, sans-serif;font-size:15.96px;white-space:normal;background-color:#FFFFFF;\"><span style=\"color:rgba(0, 0, 0, 0.87);font-family:&quot;Microsoft Yahei&quot;, &quot;Helvetica Neue&quot;, Arial, Helvetica, sans-serif;font-size:15.96px;white-space:normal;background-color:#FFFFFF;\"><br />
+</span></span>
+</p>
+<p>
+	<span style=\"color:rgba(0, 0, 0, 0.87);font-family:&quot;Microsoft Yahei&quot;, &quot;Helvetica Neue&quot;, Arial, Helvetica, sans-serif;font-size:15.96px;white-space:normal;background-color:#FFFFFF;\"><a href=\"https://github.com/youyingxiang/yxx_admin.git\" target=\"_blank\"><span style=\"color:rgba(0, 0, 0, 0.87);font-family:&quot;Microsoft Yahei&quot;, &quot;Helvetica Neue&quot;, Arial, Helvetica, sans-serif;font-size:15.96px;white-space:normal;background-color:#FFFFFF;\">github地址。</span>https://github.com/youyingxiang/yxx_admin.git</a><br />
+</span>
+</p>
+<p>
+	<br />
+</p>
+<p>
+	<span style=\"color:rgba(0, 0, 0, 0.87);font-family:&quot;Microsoft Yahei&quot;, &quot;Helvetica Neue&quot;, Arial, Helvetica, sans-serif;font-size:15.96px;white-space:normal;background-color:#FFFFFF;\"><br />
+</span>
+</p>','PFCMS正式发布','2018年06-15 PFCMS正式发布','1','1','','1529059695','0','1','0');
 -- ----------------------------
 -- Table structure for tb_resources
 -- ----------------------------
@@ -518,13 +735,11 @@ CREATE TABLE `tb_resources` (
   PRIMARY KEY (`id`),
   KEY `ix_tb_resources_new_name` (`new_name`),
   KEY `ix_tb_resources_old_name` (`old_name`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 -- ----------------------------
 -- Records of tb_resources
 -- ----------------------------
-INSERT INTO `tb_resources`(`id`,`old_name`,`new_name`,`size`)  VALUES ('5','微信图片_20180612165811.jpg','/static/uploads/image/2018/6/13/1528857194.jpg','266287');
-INSERT INTO `tb_resources`(`id`,`old_name`,`new_name`,`size`)  VALUES ('6','1522133531(1).jpg','/static/uploads/image/2018/6/13/1528857187.jpg','598325');
-INSERT INTO `tb_resources`(`id`,`old_name`,`new_name`,`size`)  VALUES ('7','微信图片_20180516101646.jpg','/static/uploads/image/2018/6/13/1528857448.jpg','221141');
+INSERT INTO `tb_resources`(`id`,`old_name`,`new_name`,`size`)  VALUES ('1','','','0');
 -- ----------------------------
 -- Table structure for tb_resources_relationships
 -- ----------------------------
@@ -538,7 +753,7 @@ CREATE TABLE `tb_resources_relationships` (
 -- ----------------------------
 -- Records of tb_resources_relationships
 -- ----------------------------
-INSERT INTO `tb_resources_relationships`(`resources_id`,`object_id`)  VALUES ('7','19');
+INSERT INTO `tb_resources_relationships`(`resources_id`,`object_id`)  VALUES ('1','6');
 -- ----------------------------
 -- Table structure for tb_role
 -- ----------------------------
@@ -556,7 +771,7 @@ CREATE TABLE `tb_role` (
 -- Records of tb_role
 -- ----------------------------
 INSERT INTO `tb_role`(`id`,`role_name`,`role_type`,`describe`,`_role_pri`,`_create_time`)  VALUES ('1','超级管理员','1','最高管理员',' ','1528632337');
-INSERT INTO `tb_role`(`id`,`role_name`,`role_type`,`describe`,`_role_pri`,`_create_time`)  VALUES ('2','普通管理员','2','管理网站','1,11,5,51,511,52,511,2,21,211,212,213,22,221,222,223,3,31,311,312,313,32,33,34,341,35,4,41,411,42,421,422,423','1528633466');
+INSERT INTO `tb_role`(`id`,`role_name`,`role_type`,`describe`,`_role_pri`,`_create_time`)  VALUES ('2','普通管理员','2','管理网站','1,11,5,51,511,52,511,53,531,532,533,2,21,211,212,213,22,221,222,223,3,31,311,312,313,32,33,34,341,342,35,4,41,411,42,421,422,423','1528633466');
 -- ----------------------------
 -- Table structure for tb_role_admin
 -- ----------------------------
@@ -585,9 +800,14 @@ CREATE TABLE `tb_term_relationships` (
 -- ----------------------------
 -- Records of tb_term_relationships
 -- ----------------------------
-INSERT INTO `tb_term_relationships`(`term_taxonomy_id`,`object_id`)  VALUES ('13','20');
-INSERT INTO `tb_term_relationships`(`term_taxonomy_id`,`object_id`)  VALUES ('16','21');
-INSERT INTO `tb_term_relationships`(`term_taxonomy_id`,`object_id`)  VALUES ('17','21');
+INSERT INTO `tb_term_relationships`(`term_taxonomy_id`,`object_id`)  VALUES ('1','1');
+INSERT INTO `tb_term_relationships`(`term_taxonomy_id`,`object_id`)  VALUES ('1','2');
+INSERT INTO `tb_term_relationships`(`term_taxonomy_id`,`object_id`)  VALUES ('1','3');
+INSERT INTO `tb_term_relationships`(`term_taxonomy_id`,`object_id`)  VALUES ('1','4');
+INSERT INTO `tb_term_relationships`(`term_taxonomy_id`,`object_id`)  VALUES ('1','5');
+INSERT INTO `tb_term_relationships`(`term_taxonomy_id`,`object_id`)  VALUES ('2','7');
+INSERT INTO `tb_term_relationships`(`term_taxonomy_id`,`object_id`)  VALUES ('3','7');
+INSERT INTO `tb_term_relationships`(`term_taxonomy_id`,`object_id`)  VALUES ('11','8');
 -- ----------------------------
 -- Table structure for tb_term_taxonomy
 -- ----------------------------
@@ -600,19 +820,21 @@ CREATE TABLE `tb_term_taxonomy` (
   `parent` int(11) NOT NULL,
   `count` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 -- ----------------------------
 -- Records of tb_term_taxonomy
 -- ----------------------------
-INSERT INTO `tb_term_taxonomy`(`id`,`term_id`,`taxonomy`,`img`,`parent`,`count`)  VALUES ('1','1','2','','0','0');
-INSERT INTO `tb_term_taxonomy`(`id`,`term_id`,`taxonomy`,`img`,`parent`,`count`)  VALUES ('11','11','1','','0','0');
-INSERT INTO `tb_term_taxonomy`(`id`,`term_id`,`taxonomy`,`img`,`parent`,`count`)  VALUES ('13','13','1','','12','1');
-INSERT INTO `tb_term_taxonomy`(`id`,`term_id`,`taxonomy`,`img`,`parent`,`count`)  VALUES ('12','12','1','','11','0');
-INSERT INTO `tb_term_taxonomy`(`id`,`term_id`,`taxonomy`,`img`,`parent`,`count`)  VALUES ('14','14','2','','0','0');
-INSERT INTO `tb_term_taxonomy`(`id`,`term_id`,`taxonomy`,`img`,`parent`,`count`)  VALUES ('17','17','2','','0','1');
-INSERT INTO `tb_term_taxonomy`(`id`,`term_id`,`taxonomy`,`img`,`parent`,`count`)  VALUES ('16','16','2','','0','1');
-INSERT INTO `tb_term_taxonomy`(`id`,`term_id`,`taxonomy`,`img`,`parent`,`count`)  VALUES ('15','15','2','','0','0');
-INSERT INTO `tb_term_taxonomy`(`id`,`term_id`,`taxonomy`,`img`,`parent`,`count`)  VALUES ('18','18','2','','0','0');
+INSERT INTO `tb_term_taxonomy`(`id`,`term_id`,`taxonomy`,`img`,`parent`,`count`)  VALUES ('1','1','3','','0','0');
+INSERT INTO `tb_term_taxonomy`(`id`,`term_id`,`taxonomy`,`img`,`parent`,`count`)  VALUES ('2','2','1','','0','1');
+INSERT INTO `tb_term_taxonomy`(`id`,`term_id`,`taxonomy`,`img`,`parent`,`count`)  VALUES ('3','3','1','','2','1');
+INSERT INTO `tb_term_taxonomy`(`id`,`term_id`,`taxonomy`,`img`,`parent`,`count`)  VALUES ('4','4','1','','0','0');
+INSERT INTO `tb_term_taxonomy`(`id`,`term_id`,`taxonomy`,`img`,`parent`,`count`)  VALUES ('5','5','1','','4','0');
+INSERT INTO `tb_term_taxonomy`(`id`,`term_id`,`taxonomy`,`img`,`parent`,`count`)  VALUES ('6','6','1','','4','0');
+INSERT INTO `tb_term_taxonomy`(`id`,`term_id`,`taxonomy`,`img`,`parent`,`count`)  VALUES ('7','7','1','','4','0');
+INSERT INTO `tb_term_taxonomy`(`id`,`term_id`,`taxonomy`,`img`,`parent`,`count`)  VALUES ('8','8','1','','0','0');
+INSERT INTO `tb_term_taxonomy`(`id`,`term_id`,`taxonomy`,`img`,`parent`,`count`)  VALUES ('9','9','1','','0','0');
+INSERT INTO `tb_term_taxonomy`(`id`,`term_id`,`taxonomy`,`img`,`parent`,`count`)  VALUES ('10','10','1','','0','0');
+INSERT INTO `tb_term_taxonomy`(`id`,`term_id`,`taxonomy`,`img`,`parent`,`count`)  VALUES ('11','11','2','','0','1');
 -- ----------------------------
 -- Table structure for tb_terms
 -- ----------------------------
@@ -625,16 +847,18 @@ CREATE TABLE `tb_terms` (
   PRIMARY KEY (`id`),
   KEY `ix_tb_terms_name` (`name`),
   KEY `ix_tb_terms_slug` (`slug`)
-) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 -- ----------------------------
 -- Records of tb_terms
 -- ----------------------------
-INSERT INTO `tb_terms`(`id`,`name`,`slug`,`term_order`)  VALUES ('1','python','python','99');
-INSERT INTO `tb_terms`(`id`,`name`,`slug`,`term_order`)  VALUES ('13','api开发','api','99');
-INSERT INTO `tb_terms`(`id`,`name`,`slug`,`term_order`)  VALUES ('11','php','php','99');
-INSERT INTO `tb_terms`(`id`,`name`,`slug`,`term_order`)  VALUES ('12','larver框架','larver','99');
-INSERT INTO `tb_terms`(`id`,`name`,`slug`,`term_order`)  VALUES ('14','php','php','99');
-INSERT INTO `tb_terms`(`id`,`name`,`slug`,`term_order`)  VALUES ('15','session','session','99');
-INSERT INTO `tb_terms`(`id`,`name`,`slug`,`term_order`)  VALUES ('16','测试','测试','99');
-INSERT INTO `tb_terms`(`id`,`name`,`slug`,`term_order`)  VALUES ('17','测试2','测试2','99');
-INSERT INTO `tb_terms`(`id`,`name`,`slug`,`term_order`)  VALUES ('18','os库','os库','99');
+INSERT INTO `tb_terms`(`id`,`name`,`slug`,`term_order`)  VALUES ('1','主菜单界面','主菜单界面','99');
+INSERT INTO `tb_terms`(`id`,`name`,`slug`,`term_order`)  VALUES ('2','PF简介','PF简介','99');
+INSERT INTO `tb_terms`(`id`,`name`,`slug`,`term_order`)  VALUES ('3','序言','序言','99');
+INSERT INTO `tb_terms`(`id`,`name`,`slug`,`term_order`)  VALUES ('4','基础','基础','99');
+INSERT INTO `tb_terms`(`id`,`name`,`slug`,`term_order`)  VALUES ('5','安装pfcms','安装pfcms','99');
+INSERT INTO `tb_terms`(`id`,`name`,`slug`,`term_order`)  VALUES ('6','目录结构','目录结构','99');
+INSERT INTO `tb_terms`(`id`,`name`,`slug`,`term_order`)  VALUES ('7','数据库结构','数据库结构','99');
+INSERT INTO `tb_terms`(`id`,`name`,`slug`,`term_order`)  VALUES ('8','后台开发介绍','后台开发介绍','99');
+INSERT INTO `tb_terms`(`id`,`name`,`slug`,`term_order`)  VALUES ('9','前台开发介绍','前台开发介绍','99');
+INSERT INTO `tb_terms`(`id`,`name`,`slug`,`term_order`)  VALUES ('10','工具包介绍','工具包介绍','99');
+INSERT INTO `tb_terms`(`id`,`name`,`slug`,`term_order`)  VALUES ('11','pfcms','pfcms','99');
