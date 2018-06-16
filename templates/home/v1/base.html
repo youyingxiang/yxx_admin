@@ -16,6 +16,7 @@
 <link rel="stylesheet" type="text/css" href="{{ static('home/v1/dist/css/AdminLTE.min.css') }}" />
 <link rel="stylesheet" type="text/css" href="{{ static('home/v1/dist/skins/skins.min.css') }}" />
 <link rel="stylesheet" type="text/css" href="{{ static('home/v1/nprogress/nprogress.css')}}" />
+<script type="text/javascript" src="{{ static('home/v1/plugins/jQuery/jquery-2.2.3.min.js') }}"></script>
 {% block css -%}{%- endblock %}
 <!-- 引入css文件 end  -->
 </head>
@@ -50,7 +51,7 @@
 
       <!-- search form -->
         <div class="input-group">
-          <input type="text" name="q" id="search-btn-value" class="form-control" placeholder="搜索.">
+          <input type="text" name="q" id="search-btn-value" class="form-control" placeholder="菜单搜索">
               <span class="input-group-btn">
                 <button type="submit" name="search" id="search-btn" class="search-btn-menu btn btn-flat"><i class="fa fa-search"></i>
                 </button>
@@ -123,7 +124,6 @@
 
 <!-- 内容区域 end   -->
 <!-- 引入js文件   -->
-<script type="text/javascript" src="{{ static('home/v1/plugins/jQuery/jquery-2.2.3.min.js') }}"></script>
 <script type="text/javascript" src="{{ static('home/v1/bootstrap/js/bootstrap.min.js') }}"></script>
 <script type="text/javascript" src="{{ static('home/v1/slimScroll/jquery.slimscroll.min.js') }}"></script>
 <script type="text/javascript" src="{{ static('home/v1/fastclick/fastclick.js') }}"></script>

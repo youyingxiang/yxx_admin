@@ -1,0 +1,374 @@
+2018-06-16 14:01:52,572 - ERROR - app.py - log_exception - 1560 - Exception on /ajax_get_comments/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\py\yxx_admin\apps\home\controller\index.py", line 99, in ajax_get_comments
+    return restful.success('请求成功！',data=comments)
+  File "D:\py\yxx_admin\think\restful.py", line 13, in success
+    return restful_result(code=HttpCode.success,message=message or '请求成功！',data=data,url=url)
+  File "D:\py\yxx_admin\think\restful.py", line 10, in restful_result
+    return jsonify({"code":code,"info":message,"data":data or {},"url":url})
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\json.py", line 263, in jsonify
+    (dumps(data, indent=indent, separators=separators), '\n'),
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\json.py", line 123, in dumps
+    rv = _json.dumps(obj, **kwargs)
+  File "c:\users\lenovo\appdata\local\programs\python\python36\Lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "c:\users\lenovo\appdata\local\programs\python\python36\Lib\json\encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "c:\users\lenovo\appdata\local\programs\python\python36\Lib\json\encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\json.py", line 80, in default
+    return _json.JSONEncoder.default(self, o)
+  File "c:\users\lenovo\appdata\local\programs\python\python36\Lib\json\encoder.py", line 180, in default
+    o.__class__.__name__)
+TypeError: Object of type 'Comment' is not JSON serializable
+2018-06-16 14:02:03,107 - ERROR - app.py - log_exception - 1560 - Exception on /ajax_get_comments/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\py\yxx_admin\apps\home\controller\index.py", line 99, in ajax_get_comments
+    return restful.success('请求成功！',data=comments)
+  File "D:\py\yxx_admin\think\restful.py", line 13, in success
+    return restful_result(code=HttpCode.success,message=message or '请求成功！',data=data,url=url)
+  File "D:\py\yxx_admin\think\restful.py", line 10, in restful_result
+    return jsonify({"code":code,"info":message,"data":data or {},"url":url})
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\json.py", line 263, in jsonify
+    (dumps(data, indent=indent, separators=separators), '\n'),
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\json.py", line 123, in dumps
+    rv = _json.dumps(obj, **kwargs)
+  File "c:\users\lenovo\appdata\local\programs\python\python36\Lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "c:\users\lenovo\appdata\local\programs\python\python36\Lib\json\encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "c:\users\lenovo\appdata\local\programs\python\python36\Lib\json\encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\json.py", line 80, in default
+    return _json.JSONEncoder.default(self, o)
+  File "c:\users\lenovo\appdata\local\programs\python\python36\Lib\json\encoder.py", line 180, in default
+    o.__class__.__name__)
+TypeError: Object of type 'Comment' is not JSON serializable
+2018-06-16 14:25:45,256 - ERROR - app.py - log_exception - 1560 - Exception on /ajax_get_comments/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\py\yxx_admin\apps\home\controller\index.py", line 94, in ajax_get_comments
+    get_page = request.args('page')
+TypeError: 'ImmutableMultiDict' object is not callable
+2018-06-16 14:25:54,598 - ERROR - app.py - log_exception - 1560 - Exception on /ajax_get_comments/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\py\yxx_admin\apps\home\controller\index.py", line 94, in ajax_get_comments
+    get_page = request.args('page')
+TypeError: 'ImmutableMultiDict' object is not callable
+2018-06-16 14:26:34,604 - ERROR - app.py - log_exception - 1560 - Exception on /ajax_get_comments/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\py\yxx_admin\apps\home\controller\index.py", line 94, in ajax_get_comments
+    get_page = request.args('page')
+TypeError: 'ImmutableMultiDict' object is not callable
+2018-06-16 14:26:46,811 - ERROR - app.py - log_exception - 1560 - Exception on /ajax_get_comments/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\py\yxx_admin\apps\home\controller\index.py", line 94, in ajax_get_comments
+    get_page = request.args('page')
+TypeError: 'ImmutableMultiDict' object is not callable
+2018-06-16 14:27:56,852 - ERROR - app.py - log_exception - 1560 - Exception on /ajax_get_comments/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\py\yxx_admin\apps\home\controller\index.py", line 94, in ajax_get_comments
+    get_page = request.args('page')
+TypeError: 'ImmutableMultiDict' object is not callable
+2018-06-16 14:28:20,654 - ERROR - app.py - log_exception - 1560 - Exception on /ajax_get_comments/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\py\yxx_admin\apps\home\controller\index.py", line 94, in ajax_get_comments
+    get_page = request.args('page')
+TypeError: 'ImmutableMultiDict' object is not callable
+2018-06-16 14:28:40,672 - ERROR - app.py - log_exception - 1560 - Exception on /ajax_get_comments/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\py\yxx_admin\apps\home\controller\index.py", line 100, in ajax_get_comments
+    comments = Comment.query.filter(Comment.post_id == id).order_by('id desc').limit(g.page_size).offset((page-1)*g.page_size).all()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\query.py", line 2773, in all
+    return list(self)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\query.py", line 2921, in __iter__
+    context = self._compile_context()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\query.py", line 3466, in _compile_context
+    context.statement = self._simple_statement(context)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\query.py", line 3555, in _simple_statement
+    **self._select_args
+  File "<string>", line 2, in select
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\selectable.py", line 2760, in __init__
+    GenerativeSelect.__init__(self, **kwargs)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\selectable.py", line 1990, in __init__
+    self._offset_clause = _offset_or_limit_clause(offset)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\selectable.py", line 81, in _offset_or_limit_clause
+    value = util.asint(element)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\util\langhelpers.py", line 1018, in asint
+    return int(value)
+ValueError: invalid literal for int() with base 10: ''
+2018-06-16 14:29:25,227 - ERROR - app.py - log_exception - 1560 - Exception on /ajax_get_comments/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\py\yxx_admin\apps\home\controller\index.py", line 99, in ajax_get_comments
+    comments = Comment.query.filter(Comment.post_id == id).order_by('id desc').limit(g.page_size).offset((page-1)*g.page_size).all()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\query.py", line 2773, in all
+    return list(self)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\query.py", line 2921, in __iter__
+    context = self._compile_context()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\query.py", line 3466, in _compile_context
+    context.statement = self._simple_statement(context)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\query.py", line 3555, in _simple_statement
+    **self._select_args
+  File "<string>", line 2, in select
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\selectable.py", line 2760, in __init__
+    GenerativeSelect.__init__(self, **kwargs)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\selectable.py", line 1990, in __init__
+    self._offset_clause = _offset_or_limit_clause(offset)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\selectable.py", line 81, in _offset_or_limit_clause
+    value = util.asint(element)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\util\langhelpers.py", line 1018, in asint
+    return int(value)
+ValueError: invalid literal for int() with base 10: ''
+2018-06-16 14:30:05,871 - ERROR - app.py - log_exception - 1560 - Exception on /ajax_get_comments/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\py\yxx_admin\apps\home\controller\index.py", line 100, in ajax_get_comments
+    comments = Comment.query.filter(Comment.post_id == id).order_by('id desc').limit(g.page_size).offset((page-1)*g.page_size).all()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\query.py", line 2773, in all
+    return list(self)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\query.py", line 2921, in __iter__
+    context = self._compile_context()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\query.py", line 3466, in _compile_context
+    context.statement = self._simple_statement(context)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\query.py", line 3555, in _simple_statement
+    **self._select_args
+  File "<string>", line 2, in select
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\selectable.py", line 2760, in __init__
+    GenerativeSelect.__init__(self, **kwargs)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\selectable.py", line 1990, in __init__
+    self._offset_clause = _offset_or_limit_clause(offset)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\selectable.py", line 81, in _offset_or_limit_clause
+    value = util.asint(element)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\util\langhelpers.py", line 1018, in asint
+    return int(value)
+ValueError: invalid literal for int() with base 10: ''
+2018-06-16 14:30:50,215 - ERROR - app.py - log_exception - 1560 - Exception on /ajax_get_comments/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\py\yxx_admin\apps\home\controller\index.py", line 99, in ajax_get_comments
+    print(Comment.query.filter(Comment.post_id == id).order_by('id desc').limit(g.page_size).offset((page-1)*g.page_size).all())
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\query.py", line 2773, in all
+    return list(self)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\query.py", line 2921, in __iter__
+    context = self._compile_context()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\query.py", line 3466, in _compile_context
+    context.statement = self._simple_statement(context)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\query.py", line 3555, in _simple_statement
+    **self._select_args
+  File "<string>", line 2, in select
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\selectable.py", line 2760, in __init__
+    GenerativeSelect.__init__(self, **kwargs)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\selectable.py", line 1990, in __init__
+    self._offset_clause = _offset_or_limit_clause(offset)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\selectable.py", line 81, in _offset_or_limit_clause
+    value = util.asint(element)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\util\langhelpers.py", line 1018, in asint
+    return int(value)
+ValueError: invalid literal for int() with base 10: ''
+2018-06-16 14:32:00,365 - ERROR - app.py - log_exception - 1560 - Exception on /ajax_get_comments/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\py\yxx_admin\apps\home\controller\index.py", line 99, in ajax_get_comments
+    print(Comment.query.filter(Comment.post_id == id).limit(g.page_size).offset((page-1)*g.page_size))
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\query.py", line 2928, in __str__
+    context = self._compile_context()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\query.py", line 3466, in _compile_context
+    context.statement = self._simple_statement(context)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\query.py", line 3555, in _simple_statement
+    **self._select_args
+  File "<string>", line 2, in select
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\selectable.py", line 2760, in __init__
+    GenerativeSelect.__init__(self, **kwargs)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\selectable.py", line 1990, in __init__
+    self._offset_clause = _offset_or_limit_clause(offset)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\selectable.py", line 81, in _offset_or_limit_clause
+    value = util.asint(element)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\util\langhelpers.py", line 1018, in asint
+    return int(value)
+ValueError: invalid literal for int() with base 10: ''
+2018-06-16 14:33:27,212 - ERROR - app.py - log_exception - 1560 - Exception on /ajax_get_comments/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\py\yxx_admin\apps\home\controller\index.py", line 99, in ajax_get_comments
+    print(Comment.query.filter(Comment.post_id == id).limit(g.page_size).offset((page-1)*g.page_size).all())
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\query.py", line 2773, in all
+    return list(self)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\query.py", line 2921, in __iter__
+    context = self._compile_context()
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\query.py", line 3466, in _compile_context
+    context.statement = self._simple_statement(context)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\orm\query.py", line 3555, in _simple_statement
+    **self._select_args
+  File "<string>", line 2, in select
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\selectable.py", line 2760, in __init__
+    GenerativeSelect.__init__(self, **kwargs)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\selectable.py", line 1990, in __init__
+    self._offset_clause = _offset_or_limit_clause(offset)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\sql\selectable.py", line 81, in _offset_or_limit_clause
+    value = util.asint(element)
+  File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\util\langhelpers.py", line 1018, in asint
+    return int(value)
+ValueError: invalid literal for int() with base 10: ''

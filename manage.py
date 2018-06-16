@@ -16,6 +16,7 @@ from apps.admin.model.terms import Terms
 from apps.admin.model.resources_relationships import resources_relationships
 from apps.admin.model.postmeta import PostMeta
 from apps.admin.model.link import Link
+from apps.admin.model.comment import Comment
 
 
 

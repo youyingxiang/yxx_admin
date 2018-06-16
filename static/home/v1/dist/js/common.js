@@ -6,6 +6,7 @@ $(function() {
     $.pjax.defaults.maxCacheLength = 0;
     $(document).pjax('a:not(a[target="_blank"])', {container: '#pjax-container', fragment: '#pjax-container'});
     $(document).ajaxStart(function(){NProgress.start();}).ajaxStop(function(){NProgress.done();});
+
     $(".search-btn-menu ").on('click',function () {
         var data_value = $("#search-btn-value").val().trim()
         $('.menu_check').each(function () {

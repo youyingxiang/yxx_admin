@@ -30,6 +30,29 @@
                       {% endif %}
                   </div>
             </div>
+            <div class="box-footer box-comments posts_comment">
+
+            </div>
+            <div class="pull-right" style="margin-right: 10px"><a class="load_more" href="javascript:void(0)">加载更多</a></div>
+            <!-- /.box-footer -->
+            <div class="box-footer">
+
+                <img class="img-responsive img-circle img-sm" src="{{ default_img('') }}" alt="Alt Text">
+                <!-- .img-push is used to add margin to elements next to floating images -->
+                <div class="img-push">
+                    <textarea class="form-control" placeholder="请输入您的评论" name="comment" ></textarea>
+                    <div class="input-group" style="margin-top: 10px;">
+                        <span class="input-group-btn">
+                            <img src="{{ url_for('commontool.captcha') }}"  id="code" onclick="this.src='{{ url_for('commontool.captcha') }}?rnd=' + Math.random();" alt="验证码"  />
+                        </span>
+                        <input class="form-control"  placeholder="输入验证码" >
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-info" data-url="{{ url_for('homeindex.ajax_commit_comment') }}" id="commit_comment" data-pid="{{ data.id }}">评论</button>
+                        </span>
+                    </div>
+                </div>
+
+            </div>
         </div>
       <div class="col-md-3">
             <div class="box box-solid">
@@ -71,13 +94,76 @@
             </div>
         </div>
       </div>
-
-      <!-- info row -->
-
-
-      <!-- /.row -->
-
-      <!-- this row will not appear when printing -->
-
     </section>
+    <script>
+    $(function() {
+        var comment_user_img = "{{ default_img('') }}";
+        var _post_id = "{{ data.id }}"
+        var _page = 1;
+        $('#commit_comment').on('click', function () {
+            var _code = $(this).parent().prev().val().trim();
+            var _content = $(this).parent().parent().prev().val().trim();
+            var pid = $(this).attr('data-pid');
+            var data_value = {"post_id": pid, "comment_content": _content, 'code': _code};
+            var _url = $(this).attr('data-url');
+            var _this = $(this)
+            if (_content.length == 0 || _code.length == 0) return false;
+            $.ajax({
+                url: _url,
+                data: data_value,
+                type: 'post',
+                dataType: "json",
+                success: function (result) {
+                    if (result.code == 200) {
+                        _this.parent().prev().val('')
+                        _this.parent().parent().prev().val('')
+                        _page == 1
+                        get_posts_comment(pid, 'html')
+                    }
+                    $("#code").trigger('click')
+                    alert(result.info)
+                },
+            });
+        })
+        $(".load_more").on('click', function () {
+            if (_page < 2) _page = 2;
+            get_posts_comment(_post_id, 'append')
+        })
+        get_posts_comment(_post_id, 'html')
+
+        function get_posts_comment(id, type) {
+            $.ajax({
+                url: "/ajax_get_comments/",
+                data: {"post_id": id, 'page': _page},
+                type: 'get',
+                dataType: "json",
+                success: function (result) {
+                    if (result.code == 200) {
+                        var _html = ""
+                        $(result.data).each(function (i, v) {
+                            _html += '<div class="box-comment">' +
+                                '<img class="img-circle img-sm" src="' + comment_user_img + '" alt="匿名用户">' +
+                                '<div class="comment-text"><span class="username">来自' + v.ip + '用户' +
+                                '<span class="text-muted pull-right">' + v.time + '</span>' +
+                                '</span>' + v.content + '</div></div>'
+                        })
+                        if (type == "append") {
+                            $(".posts_comment").append(_html);
+                            _page++;
+                        } else {
+                            $(".posts_comment").html(_html);
+                        }
+                    } else {
+                        if (_page >1) {
+                            alert(result.info)
+                        }
+                        $(".load_more").parent().hide()
+                    }
+                },
+            });
+        }
+    })
+    </script>
 {%- endblock -%}
+
+

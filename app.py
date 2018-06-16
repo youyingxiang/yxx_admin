@@ -1,4 +1,5 @@
 from flask import Flask
+from apps.admin.controller.comment import bp as admincommentbp
 from apps.admin.controller.terms import bp as admintermsbp
 from apps.admin.controller.posts import bp as adminpostsbp
 from apps.admin.controller.file_manage import bp as adminfile_managebp
@@ -18,9 +19,10 @@ from apps.admin.controller.role import bp as adminrolebp
 from apps.admin.controller.admin import bp as adminadminbp
 
 
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # from think.library.build import Build
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # Build().run()
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # from think.library.build import Build
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # Build().run()
 app = Flask(__name__)
+app.register_blueprint(admincommentbp)
 app.register_blueprint(admintermsbp)
 app.register_blueprint(adminpostsbp)
 app.register_blueprint(adminfile_managebp)

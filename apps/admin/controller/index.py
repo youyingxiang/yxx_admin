@@ -6,6 +6,7 @@ from think import restful
 import psutil,urllib.request,platform
 bp = Blueprint('adminindex',__name__,url_prefix='/admin/index')
 
+
 @bp.route('/index/')
 def index():
     #系统内存使用情况

@@ -1,10 +1,18 @@
-from flask import Blueprint,render_template,g,abort,request
+from flask import Blueprint,render_template,g,abort,request,url_for
 from apps.admin.model.posts import Posts
 from apps.admin.model.term_taxonomy import TermTaxonomy
+from apps.admin.form.comment import CommentForm
+from apps.admin.model.comment import Comment
 from sqlalchemy import or_
+from exts import db,cache
+from think import restful
+from ..common import make_cache_key
+import time
 bp = Blueprint('homeindex',__name__)
 
+
 @bp.route('/')
+@cache.cached(key_prefix=make_cache_key)
 def index():
     get_page = request.args.get('page')
     if get_page is not None and get_page.isdigit() == True and int(get_page) > 1:
@@ -17,6 +25,7 @@ def index():
 
 @bp.route('/category/')
 @bp.route('/category/<category>/')
+@cache.cached(key_prefix=make_cache_key)
 def category(category = None):
     try:
         if category is None:raise ValueError('not data goto 404')
@@ -35,6 +44,7 @@ def category(category = None):
 
 @bp.route('/posts/')
 @bp.route('/posts/<posts>/')
+@cache.cached(key_prefix=make_cache_key)
 def posts(posts = None):
     try:
         if posts is None:raise ValueError('not data goto 404')
@@ -48,6 +58,7 @@ def posts(posts = None):
 
 @bp.route('/label/')
 @bp.route('/label/<label>/')
+@cache.cached(key_prefix=make_cache_key)
 def label(label = None):
     try:
         if category is None:raise ValueError('not data goto 404')
@@ -63,5 +74,41 @@ def label(label = None):
         return render_template('/home/'+g.select_template+'/category.html',list=p,label_get=label)
     except Exception as e:
         abort(404)
+
+@bp.route('/ajax_commit_comment/',methods=['POST'])
+def ajax_commit_comment():
+    try:
+        form = CommentForm(request.form)
+        if form.validate():
+            c = Comment(
+                comment_content = request.form.get('comment_content'),
+                post_id = request.form.get('post_id'),
+                ip = request.remote_addr,
+                create_time = time.time()
+            )
+            db.session.add(c)
+            db.session.commit()
+            return restful.success(message="评论成功")
+        else:
+            raise ValueError(form.get_err_one())
+    except Exception as e:
+        return restful.server_error(str(e))
+
+@bp.route('/ajax_get_comments/')
+def ajax_get_comments():
+    id = request.args.get('post_id')
+    get_page = request.args.get('page')
+    if get_page is not None and get_page.isdigit() == True and int(get_page) > 1:
+        page = int(get_page)
+    else:
+        page = 1
+    comments = Comment.query.filter(Comment.post_id == id).order_by('id desc').limit(int(g.page_size)).offset((page-1)*int(g.page_size)).all()
+    data = []
+    if comments:
+        for v in comments:
+            data.append({"ip": v.ip, 'content': v.comment_content, 'time': v.create_time})
+        return restful.success('请求成功！',data=data)
+    else:
+        return restful.server_error("没有更多内容加载了！")
 
 
