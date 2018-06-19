@@ -3,7 +3,7 @@ from apps.admin.model.posts import Posts
 from apps.admin.model.term_taxonomy import TermTaxonomy
 from apps.admin.form.comment import CommentForm
 from apps.admin.model.comment import Comment
-from sqlalchemy import or_
+from sqlalchemy import or_,and_
 from exts import db,cache
 from think import restful
 from ..common import make_cache_key
@@ -19,7 +19,7 @@ def index():
         page = int(get_page)
     else:
         page = 1
-    p = Posts.query.order_by('id desc').paginate(page, per_page=int(g.page_size))
+    p = Posts.query.filter(Posts.post_status==1).order_by('id desc').paginate(page, per_page=int(g.page_size))
     return render_template('/home/'+g.select_template+'/category.html',list=p)
 
 
@@ -37,7 +37,7 @@ def category(category = None):
             page = int(get_page)
         else:
             page = 1
-        p = Posts.query.filter(Posts.id.in_(pids)).order_by('id desc').paginate(page, per_page=int(g.page_size))
+        p = Posts.query.filter(and_(Posts.id.in_(pids),Posts.post_status==1)).order_by('id desc').paginate(page, per_page=int(g.page_size))
         return render_template('/home/'+g.select_template+'/category.html',list=p,category_get=category)
     except Exception as e:
         abort(404)
@@ -49,9 +49,9 @@ def posts(posts = None):
     try:
         if posts is None:raise ValueError('not data goto 404')
         id = posts.split('_')[0]
-        p = Posts.query.filter(Posts.id == id).first()
-        prev_ = Posts.query.filter(Posts.id > id).order_by('id asc').first()
-        next_ = Posts.query.filter(Posts.id < id).order_by('id desc').first()
+        p = Posts.query.filter(and_(Posts.id == id,Posts.post_status==1)).first()
+        prev_ = Posts.query.filter(and_(Posts.id > id,Posts.post_status==1)).order_by('id asc').first()
+        next_ = Posts.query.filter(and_(Posts.id < id,Posts.post_status==1)).order_by('id desc').first()
         return render_template('/home/' + g.select_template + '/posts.html',data=p,prev_=prev_,next_=next_)
     except Exception as e:
         abort(404)
@@ -70,7 +70,7 @@ def label(label = None):
             page = int(get_page)
         else:
             page = 1
-        p = Posts.query.filter(Posts.id.in_(pids)).order_by('id desc').paginate(page, per_page=int(g.page_size))
+        p = Posts.query.filter(and_(Posts.id.in_(pids),Posts.post_status==1)).order_by('id desc').paginate(page, per_page=int(g.page_size))
         return render_template('/home/'+g.select_template+'/category.html',list=p,label_get=label)
     except Exception as e:
         abort(404)

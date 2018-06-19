@@ -372,3 +372,87 @@ Traceback (most recent call last):
   File "C:\Users\lenovo\Envs\yxx_admin\lib\site-packages\sqlalchemy\util\langhelpers.py", line 1018, in asint
     return int(value)
 ValueError: invalid literal for int() with base 10: ''
+2018-06-16 10:48:11,259 - ERROR - app.py - log_exception - 1560 - Exception on /admin/login/login/ [POST]
+Traceback (most recent call last):
+  File "/root/.virtualenvs/pfcms/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/root/.virtualenvs/pfcms/lib/python3.5/site-packages/sqlalchemy/engine/default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+  File "/root/.virtualenvs/pfcms/lib/python3.5/site-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/root/.virtualenvs/pfcms/lib/python3.5/site-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/root/.virtualenvs/pfcms/lib/python3.5/site-packages/pymysql/connections.py", line 860, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/root/.virtualenvs/pfcms/lib/python3.5/site-packages/pymysql/connections.py", line 1061, in _read_query_result
+    result.read()
+  File "/root/.virtualenvs/pfcms/lib/python3.5/site-packages/pymysql/connections.py", line 1349, in read
+    first_packet = self.connection._read_packet()
+  File "/root/.virtualenvs/pfcms/lib/python3.5/site-packages/pymysql/connections.py", line 991, in _read_packet
+    packet_header = self._read_bytes(4)
+  File "/root/.virtualenvs/pfcms/lib/python3.5/site-packages/pymysql/connections.py", line 1037, in _read_bytes
+    CR.CR_SERVER_LOST, "Lost connection to MySQL server during query")
+pymysql.err.OperationalError: (2013, 'Lost connection to MySQL server during query')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/root/.virtualenvs/pfcms/lib/python3.5/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/root/.virtualenvs/pfcms/lib/python3.5/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/root/.virtualenvs/pfcms/lib/python3.5/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/root/.virtualenvs/pfcms/lib/python3.5/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/root/.virtualenvs/pfcms/lib/python3.5/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/root/.virtualenvs/pfcms/lib/python3.5/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/root/.virtualenvs/pfcms/lib/python3.5/site-packages/flask/views.py", line 84, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "/root/.virtualenvs/pfcms/lib/python3.5/site-packages/flask/views.py", line 149, in dispatch_request
+    return meth(*args, **kwargs)
+  File "./apps/admin/controller/login.py", line 22, in post
+    admin_data = Admin.query.filter(Admin.account == account).first()
+  File "/root/.virtualenvs/pfcms/lib/python3.5/site-packages/sqlalchemy/orm/query.py", line 2825, in first
+    ret = list(self[0:1])
+  File "/root/.virtualenvs/pfcms/lib/python3.5/site-packages/sqlalchemy/orm/query.py", line 2617, in __getitem__
+    return list(res)
+  File "/root/.virtualenvs/pfcms/lib/python3.5/site-packages/sqlalchemy/orm/query.py", line 2925, in __iter__
+    return self._execute_and_instances(context)
+  File "/root/.virtualenvs/pfcms/lib/python3.5/site-packages/sqlalchemy/orm/query.py", line 2948, in _execute_and_instances
+    result = conn.execute(querycontext.statement, self._params)
+  File "/root/.virtualenvs/pfcms/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 948, in execute
+    return meth(self, multiparams, params)
+  File "/root/.virtualenvs/pfcms/lib/python3.5/site-packages/sqlalchemy/sql/elements.py", line 269, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/root/.virtualenvs/pfcms/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1060, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "/root/.virtualenvs/pfcms/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1200, in _execute_context
+    context)
+  File "/root/.virtualenvs/pfcms/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1413, in _handle_dbapi_exception
+    exc_info
+  File "/root/.virtualenvs/pfcms/lib/python3.5/site-packages/sqlalchemy/util/compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/root/.virtualenvs/pfcms/lib/python3.5/site-packages/sqlalchemy/util/compat.py", line 186, in reraise
+    raise value.with_traceback(tb)
+  File "/root/.virtualenvs/pfcms/lib/python3.5/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/root/.virtualenvs/pfcms/lib/python3.5/site-packages/sqlalchemy/engine/default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+  File "/root/.virtualenvs/pfcms/lib/python3.5/site-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/root/.virtualenvs/pfcms/lib/python3.5/site-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/root/.virtualenvs/pfcms/lib/python3.5/site-packages/pymysql/connections.py", line 860, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/root/.virtualenvs/pfcms/lib/python3.5/site-packages/pymysql/connections.py", line 1061, in _read_query_result
+    result.read()
+  File "/root/.virtualenvs/pfcms/lib/python3.5/site-packages/pymysql/connections.py", line 1349, in read
+    first_packet = self.connection._read_packet()
+  File "/root/.virtualenvs/pfcms/lib/python3.5/site-packages/pymysql/connections.py", line 991, in _read_packet
+    packet_header = self._read_bytes(4)
+  File "/root/.virtualenvs/pfcms/lib/python3.5/site-packages/pymysql/connections.py", line 1037, in _read_bytes
+    CR.CR_SERVER_LOST, "Lost connection to MySQL server during query")
+sqlalchemy.exc.OperationalError: (pymysql.err.OperationalError) (2013, 'Lost connection to MySQL server during query') [SQL: 'SELECT tb_admin.id AS tb_admin_id, tb_admin.admin_name AS tb_admin_admin_name, tb_admin._password AS tb_admin__password, tb_admin.img AS tb_admin_img, tb_admin.account AS tb_admin_account, tb_admin.sex AS tb_admin_sex, tb_admin.state AS tb_admin_state, tb_admin._last_time AS tb_admin__last_time, tb_admin._create_time AS tb_admin__create_time \nFROM tb_admin \nWHERE tb_admin.account = %(account_1)s \n LIMIT %(param_1)s'] [parameters: {'param_1': 1, 'account_1': '666666'}] (Background on this error at: http://sqlalche.me/e/e3q8)

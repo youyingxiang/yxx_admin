@@ -32,8 +32,9 @@ class AdminNameForm(FormBase):
 class AdminForm(AccountForm,PasswordForm,SexForm,StateForm,AdminNameForm):
     repassword = StringField(validators=[EqualTo('password', message='两次密码不一致')])
 
-class LoginForm(AccountForm,PasswordForm):
+class LoginForm(PasswordForm):
     code = StringField(validators=[InputRequired(message='验证码不能为空'),Length(max=4, min=4, message='验证码长度为4位')])
+    account = StringField(validators=[Length(max=32, min=6, message='帐号长度必须为6-32位'), ])
     def validate_code(self, field):
         code = field.data
         try:
